@@ -24,6 +24,8 @@ Falcon may surface the card in three internal-only locations:
 
 The card must not be visible in client-facing views, shared portals, external deliverables, or unauthenticated contexts.
 
+See `docs/falcon-ui-integration-notes.md` for recommended UI states, placement details, permission-denied handling, evidence unavailable behavior, and audit handoff guidance.
+
 ## Request Inputs
 
 Falcon sends a structured order seed. Required fields:

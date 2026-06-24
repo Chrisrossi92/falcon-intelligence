@@ -67,6 +67,7 @@ Trust, provenance, and audit scaffolding:
 - Synthetic/local permission policy scaffold for internal role and evidence visibility decisions.
 - End-to-end synthetic workflow that builds a card, opens passport detail, checks permissions, opens evidence, and returns suggested audit payloads.
 - Documentation-only real data production readiness gate at `docs/real-data-production-readiness-gate.md`.
+- Documentation-only Falcon UI integration notes at `docs/falcon-ui-integration-notes.md`.
 
 ## Current Validation Status
 
@@ -130,11 +131,11 @@ Visibility must remain internal-only. Client-facing views must not show Firm Int
 
 ## Recommended Next 5 Slices
 
-1. UI integration notes for Falcon: document expected frontend states for card loading, passport drawer opening, evidence-open unavailable states, permission-denied states, and audit persistence handoff.
-2. Schema version registry: document ownership and update rules for card, passport drawer, and future evidence-open response schemas.
-3. Permission policy contract tests for Falcon request wrappers: thread role/access decisions through the local Falcon card, passport, and evidence-open boundaries without production auth.
-4. Audit event envelope snapshot: create a stable synthetic UI/API fixture for the audit payloads produced by the end-to-end workflow.
-5. Production gate review packet template: add a documentation template for approvals, test plans, retention decisions, and rollback plans before any real content pilot.
+1. Schema version registry: document ownership and update rules for card, passport drawer, and future evidence-open response schemas.
+2. Permission policy contract tests for Falcon request wrappers: thread role/access decisions through the local Falcon card, passport, and evidence-open boundaries without production auth.
+3. Audit event envelope snapshot: create a stable synthetic UI/API fixture for the audit payloads produced by the end-to-end workflow.
+4. Production gate review packet template: add a documentation template for approvals, test plans, retention decisions, and rollback plans before any real content pilot.
+5. First Falcon UI slice spec: turn `docs/falcon-ui-integration-notes.md` into a scoped implementation checklist for an internal-only Order Detail card preview.
 
 ## Current Known Risks
 
