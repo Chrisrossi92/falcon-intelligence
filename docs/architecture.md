@@ -303,6 +303,7 @@ See `docs/assignment-profiles.md` for metadata-only assignment profile exports.
 See `docs/appraisal-intelligence-data-model.md` for the future verified intelligence model.
 See `docs/verified-intelligence-workflow.md` for the future human verification workflow.
 See `docs/verified-intelligence-extraction-pipeline.md` for the future human-approved extraction pipeline.
+See `docs/data-confidence-provenance-model.md` for the future confidence and data passport model.
 See `docs/cli.md` for local command-line prototype usage.
 
 ### Phase 3: Review and QA Workflow Shell

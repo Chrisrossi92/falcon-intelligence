@@ -104,3 +104,4 @@ This data model does not permit extraction. The current repository still support
 
 See `docs/verified-intelligence-workflow.md` for the future human-in-the-loop verification workflow.
 See `docs/verified-intelligence-extraction-pipeline.md` for the future extraction-to-verification pipeline.
+See `docs/data-confidence-provenance-model.md` for trust, evidence, and data passport rules.

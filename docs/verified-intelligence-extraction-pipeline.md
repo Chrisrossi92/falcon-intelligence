@@ -361,3 +361,5 @@ Integration requirements:
 ## Current Guardrail
 
 This pipeline is a design document only. The current repository remains limited to metadata-only scanning, local manifests, metadata search, assignment discovery, and assignment profiles. No extraction code exists. No report contents should be read, copied, parsed, summarized, embedded, OCRed, or ingested.
+
+See `docs/data-confidence-provenance-model.md` for data confidence dimensions, evidence links, and data passport concepts.

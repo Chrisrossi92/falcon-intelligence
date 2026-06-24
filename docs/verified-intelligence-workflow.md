@@ -164,3 +164,4 @@ Supabase row-level security should enforce tenant isolation for every workflow t
 This workflow is a design document only. Falcon Intelligence currently supports metadata-only scanning, local manifests, metadata search, assignment discovery, and assignment profile export. It does not read report contents, preview source documents, extract text, create embeddings, run OCR, or ingest real appraisal reports.
 
 See `docs/verified-intelligence-extraction-pipeline.md` for the future human-approved extraction pipeline design.
+See `docs/data-confidence-provenance-model.md` for the future confidence and provenance model.
