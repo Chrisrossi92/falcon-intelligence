@@ -64,12 +64,103 @@ Run the matcher smoke validation:
 PYTHONPATH=src python3 scripts/smoke_synthetic_intelligence_matcher.py
 ```
 
+Preview the future card shape from the CLI:
+
+```bash
+PYTHONPATH=src python3 -m falcon_intel.cli intelligence-card \
+  --address "1000 Example Industrial Way" \
+  --city "Sampleton" \
+  --state "ST" \
+  --property-type "industrial" \
+  --building-size-sf 50000 \
+  --client "Synthetic Lender A"
+```
+
+The CLI output is the UI-facing card schema with headline, order summary, match group summaries, top match cards, confidence/provenance summary, warnings, and recommended actions.
+
+## UI Card Schema
+
+The stable UI-facing schema is produced by `build_firm_intelligence_card`.
+
+Example shape:
+
+```json
+{
+  "schema_version": "1",
+  "headline": "Firm Intelligence Found: 17 synthetic matches across 8 groups.",
+  "order_summary": {
+    "address": "1000 Example Industrial Way",
+    "city": "Sampleton",
+    "state": "ST",
+    "property_type": "industrial",
+    "building_size_sf": 50000,
+    "client": "Synthetic Lender A"
+  },
+  "match_group_summaries": [
+    {
+      "group": "same_subject_property",
+      "label": "Same Subject Property",
+      "count": 1,
+      "top_score": 100
+    }
+  ],
+  "top_match_cards": [
+    {
+      "group": "same_subject_property",
+      "source_id": "synthetic-assignment-industrial-alpha",
+      "source_type": "assignment",
+      "title": "Prior subject property",
+      "score": 100,
+      "explanation": "Exact synthetic address, city, and state match.",
+      "confidence_label": "high",
+      "provenance": {
+        "verification_status": "verified",
+        "synthetic_fixture": true,
+        "record_type": "assignment",
+        "source_id": "synthetic-assignment-industrial-alpha"
+      },
+      "stale_data_flags": [],
+      "details": {
+        "property_type": "industrial",
+        "building_size_sf": 50000
+      }
+    }
+  ],
+  "confidence_provenance_summary": {
+    "total_matches": 17,
+    "verified_match_count": 16,
+    "synthetic_fixture_only": true,
+    "highest_score": 100,
+    "source_fixture_kind": "synthetic_verified_intelligence",
+    "source_fixture_version": "1"
+  },
+  "warnings": [
+    {
+      "code": "synthetic_preview_only",
+      "severity": "info",
+      "message": "Synthetic preview only; do not use as production firm intelligence."
+    }
+  ],
+  "recommended_actions": [
+    {
+      "code": "review_top_matches",
+      "label": "Review top matches",
+      "reason": "Synthetic verified intelligence matches were found for this fake order."
+    }
+  ]
+}
+```
+
+Stale data flags are currently fixture-driven. A synthetic record can mark `stale_after` as `expired` to surface a `stale` flag and a card-level `stale_data_present` warning. Future production stale logic must use verified dates and firm policy.
+
 Run the full local suite after installing the dev extra:
 
 ```bash
 PYTHONPATH=src python3 -m compileall -q src scripts tests
 PYTHONPATH=src python3 scripts/smoke_synthetic_fixtures.py
 PYTHONPATH=src python3 scripts/smoke_synthetic_intelligence_matcher.py
+PYTHONPATH=src python3 scripts/smoke_intelligence_card_schema.py
+PYTHONPATH=src python3 scripts/smoke_intelligence_card_cli.py
 PYTHONPATH=src python3 -m pytest
 ```
 

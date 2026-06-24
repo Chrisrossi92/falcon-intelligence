@@ -79,6 +79,23 @@ def main_smoke() -> None:
                     "--save",
                 ]
             ) == 0
+            assert main(
+                [
+                    "intelligence-card",
+                    "--address",
+                    "1000 Example Industrial Way",
+                    "--city",
+                    "Sampleton",
+                    "--state",
+                    "ST",
+                    "--property-type",
+                    "industrial",
+                    "--building-size-sf",
+                    "50000",
+                    "--client",
+                    "Synthetic Lender A",
+                ]
+            ) == 0
             try:
                 main(["summary", "--manifest", str(manifests[0]), "--latest"])
             except SystemExit as error:

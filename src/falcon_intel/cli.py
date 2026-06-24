@@ -6,6 +6,12 @@ from pathlib import Path
 from typing import Any
 
 from falcon_intel.discovery import AssignmentCandidate, discover_assignments
+from falcon_intel.intelligence_card import build_firm_intelligence_card
+from falcon_intel.intelligence_matcher import (
+    FakeOrder,
+    load_synthetic_verified_intelligence,
+    match_firm_intelligence,
+)
 from falcon_intel.manifest import (
     create_scan_manifest,
     latest_manifest_path,
@@ -19,6 +25,15 @@ from falcon_intel.search import (
     load_manifest,
     search_manifest,
     summarize_results,
+)
+
+
+DEFAULT_SYNTHETIC_INTELLIGENCE_PATH = (
+    Path(__file__).resolve().parents[2]
+    / "tests"
+    / "fixtures"
+    / "synthetic_verified_intelligence"
+    / "verified-intelligence.json"
 )
 
 
@@ -109,6 +124,23 @@ def _build_parser() -> ArgumentParser:
         help="Save profile JSON under ignored data/profiles/.",
     )
     profile_parser.set_defaults(handler=_handle_profile)
+
+    intelligence_card_parser = subparsers.add_parser(
+        "intelligence-card",
+        help="Preview a synthetic Firm Intelligence Found card for a fake Falcon order.",
+    )
+    intelligence_card_parser.add_argument("--address", required=True, help="Fake order property address.")
+    intelligence_card_parser.add_argument("--city", required=True, help="Fake order city.")
+    intelligence_card_parser.add_argument("--state", required=True, help="Fake order state.")
+    intelligence_card_parser.add_argument("--property-type", required=True, help="Fake order property type.")
+    intelligence_card_parser.add_argument(
+        "--building-size-sf",
+        required=True,
+        type=int,
+        help="Fake order building size in square feet.",
+    )
+    intelligence_card_parser.add_argument("--client", required=True, help="Fake order client.")
+    intelligence_card_parser.set_defaults(handler=_handle_intelligence_card)
 
     return parser
 
@@ -255,6 +287,25 @@ def _handle_profile(args: Namespace) -> dict[str, Any]:
     if args.save:
         payload["profile_path"] = str(save_assignment_profile(profile))
     return payload
+
+
+def _handle_intelligence_card(args: Namespace) -> dict[str, Any]:
+    if args.building_size_sf < 1:
+        raise ValueError("--building-size-sf must be at least 1.")
+
+    intelligence = load_synthetic_verified_intelligence(DEFAULT_SYNTHETIC_INTELLIGENCE_PATH)
+    result = match_firm_intelligence(
+        FakeOrder(
+            address=args.address,
+            city=args.city,
+            state=args.state,
+            property_type=args.property_type,
+            building_size_sf=args.building_size_sf,
+            client=args.client,
+        ),
+        intelligence,
+    )
+    return build_firm_intelligence_card(result, intelligence).to_dict()
 
 
 def _resolve_manifest_path(args: Namespace) -> Path:

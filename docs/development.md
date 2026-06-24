@@ -36,6 +36,8 @@ $env:PYTHONPATH='src'; python scripts/smoke_assignment_discovery.py
 $env:PYTHONPATH='src'; python scripts/smoke_assignment_profile.py
 $env:PYTHONPATH='src'; python scripts/smoke_synthetic_fixtures.py
 $env:PYTHONPATH='src'; python scripts/smoke_synthetic_intelligence_matcher.py
+$env:PYTHONPATH='src'; python scripts/smoke_intelligence_card_schema.py
+$env:PYTHONPATH='src'; python scripts/smoke_intelligence_card_cli.py
 $env:PYTHONPATH='src'; python scripts/smoke_cli.py
 ```
 
@@ -47,6 +49,8 @@ macOS:
 PYTHONPATH=src python3 -m compileall -q src scripts tests
 PYTHONPATH=src python3 scripts/smoke_synthetic_fixtures.py
 PYTHONPATH=src python3 scripts/smoke_synthetic_intelligence_matcher.py
+PYTHONPATH=src python3 scripts/smoke_intelligence_card_schema.py
+PYTHONPATH=src python3 scripts/smoke_intelligence_card_cli.py
 PYTHONPATH=src python3 -m pytest
 ```
 
@@ -56,6 +60,8 @@ Windows PowerShell:
 $env:PYTHONPATH='src'; python -m compileall -q src scripts tests
 $env:PYTHONPATH='src'; python scripts/smoke_synthetic_fixtures.py
 $env:PYTHONPATH='src'; python scripts/smoke_synthetic_intelligence_matcher.py
+$env:PYTHONPATH='src'; python scripts/smoke_intelligence_card_schema.py
+$env:PYTHONPATH='src'; python scripts/smoke_intelligence_card_cli.py
 $env:PYTHONPATH='src'; python -m pytest
 ```
 

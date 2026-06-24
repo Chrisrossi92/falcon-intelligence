@@ -108,6 +108,15 @@ $env:PYTHONPATH='src'
 python -m falcon_intel.cli profile --manifest "data\manifests\scan-example.json" --assignment-folder "assignments/100-main" --save
 ```
 
+Preview a synthetic "Firm Intelligence Found" card for a fake Falcon order:
+
+```powershell
+$env:PYTHONPATH='src'
+python -m falcon_intel.cli intelligence-card --address "1000 Example Industrial Way" --city "Sampleton" --state "ST" --property-type "industrial" --building-size-sf 50000 --client "Synthetic Lender A"
+```
+
+The `intelligence-card` command always uses the committed synthetic verified intelligence fixture by default. It returns the UI-facing card schema: headline, order summary, match group summaries, top match cards, confidence/provenance summary, warnings, and recommended actions.
+
 ## Output
 
 CLI output is JSON so it can be reviewed or consumed by a future local UI. Results include metadata only.
@@ -120,5 +129,7 @@ CLI output is JSON so it can be reviewed or consumed by a future local UI. Resul
 - `summary` reads manifest JSON only.
 - `discover` reads manifest JSON only.
 - `profile` reads manifest JSON only.
+- `intelligence-card` reads the committed synthetic verified intelligence fixture only.
 - Source files are never copied or opened for content.
 - Manifest files remain local ignored prototype artifacts.
+- The synthetic intelligence card preview does not use OneDrive data, report parsing, OCR, embeddings, or source-document content.

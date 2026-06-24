@@ -2,6 +2,16 @@
 
 from falcon_intel.core import AppProfile
 from falcon_intel.discovery import AssignmentCandidate, discover_assignments
+from falcon_intel.intelligence_card import (
+    FirmIntelligenceCard,
+    IntelligenceCardConfidenceProvenanceSummary,
+    IntelligenceCardMatchGroupSummary,
+    IntelligenceCardOrderSummary,
+    IntelligenceCardRecommendedAction,
+    IntelligenceCardTopMatch,
+    IntelligenceCardWarning,
+    build_firm_intelligence_card,
+)
 from falcon_intel.intelligence_matcher import (
     FakeOrder,
     FirmIntelligenceMatchResult,
@@ -40,7 +50,14 @@ __all__ = [
     "AssignmentProfile",
     "FileMetadata",
     "FakeOrder",
+    "FirmIntelligenceCard",
     "FirmIntelligenceMatchResult",
+    "IntelligenceCardConfidenceProvenanceSummary",
+    "IntelligenceCardMatchGroupSummary",
+    "IntelligenceCardOrderSummary",
+    "IntelligenceCardRecommendedAction",
+    "IntelligenceCardTopMatch",
+    "IntelligenceCardWarning",
     "IntelligenceMatch",
     "SavedManifestInfo",
     "ScanManifest",
@@ -48,6 +65,7 @@ __all__ = [
     "ManifestSearchResult",
     "ManifestSummary",
     "build_assignment_profile",
+    "build_firm_intelligence_card",
     "create_scan_manifest",
     "discover_assignments",
     "is_likely_report_candidate",
