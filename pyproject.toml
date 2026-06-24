@@ -13,5 +13,8 @@ authors = [
 ]
 dependencies = []
 
+[project.scripts]
+falcon-intel = "falcon_intel.cli:main"
+
 [tool.setuptools.packages.find]
 where = ["src"]

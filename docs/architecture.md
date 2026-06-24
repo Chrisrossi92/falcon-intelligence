@@ -297,6 +297,7 @@ No report contents are read in this phase.
 
 See `docs/scan-manifests.md` for local manifest privacy rules.
 See `docs/manifest-search.md` for metadata-only search limits.
+See `docs/cli.md` for local command-line prototype usage.
 
 ### Phase 3: Review and QA Workflow Shell
 
