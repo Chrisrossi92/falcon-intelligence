@@ -126,6 +126,10 @@ from falcon_intel.search import (
     search_manifest_files,
     summarize_results,
 )
+from falcon_intel.synthetic_workflow import (
+    SyntheticIntelligenceWorkflowResult,
+    run_synthetic_intelligence_workflow,
+)
 
 __all__ = [
     "AppProfile",
@@ -163,6 +167,7 @@ __all__ = [
     "SavedManifestInfo",
     "ScanManifest",
     "SearchableStatus",
+    "SyntheticIntelligenceWorkflowResult",
     "ManifestSearchQuery",
     "ManifestSearchResult",
     "ManifestSummary",
@@ -222,6 +227,7 @@ __all__ = [
     "search_manifest",
     "search_manifest_files",
     "scan_metadata",
+    "run_synthetic_intelligence_workflow",
     "summarize_results",
     "WarningCode",
 ]

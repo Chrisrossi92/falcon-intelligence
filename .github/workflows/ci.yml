@@ -69,5 +69,8 @@ jobs:
       - name: Smoke permission policy
         run: PYTHONPATH=src python scripts/smoke_permission_policy.py
 
+      - name: Smoke end-to-end synthetic workflow
+        run: PYTHONPATH=src python scripts/smoke_synthetic_workflow.py
+
       - name: Run pytest
         run: PYTHONPATH=src python -m pytest

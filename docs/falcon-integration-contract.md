@@ -236,6 +236,15 @@ Evidence-open statuses:
 | `evidence_not_found` | Evidence ID is not attached to the passport. | Keep drawer open and show a quiet unavailable state. |
 | `missing_required_input` | Required request fields are missing. | Do not attempt evidence open; log local integration issue during development. |
 
+End-to-end synthetic workflow:
+
+- Module: `src/falcon_intel/synthetic_workflow.py`
+- Function: `run_synthetic_intelligence_workflow`
+- Test: `tests/test_synthetic_workflow.py`
+- Smoke script: `scripts/smoke_synthetic_workflow.py`
+
+This workflow proves the local trust path: Falcon-style order payload, Firm Intelligence card, top-match passport ID, passport detail contract, permission decisions, evidence-open contract, and suggested audit payloads for card viewed, passport detail opened, and evidence opened. It is synthetic-only and does not persist audit events.
+
 Error states:
 
 | Status | Meaning | Expected Falcon behavior |
