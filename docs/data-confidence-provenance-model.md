@@ -111,6 +111,37 @@ Recommended passport fields:
 
 The passport should be available anywhere a user sees verified intelligence, especially comp selection, market indicator search, and narrative support views.
 
+The current synthetic/local data passport model lives in `src/falcon_intel/data_passport.py`. It is a structured trust-card payload only; it does not read source documents, open files, extract text, run OCR, or create embeddings.
+
+Current data passport fields:
+
+- `fact_id`
+- `tenant_id`
+- `assignment_id`
+- `fact_type`
+- `display_label`
+- `display_value`
+- `verification_status`
+- `verified_by`
+- `verified_at`
+- `reviewed_by`
+- `reviewed_at`
+- `confidence_dimensions`
+- `evidence_links`
+- `audit_event_ids`
+- `searchable_status`
+
+Current confidence dimension fields:
+
+- `extraction_confidence`
+- `source_quality`
+- `source_agreement`
+- `freshness`
+- `reviewer_approval`
+- `historical_consistency`
+
+The `evidence_links` field uses the synthetic/local evidence link model described above. In the current prototype, a passport explains provenance through IDs, labels, confidence dimensions, and evidence metadata only. It must not contain real client names, report text, absolute paths, OneDrive paths, or source-file contents.
+
 ## Historical Comparable Workflow
 
 Historical comparables can be useful, but they require explicit context before reuse.

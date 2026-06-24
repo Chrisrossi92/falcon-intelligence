@@ -51,5 +51,8 @@ jobs:
       - name: Smoke evidence links
         run: PYTHONPATH=src python scripts/smoke_evidence_links.py
 
+      - name: Smoke data passport
+        run: PYTHONPATH=src python scripts/smoke_data_passport.py
+
       - name: Run pytest
         run: PYTHONPATH=src python -m pytest

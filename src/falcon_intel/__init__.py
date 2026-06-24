@@ -10,6 +10,14 @@ from falcon_intel.audit import (
     build_match_selected_event,
 )
 from falcon_intel.core import AppProfile
+from falcon_intel.data_passport import (
+    ConfidenceDimensions,
+    DataPassport,
+    SearchableStatus,
+    VerificationStatus,
+    build_confidence_dimensions,
+    build_data_passport,
+)
 from falcon_intel.discovery import AssignmentCandidate, discover_assignments
 from falcon_intel.evidence_link import (
     EVIDENCE_ACCESS_LEVEL_CODES,
@@ -87,7 +95,9 @@ __all__ = [
     "AssignmentCandidate",
     "AssignmentProfile",
     "AuditEventCode",
+    "ConfidenceDimensions",
     "EVIDENCE_ACCESS_LEVEL_CODES",
+    "DataPassport",
     "EvidenceAccessLevel",
     "EvidenceLink",
     "EvidenceLinkStatus",
@@ -110,15 +120,19 @@ __all__ = [
     "IntelligenceMatch",
     "SavedManifestInfo",
     "ScanManifest",
+    "SearchableStatus",
     "ManifestSearchQuery",
     "ManifestSearchResult",
     "ManifestSummary",
     "MatchAuditEvent",
     "MatchCategoryCode",
     "RecommendedActionCode",
+    "VerificationStatus",
     "build_assignment_profile",
     "build_card_viewed_event",
+    "build_confidence_dimensions",
     "build_comparable_support_evidence_link",
+    "build_data_passport",
     "build_evidence_link",
     "build_evidence_opened_event",
     "build_falcon_intelligence_card_response",

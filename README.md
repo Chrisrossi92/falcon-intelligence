@@ -53,6 +53,7 @@ PYTHONPATH=src python3 scripts/smoke_falcon_api_contract.py
 PYTHONPATH=src python3 scripts/smoke_match_audit.py
 PYTHONPATH=src python3 scripts/smoke_historical_comp.py
 PYTHONPATH=src python3 scripts/smoke_evidence_links.py
+PYTHONPATH=src python3 scripts/smoke_data_passport.py
 PYTHONPATH=src python3 -m pytest
 ```
 
