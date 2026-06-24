@@ -178,6 +178,8 @@ tests/fixtures/synthetic_ui_passports/passport-detail-drawer-v1.json
 
 The drawer schema is produced by `build_passport_detail_drawer` and includes `schema_version`, passport identity, fact summary, verification/review summary, confidence dimensions, evidence link summaries, audit event IDs, searchable status, and warnings. It intentionally summarizes evidence links and does not open source files or include report contents.
 
+When a user selects an evidence row from the drawer, `build_falcon_evidence_open_response` verifies that the synthetic `evidence_id` belongs to the requested `passport_id`. A successful response returns a metadata-only evidence summary and a suggested `opened_evidence` audit event. It must not open files, read report contents, or expose source text.
+
 ## Historical Comparable Workflow
 
 Historical comparables can be useful, but they require explicit context before reuse.

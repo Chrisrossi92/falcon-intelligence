@@ -63,5 +63,8 @@ jobs:
       - name: Smoke passport detail drawer snapshot
         run: PYTHONPATH=src python scripts/smoke_passport_detail_drawer.py
 
+      - name: Smoke Falcon evidence-open contract
+        run: PYTHONPATH=src python scripts/smoke_falcon_evidence_contract.py
+
       - name: Run pytest
         run: PYTHONPATH=src python -m pytest

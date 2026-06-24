@@ -196,6 +196,36 @@ Passport detail drawer UI contract:
 
 The drawer contract is a UI-facing projection of full passport detail. It shows summary evidence rows and warning states, but it does not open source documents, read report contents, or expose extraction output.
 
+Evidence-open local contract boundary:
+
+- Module: `src/falcon_intel/falcon_evidence_contract.py`
+- Function: `build_falcon_evidence_open_response`
+- Test: `tests/test_falcon_evidence_contract.py`
+- Smoke script: `scripts/smoke_falcon_evidence_contract.py`
+
+This boundary validates that a selected `evidence_id` belongs to the requested synthetic `passport_id`, returns a safe evidence summary, and suggests an `opened_evidence` audit event. It does not open files, read report contents, query OneDrive, run extraction, or return source text.
+
+Evidence-open request shape:
+
+```json
+{
+  "tenant_id": "tenant-synthetic-001",
+  "order_id": "falcon-order-synthetic-001",
+  "user_id": "user-synthetic-001",
+  "passport_id": "synthetic-passport-assignment-industrial-alpha",
+  "evidence_id": "synthetic-evidence-assignment-industrial-alpha"
+}
+```
+
+Evidence-open statuses:
+
+| Status | Meaning | Expected Falcon behavior |
+| --- | --- | --- |
+| `ok` | Evidence belongs to the passport and summary is safe to show. | Show metadata-only evidence unavailable/placeholder state and persist suggested audit event. |
+| `not_found` | Passport is unknown or outside tenant scope. | Do not show evidence detail. |
+| `evidence_not_found` | Evidence ID is not attached to the passport. | Keep drawer open and show a quiet unavailable state. |
+| `missing_required_input` | Required request fields are missing. | Do not attempt evidence open; log local integration issue during development. |
+
 Error states:
 
 | Status | Meaning | Expected Falcon behavior |
