@@ -57,5 +57,8 @@ jobs:
       - name: Smoke data passport lookup
         run: PYTHONPATH=src python scripts/smoke_data_passport_lookup.py
 
+      - name: Smoke Falcon passport detail contract
+        run: PYTHONPATH=src python scripts/smoke_falcon_passport_contract.py
+
       - name: Run pytest
         run: PYTHONPATH=src python -m pytest

@@ -40,6 +40,10 @@ from falcon_intel.falcon_api_contract import (
     FalconCardBoundaryResponse,
     build_falcon_intelligence_card_response,
 )
+from falcon_intel.falcon_passport_contract import (
+    FalconPassportDetailBoundaryResponse,
+    build_falcon_passport_detail_response,
+)
 from falcon_intel.historical_comp import (
     HISTORICAL_COMP_REASON_CODES,
     HistoricalCompJustificationRecord,
@@ -109,6 +113,7 @@ __all__ = [
     "EvidenceLinkStatus",
     "EvidenceSourceDocumentType",
     "FalconCardBoundaryResponse",
+    "FalconPassportDetailBoundaryResponse",
     "FileMetadata",
     "FakeOrder",
     "FirmIntelligenceCard",
@@ -142,6 +147,7 @@ __all__ = [
     "build_evidence_link",
     "build_evidence_opened_event",
     "build_falcon_intelligence_card_response",
+    "build_falcon_passport_detail_response",
     "build_firm_intelligence_card",
     "build_historical_comp_justification_event",
     "build_historical_comp_justification",

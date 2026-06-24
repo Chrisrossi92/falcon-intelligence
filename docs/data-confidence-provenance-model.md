@@ -168,6 +168,8 @@ tests/fixtures/synthetic_data_passports/data-passports.json
 
 The lookup is local and in-memory only. It is not a web API, database query, source-document opener, report parser, extraction pipeline, or permission engine.
 
+For Falcon-style integration tests, `build_falcon_passport_detail_response` wraps this lookup with `tenant_id`, `order_id`, `user_id`, and `passport_id`. A found response includes a suggested `opened_evidence` audit event for the future detail drawer interaction. Falcon remains responsible for permission checks and durable audit persistence in production.
+
 ## Historical Comparable Workflow
 
 Historical comparables can be useful, but they require explicit context before reuse.

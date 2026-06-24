@@ -139,6 +139,54 @@ Response shape:
 }
 ```
 
+Passport detail local contract boundary:
+
+- Module: `src/falcon_intel/falcon_passport_contract.py`
+- Function: `build_falcon_passport_detail_response`
+- Test: `tests/test_falcon_passport_contract.py`
+- Smoke script: `scripts/smoke_falcon_passport_contract.py`
+
+This boundary resolves a card `passport_id` to full synthetic data passport detail for a future internal detail drawer. It runs in memory and uses only `tests/fixtures/synthetic_data_passports/data-passports.json`.
+
+Passport detail request shape:
+
+```json
+{
+  "tenant_id": "tenant-synthetic-001",
+  "order_id": "falcon-order-synthetic-001",
+  "user_id": "user-synthetic-001",
+  "passport_id": "synthetic-passport-assignment-industrial-alpha"
+}
+```
+
+Passport detail response shape:
+
+```json
+{
+  "status": "ok",
+  "tenant_id": "tenant-synthetic-001",
+  "order_id": "falcon-order-synthetic-001",
+  "user_id": "user-synthetic-001",
+  "passport_id": "synthetic-passport-assignment-industrial-alpha",
+  "passport": {
+    "passport_id": "synthetic-passport-assignment-industrial-alpha",
+    "verification_status": "verified",
+    "evidence_links": []
+  },
+  "suggested_audit_event": {
+    "event_code": "opened_evidence"
+  }
+}
+```
+
+Passport detail statuses:
+
+| Status | Meaning | Expected Falcon behavior |
+| --- | --- | --- |
+| `ok` | Passport detail was found for the tenant and passport ID. | Show the internal detail drawer and persist the suggested audit event through Falcon's audit service. |
+| `not_found` | Passport ID is missing, unknown, or does not belong to the tenant. | Do not show detail; keep card visible and show a quiet internal unavailable state. |
+| `missing_required_input` | Required detail request fields are missing. | Do not call the detail drawer; log local integration issue during development. |
+
 Error states:
 
 | Status | Meaning | Expected Falcon behavior |

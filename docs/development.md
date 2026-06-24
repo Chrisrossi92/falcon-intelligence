@@ -45,6 +45,7 @@ $env:PYTHONPATH='src'; python scripts/smoke_historical_comp.py
 $env:PYTHONPATH='src'; python scripts/smoke_evidence_links.py
 $env:PYTHONPATH='src'; python scripts/smoke_data_passport.py
 $env:PYTHONPATH='src'; python scripts/smoke_data_passport_lookup.py
+$env:PYTHONPATH='src'; python scripts/smoke_falcon_passport_contract.py
 $env:PYTHONPATH='src'; python scripts/smoke_cli.py
 ```
 
@@ -65,6 +66,7 @@ PYTHONPATH=src python3 scripts/smoke_historical_comp.py
 PYTHONPATH=src python3 scripts/smoke_evidence_links.py
 PYTHONPATH=src python3 scripts/smoke_data_passport.py
 PYTHONPATH=src python3 scripts/smoke_data_passport_lookup.py
+PYTHONPATH=src python3 scripts/smoke_falcon_passport_contract.py
 PYTHONPATH=src python3 -m pytest
 ```
 
@@ -83,6 +85,7 @@ $env:PYTHONPATH='src'; python scripts/smoke_historical_comp.py
 $env:PYTHONPATH='src'; python scripts/smoke_evidence_links.py
 $env:PYTHONPATH='src'; python scripts/smoke_data_passport.py
 $env:PYTHONPATH='src'; python scripts/smoke_data_passport_lookup.py
+$env:PYTHONPATH='src'; python scripts/smoke_falcon_passport_contract.py
 $env:PYTHONPATH='src'; python -m pytest
 ```
 
@@ -94,7 +97,7 @@ GitHub Actions runs the core validation workflow on every push and pull request 
 - Synthetic fixture smoke validation.
 - Synthetic intelligence matcher smoke validation.
 - UI card schema, CLI, and snapshot smoke validation.
-- Synthetic audit, historical comparable justification, evidence link, data passport, and passport lookup smoke validation.
+- Synthetic audit, historical comparable justification, evidence link, data passport, passport lookup, and Falcon passport contract smoke validation.
 - The full pytest suite.
 
 The CI workflow must remain synthetic-only. It must not access OneDrive, real appraisal data, report contents, OCR, embeddings, or extraction pipelines.
