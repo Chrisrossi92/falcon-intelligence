@@ -35,6 +35,8 @@ The scanner:
 
 The metadata flag `supported_for_future_indexing` does not mean the file has been ingested. It only means the extension may be eligible for future indexing after a separate approval gate.
 
+Metadata scan results can be saved as local JSON manifests. See `docs/scan-manifests.md` for manifest privacy rules.
+
 ## Deferred Ingestion
 
 Content ingestion remains deferred. Future phases must define approval controls, local storage policy, redaction rules, audit logging, and synthetic test coverage before any report text extraction is added.

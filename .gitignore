@@ -36,6 +36,7 @@ pnpm-debug.log*
 
 # Local appraisal/report/source data
 data/
+data/manifests/
 local_data/
 local-data/
 reports/

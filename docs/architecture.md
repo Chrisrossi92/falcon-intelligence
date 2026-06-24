@@ -287,11 +287,14 @@ See `docs/metadata-scanning.md` for the current metadata-only scanner boundary.
 ### Phase 2: Metadata Indexing
 
 - Store local metadata in a local database.
+- Save local JSON scan manifests under ignored prototype storage.
 - Add tenant and user context to every metadata record.
 - Add audit events for folder selection, scan start, scan finish, and skipped files.
 - Add filters for assignment year, file type, folder, and scan status.
 
 No report contents are read in this phase.
+
+See `docs/scan-manifests.md` for local manifest privacy rules.
 
 ### Phase 3: Review and QA Workflow Shell
 
