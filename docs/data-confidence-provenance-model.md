@@ -218,3 +218,5 @@ Implementation requirements:
 ## Current Guardrail
 
 This model is a trust and provenance design only. Falcon Intelligence currently supports metadata-only scanning, local manifests, metadata search, assignment discovery, and assignment profile export. It does not read report contents, extract text, OCR documents, create embeddings, copy files, or ingest appraisal reports.
+
+See `docs/falcon-order-intelligence-loop.md` for how verified intelligence may surface in future Falcon order workflows.

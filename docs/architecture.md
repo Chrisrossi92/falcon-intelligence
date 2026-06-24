@@ -304,6 +304,7 @@ See `docs/appraisal-intelligence-data-model.md` for the future verified intellig
 See `docs/verified-intelligence-workflow.md` for the future human verification workflow.
 See `docs/verified-intelligence-extraction-pipeline.md` for the future human-approved extraction pipeline.
 See `docs/data-confidence-provenance-model.md` for the future confidence and data passport model.
+See `docs/falcon-order-intelligence-loop.md` for the future order-to-intelligence feedback loop.
 See `docs/cli.md` for local command-line prototype usage.
 
 ### Phase 3: Review and QA Workflow Shell
