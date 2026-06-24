@@ -1,0 +1,65 @@
+{
+  "assignment_folder": "assignments/synthetic-retail-plaza-bravo",
+  "completeness_score": 100,
+  "counts_by_document_type": {
+    "documents": 2,
+    "excel": 1,
+    "map_images": 1,
+    "pdf": 1,
+    "photos": 1,
+    "total_files": 5,
+    "word": 1
+  },
+  "file_groups": {
+    "excel_workbook_candidates": [
+      {
+        "file_extension": ".xlsx",
+        "file_name": "synthetic-retail-rent-roll-analysis.xlsx",
+        "file_size": 152,
+        "modified_timestamp": "2026-06-24T12:00:00+00:00",
+        "relative_path": "assignments/synthetic-retail-plaza-bravo/workbooks/synthetic-retail-rent-roll-analysis.xlsx",
+        "supported_for_future_indexing": true
+      }
+    ],
+    "other_files": [],
+    "pdf_source_document_candidates": [
+      {
+        "file_extension": ".pdf",
+        "file_name": "synthetic-retail-appraisal-report.pdf",
+        "file_size": 152,
+        "modified_timestamp": "2026-06-24T12:00:00+00:00",
+        "relative_path": "assignments/synthetic-retail-plaza-bravo/synthetic-retail-appraisal-report.pdf",
+        "supported_for_future_indexing": true
+      }
+    ],
+    "photo_media_candidates": [
+      {
+        "file_extension": ".png",
+        "file_name": "synthetic-retail-location-map.png",
+        "file_size": 146,
+        "modified_timestamp": "2026-06-24T12:00:00+00:00",
+        "relative_path": "assignments/synthetic-retail-plaza-bravo/maps/synthetic-retail-location-map.png",
+        "supported_for_future_indexing": false
+      },
+      {
+        "file_extension": ".jpg",
+        "file_name": "synthetic-retail-storefront.jpg",
+        "file_size": 139,
+        "modified_timestamp": "2026-06-24T12:00:00+00:00",
+        "relative_path": "assignments/synthetic-retail-plaza-bravo/photos/synthetic-retail-storefront.jpg",
+        "supported_for_future_indexing": false
+      }
+    ],
+    "report_candidates": [
+      {
+        "file_extension": ".docx",
+        "file_name": "synthetic-retail-draft-report.docx",
+        "file_size": 148,
+        "modified_timestamp": "2026-06-24T12:00:00+00:00",
+        "relative_path": "assignments/synthetic-retail-plaza-bravo/synthetic-retail-draft-report.docx",
+        "supported_for_future_indexing": true
+      }
+    ]
+  },
+  "heuristic_label": "high-confidence-assignment"
+}

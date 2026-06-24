@@ -1,0 +1,249 @@
+{
+  "counts_by_extension": {
+    ".docx": 6,
+    ".jpg": 5,
+    ".pdf": 6,
+    ".placeholder": 1,
+    ".png": 4,
+    ".xlsx": 7
+  },
+  "file_count": 29,
+  "files": [
+    {
+      "file_extension": ".png",
+      "file_name": "synthetic-industrial-site-map.png",
+      "file_size": 141,
+      "modified_timestamp": "2026-06-24T12:00:00+00:00",
+      "relative_path": "assignments/synthetic-industrial-flex-alpha/maps/synthetic-industrial-site-map.png",
+      "supported_for_future_indexing": false
+    },
+    {
+      "file_extension": ".jpg",
+      "file_name": "synthetic-industrial-front.jpg",
+      "file_size": 143,
+      "modified_timestamp": "2026-06-24T12:00:00+00:00",
+      "relative_path": "assignments/synthetic-industrial-flex-alpha/photos/synthetic-industrial-front.jpg",
+      "supported_for_future_indexing": false
+    },
+    {
+      "file_extension": ".pdf",
+      "file_name": "synthetic-industrial-appraisal-report.pdf",
+      "file_size": 156,
+      "modified_timestamp": "2026-06-24T12:00:00+00:00",
+      "relative_path": "assignments/synthetic-industrial-flex-alpha/synthetic-industrial-appraisal-report.pdf",
+      "supported_for_future_indexing": true
+    },
+    {
+      "file_extension": ".docx",
+      "file_name": "synthetic-industrial-draft-report.docx",
+      "file_size": 152,
+      "modified_timestamp": "2026-06-24T12:00:00+00:00",
+      "relative_path": "assignments/synthetic-industrial-flex-alpha/synthetic-industrial-draft-report.docx",
+      "supported_for_future_indexing": true
+    },
+    {
+      "file_extension": ".xlsx",
+      "file_name": "synthetic-industrial-analysis.xlsx",
+      "file_size": 155,
+      "modified_timestamp": "2026-06-24T12:00:00+00:00",
+      "relative_path": "assignments/synthetic-industrial-flex-alpha/workbooks/synthetic-industrial-analysis.xlsx",
+      "supported_for_future_indexing": true
+    },
+    {
+      "file_extension": ".png",
+      "file_name": "synthetic-lease-aerial-map.png",
+      "file_size": 149,
+      "modified_timestamp": "2026-06-24T12:00:00+00:00",
+      "relative_path": "assignments/synthetic-lease-heavy-echo/maps/synthetic-lease-aerial-map.png",
+      "supported_for_future_indexing": false
+    },
+    {
+      "file_extension": ".jpg",
+      "file_name": "synthetic-lease-tenant-entry.jpg",
+      "file_size": 144,
+      "modified_timestamp": "2026-06-24T12:00:00+00:00",
+      "relative_path": "assignments/synthetic-lease-heavy-echo/photos/synthetic-lease-tenant-entry.jpg",
+      "supported_for_future_indexing": false
+    },
+    {
+      "file_extension": ".pdf",
+      "file_name": "synthetic-lease-appraisal-report.pdf",
+      "file_size": 148,
+      "modified_timestamp": "2026-06-24T12:00:00+00:00",
+      "relative_path": "assignments/synthetic-lease-heavy-echo/synthetic-lease-appraisal-report.pdf",
+      "supported_for_future_indexing": true
+    },
+    {
+      "file_extension": ".docx",
+      "file_name": "synthetic-lease-draft-report.docx",
+      "file_size": 144,
+      "modified_timestamp": "2026-06-24T12:00:00+00:00",
+      "relative_path": "assignments/synthetic-lease-heavy-echo/synthetic-lease-draft-report.docx",
+      "supported_for_future_indexing": true
+    },
+    {
+      "file_extension": ".xlsx",
+      "file_name": "synthetic-lease-abstracts.xlsx",
+      "file_size": 150,
+      "modified_timestamp": "2026-06-24T12:00:00+00:00",
+      "relative_path": "assignments/synthetic-lease-heavy-echo/workbooks/synthetic-lease-abstracts.xlsx",
+      "supported_for_future_indexing": true
+    },
+    {
+      "file_extension": ".xlsx",
+      "file_name": "synthetic-lease-rent-roll.xlsx",
+      "file_size": 151,
+      "modified_timestamp": "2026-06-24T12:00:00+00:00",
+      "relative_path": "assignments/synthetic-lease-heavy-echo/workbooks/synthetic-lease-rent-roll.xlsx",
+      "supported_for_future_indexing": true
+    },
+    {
+      "file_extension": ".png",
+      "file_name": "synthetic-office-parcel-map.png",
+      "file_size": 144,
+      "modified_timestamp": "2026-06-24T12:00:00+00:00",
+      "relative_path": "assignments/synthetic-office-suite-charlie/maps/synthetic-office-parcel-map.png",
+      "supported_for_future_indexing": false
+    },
+    {
+      "file_extension": ".jpg",
+      "file_name": "synthetic-office-lobby.jpg",
+      "file_size": 139,
+      "modified_timestamp": "2026-06-24T12:00:00+00:00",
+      "relative_path": "assignments/synthetic-office-suite-charlie/photos/synthetic-office-lobby.jpg",
+      "supported_for_future_indexing": false
+    },
+    {
+      "file_extension": ".pdf",
+      "file_name": "synthetic-office-appraisal-report.pdf",
+      "file_size": 152,
+      "modified_timestamp": "2026-06-24T12:00:00+00:00",
+      "relative_path": "assignments/synthetic-office-suite-charlie/synthetic-office-appraisal-report.pdf",
+      "supported_for_future_indexing": true
+    },
+    {
+      "file_extension": ".docx",
+      "file_name": "synthetic-office-draft-report.docx",
+      "file_size": 148,
+      "modified_timestamp": "2026-06-24T12:00:00+00:00",
+      "relative_path": "assignments/synthetic-office-suite-charlie/synthetic-office-draft-report.docx",
+      "supported_for_future_indexing": true
+    },
+    {
+      "file_extension": ".xlsx",
+      "file_name": "synthetic-office-income-analysis.xlsx",
+      "file_size": 158,
+      "modified_timestamp": "2026-06-24T12:00:00+00:00",
+      "relative_path": "assignments/synthetic-office-suite-charlie/workbooks/synthetic-office-income-analysis.xlsx",
+      "supported_for_future_indexing": true
+    },
+    {
+      "file_extension": ".jpg",
+      "file_name": "synthetic-purchase-exterior.jpg",
+      "file_size": 151,
+      "modified_timestamp": "2026-06-24T12:00:00+00:00",
+      "relative_path": "assignments/synthetic-purchase-delta/photos/synthetic-purchase-exterior.jpg",
+      "supported_for_future_indexing": false
+    },
+    {
+      "file_extension": ".pdf",
+      "file_name": "synthetic-purchase-engagement-placeholder.pdf",
+      "file_size": 154,
+      "modified_timestamp": "2026-06-24T12:00:00+00:00",
+      "relative_path": "assignments/synthetic-purchase-delta/support/synthetic-purchase-engagement-placeholder.pdf",
+      "supported_for_future_indexing": true
+    },
+    {
+      "file_extension": ".pdf",
+      "file_name": "synthetic-purchase-appraisal-report.pdf",
+      "file_size": 145,
+      "modified_timestamp": "2026-06-24T12:00:00+00:00",
+      "relative_path": "assignments/synthetic-purchase-delta/synthetic-purchase-appraisal-report.pdf",
+      "supported_for_future_indexing": true
+    },
+    {
+      "file_extension": ".docx",
+      "file_name": "synthetic-purchase-draft-report.docx",
+      "file_size": 151,
+      "modified_timestamp": "2026-06-24T12:00:00+00:00",
+      "relative_path": "assignments/synthetic-purchase-delta/synthetic-purchase-draft-report.docx",
+      "supported_for_future_indexing": true
+    },
+    {
+      "file_extension": ".xlsx",
+      "file_name": "synthetic-purchase-sales-grid.xlsx",
+      "file_size": 155,
+      "modified_timestamp": "2026-06-24T12:00:00+00:00",
+      "relative_path": "assignments/synthetic-purchase-delta/workbooks/synthetic-purchase-sales-grid.xlsx",
+      "supported_for_future_indexing": true
+    },
+    {
+      "file_extension": ".png",
+      "file_name": "synthetic-retail-location-map.png",
+      "file_size": 146,
+      "modified_timestamp": "2026-06-24T12:00:00+00:00",
+      "relative_path": "assignments/synthetic-retail-plaza-bravo/maps/synthetic-retail-location-map.png",
+      "supported_for_future_indexing": false
+    },
+    {
+      "file_extension": ".jpg",
+      "file_name": "synthetic-retail-storefront.jpg",
+      "file_size": 139,
+      "modified_timestamp": "2026-06-24T12:00:00+00:00",
+      "relative_path": "assignments/synthetic-retail-plaza-bravo/photos/synthetic-retail-storefront.jpg",
+      "supported_for_future_indexing": false
+    },
+    {
+      "file_extension": ".pdf",
+      "file_name": "synthetic-retail-appraisal-report.pdf",
+      "file_size": 152,
+      "modified_timestamp": "2026-06-24T12:00:00+00:00",
+      "relative_path": "assignments/synthetic-retail-plaza-bravo/synthetic-retail-appraisal-report.pdf",
+      "supported_for_future_indexing": true
+    },
+    {
+      "file_extension": ".docx",
+      "file_name": "synthetic-retail-draft-report.docx",
+      "file_size": 148,
+      "modified_timestamp": "2026-06-24T12:00:00+00:00",
+      "relative_path": "assignments/synthetic-retail-plaza-bravo/synthetic-retail-draft-report.docx",
+      "supported_for_future_indexing": true
+    },
+    {
+      "file_extension": ".xlsx",
+      "file_name": "synthetic-retail-rent-roll-analysis.xlsx",
+      "file_size": 152,
+      "modified_timestamp": "2026-06-24T12:00:00+00:00",
+      "relative_path": "assignments/synthetic-retail-plaza-bravo/workbooks/synthetic-retail-rent-roll-analysis.xlsx",
+      "supported_for_future_indexing": true
+    },
+    {
+      "file_extension": ".placeholder",
+      "file_name": "synthetic-wip-notes.placeholder",
+      "file_size": 158,
+      "modified_timestamp": "2026-06-24T12:00:00+00:00",
+      "relative_path": "assignments/synthetic-wip-foxtrot/support/synthetic-wip-notes.placeholder",
+      "supported_for_future_indexing": false
+    },
+    {
+      "file_extension": ".docx",
+      "file_name": "synthetic-wip-draft-report.docx",
+      "file_size": 160,
+      "modified_timestamp": "2026-06-24T12:00:00+00:00",
+      "relative_path": "assignments/synthetic-wip-foxtrot/synthetic-wip-draft-report.docx",
+      "supported_for_future_indexing": true
+    },
+    {
+      "file_extension": ".xlsx",
+      "file_name": "synthetic-wip-analysis.xlsx",
+      "file_size": 163,
+      "modified_timestamp": "2026-06-24T12:00:00+00:00",
+      "relative_path": "assignments/synthetic-wip-foxtrot/workbooks/synthetic-wip-analysis.xlsx",
+      "supported_for_future_indexing": true
+    }
+  ],
+  "manifest_version": "1",
+  "scan_timestamp": "2026-06-24T12:00:00+00:00",
+  "selected_root_label": "Synthetic Sample Intelligence Fixtures",
+  "supported_future_indexing_count": 19
+}

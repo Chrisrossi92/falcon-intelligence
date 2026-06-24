@@ -17,13 +17,15 @@ This repository currently contains only the code and documentation scaffold. It 
 - Do not commit PDFs, Word files, spreadsheets, CSVs, extracted text, OCR output, vector stores, databases, or source exports.
 - Keep all future local data outside the repository or under ignored paths.
 - Use fixtures only when they are synthetic and clearly marked as synthetic.
+- Develop without private drive access by using the committed synthetic fixtures under `tests/fixtures/`.
 
 ## Repository Layout
 
 ```text
 docs/                  Project documentation and safety notes
+scripts/               Dependency-free smoke validation scripts
 src/falcon_intel/       Framework package
-tests/                 Placeholder test package
+tests/                 Tests and committed synthetic metadata fixtures
 ```
 
 ## Development Status

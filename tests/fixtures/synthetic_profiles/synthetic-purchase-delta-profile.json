@@ -1,0 +1,65 @@
+{
+  "assignment_folder": "assignments/synthetic-purchase-delta",
+  "completeness_score": 100,
+  "counts_by_document_type": {
+    "documents": 3,
+    "excel": 1,
+    "map_images": 0,
+    "pdf": 2,
+    "photos": 1,
+    "total_files": 5,
+    "word": 1
+  },
+  "file_groups": {
+    "excel_workbook_candidates": [
+      {
+        "file_extension": ".xlsx",
+        "file_name": "synthetic-purchase-sales-grid.xlsx",
+        "file_size": 155,
+        "modified_timestamp": "2026-06-24T12:00:00+00:00",
+        "relative_path": "assignments/synthetic-purchase-delta/workbooks/synthetic-purchase-sales-grid.xlsx",
+        "supported_for_future_indexing": true
+      }
+    ],
+    "other_files": [],
+    "pdf_source_document_candidates": [
+      {
+        "file_extension": ".pdf",
+        "file_name": "synthetic-purchase-engagement-placeholder.pdf",
+        "file_size": 154,
+        "modified_timestamp": "2026-06-24T12:00:00+00:00",
+        "relative_path": "assignments/synthetic-purchase-delta/support/synthetic-purchase-engagement-placeholder.pdf",
+        "supported_for_future_indexing": true
+      },
+      {
+        "file_extension": ".pdf",
+        "file_name": "synthetic-purchase-appraisal-report.pdf",
+        "file_size": 145,
+        "modified_timestamp": "2026-06-24T12:00:00+00:00",
+        "relative_path": "assignments/synthetic-purchase-delta/synthetic-purchase-appraisal-report.pdf",
+        "supported_for_future_indexing": true
+      }
+    ],
+    "photo_media_candidates": [
+      {
+        "file_extension": ".jpg",
+        "file_name": "synthetic-purchase-exterior.jpg",
+        "file_size": 151,
+        "modified_timestamp": "2026-06-24T12:00:00+00:00",
+        "relative_path": "assignments/synthetic-purchase-delta/photos/synthetic-purchase-exterior.jpg",
+        "supported_for_future_indexing": false
+      }
+    ],
+    "report_candidates": [
+      {
+        "file_extension": ".docx",
+        "file_name": "synthetic-purchase-draft-report.docx",
+        "file_size": 151,
+        "modified_timestamp": "2026-06-24T12:00:00+00:00",
+        "relative_path": "assignments/synthetic-purchase-delta/synthetic-purchase-draft-report.docx",
+        "supported_for_future_indexing": true
+      }
+    ]
+  },
+  "heuristic_label": "high-confidence-assignment"
+}

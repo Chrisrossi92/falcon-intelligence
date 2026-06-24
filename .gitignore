@@ -73,6 +73,16 @@ OneDrive/
 *.txt
 *.md.txt
 
+# Committable synthetic metadata fixtures only. These are tiny placeholder
+# files used to exercise scanner/search/discovery/profile workflows without
+# real appraisal data or document content.
+!tests/fixtures/
+!tests/fixtures/synthetic_sample_data/
+!tests/fixtures/synthetic_sample_data/**
+!tests/fixtures/synthetic_sample_data/**/*.pdf
+!tests/fixtures/synthetic_sample_data/**/*.docx
+!tests/fixtures/synthetic_sample_data/**/*.xlsx
+
 # OCR, parsed, and vector-store outputs
 *.ocr
 *.jsonl

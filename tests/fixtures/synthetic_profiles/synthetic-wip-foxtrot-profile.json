@@ -1,0 +1,48 @@
+{
+  "assignment_folder": "assignments/synthetic-wip-foxtrot",
+  "completeness_score": 40,
+  "counts_by_document_type": {
+    "documents": 1,
+    "excel": 1,
+    "map_images": 0,
+    "pdf": 0,
+    "photos": 0,
+    "total_files": 3,
+    "word": 1
+  },
+  "file_groups": {
+    "excel_workbook_candidates": [
+      {
+        "file_extension": ".xlsx",
+        "file_name": "synthetic-wip-analysis.xlsx",
+        "file_size": 163,
+        "modified_timestamp": "2026-06-24T12:00:00+00:00",
+        "relative_path": "assignments/synthetic-wip-foxtrot/workbooks/synthetic-wip-analysis.xlsx",
+        "supported_for_future_indexing": true
+      }
+    ],
+    "other_files": [
+      {
+        "file_extension": ".placeholder",
+        "file_name": "synthetic-wip-notes.placeholder",
+        "file_size": 158,
+        "modified_timestamp": "2026-06-24T12:00:00+00:00",
+        "relative_path": "assignments/synthetic-wip-foxtrot/support/synthetic-wip-notes.placeholder",
+        "supported_for_future_indexing": false
+      }
+    ],
+    "pdf_source_document_candidates": [],
+    "photo_media_candidates": [],
+    "report_candidates": [
+      {
+        "file_extension": ".docx",
+        "file_name": "synthetic-wip-draft-report.docx",
+        "file_size": 160,
+        "modified_timestamp": "2026-06-24T12:00:00+00:00",
+        "relative_path": "assignments/synthetic-wip-foxtrot/synthetic-wip-draft-report.docx",
+        "supported_for_future_indexing": true
+      }
+    ]
+  },
+  "heuristic_label": "work-in-progress"
+}
