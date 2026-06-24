@@ -106,6 +106,8 @@ The CI workflow must remain synthetic-only. It must not access OneDrive, real ap
 
 Tests may use synthetic fixtures only. Do not create fixtures from real reports, client records, OneDrive exports, or extracted report text.
 
+For a concise project checkpoint and recommended next slices, see `docs/session-handoff-roadmap.md`.
+
 ## Developing Without OneDrive Access
 
 Local development does not require access to any private drive or production document tree. Use the committed synthetic fixtures instead:

@@ -17,3 +17,5 @@ The initial repository is intentionally limited to framework code and documentat
 - No sample appraisal documents.
 - No OCR, parsing, embedding, vector storage, or search implementation.
 - No cloud sync or external data transfer.
+
+See `docs/session-handoff-roadmap.md` for the current implementation checkpoint, validation commands, known risks, and recommended next slices.

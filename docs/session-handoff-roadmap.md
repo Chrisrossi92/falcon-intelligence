@@ -1,0 +1,138 @@
+# Session Handoff and Roadmap Checkpoint
+
+This checkpoint summarizes the current Falcon Intelligence prototype state and recommended next direction. It is documentation-only and does not authorize real data access, OneDrive access, report parsing, extraction, OCR, embeddings, or ingestion.
+
+## Product Vision
+
+Falcon Intelligence is a local-first appraisal firm knowledge base prototype. The near-term product direction is an internal-only "Firm Intelligence Found" experience that helps Project Falcon surface prior verified firm knowledge while an order is being created, reviewed, or worked.
+
+The product should help appraisers and reviewers answer:
+
+- Have we seen this subject property before?
+- Do we have relevant prior assignments, sale comps, lease comps, or market indicators?
+- Why should a surfaced fact be trusted?
+- Where is the provenance, evidence, and audit trail?
+
+Falcon Intelligence is assistive. It must not produce automatic valuation conclusions or automatic report language without appraiser review.
+
+## Safety and Data Boundaries
+
+Current non-negotiable boundaries:
+
+- Use committed synthetic fixtures only.
+- Do not add real appraisal reports, client files, source documents, OneDrive exports, extracted text, OCR output, embeddings, vector stores, databases, PDFs, DOCX, XLSX, CSV, TSV, or TXT exports.
+- Do not read report contents.
+- Do not inspect unrelated OneDrive files.
+- Do not add extraction, OCR, embedding, retrieval, or report parsing code.
+- Keep all current workflows metadata-only and local.
+
+Explicit warning: do not add real report extraction yet. The repository is not ready for production data access, report content processing, or source-document preview. Extraction should wait for an approved ingestion design, permission model, tenant isolation, audit persistence, source preview policy, and real-data handling review.
+
+## Implemented So Far
+
+Core scaffold:
+
+- Local-first package scaffold in `src/falcon_intel`.
+- Safety and architecture documentation under `docs/`.
+- Development setup with `pytest` as a dev dependency.
+- GitHub Actions validation workflow.
+
+Synthetic metadata workflows:
+
+- Metadata scanner, manifest creation, manifest search, assignment discovery, and assignment profile generation.
+- Committed synthetic sample fixture tree under `tests/fixtures/synthetic_sample_data/`.
+- Synthetic manifests and assignment profiles for industrial, retail, office, purchase, lease-heavy, and work-in-progress assignments.
+
+Firm Intelligence card prototype:
+
+- Synthetic verified intelligence fixture at `tests/fixtures/synthetic_verified_intelligence/verified-intelligence.json`.
+- Synthetic matcher for fake Falcon order payloads.
+- CLI preview command for the Firm Intelligence Found card.
+- Stable UI-facing v1 card schema with snapshot fixture at `tests/fixtures/synthetic_ui_cards/firm-intelligence-card-v1.json`.
+- Local Falcon-style card contract boundary for synthetic card responses.
+
+Trust, provenance, and audit scaffolding:
+
+- Stable policy codes for match categories, warning codes, action codes, and audit events.
+- Local audit event builders for card view, evidence open, match select/reject, and justification.
+- Historical comparable justification model and reusable narrative draft.
+- Evidence link model for future "open evidence" behavior.
+- Data passport model for full provenance detail.
+- Compact passport summaries on top match cards.
+- Synthetic data passport detail fixture at `tests/fixtures/synthetic_data_passports/data-passports.json`.
+- Local passport detail lookup from `tenant_id` and `passport_id`.
+- Falcon-style passport detail contract boundary with suggested `opened_evidence` audit event.
+
+## Current Validation Status
+
+Current local validation is passing.
+
+Run full validation:
+
+```bash
+PYTHONPATH=src python3 -m compileall -q src scripts tests
+PYTHONPATH=src python3 scripts/smoke_synthetic_fixtures.py
+PYTHONPATH=src python3 scripts/smoke_synthetic_intelligence_matcher.py
+PYTHONPATH=src python3 scripts/smoke_intelligence_card_schema.py
+PYTHONPATH=src python3 scripts/smoke_intelligence_card_snapshot.py
+PYTHONPATH=src python3 scripts/smoke_intelligence_card_cli.py
+PYTHONPATH=src python3 scripts/smoke_falcon_api_contract.py
+PYTHONPATH=src python3 scripts/smoke_match_audit.py
+PYTHONPATH=src python3 scripts/smoke_historical_comp.py
+PYTHONPATH=src python3 scripts/smoke_evidence_links.py
+PYTHONPATH=src python3 scripts/smoke_data_passport.py
+PYTHONPATH=src python3 scripts/smoke_data_passport_lookup.py
+PYTHONPATH=src python3 scripts/smoke_falcon_passport_contract.py
+PYTHONPATH=src python3 -m pytest
+```
+
+CI runs the same synthetic-only core checks on push and pull request.
+
+## Synthetic and Local Only
+
+The following remain synthetic/local only:
+
+- Matcher scoring and ranking.
+- Verified intelligence records.
+- Data passport details.
+- Evidence links.
+- Audit events.
+- Falcon card and passport contract boundaries.
+- Historical comparable justification narratives.
+- UI card snapshot.
+
+None of these are production APIs, database queries, permission checks, source-document viewers, report readers, or extraction systems.
+
+## Project Falcon Tie-In
+
+Falcon Intelligence currently supports Project Falcon integration through local contract helpers:
+
+- `build_falcon_intelligence_card_response`: accepts a Falcon-style synthetic order payload and returns the v1 Firm Intelligence Found card.
+- `build_falcon_passport_detail_response`: accepts `tenant_id`, `order_id`, `user_id`, and `passport_id`, then returns full synthetic passport detail plus a suggested audit event.
+
+Future Falcon UI placement:
+
+- Order Detail.
+- New Order intake.
+- Assignment workspace.
+
+Visibility must remain internal-only. Client-facing views must not show Firm Intelligence cards, passport details, evidence links, audit metadata, reviewer notes, or internal comp/fact recommendations.
+
+## Recommended Next 5 Slices
+
+1. Passport detail drawer UI contract snapshot: define a stable UI-facing JSON shape for the future passport detail drawer, with a versioned synthetic snapshot and schema tests.
+2. Evidence-open audit contract: add a synthetic Falcon-style boundary that accepts an evidence link ID and returns a suggested audit event plus safe unavailable/permission placeholder states.
+3. Permission policy scaffold: add documentation and constants for internal roles, evidence visibility levels, and tenant-scoped access decisions without enforcing production auth yet.
+4. Card-to-detail workflow smoke: add an end-to-end synthetic smoke script that builds a card, opens a passport detail, selects an evidence link, and records suggested audit payloads.
+5. Production-readiness checklist: create a documentation-only gate for any future real data work, including approval requirements, storage boundaries, redaction rules, audit persistence, tenant isolation, and rollback procedures.
+
+## Current Known Risks
+
+- Current matching is deterministic synthetic scoring, not production relevance logic.
+- No production tenant isolation, auth, or permission enforcement exists.
+- Suggested audit events are not persisted.
+- Evidence links are placeholders and do not open source documents.
+- Data passport fixtures cover only selected synthetic records.
+- UI schemas are stable enough for prototype work but may need versioning as frontend requirements mature.
+- The repository contains no approved ingestion or extraction pipeline; adding one prematurely would violate the current safety boundary.
+- CI validates synthetic workflows only and cannot prove production readiness.
