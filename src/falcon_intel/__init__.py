@@ -11,6 +11,18 @@ from falcon_intel.audit import (
 )
 from falcon_intel.core import AppProfile
 from falcon_intel.discovery import AssignmentCandidate, discover_assignments
+from falcon_intel.evidence_link import (
+    EVIDENCE_ACCESS_LEVEL_CODES,
+    EvidenceAccessLevel,
+    EvidenceLink,
+    EvidenceLinkStatus,
+    EvidenceSourceDocumentType,
+    build_comparable_support_evidence_link,
+    build_evidence_link,
+    build_market_support_evidence_link,
+    build_source_document_evidence_link,
+    build_source_report_evidence_link,
+)
 from falcon_intel.falcon_api_contract import (
     FalconCardBoundaryResponse,
     build_falcon_intelligence_card_response,
@@ -75,6 +87,11 @@ __all__ = [
     "AssignmentCandidate",
     "AssignmentProfile",
     "AuditEventCode",
+    "EVIDENCE_ACCESS_LEVEL_CODES",
+    "EvidenceAccessLevel",
+    "EvidenceLink",
+    "EvidenceLinkStatus",
+    "EvidenceSourceDocumentType",
     "FalconCardBoundaryResponse",
     "FileMetadata",
     "FakeOrder",
@@ -101,6 +118,8 @@ __all__ = [
     "RecommendedActionCode",
     "build_assignment_profile",
     "build_card_viewed_event",
+    "build_comparable_support_evidence_link",
+    "build_evidence_link",
     "build_evidence_opened_event",
     "build_falcon_intelligence_card_response",
     "build_firm_intelligence_card",
@@ -109,6 +128,9 @@ __all__ = [
     "build_match_audit_event",
     "build_match_rejected_event",
     "build_match_selected_event",
+    "build_market_support_evidence_link",
+    "build_source_document_evidence_link",
+    "build_source_report_evidence_link",
     "create_scan_manifest",
     "discover_assignments",
     "is_likely_report_candidate",

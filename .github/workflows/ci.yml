@@ -48,5 +48,8 @@ jobs:
       - name: Smoke historical comp justification
         run: PYTHONPATH=src python scripts/smoke_historical_comp.py
 
+      - name: Smoke evidence links
+        run: PYTHONPATH=src python scripts/smoke_evidence_links.py
+
       - name: Run pytest
         run: PYTHONPATH=src python -m pytest

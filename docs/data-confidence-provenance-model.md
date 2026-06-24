@@ -34,6 +34,38 @@ Evidence link types:
 
 Evidence links should be metadata-first. In the current prototype, evidence should point to manifest/profile/source metadata only, not report contents.
 
+The current synthetic/local evidence link model lives in `src/falcon_intel/evidence_link.py`. It defines stable metadata-only link objects for future "open source report" and "jump to evidence" behavior. These objects are safe placeholders, not file openers.
+
+Current evidence link fields:
+
+- `evidence_id`
+- `tenant_id`
+- `assignment_id`
+- `source_document_id`
+- `source_document_type`
+- `display_label`
+- `access_level`
+- `future_page_number`
+- `future_section_anchor`
+- `future_highlight_text`
+- `status`
+
+Stable access-level codes:
+
+- `internal_only`
+- `appraiser_reviewer_only`
+- `owner_admin_only`
+- `disabled`
+
+Supported synthetic source-document types:
+
+- `source_report`
+- `source_document`
+- `comparable_support`
+- `market_support`
+
+The `future_page_number`, `future_section_anchor`, and `future_highlight_text` fields are future-facing anchors only. They must not be populated from real report text until a controlled extraction and source-preview policy is approved.
+
 Access-controlled opening rules should consider:
 
 - Tenant membership.
