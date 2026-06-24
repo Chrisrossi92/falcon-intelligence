@@ -35,6 +35,7 @@ $env:PYTHONPATH='src'; python scripts/smoke_manifest_search.py
 $env:PYTHONPATH='src'; python scripts/smoke_assignment_discovery.py
 $env:PYTHONPATH='src'; python scripts/smoke_assignment_profile.py
 $env:PYTHONPATH='src'; python scripts/smoke_synthetic_fixtures.py
+$env:PYTHONPATH='src'; python scripts/smoke_synthetic_intelligence_matcher.py
 $env:PYTHONPATH='src'; python scripts/smoke_cli.py
 ```
 
@@ -45,6 +46,7 @@ macOS:
 ```bash
 PYTHONPATH=src python3 -m compileall -q src scripts tests
 PYTHONPATH=src python3 scripts/smoke_synthetic_fixtures.py
+PYTHONPATH=src python3 scripts/smoke_synthetic_intelligence_matcher.py
 PYTHONPATH=src python3 -m pytest
 ```
 
@@ -53,6 +55,7 @@ Windows PowerShell:
 ```powershell
 $env:PYTHONPATH='src'; python -m compileall -q src scripts tests
 $env:PYTHONPATH='src'; python scripts/smoke_synthetic_fixtures.py
+$env:PYTHONPATH='src'; python scripts/smoke_synthetic_intelligence_matcher.py
 $env:PYTHONPATH='src'; python -m pytest
 ```
 
@@ -77,3 +80,5 @@ $env:PYTHONPATH='src'; python scripts/smoke_synthetic_fixtures.py
 ```
 
 The smoke check scans the synthetic tree, searches the committed manifest, runs assignment discovery, builds assignment profiles, and verifies that the fixture files avoid known real-data markers. Do not point tests or smoke scripts at OneDrive paths.
+
+For future Falcon order matching work, use the synthetic verified intelligence fixture at `tests/fixtures/synthetic_verified_intelligence/verified-intelligence.json` and the smoke check in `scripts/smoke_synthetic_intelligence_matcher.py`. See `docs/synthetic-firm-intelligence-matcher.md`.

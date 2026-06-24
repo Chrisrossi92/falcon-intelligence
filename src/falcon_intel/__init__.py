@@ -2,6 +2,13 @@
 
 from falcon_intel.core import AppProfile
 from falcon_intel.discovery import AssignmentCandidate, discover_assignments
+from falcon_intel.intelligence_matcher import (
+    FakeOrder,
+    FirmIntelligenceMatchResult,
+    IntelligenceMatch,
+    load_synthetic_verified_intelligence,
+    match_firm_intelligence,
+)
 from falcon_intel.manifest import (
     SavedManifestInfo,
     ScanManifest,
@@ -32,6 +39,9 @@ __all__ = [
     "AssignmentCandidate",
     "AssignmentProfile",
     "FileMetadata",
+    "FakeOrder",
+    "FirmIntelligenceMatchResult",
+    "IntelligenceMatch",
     "SavedManifestInfo",
     "ScanManifest",
     "ManifestSearchQuery",
@@ -44,6 +54,8 @@ __all__ = [
     "latest_manifest_path",
     "list_saved_manifests",
     "load_manifest",
+    "load_synthetic_verified_intelligence",
+    "match_firm_intelligence",
     "save_assignment_profile",
     "save_scan_manifest",
     "search_manifest",

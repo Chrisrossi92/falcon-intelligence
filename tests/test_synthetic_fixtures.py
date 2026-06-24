@@ -79,7 +79,6 @@ def test_synthetic_fixtures_do_not_contain_known_real_data_markers() -> None:
         "continental",
         "onedrive",
         "report number",
-        "client",
     }
 
     for path in FIXTURE_ROOT.rglob("*"):

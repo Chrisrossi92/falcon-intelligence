@@ -45,5 +45,6 @@ Run the core local checks:
 ```bash
 PYTHONPATH=src python3 -m compileall -q src scripts tests
 PYTHONPATH=src python3 scripts/smoke_synthetic_fixtures.py
+PYTHONPATH=src python3 scripts/smoke_synthetic_intelligence_matcher.py
 PYTHONPATH=src python3 -m pytest
 ```

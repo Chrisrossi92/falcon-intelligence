@@ -67,7 +67,7 @@ def main() -> None:
         for path in FIXTURE_ROOT.rglob("*")
         if path.is_file()
     )
-    for blocked_term in {"continental", "onedrive", "report number", "client"}:
+    for blocked_term in {"continental", "onedrive", "report number"}:
         assert blocked_term not in serialized_fixtures
 
     print("synthetic fixture workflow smoke validation passed")

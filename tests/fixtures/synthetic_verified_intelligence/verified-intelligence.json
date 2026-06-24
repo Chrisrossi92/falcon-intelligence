@@ -1,0 +1,147 @@
+{
+  "fixture_kind": "synthetic_verified_intelligence",
+  "fixture_version": "1",
+  "description": "Synthetic verified intelligence for local matcher tests only.",
+  "assignments": [
+    {
+      "id": "synthetic-assignment-industrial-alpha",
+      "record_type": "assignment",
+      "synthetic_fixture": true,
+      "verification_status": "verified",
+      "address": "1000 Example Industrial Way",
+      "city": "Sampleton",
+      "state": "ST",
+      "property_type": "industrial",
+      "building_size_sf": 50000,
+      "client": "Synthetic Lender A",
+      "assignment_type": "refinance appraisal",
+      "effective_date": "2026-01-15"
+    },
+    {
+      "id": "synthetic-assignment-industrial-nearby",
+      "record_type": "assignment",
+      "synthetic_fixture": true,
+      "verification_status": "verified",
+      "address": "1200 Example Logistics Loop",
+      "city": "Sampleton",
+      "state": "ST",
+      "property_type": "industrial",
+      "building_size_sf": 62000,
+      "client": "Synthetic Credit Union",
+      "assignment_type": "purchase appraisal",
+      "effective_date": "2025-11-10"
+    },
+    {
+      "id": "synthetic-assignment-retail-bravo",
+      "record_type": "assignment",
+      "synthetic_fixture": true,
+      "verification_status": "verified",
+      "address": "2100 Example Retail Row",
+      "city": "Sampleton",
+      "state": "ST",
+      "property_type": "retail",
+      "building_size_sf": 48000,
+      "client": "Synthetic Lender A",
+      "assignment_type": "market value appraisal",
+      "effective_date": "2025-09-20"
+    },
+    {
+      "id": "synthetic-assignment-office-charlie",
+      "record_type": "assignment",
+      "synthetic_fixture": true,
+      "verification_status": "verified",
+      "address": "3100 Example Office Plaza",
+      "city": "Demo City",
+      "state": "ST",
+      "property_type": "office",
+      "building_size_sf": 52000,
+      "client": "Synthetic Regional Bank",
+      "assignment_type": "lease-heavy appraisal",
+      "effective_date": "2025-07-05"
+    }
+  ],
+  "sale_comps": [
+    {
+      "id": "synthetic-sale-industrial-1",
+      "record_type": "sale_comp",
+      "synthetic_fixture": true,
+      "verification_status": "verified",
+      "address": "1300 Example Distribution Drive",
+      "city": "Sampleton",
+      "state": "ST",
+      "property_type": "industrial",
+      "building_size_sf": 54000,
+      "sale_date": "2025-12-01",
+      "sale_price": 6100000
+    },
+    {
+      "id": "synthetic-sale-retail-1",
+      "record_type": "sale_comp",
+      "synthetic_fixture": true,
+      "verification_status": "verified",
+      "address": "2200 Example Shop Street",
+      "city": "Sampleton",
+      "state": "ST",
+      "property_type": "retail",
+      "building_size_sf": 47000,
+      "sale_date": "2025-10-12",
+      "sale_price": 5300000
+    }
+  ],
+  "lease_comps": [
+    {
+      "id": "synthetic-lease-industrial-1",
+      "record_type": "lease_comp",
+      "synthetic_fixture": true,
+      "verification_status": "verified",
+      "address": "1400 Example Loading Court",
+      "city": "Sampleton",
+      "state": "ST",
+      "property_type": "industrial",
+      "building_size_sf": 45000,
+      "lease_date": "2025-08-15",
+      "rent": 12.5,
+      "rent_basis": "per_sf"
+    },
+    {
+      "id": "synthetic-lease-office-1",
+      "record_type": "lease_comp",
+      "synthetic_fixture": true,
+      "verification_status": "verified",
+      "address": "3200 Example Workspace Avenue",
+      "city": "Demo City",
+      "state": "ST",
+      "property_type": "office",
+      "building_size_sf": 51000,
+      "lease_date": "2025-06-30",
+      "rent": 28.0,
+      "rent_basis": "per_sf"
+    }
+  ],
+  "market_indicators": [
+    {
+      "id": "synthetic-market-industrial-sampleton-vacancy",
+      "record_type": "market_indicator",
+      "synthetic_fixture": true,
+      "verification_status": "verified",
+      "market": "Sampleton",
+      "state": "ST",
+      "property_type": "industrial",
+      "indicator_type": "vacancy_rate",
+      "value": "4.8%",
+      "date_range": "2025 Q4"
+    },
+    {
+      "id": "synthetic-market-retail-sampleton-rent",
+      "record_type": "market_indicator",
+      "synthetic_fixture": true,
+      "verification_status": "verified",
+      "market": "Sampleton",
+      "state": "ST",
+      "property_type": "retail",
+      "indicator_type": "asking_rent",
+      "value": "$24.00 per sf",
+      "date_range": "2025 Q4"
+    }
+  ]
+}
