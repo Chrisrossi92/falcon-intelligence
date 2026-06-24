@@ -120,6 +120,8 @@ Tests may use synthetic fixtures only. Do not create fixtures from real reports,
 
 For a concise project checkpoint and recommended next slices, see `docs/session-handoff-roadmap.md`.
 
+Before any real report content, extraction, OCR, embeddings, or source-document preview work, see `docs/real-data-production-readiness-gate.md`. Metadata-only real-data scans remain the only allowed real-data activity before that gate passes.
+
 ## Developing Without OneDrive Access
 
 Local development does not require access to any private drive or production document tree. Use the committed synthetic fixtures instead:

@@ -26,7 +26,7 @@ Current non-negotiable boundaries:
 - Do not add extraction, OCR, embedding, retrieval, or report parsing code.
 - Keep all current workflows metadata-only and local.
 
-Explicit warning: do not add real report extraction yet. The repository is not ready for production data access, report content processing, or source-document preview. Extraction should wait for an approved ingestion design, permission model, tenant isolation, audit persistence, source preview policy, and real-data handling review.
+Explicit warning: do not add real report extraction yet. Metadata-only real-data scans are allowed, but report content extraction, OCR, embeddings, and source-document preview are blocked until `docs/real-data-production-readiness-gate.md` passes.
 
 ## Implemented So Far
 
@@ -66,6 +66,7 @@ Trust, provenance, and audit scaffolding:
 - Falcon-style evidence-open contract boundary that validates an evidence link belongs to a passport and returns a metadata-only summary plus suggested audit event.
 - Synthetic/local permission policy scaffold for internal role and evidence visibility decisions.
 - End-to-end synthetic workflow that builds a card, opens passport detail, checks permissions, opens evidence, and returns suggested audit payloads.
+- Documentation-only real data production readiness gate at `docs/real-data-production-readiness-gate.md`.
 
 ## Current Validation Status
 
@@ -129,11 +130,11 @@ Visibility must remain internal-only. Client-facing views must not show Firm Int
 
 ## Recommended Next 5 Slices
 
-1. Production-readiness checklist: create a documentation-only gate for any future real data work, including approval requirements, storage boundaries, redaction rules, audit persistence, tenant isolation, and rollback procedures.
-2. UI integration notes for Falcon: document expected frontend states for card loading, passport drawer opening, evidence-open unavailable states, permission-denied states, and audit persistence handoff.
-3. Schema version registry: document ownership and update rules for card, passport drawer, and future evidence-open response schemas.
-4. Permission policy contract tests for Falcon request wrappers: thread role/access decisions through the local Falcon card, passport, and evidence-open boundaries without production auth.
-5. Audit event envelope snapshot: create a stable synthetic UI/API fixture for the audit payloads produced by the end-to-end workflow.
+1. UI integration notes for Falcon: document expected frontend states for card loading, passport drawer opening, evidence-open unavailable states, permission-denied states, and audit persistence handoff.
+2. Schema version registry: document ownership and update rules for card, passport drawer, and future evidence-open response schemas.
+3. Permission policy contract tests for Falcon request wrappers: thread role/access decisions through the local Falcon card, passport, and evidence-open boundaries without production auth.
+4. Audit event envelope snapshot: create a stable synthetic UI/API fixture for the audit payloads produced by the end-to-end workflow.
+5. Production gate review packet template: add a documentation template for approvals, test plans, retention decisions, and rollback plans before any real content pilot.
 
 ## Current Known Risks
 
@@ -145,4 +146,5 @@ Visibility must remain internal-only. Client-facing views must not show Firm Int
 - Data passport fixtures cover only selected synthetic records.
 - UI schemas are stable enough for prototype work but may need versioning as frontend requirements mature.
 - The repository contains no approved ingestion or extraction pipeline; adding one prematurely would violate the current safety boundary.
+- Real content work remains blocked until the production readiness gate passes; metadata-only scans are the only allowed real-data activity.
 - CI validates synthetic workflows only and cannot prove production readiness.

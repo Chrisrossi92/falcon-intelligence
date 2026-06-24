@@ -25,3 +25,5 @@ Before any ingestion code is enabled, the project should define:
 - Redaction and logging rules.
 - A review checklist for file handling.
 - Clear user controls for selecting local folders.
+
+See `docs/real-data-production-readiness-gate.md` for the required production-readiness checklist before any real report content, extraction, OCR, embeddings, or source-document preview is allowed.
