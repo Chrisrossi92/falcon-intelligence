@@ -282,6 +282,8 @@ First implementation phase after approval.
 
 No report contents are read in this phase.
 
+See `docs/metadata-scanning.md` for the current metadata-only scanner boundary.
+
 ### Phase 2: Metadata Indexing
 
 - Store local metadata in a local database.

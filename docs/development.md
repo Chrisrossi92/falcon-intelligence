@@ -16,6 +16,12 @@ Future checks should include:
 - Static checks for accidental data paths.
 - Validation that ignored document formats remain excluded.
 
+Current dependency-free smoke validation:
+
+```powershell
+$env:PYTHONPATH='src'; python scripts/smoke_metadata_scan.py
+```
+
 ## Fixture Policy
 
 Tests may use synthetic fixtures only. Do not create fixtures from real reports, client records, OneDrive exports, or extracted report text.
