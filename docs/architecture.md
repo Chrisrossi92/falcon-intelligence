@@ -299,6 +299,7 @@ No report contents are read in this phase.
 See `docs/scan-manifests.md` for local manifest privacy rules.
 See `docs/manifest-search.md` for metadata-only search limits.
 See `docs/assignment-discovery.md` for assignment discovery heuristics.
+See `docs/assignment-profiles.md` for metadata-only assignment profile exports.
 See `docs/appraisal-intelligence-data-model.md` for the future verified intelligence model.
 See `docs/cli.md` for local command-line prototype usage.
 

@@ -59,6 +59,20 @@ $env:PYTHONPATH='src'
 python -m falcon_intel.cli discover --manifest "data\manifests\scan-example.json" --min-confidence 70 --label high-confidence-assignment --limit 10
 ```
 
+Build a metadata-only assignment profile:
+
+```powershell
+$env:PYTHONPATH='src'
+python -m falcon_intel.cli profile --manifest "data\manifests\scan-example.json" --assignment-folder "assignments/100-main"
+```
+
+Save the profile under ignored local storage:
+
+```powershell
+$env:PYTHONPATH='src'
+python -m falcon_intel.cli profile --manifest "data\manifests\scan-example.json" --assignment-folder "assignments/100-main" --save
+```
+
 ## Output
 
 CLI output is JSON so it can be reviewed or consumed by a future local UI. Results include metadata only.
@@ -69,5 +83,6 @@ CLI output is JSON so it can be reviewed or consumed by a future local UI. Resul
 - `search` reads manifest JSON only.
 - `summary` reads manifest JSON only.
 - `discover` reads manifest JSON only.
+- `profile` reads manifest JSON only.
 - Source files are never copied or opened for content.
 - Manifest files remain local ignored prototype artifacts.

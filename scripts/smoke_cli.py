@@ -48,6 +48,25 @@ def main_smoke() -> None:
                     "1",
                 ]
             ) == 0
+            assert main(
+                [
+                    "profile",
+                    "--manifest",
+                    str(manifests[0]),
+                    "--assignment-folder",
+                    "reports",
+                ]
+            ) == 0
+            assert main(
+                [
+                    "profile",
+                    "--manifest",
+                    str(manifests[0]),
+                    "--assignment-folder",
+                    "reports",
+                    "--save",
+                ]
+            ) == 0
         finally:
             os.chdir(original_cwd)
 

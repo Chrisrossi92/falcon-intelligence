@@ -7,6 +7,7 @@ from typing import Any
 
 from falcon_intel.discovery import AssignmentCandidate, discover_assignments
 from falcon_intel.manifest import create_scan_manifest, save_scan_manifest
+from falcon_intel.profile import build_assignment_profile, save_assignment_profile
 from falcon_intel.scanner import scan_metadata
 from falcon_intel.search import (
     ManifestSearchQuery,
@@ -80,6 +81,23 @@ def _build_parser() -> ArgumentParser:
     )
     discover_parser.add_argument("--limit", type=int, help="Maximum candidates to return.")
     discover_parser.set_defaults(handler=_handle_discover)
+
+    profile_parser = subparsers.add_parser(
+        "profile",
+        help="Build one metadata-only assignment profile from a manifest.",
+    )
+    profile_parser.add_argument("--manifest", required=True, help="Manifest JSON path.")
+    profile_parser.add_argument(
+        "--assignment-folder",
+        required=True,
+        help="Discovered assignment folder to profile.",
+    )
+    profile_parser.add_argument(
+        "--save",
+        action="store_true",
+        help="Save profile JSON under ignored data/profiles/.",
+    )
+    profile_parser.set_defaults(handler=_handle_profile)
 
     return parser
 
@@ -179,6 +197,17 @@ def _heuristic_label(candidate: AssignmentCandidate) -> str:
     if candidate.heuristic.startswith("Images only"):
         return "media-folder"
     return "review-candidate"
+
+
+def _handle_profile(args: Namespace) -> dict[str, Any]:
+    profile = build_assignment_profile(
+        load_manifest(args.manifest),
+        args.assignment_folder,
+    )
+    payload = profile.to_dict()
+    if args.save:
+        payload["profile_path"] = str(save_assignment_profile(profile))
+    return payload
 
 
 if __name__ == "__main__":

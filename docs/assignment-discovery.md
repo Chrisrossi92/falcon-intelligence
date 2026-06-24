@@ -46,3 +46,5 @@ The completeness score is a rough metadata signal based on the presence of PDFs,
 ## Limitations
 
 Assignment Discovery can be wrong when folders are named inconsistently, reports are stored outside assignment folders, or file names are misleading. Users should treat candidates as review prompts, not authoritative assignment records.
+
+See `docs/assignment-profiles.md` for metadata-only profiles built from one discovered assignment folder.
