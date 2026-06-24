@@ -132,6 +132,28 @@ Stable action identifiers include:
 - `select_for_report_consideration`
 - `justify_historical_comp_use`
 
+## Historical Comparable Justification
+
+When a stale or historical comparable is considered, Falcon should prompt for a structured justification before reuse. The current repository includes a lightweight local model in `src/falcon_intel/historical_comp.py` for synthetic tests only.
+
+Stable reason codes:
+
+- `limited_market_activity`
+- `unique_property_characteristics`
+- `best_available_comparable`
+- `benchmark_sale`
+- `paired_sale_support`
+- `other`
+
+The local builder accepts a comp identifier, comp date, reason code, optional custom explanation, tenant ID, order ID, and user ID. It returns:
+
+- A structured justification record.
+- Warning code `stale`.
+- A reusable narrative paragraph suitable for appraiser review.
+- A suggested audit event payload using `wrote_justification`.
+
+The reusable narrative is a draft support sentence only. It must not be inserted automatically into a report, and the appraiser remains responsible for confirming relevance, limitations, and final wording.
+
 ## Audit Events
 
 Falcon should create audit events for:

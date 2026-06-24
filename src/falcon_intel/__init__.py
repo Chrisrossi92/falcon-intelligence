@@ -15,6 +15,13 @@ from falcon_intel.falcon_api_contract import (
     FalconCardBoundaryResponse,
     build_falcon_intelligence_card_response,
 )
+from falcon_intel.historical_comp import (
+    HISTORICAL_COMP_REASON_CODES,
+    HistoricalCompJustificationRecord,
+    HistoricalCompJustificationResult,
+    HistoricalCompReasonCode,
+    build_historical_comp_justification,
+)
 from falcon_intel.intelligence_card import (
     FirmIntelligenceCard,
     IntelligenceCardConfidenceProvenanceSummary,
@@ -73,6 +80,10 @@ __all__ = [
     "FakeOrder",
     "FirmIntelligenceCard",
     "FirmIntelligenceMatchResult",
+    "HISTORICAL_COMP_REASON_CODES",
+    "HistoricalCompJustificationRecord",
+    "HistoricalCompJustificationResult",
+    "HistoricalCompReasonCode",
     "IntelligenceCardConfidenceProvenanceSummary",
     "IntelligenceCardMatchGroupSummary",
     "IntelligenceCardOrderSummary",
@@ -94,6 +105,7 @@ __all__ = [
     "build_falcon_intelligence_card_response",
     "build_firm_intelligence_card",
     "build_historical_comp_justification_event",
+    "build_historical_comp_justification",
     "build_match_audit_event",
     "build_match_rejected_event",
     "build_match_selected_event",
