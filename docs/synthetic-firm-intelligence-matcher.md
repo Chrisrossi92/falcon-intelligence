@@ -180,3 +180,5 @@ PYTHONPATH=src python3 -m pytest
 ## Future Falcon Order Matching
 
 In a future Falcon/Supabase implementation, this module can map to the order intelligence loop described in `docs/falcon-order-intelligence-loop.md`. Production matching must remain tenant-scoped, appraiser-reviewed, permission-aware, and backed by verified firm intelligence records with provenance and audit history.
+
+See `docs/falcon-integration-contract.md` for the documentation-only integration contract for Project Falcon.

@@ -215,3 +215,5 @@ The order intelligence loop should assist appraisers by surfacing prior verified
 ## Current Guardrail
 
 This is a design document only. Falcon Intelligence currently supports metadata-only scanning, local manifests, metadata search, assignment discovery, and assignment profile export. It does not read report contents, extract text, preview reports, OCR documents, create embeddings, copy files, or ingest appraisal reports.
+
+See `docs/falcon-integration-contract.md` for the documentation-only contract between Project Falcon and Falcon Intelligence.
