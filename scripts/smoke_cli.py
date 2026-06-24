@@ -34,6 +34,20 @@ def main_smoke() -> None:
             assert main(["search", "--manifest", str(manifests[0]), "--path", "reports"]) == 0
             assert main(["search", "--manifest", str(manifests[0]), "--supported-only"]) == 0
             assert main(["summary", "--manifest", str(manifests[0])]) == 0
+            assert main(["discover", "--manifest", str(manifests[0])]) == 0
+            assert main(
+                [
+                    "discover",
+                    "--manifest",
+                    str(manifests[0]),
+                    "--label",
+                    "archived-report",
+                    "--min-confidence",
+                    "10",
+                    "--limit",
+                    "1",
+                ]
+            ) == 0
         finally:
             os.chdir(original_cwd)
 

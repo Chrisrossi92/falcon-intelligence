@@ -9,6 +9,7 @@ Assignment Discovery operates entirely on metadata that has already been capture
 Each assignment candidate includes:
 
 - Assignment folder.
+- Total file count.
 - Document count.
 - Photo count.
 - PDF count.
@@ -18,6 +19,13 @@ Each assignment candidate includes:
 - Estimated completeness score.
 - Confidence label.
 - Matching heuristic.
+
+The CLI exposes these fields as metadata-only JSON with stable heuristic labels:
+
+- `high-confidence-assignment`
+- `archived-report`
+- `work-in-progress`
+- `media-folder`
 
 ## Folder Grouping
 

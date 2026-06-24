@@ -5,6 +5,7 @@ import json
 from pathlib import Path
 from typing import Any
 
+from falcon_intel.discovery import AssignmentCandidate, discover_assignments
 from falcon_intel.manifest import create_scan_manifest, save_scan_manifest
 from falcon_intel.scanner import scan_metadata
 from falcon_intel.search import (
@@ -56,6 +57,30 @@ def _build_parser() -> ArgumentParser:
     summary_parser.add_argument("--manifest", required=True, help="Manifest JSON path.")
     summary_parser.set_defaults(handler=_handle_summary)
 
+    discover_parser = subparsers.add_parser(
+        "discover",
+        help="Discover probable assignment folders from one manifest.",
+    )
+    discover_parser.add_argument("--manifest", required=True, help="Manifest JSON path.")
+    discover_parser.add_argument(
+        "--min-confidence",
+        type=int,
+        default=0,
+        help="Minimum completeness score from 0 to 100.",
+    )
+    discover_parser.add_argument(
+        "--label",
+        choices=[
+            "high-confidence-assignment",
+            "archived-report",
+            "work-in-progress",
+            "media-folder",
+        ],
+        help="Filter by assignment discovery heuristic label.",
+    )
+    discover_parser.add_argument("--limit", type=int, help="Maximum candidates to return.")
+    discover_parser.set_defaults(handler=_handle_discover)
+
     return parser
 
 
@@ -101,6 +126,59 @@ def _handle_summary(args: Namespace) -> dict[str, Any]:
         "supported_future_indexing_files": summary.supported_future_indexing_files,
         "likely_report_candidates": summary.likely_report_candidates,
     }
+
+
+def _handle_discover(args: Namespace) -> dict[str, Any]:
+    if args.min_confidence < 0 or args.min_confidence > 100:
+        raise ValueError("--min-confidence must be between 0 and 100.")
+    if args.limit is not None and args.limit < 1:
+        raise ValueError("--limit must be at least 1.")
+
+    candidates = [
+        candidate
+        for candidate in discover_assignments(load_manifest(args.manifest))
+        if candidate.estimated_completeness_score >= args.min_confidence
+    ]
+    if args.label is not None:
+        candidates = [
+            candidate
+            for candidate in candidates
+            if _heuristic_label(candidate) == args.label
+        ]
+    if args.limit is not None:
+        candidates = candidates[: args.limit]
+
+    return {
+        "candidate_count": len(candidates),
+        "candidates": [_candidate_payload(candidate) for candidate in candidates],
+    }
+
+
+def _candidate_payload(candidate: AssignmentCandidate) -> dict[str, Any]:
+    return {
+        "assignment_folder": candidate.assignment_folder,
+        "heuristic_label": _heuristic_label(candidate),
+        "completeness_score": candidate.estimated_completeness_score,
+        "confidence": candidate.confidence_label,
+        "total_files": candidate.total_file_count,
+        "pdf_count": candidate.pdf_count,
+        "word_count": candidate.word_count,
+        "excel_count": candidate.excel_count,
+        "photo_count": candidate.photo_count,
+        "map_image_count": candidate.map_image_count,
+    }
+
+
+def _heuristic_label(candidate: AssignmentCandidate) -> str:
+    if candidate.heuristic.startswith("PDF + DOCX + Photos"):
+        return "high-confidence-assignment"
+    if candidate.heuristic.startswith("PDF only"):
+        return "archived-report"
+    if candidate.heuristic.startswith("DOCX + XLSX"):
+        return "work-in-progress"
+    if candidate.heuristic.startswith("Images only"):
+        return "media-folder"
+    return "review-candidate"
 
 
 if __name__ == "__main__":

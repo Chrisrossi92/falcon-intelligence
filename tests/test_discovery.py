@@ -39,6 +39,7 @@ def test_discovers_assignment_folders_from_metadata_only() -> None:
     by_folder = {candidate.assignment_folder: candidate for candidate in candidates}
 
     complete = by_folder["assignments/100-main"]
+    assert complete.total_file_count == 4
     assert complete.pdf_count == 1
     assert complete.word_count == 1
     assert complete.photo_count == 1

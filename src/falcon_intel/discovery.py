@@ -18,6 +18,7 @@ class AssignmentCandidate:
     """Probable assignment folder estimated from file metadata only."""
 
     assignment_folder: str
+    total_file_count: int
     document_count: int
     photo_count: int
     pdf_count: int
@@ -31,6 +32,7 @@ class AssignmentCandidate:
     def to_dict(self) -> dict[str, Any]:
         return {
             "assignment_folder": self.assignment_folder,
+            "total_file_count": self.total_file_count,
             "document_count": self.document_count,
             "photo_count": self.photo_count,
             "pdf_count": self.pdf_count,
@@ -97,6 +99,7 @@ def _build_candidate(folder: str, records: Iterable[ManifestSearchResult]) -> As
     heuristic = _heuristic(pdf_count, word_count, excel_count, image_count)
     return AssignmentCandidate(
         assignment_folder=folder,
+        total_file_count=len(record_list),
         document_count=document_count,
         photo_count=max(image_count - map_image_count, 0),
         pdf_count=pdf_count,

@@ -45,6 +45,20 @@ $env:PYTHONPATH='src'
 python -m falcon_intel.cli summary --manifest "data\manifests\scan-example.json"
 ```
 
+Discover probable assignment folders:
+
+```powershell
+$env:PYTHONPATH='src'
+python -m falcon_intel.cli discover --manifest "data\manifests\scan-example.json"
+```
+
+Filter discovery results by completeness score, heuristic label, and limit:
+
+```powershell
+$env:PYTHONPATH='src'
+python -m falcon_intel.cli discover --manifest "data\manifests\scan-example.json" --min-confidence 70 --label high-confidence-assignment --limit 10
+```
+
 ## Output
 
 CLI output is JSON so it can be reviewed or consumed by a future local UI. Results include metadata only.
@@ -54,5 +68,6 @@ CLI output is JSON so it can be reviewed or consumed by a future local UI. Resul
 - `scan` uses filesystem metadata only.
 - `search` reads manifest JSON only.
 - `summary` reads manifest JSON only.
+- `discover` reads manifest JSON only.
 - Source files are never copied or opened for content.
 - Manifest files remain local ignored prototype artifacts.
