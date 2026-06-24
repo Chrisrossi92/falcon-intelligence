@@ -10,6 +10,7 @@ from falcon_intel.intelligence_matcher import (
     load_synthetic_verified_intelligence,
     match_firm_intelligence,
 )
+from falcon_intel.permission_policy import can_view_intelligence_card
 from falcon_intel.schema_registry import FALCON_CARD_API_RESPONSE_SCHEMA_VERSION
 
 
@@ -42,6 +43,8 @@ class FalconCardBoundaryResponse:
     schema_version: str = FALCON_CARD_API_RESPONSE_SCHEMA_VERSION
     card: dict[str, Any] | None = None
     error: dict[str, Any] | None = None
+    reason_code: str | None = None
+    reason_label: str | None = None
 
     def to_dict(self) -> dict[str, Any]:
         payload: dict[str, Any] = {
@@ -54,6 +57,10 @@ class FalconCardBoundaryResponse:
             payload["card"] = self.card
         if self.error is not None:
             payload["error"] = self.error
+        if self.reason_code is not None:
+            payload["reason_code"] = self.reason_code
+        if self.reason_label is not None:
+            payload["reason_label"] = self.reason_label
         return payload
 
 
@@ -82,6 +89,18 @@ def build_falcon_intelligence_card_response(
                 "missing_fields": missing_fields,
             },
         ).to_dict()
+
+    role = order_payload.get("actor_role")
+    if role is not None:
+        permission = can_view_intelligence_card(str(role))
+        if not permission.allowed:
+            return FalconCardBoundaryResponse(
+                status="permission_denied",
+                order_id=order_id,
+                tenant_id=tenant_id,
+                reason_code=permission.reason_code,
+                reason_label=permission.reason_label,
+            ).to_dict()
 
     intelligence = load_synthetic_verified_intelligence(synthetic_intelligence_path)
     matcher_output = match_firm_intelligence(

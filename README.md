@@ -61,6 +61,7 @@ PYTHONPATH=src python3 scripts/smoke_falcon_evidence_contract.py
 PYTHONPATH=src python3 scripts/smoke_schema_registry.py
 PYTHONPATH=src python3 scripts/smoke_api_envelope_snapshots.py
 PYTHONPATH=src python3 scripts/smoke_permission_policy.py
+PYTHONPATH=src python3 scripts/smoke_falcon_permission_contracts.py
 PYTHONPATH=src python3 scripts/smoke_synthetic_workflow.py
 PYTHONPATH=src python3 -m pytest
 ```

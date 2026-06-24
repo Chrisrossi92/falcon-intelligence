@@ -9,6 +9,7 @@ from falcon_intel.data_passport_lookup import (
     DEFAULT_DATA_PASSPORT_FIXTURE_PATH,
     lookup_data_passport_detail,
 )
+from falcon_intel.permission_policy import can_open_evidence_link
 from falcon_intel.schema_registry import FALCON_EVIDENCE_OPEN_RESPONSE_SCHEMA_VERSION
 
 
@@ -35,6 +36,8 @@ class FalconEvidenceOpenBoundaryResponse:
     evidence_summary: dict[str, Any] | None = None
     suggested_audit_event: dict[str, Any] | None = None
     error: dict[str, Any] | None = None
+    reason_code: str | None = None
+    reason_label: str | None = None
 
     def to_dict(self) -> dict[str, Any]:
         payload: dict[str, Any] = {
@@ -52,6 +55,10 @@ class FalconEvidenceOpenBoundaryResponse:
             payload["suggested_audit_event"] = self.suggested_audit_event
         if self.error is not None:
             payload["error"] = self.error
+        if self.reason_code is not None:
+            payload["reason_code"] = self.reason_code
+        if self.reason_label is not None:
+            payload["reason_label"] = self.reason_label
         return payload
 
 
@@ -123,6 +130,21 @@ def build_falcon_evidence_open_response(
         ).to_dict()
 
     evidence_summary = _evidence_summary(evidence)
+    role = request_payload.get("actor_role")
+    if role is not None:
+        permission = can_open_evidence_link(str(role), evidence_summary["access_level"])
+        if not permission.allowed:
+            return FalconEvidenceOpenBoundaryResponse(
+                status="permission_denied",
+                tenant_id=tenant_id,
+                order_id=order_id,
+                user_id=user_id,
+                passport_id=passport_id,
+                evidence_id=evidence_id,
+                reason_code=permission.reason_code,
+                reason_label=permission.reason_label,
+            ).to_dict()
+
     audit_event = build_evidence_opened_event(
         tenant_id=str(tenant_id),
         order_id=str(order_id),

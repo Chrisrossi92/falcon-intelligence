@@ -9,6 +9,7 @@ from falcon_intel.data_passport_lookup import (
     DEFAULT_DATA_PASSPORT_FIXTURE_PATH,
     lookup_data_passport_detail,
 )
+from falcon_intel.permission_policy import can_view_passport_detail
 from falcon_intel.schema_registry import FALCON_PASSPORT_DETAIL_API_RESPONSE_SCHEMA_VERSION
 
 
@@ -33,6 +34,8 @@ class FalconPassportDetailBoundaryResponse:
     passport: dict[str, Any] | None = None
     suggested_audit_event: dict[str, Any] | None = None
     error: dict[str, Any] | None = None
+    reason_code: str | None = None
+    reason_label: str | None = None
 
     def to_dict(self) -> dict[str, Any]:
         payload: dict[str, Any] = {
@@ -49,6 +52,10 @@ class FalconPassportDetailBoundaryResponse:
             payload["suggested_audit_event"] = self.suggested_audit_event
         if self.error is not None:
             payload["error"] = self.error
+        if self.reason_code is not None:
+            payload["reason_code"] = self.reason_code
+        if self.reason_label is not None:
+            payload["reason_label"] = self.reason_label
         return payload
 
 
@@ -81,6 +88,20 @@ def build_falcon_passport_detail_response(
                 "missing_fields": missing_fields,
             },
         ).to_dict()
+
+    role = request_payload.get("actor_role")
+    if role is not None:
+        permission = can_view_passport_detail(str(role))
+        if not permission.allowed:
+            return FalconPassportDetailBoundaryResponse(
+                status="permission_denied",
+                tenant_id=tenant_id,
+                order_id=order_id,
+                user_id=user_id,
+                passport_id=passport_id,
+                reason_code=permission.reason_code,
+                reason_label=permission.reason_label,
+            ).to_dict()
 
     lookup_response = lookup_data_passport_detail(
         tenant_id=str(tenant_id),

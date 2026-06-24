@@ -96,6 +96,7 @@ PYTHONPATH=src python3 scripts/smoke_falcon_evidence_contract.py
 PYTHONPATH=src python3 scripts/smoke_schema_registry.py
 PYTHONPATH=src python3 scripts/smoke_api_envelope_snapshots.py
 PYTHONPATH=src python3 scripts/smoke_permission_policy.py
+PYTHONPATH=src python3 scripts/smoke_falcon_permission_contracts.py
 PYTHONPATH=src python3 scripts/smoke_synthetic_workflow.py
 PYTHONPATH=src python3 -m pytest
 ```
@@ -111,7 +112,7 @@ The following remain synthetic/local only:
 - Data passport details.
 - Evidence links.
 - Audit events.
-- Falcon card, passport, and evidence-open contract boundaries.
+- Falcon card, passport, and evidence-open contract boundaries, including optional synthetic permission checks.
 - Historical comparable justification narratives.
 - UI card and passport detail drawer snapshots.
 - Falcon API envelope snapshots.
@@ -136,17 +137,18 @@ Visibility must remain internal-only. Client-facing views must not show Firm Int
 
 ## Recommended Next 5 Slices
 
-1. Permission policy contract tests for Falcon request wrappers: thread role/access decisions through the local Falcon card, passport, and evidence-open boundaries without production auth.
-2. Audit event envelope snapshot: create a stable synthetic UI/API fixture for the audit payloads produced by the end-to-end workflow.
-3. Production gate review packet template: add a documentation template for approvals, test plans, retention decisions, and rollback plans before any real content pilot.
-4. First Falcon UI slice spec: turn `docs/falcon-ui-integration-notes.md` into a scoped implementation checklist for an internal-only Order Detail card preview.
-5. Schema changelog template: add a documentation pattern for deliberate v2 schema proposals and fixture snapshot review.
+1. Audit event envelope snapshot: create a stable synthetic UI/API fixture for the audit payloads produced by the end-to-end workflow.
+2. Production gate review packet template: add a documentation template for approvals, test plans, retention decisions, and rollback plans before any real content pilot.
+3. First Falcon UI slice spec: turn `docs/falcon-ui-integration-notes.md` into a scoped implementation checklist for an internal-only Order Detail card preview.
+4. Schema changelog template: add a documentation pattern for deliberate v2 schema proposals and fixture snapshot review.
+5. Permission role matrix review: decide whether owner/admin should continue to inherit `appraiser_reviewer_only` evidence access in production.
 
 ## Current Known Risks
 
 - Current matching is deterministic synthetic scoring, not production relevance logic.
 - No production tenant isolation, auth, or permission enforcement exists.
 - Permission policy is a local scaffold only and is not production auth.
+- Permission-aware contract behavior is optional and synthetic; production Falcon must enforce real auth and order access separately.
 - Suggested audit events are not persisted.
 - Evidence links are placeholders and do not open source documents.
 - Data passport fixtures cover only selected synthetic records.

@@ -99,8 +99,30 @@ Current local permission scaffold:
 - Module: `src/falcon_intel/permission_policy.py`
 - Test: `tests/test_permission_policy.py`
 - Smoke script: `scripts/smoke_permission_policy.py`
+- Boundary test: `tests/test_falcon_permission_contracts.py`
+- Boundary smoke script: `scripts/smoke_falcon_permission_contracts.py`
 
 The scaffold defines role codes for `owner`, `admin`, `appraiser`, `reviewer`, `trainee`, and `client`. It returns decision objects with `allowed`, `reason_code`, and `reason_label` for card visibility, passport detail visibility, evidence link opening, fact verification, fact review, fact override, and fact archive actions.
+
+Local Falcon-style wrappers accept optional `actor_role` fields for synthetic permission testing. When a role is supplied and denied, the response uses this stable shape:
+
+```json
+{
+  "status": "permission_denied",
+  "schema_version": "1",
+  "reason_code": "denied_client_role",
+  "reason_label": "Client role cannot access internal Falcon Intelligence."
+}
+```
+
+The local scaffold currently allows:
+
+- `owner`, `admin`, `appraiser`, and `reviewer` to view cards and passport detail.
+- `trainee` to view the card only, not passport detail or evidence links.
+- `client` to view no internal intelligence.
+- `owner` and `admin` to open `owner_admin_only` evidence.
+- `owner`, `admin`, `appraiser`, and `reviewer` to open `appraiser_reviewer_only` evidence as elevated internal review roles.
+- No role to open `disabled` evidence.
 
 This scaffold is not production auth. Falcon production integration must enforce tenant membership, order access, user roles, source-document permissions, and durable audit logging outside this local policy helper.
 
@@ -265,6 +287,7 @@ Evidence-open statuses:
 | `not_found` | Passport is unknown or outside tenant scope. | Do not show evidence detail. |
 | `evidence_not_found` | Evidence ID is not attached to the passport. | Keep drawer open and show a quiet unavailable state. |
 | `missing_required_input` | Required request fields are missing. | Do not attempt evidence open; log local integration issue during development. |
+| `permission_denied` | Actor role cannot open the requested evidence access level. | Do not show evidence detail; preserve the denied reason for internal UI state and audit handoff. |
 
 End-to-end synthetic workflow:
 

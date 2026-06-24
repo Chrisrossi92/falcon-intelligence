@@ -105,7 +105,7 @@ Decisions return:
 - `reason_code`
 - `reason_label`
 
-Client users are always denied access to internal Falcon Intelligence. Evidence decisions respect `internal_only`, `appraiser_reviewer_only`, `owner_admin_only`, and `disabled` access levels. Production Falcon must replace or wrap this scaffold with real tenant membership, role assignment, order access, and audit persistence.
+Client users are always denied access to internal Falcon Intelligence. Evidence decisions respect `internal_only`, `appraiser_reviewer_only`, `owner_admin_only`, and `disabled` access levels. The current local scaffold treats owner/admin as elevated internal review roles for `appraiser_reviewer_only` evidence; production Falcon should confirm that inheritance before release. Production Falcon must replace or wrap this scaffold with real tenant membership, role assignment, order access, and audit persistence.
 
 ## Data Passport Concept
 

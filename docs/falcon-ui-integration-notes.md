@@ -81,6 +81,8 @@ If role or tenant policy denies access:
 
 Current local permission scaffolding is in `src/falcon_intel/permission_policy.py`; it is not production auth.
 
+Local Falcon-style contract wrappers accept an optional `actor_role` for synthetic permission tests and return `permission_denied` with `reason_code` and `reason_label` when blocked. Current scaffold behavior allows trainees to view the card but blocks passport detail and evidence access. It allows owner/admin/appraiser/reviewer to open `appraiser_reviewer_only` evidence as elevated internal review roles; production Falcon should confirm whether that inheritance remains correct.
+
 ## Passport Detail Drawer States
 
 The passport detail drawer opens from a top match `passport_id`. Current synthetic UI contract:
