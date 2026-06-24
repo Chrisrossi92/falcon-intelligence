@@ -88,6 +88,14 @@ Top match cards include compact data passport summary fields when the synthetic 
 
 The card intentionally does not embed full passport detail or evidence link arrays. Detailed passport data belongs in a future evidence/passport detail drawer so the card remains scannable and does not expose source metadata more broadly than needed.
 
+For local detail-drawer development, use the synthetic passport fixture:
+
+```text
+tests/fixtures/synthetic_data_passports/data-passports.json
+```
+
+The helper `lookup_data_passport_detail(tenant_id=..., passport_id=...)` resolves a top-match `passport_id` to full synthetic passport detail. It returns safe `found`, `not_found`, or `error` responses and does not open files, read report contents, query OneDrive, or run extraction.
+
 ## UI Card Schema
 
 The stable UI-facing schema is produced by `build_firm_intelligence_card`.

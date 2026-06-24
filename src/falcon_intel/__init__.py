@@ -18,6 +18,11 @@ from falcon_intel.data_passport import (
     build_confidence_dimensions,
     build_data_passport,
 )
+from falcon_intel.data_passport_lookup import (
+    DataPassportLookupResponse,
+    load_synthetic_data_passports,
+    lookup_data_passport_detail,
+)
 from falcon_intel.discovery import AssignmentCandidate, discover_assignments
 from falcon_intel.evidence_link import (
     EVIDENCE_ACCESS_LEVEL_CODES,
@@ -98,6 +103,7 @@ __all__ = [
     "ConfidenceDimensions",
     "EVIDENCE_ACCESS_LEVEL_CODES",
     "DataPassport",
+    "DataPassportLookupResponse",
     "EvidenceAccessLevel",
     "EvidenceLink",
     "EvidenceLinkStatus",
@@ -152,6 +158,8 @@ __all__ = [
     "list_saved_manifests",
     "load_manifest",
     "load_synthetic_verified_intelligence",
+    "load_synthetic_data_passports",
+    "lookup_data_passport_detail",
     "match_firm_intelligence",
     "save_assignment_profile",
     "save_scan_manifest",

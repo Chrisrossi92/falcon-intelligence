@@ -154,6 +154,20 @@ The Firm Intelligence Found card should remain a concise routing surface. Top ma
 
 Full passport objects, confidence dimensions, evidence link arrays, audit IDs, and future page/section anchors belong in a dedicated passport or evidence detail drawer. This keeps the card readable and prevents broad exposure of source metadata before a user explicitly opens the supporting provenance view.
 
+The current synthetic detail lookup uses committed fixture records at:
+
+```text
+tests/fixtures/synthetic_data_passports/data-passports.json
+```
+
+`lookup_data_passport_detail` accepts `tenant_id` and `passport_id`, then returns a safe local response:
+
+- `found`: includes the full synthetic passport detail.
+- `not_found`: no passport body is returned.
+- `error`: validation or fixture failure, with a short error message.
+
+The lookup is local and in-memory only. It is not a web API, database query, source-document opener, report parser, extraction pipeline, or permission engine.
+
 ## Historical Comparable Workflow
 
 Historical comparables can be useful, but they require explicit context before reuse.

@@ -1,0 +1,132 @@
+{
+  "fixture_kind": "synthetic_data_passports",
+  "fixture_version": "1",
+  "description": "Synthetic full data passport details for local lookup tests only.",
+  "passports": [
+    {
+      "passport_id": "synthetic-passport-assignment-industrial-alpha",
+      "fact_id": "synthetic-fact-assignment-industrial-alpha-building-size",
+      "tenant_id": "tenant-synthetic-001",
+      "assignment_id": "synthetic-assignment-industrial-alpha",
+      "fact_type": "assignment_summary",
+      "display_label": "Synthetic industrial assignment summary",
+      "display_value": "Industrial assignment metadata for 50,000 sf synthetic property",
+      "verification_status": "verified",
+      "verified_by": "synthetic-appraiser-001",
+      "verified_at": "2026-06-24T12:00:00+00:00",
+      "reviewed_by": "synthetic-reviewer-001",
+      "reviewed_at": "2026-06-24T13:00:00+00:00",
+      "confidence_dimensions": {
+        "extraction_confidence": "not_applicable_synthetic",
+        "source_quality": "verified_synthetic_source_metadata",
+        "source_agreement": "single_verified_synthetic_record",
+        "freshness": "current_for_synthetic_fixture",
+        "reviewer_approval": "reviewed",
+        "historical_consistency": "consistent_with_synthetic_history"
+      },
+      "evidence_links": [
+        {
+          "evidence_id": "synthetic-evidence-assignment-industrial-alpha",
+          "tenant_id": "tenant-synthetic-001",
+          "assignment_id": "synthetic-assignment-industrial-alpha",
+          "source_document_id": "synthetic-source-report-industrial-alpha",
+          "source_document_type": "source_report",
+          "display_label": "Synthetic industrial assignment source metadata",
+          "access_level": "internal_only",
+          "future_page_number": null,
+          "future_section_anchor": null,
+          "future_highlight_text": null,
+          "status": "placeholder"
+        }
+      ],
+      "audit_event_ids": [
+        "synthetic-audit-assignment-industrial-alpha-viewed",
+        "synthetic-audit-assignment-industrial-alpha-verified"
+      ],
+      "searchable_status": "searchable"
+    },
+    {
+      "passport_id": "synthetic-passport-sale-industrial-1",
+      "fact_id": "synthetic-fact-sale-industrial-1",
+      "tenant_id": "tenant-synthetic-001",
+      "assignment_id": "synthetic-assignment-industrial-alpha",
+      "fact_type": "sale_comparable",
+      "display_label": "Synthetic industrial sale comparable",
+      "display_value": "Industrial sale comparable metadata for 54,000 sf synthetic property",
+      "verification_status": "verified",
+      "verified_by": "synthetic-appraiser-002",
+      "verified_at": "2026-06-24T12:10:00+00:00",
+      "reviewed_by": "synthetic-reviewer-001",
+      "reviewed_at": "2026-06-24T13:10:00+00:00",
+      "confidence_dimensions": {
+        "extraction_confidence": "not_applicable_synthetic",
+        "source_quality": "verified_synthetic_comparable_metadata",
+        "source_agreement": "single_verified_synthetic_record",
+        "freshness": "current_for_synthetic_fixture",
+        "reviewer_approval": "reviewed",
+        "historical_consistency": "consistent_with_synthetic_comp_history"
+      },
+      "evidence_links": [
+        {
+          "evidence_id": "synthetic-evidence-sale-industrial-1",
+          "tenant_id": "tenant-synthetic-001",
+          "assignment_id": "synthetic-assignment-industrial-alpha",
+          "source_document_id": "synthetic-source-comp-sale-industrial-1",
+          "source_document_type": "comparable_support",
+          "display_label": "Synthetic industrial sale comp support metadata",
+          "access_level": "appraiser_reviewer_only",
+          "future_page_number": null,
+          "future_section_anchor": null,
+          "future_highlight_text": null,
+          "status": "placeholder"
+        }
+      ],
+      "audit_event_ids": [
+        "synthetic-audit-sale-industrial-1-viewed",
+        "synthetic-audit-sale-industrial-1-selected"
+      ],
+      "searchable_status": "searchable"
+    },
+    {
+      "passport_id": "synthetic-passport-market-industrial-sampleton-vacancy",
+      "fact_id": "synthetic-fact-market-industrial-sampleton-vacancy",
+      "tenant_id": "tenant-synthetic-001",
+      "assignment_id": "synthetic-assignment-industrial-alpha",
+      "fact_type": "market_indicator",
+      "display_label": "Synthetic industrial vacancy indicator",
+      "display_value": "Synthetic vacancy rate indicator for Sampleton industrial market",
+      "verification_status": "verified",
+      "verified_by": "synthetic-analyst-001",
+      "verified_at": "2026-06-24T12:20:00+00:00",
+      "reviewed_by": "synthetic-reviewer-002",
+      "reviewed_at": "2026-06-24T13:20:00+00:00",
+      "confidence_dimensions": {
+        "extraction_confidence": "not_applicable_synthetic",
+        "source_quality": "verified_synthetic_market_metadata",
+        "source_agreement": "single_verified_synthetic_record",
+        "freshness": "current_for_synthetic_fixture",
+        "reviewer_approval": "reviewed",
+        "historical_consistency": "consistent_with_synthetic_market_history"
+      },
+      "evidence_links": [
+        {
+          "evidence_id": "synthetic-evidence-market-industrial-sampleton-vacancy",
+          "tenant_id": "tenant-synthetic-001",
+          "assignment_id": "synthetic-assignment-industrial-alpha",
+          "source_document_id": "synthetic-source-market-industrial-sampleton-vacancy",
+          "source_document_type": "market_support",
+          "display_label": "Synthetic industrial market support metadata",
+          "access_level": "internal_only",
+          "future_page_number": null,
+          "future_section_anchor": null,
+          "future_highlight_text": null,
+          "status": "placeholder"
+        }
+      ],
+      "audit_event_ids": [
+        "synthetic-audit-market-industrial-vacancy-viewed"
+      ],
+      "searchable_status": "searchable"
+    }
+  ]
+}

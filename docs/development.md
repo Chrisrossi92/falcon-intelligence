@@ -44,6 +44,7 @@ $env:PYTHONPATH='src'; python scripts/smoke_match_audit.py
 $env:PYTHONPATH='src'; python scripts/smoke_historical_comp.py
 $env:PYTHONPATH='src'; python scripts/smoke_evidence_links.py
 $env:PYTHONPATH='src'; python scripts/smoke_data_passport.py
+$env:PYTHONPATH='src'; python scripts/smoke_data_passport_lookup.py
 $env:PYTHONPATH='src'; python scripts/smoke_cli.py
 ```
 
@@ -63,6 +64,7 @@ PYTHONPATH=src python3 scripts/smoke_match_audit.py
 PYTHONPATH=src python3 scripts/smoke_historical_comp.py
 PYTHONPATH=src python3 scripts/smoke_evidence_links.py
 PYTHONPATH=src python3 scripts/smoke_data_passport.py
+PYTHONPATH=src python3 scripts/smoke_data_passport_lookup.py
 PYTHONPATH=src python3 -m pytest
 ```
 
@@ -80,6 +82,7 @@ $env:PYTHONPATH='src'; python scripts/smoke_match_audit.py
 $env:PYTHONPATH='src'; python scripts/smoke_historical_comp.py
 $env:PYTHONPATH='src'; python scripts/smoke_evidence_links.py
 $env:PYTHONPATH='src'; python scripts/smoke_data_passport.py
+$env:PYTHONPATH='src'; python scripts/smoke_data_passport_lookup.py
 $env:PYTHONPATH='src'; python -m pytest
 ```
 
@@ -91,7 +94,7 @@ GitHub Actions runs the core validation workflow on every push and pull request 
 - Synthetic fixture smoke validation.
 - Synthetic intelligence matcher smoke validation.
 - UI card schema, CLI, and snapshot smoke validation.
-- Synthetic audit, historical comparable justification, evidence link, and data passport smoke validation.
+- Synthetic audit, historical comparable justification, evidence link, data passport, and passport lookup smoke validation.
 - The full pytest suite.
 
 The CI workflow must remain synthetic-only. It must not access OneDrive, real appraisal data, report contents, OCR, embeddings, or extraction pipelines.
@@ -121,3 +124,5 @@ The smoke check scans the synthetic tree, searches the committed manifest, runs 
 For future Falcon order matching work, use the synthetic verified intelligence fixture at `tests/fixtures/synthetic_verified_intelligence/verified-intelligence.json` and the smoke check in `scripts/smoke_synthetic_intelligence_matcher.py`. See `docs/synthetic-firm-intelligence-matcher.md`.
 
 The versioned UI card snapshot at `tests/fixtures/synthetic_ui_cards/firm-intelligence-card-v1.json` exists to detect accidental schema drift. Update it only when a schema change is intentional and reviewed.
+
+Synthetic full data passport detail records live at `tests/fixtures/synthetic_data_passports/data-passports.json`. Use `scripts/smoke_data_passport_lookup.py` to validate that a Firm Intelligence card `passport_id` can resolve to a full local detail payload without source-file access.
