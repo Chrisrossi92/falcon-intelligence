@@ -291,10 +291,12 @@ See `docs/metadata-scanning.md` for the current metadata-only scanner boundary.
 - Add tenant and user context to every metadata record.
 - Add audit events for folder selection, scan start, scan finish, and skipped files.
 - Add filters for assignment year, file type, folder, and scan status.
+- Search local manifests by metadata fields only.
 
 No report contents are read in this phase.
 
 See `docs/scan-manifests.md` for local manifest privacy rules.
+See `docs/manifest-search.md` for metadata-only search limits.
 
 ### Phase 3: Review and QA Workflow Shell
 

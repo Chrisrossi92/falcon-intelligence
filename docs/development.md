@@ -21,6 +21,7 @@ Current dependency-free smoke validation:
 ```powershell
 $env:PYTHONPATH='src'; python scripts/smoke_metadata_scan.py
 $env:PYTHONPATH='src'; python scripts/smoke_manifest.py
+$env:PYTHONPATH='src'; python scripts/smoke_manifest_search.py
 ```
 
 ## Fixture Policy

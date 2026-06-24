@@ -33,3 +33,5 @@ Manifests may only be saved under `data/manifests/`. This keeps local prototype 
 ## Content Guardrail
 
 Manifest creation uses scanner metadata only. It does not read file contents, extract text, copy files, OCR documents, summarize reports, create embeddings, or ingest report content.
+
+Manifest files can be searched by metadata only. See `docs/manifest-search.md` for search filters and limitations.
