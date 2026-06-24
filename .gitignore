@@ -1,0 +1,93 @@
+# Falcon Intelligence local safety rules
+#
+# This repository must not store appraisal reports, client files, extracted
+# document text, source exports, or local OneDrive data.
+
+# Local configuration and secrets
+.env
+.env.*
+!.env.example
+*.local
+secrets/
+*.pem
+*.key
+
+# Python build and runtime artifacts
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+dist/
+build/
+*.egg-info/
+.venv/
+venv/
+env/
+
+# Node and frontend artifacts, if added later
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Local appraisal/report/source data
+data/
+local_data/
+local-data/
+reports/
+source_documents/
+source-documents/
+source_docs/
+source-docs/
+documents/
+extracted/
+extracted_text/
+extracted-text/
+ingest/
+incoming/
+uploads/
+exports/
+private/
+client_files/
+client-files/
+one_drive/
+onedrive/
+OneDrive/
+
+# Report and office document formats
+*.pdf
+*.doc
+*.docx
+*.xls
+*.xlsx
+*.xlsm
+*.csv
+*.tsv
+*.rtf
+*.txt
+*.md.txt
+
+# OCR, parsed, and vector-store outputs
+*.ocr
+*.jsonl
+*.ndjson
+*.parquet
+*.sqlite
+*.sqlite3
+*.db
+*.faiss
+*.index
+chroma/
+qdrant/
+vector_store/
+vector-store/
+
+# OS/editor noise
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/

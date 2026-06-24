@@ -1,0 +1,31 @@
+# Falcon Intelligence
+
+Falcon Intelligence is a local-first prototype framework for an appraisal firm knowledge base.
+
+This repository currently contains only the code and documentation scaffold. It must not contain real appraisal reports, client source documents, OneDrive files, extracted text, generated embeddings, or local data exports.
+
+## Current Scope
+
+- Define the safety boundary for future local document processing.
+- Provide a framework for a future premium module.
+- Keep ingestion adapters disabled until explicit review and approval.
+- Preserve local-first assumptions without committing private data.
+
+## Safety Rules
+
+- Do not copy appraisal reports or OneDrive files into this repository.
+- Do not commit PDFs, Word files, spreadsheets, CSVs, extracted text, OCR output, vector stores, databases, or source exports.
+- Keep all future local data outside the repository or under ignored paths.
+- Use fixtures only when they are synthetic and clearly marked as synthetic.
+
+## Repository Layout
+
+```text
+docs/                  Project documentation and safety notes
+src/falcon_intel/       Framework package
+tests/                 Placeholder test package
+```
+
+## Development Status
+
+This is an initial scaffold. No ingestion, parsing, OCR, embedding, or retrieval code is active yet.
