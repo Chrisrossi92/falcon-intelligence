@@ -18,3 +18,5 @@ The premium module is reserved for future paid or advanced capabilities. It is s
 ## Current Status
 
 No premium features are implemented. The package contains placeholders so future work has a defined location.
+
+See `docs/architecture.md` for the planned Falcon Intelligence product architecture.
