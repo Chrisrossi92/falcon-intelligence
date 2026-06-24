@@ -51,3 +51,7 @@ PYTHONPATH=src python3 scripts/smoke_intelligence_card_snapshot.py
 PYTHONPATH=src python3 scripts/smoke_intelligence_card_cli.py
 PYTHONPATH=src python3 -m pytest
 ```
+
+## CI
+
+GitHub Actions runs the same synthetic-only validation on every push and pull request with Python 3.12. CI installs `.[dev]`, compiles `src`, `scripts`, and `tests`, runs the synthetic smoke checks, and runs pytest. It does not use OneDrive or real report data.

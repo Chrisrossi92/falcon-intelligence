@@ -68,6 +68,18 @@ $env:PYTHONPATH='src'; python scripts/smoke_intelligence_card_cli.py
 $env:PYTHONPATH='src'; python -m pytest
 ```
 
+## Continuous Integration
+
+GitHub Actions runs the core validation workflow on every push and pull request using Python 3.12. The workflow installs the package with development dependencies and runs:
+
+- Python compilation for `src`, `scripts`, and `tests`.
+- Synthetic fixture smoke validation.
+- Synthetic intelligence matcher smoke validation.
+- UI card schema, CLI, and snapshot smoke validation.
+- The full pytest suite.
+
+The CI workflow must remain synthetic-only. It must not access OneDrive, real appraisal data, report contents, OCR, embeddings, or extraction pipelines.
+
 ## Fixture Policy
 
 Tests may use synthetic fixtures only. Do not create fixtures from real reports, client records, OneDrive exports, or extracted report text.
