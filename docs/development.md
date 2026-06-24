@@ -39,6 +39,7 @@ $env:PYTHONPATH='src'; python scripts/smoke_synthetic_intelligence_matcher.py
 $env:PYTHONPATH='src'; python scripts/smoke_intelligence_card_schema.py
 $env:PYTHONPATH='src'; python scripts/smoke_intelligence_card_snapshot.py
 $env:PYTHONPATH='src'; python scripts/smoke_intelligence_card_cli.py
+$env:PYTHONPATH='src'; python scripts/smoke_falcon_api_contract.py
 $env:PYTHONPATH='src'; python scripts/smoke_cli.py
 ```
 
@@ -53,6 +54,7 @@ PYTHONPATH=src python3 scripts/smoke_synthetic_intelligence_matcher.py
 PYTHONPATH=src python3 scripts/smoke_intelligence_card_schema.py
 PYTHONPATH=src python3 scripts/smoke_intelligence_card_snapshot.py
 PYTHONPATH=src python3 scripts/smoke_intelligence_card_cli.py
+PYTHONPATH=src python3 scripts/smoke_falcon_api_contract.py
 PYTHONPATH=src python3 -m pytest
 ```
 
@@ -65,6 +67,7 @@ $env:PYTHONPATH='src'; python scripts/smoke_synthetic_intelligence_matcher.py
 $env:PYTHONPATH='src'; python scripts/smoke_intelligence_card_schema.py
 $env:PYTHONPATH='src'; python scripts/smoke_intelligence_card_snapshot.py
 $env:PYTHONPATH='src'; python scripts/smoke_intelligence_card_cli.py
+$env:PYTHONPATH='src'; python scripts/smoke_falcon_api_contract.py
 $env:PYTHONPATH='src'; python -m pytest
 ```
 

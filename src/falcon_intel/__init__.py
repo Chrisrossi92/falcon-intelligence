@@ -2,6 +2,10 @@
 
 from falcon_intel.core import AppProfile
 from falcon_intel.discovery import AssignmentCandidate, discover_assignments
+from falcon_intel.falcon_api_contract import (
+    FalconCardBoundaryResponse,
+    build_falcon_intelligence_card_response,
+)
 from falcon_intel.intelligence_card import (
     FirmIntelligenceCard,
     IntelligenceCardConfidenceProvenanceSummary,
@@ -48,6 +52,7 @@ __all__ = [
     "AppProfile",
     "AssignmentCandidate",
     "AssignmentProfile",
+    "FalconCardBoundaryResponse",
     "FileMetadata",
     "FakeOrder",
     "FirmIntelligenceCard",
@@ -65,6 +70,7 @@ __all__ = [
     "ManifestSearchResult",
     "ManifestSummary",
     "build_assignment_profile",
+    "build_falcon_intelligence_card_response",
     "build_firm_intelligence_card",
     "create_scan_manifest",
     "discover_assignments",

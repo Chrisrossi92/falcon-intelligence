@@ -12,6 +12,8 @@ tests/fixtures/synthetic_ui_cards/firm-intelligence-card-v1.json
 
 Falcon production integration must not treat the synthetic matcher as a production data service until a separate approved API, tenant isolation, permission model, audit logging, and verified-intelligence backend exist.
 
+The repository includes a local in-memory contract helper, `build_falcon_intelligence_card_response`, for tests only. It is not a web server, Supabase RPC, database service, or production API.
+
 ## Falcon Placement
 
 Falcon may surface the card in three internal-only locations:
@@ -92,6 +94,15 @@ Rules:
 ## Future API/RPC Boundary
 
 The production boundary can be implemented as an internal API or Supabase RPC. The boundary should be narrow and auditable.
+
+Current local contract test boundary:
+
+- Module: `src/falcon_intel/falcon_api_contract.py`
+- Function: `build_falcon_intelligence_card_response`
+- Test: `tests/test_falcon_api_contract.py`
+- Smoke script: `scripts/smoke_falcon_api_contract.py`
+
+This boundary runs in memory and uses only committed synthetic verified intelligence fixtures. It does not start a web server, open network ports, query a database, access OneDrive, or read report contents.
 
 Request shape:
 

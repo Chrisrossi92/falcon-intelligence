@@ -39,5 +39,8 @@ jobs:
       - name: Smoke UI card snapshot
         run: PYTHONPATH=src python scripts/smoke_intelligence_card_snapshot.py
 
+      - name: Smoke Falcon API contract
+        run: PYTHONPATH=src python scripts/smoke_falcon_api_contract.py
+
       - name: Run pytest
         run: PYTHONPATH=src python -m pytest
