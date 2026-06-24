@@ -20,4 +20,6 @@ The initial repository is intentionally limited to framework code and documentat
 
 See `docs/session-handoff-roadmap.md` for the current implementation checkpoint, validation commands, known risks, and recommended next slices.
 
-See `docs/real-data-production-readiness-gate.md` before considering any real report content, extraction, OCR, embeddings, or source-document preview.
+See `FALCON_INTELLIGENCE_PRODUCT_ROADMAP.md` for the canonical long-range product roadmap.
+
+See `docs/real-data-production-readiness-gate.md` and complete `docs/production-gate-review-packet-template.md` before considering any real report content, extraction, OCR, embeddings, or source-document preview.

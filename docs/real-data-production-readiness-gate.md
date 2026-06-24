@@ -4,6 +4,8 @@ This checklist must be satisfied before Falcon Intelligence may process real app
 
 Until this gate passes, only metadata-only real-data scans are allowed. Content extraction is blocked.
 
+Before any real-content pilot begins, complete the approval packet template at `docs/production-gate-review-packet-template.md`.
+
 ## Current Rule
 
 Metadata-only real-data scans are allowed when they follow the existing scanner boundary:

@@ -48,6 +48,12 @@ jobs:
       - name: Smoke audit event snapshots
         run: PYTHONPATH=src python scripts/smoke_audit_event_snapshots.py
 
+      - name: Smoke map workspace
+        run: PYTHONPATH=src python scripts/smoke_map_workspace.py
+
+      - name: Smoke map workspace snapshot
+        run: PYTHONPATH=src python scripts/smoke_map_workspace_snapshot.py
+
       - name: Smoke historical comp justification
         run: PYTHONPATH=src python scripts/smoke_historical_comp.py
 

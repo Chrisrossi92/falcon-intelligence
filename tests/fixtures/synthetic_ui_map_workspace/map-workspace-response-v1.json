@@ -1,0 +1,223 @@
+{
+  "available_filters": {
+    "city": [
+      "Demo City",
+      "Sampleton"
+    ],
+    "property_type": [
+      "industrial",
+      "office"
+    ],
+    "record_type": [
+      "active_order",
+      "completed_assignment",
+      "current_subject",
+      "historical_comp",
+      "lease_comp",
+      "sale_comp"
+    ],
+    "stale_flag": [
+      false,
+      true
+    ],
+    "state": [
+      "ST"
+    ],
+    "status": [
+      "active",
+      "completed",
+      "current",
+      "historical",
+      "verified_comp"
+    ],
+    "verification_status": [
+      "unverified",
+      "verified"
+    ]
+  },
+  "map_pins": [
+    {
+      "display_label": "Current subject",
+      "id": "synthetic-map-current-subject-001",
+      "is_selected": false,
+      "latitude": 39.1001,
+      "longitude": -84.5001,
+      "property_type": "industrial",
+      "record_type": "current_subject",
+      "stale_flag": false,
+      "status": "current",
+      "verification_status": "verified"
+    },
+    {
+      "display_label": "Active industrial order",
+      "id": "synthetic-map-active-order-001",
+      "is_selected": false,
+      "latitude": 39.1025,
+      "longitude": -84.5025,
+      "property_type": "industrial",
+      "record_type": "active_order",
+      "stale_flag": false,
+      "status": "active",
+      "verification_status": "unverified"
+    },
+    {
+      "display_label": "Completed logistics assignment",
+      "id": "synthetic-map-completed-assignment-001",
+      "is_selected": false,
+      "latitude": 39.115,
+      "longitude": -84.515,
+      "property_type": "industrial",
+      "record_type": "completed_assignment",
+      "stale_flag": false,
+      "status": "completed",
+      "verification_status": "verified"
+    },
+    {
+      "display_label": "Verified industrial sale comp",
+      "id": "synthetic-map-sale-comp-001",
+      "is_selected": true,
+      "latitude": 39.13,
+      "longitude": -84.53,
+      "property_type": "industrial",
+      "record_type": "sale_comp",
+      "stale_flag": false,
+      "status": "verified_comp",
+      "verification_status": "verified"
+    },
+    {
+      "display_label": "Verified industrial lease comp",
+      "id": "synthetic-map-lease-comp-001",
+      "is_selected": false,
+      "latitude": 39.14,
+      "longitude": -84.54,
+      "property_type": "industrial",
+      "record_type": "lease_comp",
+      "stale_flag": false,
+      "status": "verified_comp",
+      "verification_status": "verified"
+    }
+  ],
+  "result_counts": {
+    "by_record_type": {
+      "active_order": 1,
+      "completed_assignment": 1,
+      "current_subject": 1,
+      "lease_comp": 1,
+      "sale_comp": 1
+    },
+    "filtered_records": 5,
+    "map_pins": 5,
+    "stale_records": 0,
+    "total_records": 6
+  },
+  "schema_version": "1",
+  "selected_record": {
+    "address": "1300 Example Distribution Drive",
+    "city": "Sampleton",
+    "confidence_summary": "Verified synthetic sale comparable with comparable-support metadata.",
+    "display_label": "Verified industrial sale comp",
+    "evidence_link_count": 1,
+    "id": "synthetic-map-sale-comp-001",
+    "latitude": 39.13,
+    "longitude": -84.53,
+    "passport_id": "synthetic-passport-sale-industrial-1",
+    "property_type": "industrial",
+    "record_type": "sale_comp",
+    "stale_flag": false,
+    "state": "ST",
+    "status": "verified_comp",
+    "verification_status": "verified"
+  },
+  "table_rows": [
+    {
+      "address": "1000 Example Industrial Way",
+      "city": "Sampleton",
+      "confidence_summary": "Current synthetic subject seed for active order context.",
+      "display_label": "Current subject",
+      "evidence_link_count": 1,
+      "id": "synthetic-map-current-subject-001",
+      "is_selected": false,
+      "latitude": 39.1001,
+      "longitude": -84.5001,
+      "passport_id": "synthetic-passport-assignment-industrial-alpha",
+      "property_type": "industrial",
+      "record_type": "current_subject",
+      "stale_flag": false,
+      "state": "ST",
+      "status": "current",
+      "verification_status": "verified"
+    },
+    {
+      "address": "1025 Example Intake Avenue",
+      "city": "Sampleton",
+      "confidence_summary": "Synthetic active order awaiting assignment workflow decisions.",
+      "display_label": "Active industrial order",
+      "evidence_link_count": 0,
+      "id": "synthetic-map-active-order-001",
+      "is_selected": false,
+      "latitude": 39.1025,
+      "longitude": -84.5025,
+      "passport_id": null,
+      "property_type": "industrial",
+      "record_type": "active_order",
+      "stale_flag": false,
+      "state": "ST",
+      "status": "active",
+      "verification_status": "unverified"
+    },
+    {
+      "address": "1200 Example Logistics Loop",
+      "city": "Sampleton",
+      "confidence_summary": "Verified synthetic completed industrial assignment with source metadata.",
+      "display_label": "Completed logistics assignment",
+      "evidence_link_count": 1,
+      "id": "synthetic-map-completed-assignment-001",
+      "is_selected": false,
+      "latitude": 39.115,
+      "longitude": -84.515,
+      "passport_id": "synthetic-passport-assignment-industrial-nearby",
+      "property_type": "industrial",
+      "record_type": "completed_assignment",
+      "stale_flag": false,
+      "state": "ST",
+      "status": "completed",
+      "verification_status": "verified"
+    },
+    {
+      "address": "1300 Example Distribution Drive",
+      "city": "Sampleton",
+      "confidence_summary": "Verified synthetic sale comparable with comparable-support metadata.",
+      "display_label": "Verified industrial sale comp",
+      "evidence_link_count": 1,
+      "id": "synthetic-map-sale-comp-001",
+      "is_selected": true,
+      "latitude": 39.13,
+      "longitude": -84.53,
+      "passport_id": "synthetic-passport-sale-industrial-1",
+      "property_type": "industrial",
+      "record_type": "sale_comp",
+      "stale_flag": false,
+      "state": "ST",
+      "status": "verified_comp",
+      "verification_status": "verified"
+    },
+    {
+      "address": "1400 Example Loading Court",
+      "city": "Sampleton",
+      "confidence_summary": "Verified synthetic lease comparable with lease-support metadata.",
+      "display_label": "Verified industrial lease comp",
+      "evidence_link_count": 1,
+      "id": "synthetic-map-lease-comp-001",
+      "is_selected": false,
+      "latitude": 39.14,
+      "longitude": -84.54,
+      "passport_id": "synthetic-passport-lease-industrial-1",
+      "property_type": "industrial",
+      "record_type": "lease_comp",
+      "stale_flag": false,
+      "state": "ST",
+      "status": "verified_comp",
+      "verification_status": "verified"
+    }
+  ]
+}

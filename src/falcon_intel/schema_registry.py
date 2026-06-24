@@ -11,6 +11,7 @@ FALCON_EVIDENCE_OPEN_RESPONSE_SCHEMA_VERSION = "1"
 FALCON_CARD_API_RESPONSE_SCHEMA_VERSION = "1"
 FALCON_PASSPORT_DETAIL_API_RESPONSE_SCHEMA_VERSION = "1"
 AUDIT_EVENT_ENVELOPE_SCHEMA_VERSION = "1"
+MAP_WORKSPACE_RESPONSE_SCHEMA_VERSION = "1"
 
 
 class SchemaName(StrEnum):
@@ -22,6 +23,7 @@ class SchemaName(StrEnum):
     FALCON_CARD_API_RESPONSE = "falcon_card_api_response"
     FALCON_PASSPORT_DETAIL_API_RESPONSE = "falcon_passport_detail_api_response"
     AUDIT_EVENT_ENVELOPE = "audit_event_envelope"
+    MAP_WORKSPACE_RESPONSE = "map_workspace_response"
 
 
 @dataclass(frozen=True)
@@ -113,6 +115,17 @@ SCHEMA_REGISTRY: dict[SchemaName, SchemaRegistryEntry] = {
             "Generated timestamps are normalized in snapshots for deterministic regression tests."
         ),
         intended_consumer="Future Falcon audit persistence and internal compliance handoff.",
+    ),
+    SchemaName.MAP_WORKSPACE_RESPONSE: SchemaRegistryEntry(
+        schema_name=SchemaName.MAP_WORKSPACE_RESPONSE.value,
+        current_version=MAP_WORKSPACE_RESPONSE_SCHEMA_VERSION,
+        fixture_snapshot_path="tests/fixtures/synthetic_ui_map_workspace/map-workspace-response-v1.json",
+        breaking_change_rules=_BREAKING_CHANGE_RULES,
+        backward_compatibility_notes=(
+            "Map workspace consumers may treat new optional fields as additive. "
+            "Table-row and map-pin identity, selection, and coordinate semantics must remain stable for v1."
+        ),
+        intended_consumer="Future Falcon internal Intelligence Map Workspace page.",
     ),
 }
 

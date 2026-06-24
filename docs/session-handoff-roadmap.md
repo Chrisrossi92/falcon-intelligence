@@ -2,6 +2,8 @@
 
 This checkpoint summarizes the current Falcon Intelligence prototype state and recommended next direction. It is documentation-only and does not authorize real data access, OneDrive access, report parsing, extraction, OCR, embeddings, or ingestion.
 
+For canonical long-range product planning, see `FALCON_INTELLIGENCE_PRODUCT_ROADMAP.md`. This handoff remains the current implementation checkpoint.
+
 ## Product Vision
 
 Falcon Intelligence is a local-first appraisal firm knowledge base prototype. The near-term product direction is an internal-only "Firm Intelligence Found" experience that helps Project Falcon surface prior verified firm knowledge while an order is being created, reviewed, or worked.
@@ -67,7 +69,11 @@ Trust, provenance, and audit scaffolding:
 - Synthetic/local permission policy scaffold for internal role and evidence visibility decisions.
 - End-to-end synthetic workflow that builds a card, opens passport detail, checks permissions, opens evidence, and returns suggested audit payloads.
 - Documentation-only real data production readiness gate at `docs/real-data-production-readiness-gate.md`.
+- Documentation-only production gate review packet template at `docs/production-gate-review-packet-template.md`.
 - Documentation-only Falcon UI integration notes at `docs/falcon-ui-integration-notes.md`.
+- Synthetic/local Intelligence Map Workspace contract at `docs/intelligence-map-workspace-contract.md`.
+- Versioned synthetic Map Workspace UI response snapshot at `tests/fixtures/synthetic_ui_map_workspace/map-workspace-response-v1.json`.
+- Canonical master product roadmap at `FALCON_INTELLIGENCE_PRODUCT_ROADMAP.md`.
 - Lightweight schema version registry at `docs/schema-version-registry.md` and `src/falcon_intel/schema_registry.py`.
 - Versioned synthetic Falcon API envelope snapshots at `tests/fixtures/synthetic_api_envelopes/`.
 - Versioned synthetic audit event snapshots at `tests/fixtures/synthetic_audit_events/`.
@@ -88,6 +94,8 @@ PYTHONPATH=src python3 scripts/smoke_intelligence_card_cli.py
 PYTHONPATH=src python3 scripts/smoke_falcon_api_contract.py
 PYTHONPATH=src python3 scripts/smoke_match_audit.py
 PYTHONPATH=src python3 scripts/smoke_audit_event_snapshots.py
+PYTHONPATH=src python3 scripts/smoke_map_workspace.py
+PYTHONPATH=src python3 scripts/smoke_map_workspace_snapshot.py
 PYTHONPATH=src python3 scripts/smoke_historical_comp.py
 PYTHONPATH=src python3 scripts/smoke_evidence_links.py
 PYTHONPATH=src python3 scripts/smoke_data_passport.py
@@ -120,6 +128,8 @@ The following remain synthetic/local only:
 - Falcon API envelope snapshots.
 - Audit event snapshots.
 - Permission decisions.
+- Intelligence Map Workspace records, filters, and map/table serializer.
+- Intelligence Map Workspace UI response snapshot.
 
 None of these are production APIs, database queries, permission checks, source-document viewers, report readers, or extraction systems.
 
@@ -140,11 +150,11 @@ Visibility must remain internal-only. Client-facing views must not show Firm Int
 
 ## Recommended Next 5 Slices
 
-1. Production gate review packet template: add a documentation template for approvals, test plans, retention decisions, and rollback plans before any real content pilot.
-2. First Falcon UI slice spec: turn `docs/falcon-ui-integration-notes.md` into a scoped implementation checklist for an internal-only Order Detail card preview.
-3. Schema changelog template: add a documentation pattern for deliberate v2 schema proposals and fixture snapshot review.
-4. Permission role matrix review: decide whether owner/admin should continue to inherit `appraiser_reviewer_only` evidence access in production.
-5. Audit persistence contract notes: document how Falcon should persist suggested audit payloads once production auth and storage are approved.
+1. First Falcon UI slice spec: turn `docs/falcon-ui-integration-notes.md` into a scoped implementation checklist for an internal-only Order Detail card preview.
+2. Schema changelog template: add a documentation pattern for deliberate v2 schema proposals and fixture snapshot review.
+3. Permission role matrix review: decide whether owner/admin should continue to inherit `appraiser_reviewer_only` evidence access in production.
+4. Audit persistence contract notes: document how Falcon should persist suggested audit payloads once production auth and storage are approved.
+5. Production gate review packet checklist test: add a lightweight docs/safety test that confirms real-content pilot docs reference both the readiness gate and approval packet.
 
 ## Current Known Risks
 

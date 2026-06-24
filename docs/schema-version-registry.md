@@ -14,6 +14,7 @@ This registry does not authorize real appraisal data, OneDrive access, report pa
 | `falcon_card_api_response` | `1` | `tests/fixtures/synthetic_api_envelopes/falcon-card-api-response-v1.json` | Future Falcon API/RPC client for Firm Intelligence card retrieval. |
 | `falcon_passport_detail_api_response` | `1` | `tests/fixtures/synthetic_api_envelopes/falcon-passport-detail-api-response-v1.json` | Future Falcon API/RPC client for passport detail lookup. |
 | `audit_event_envelope` | `1` | `tests/fixtures/synthetic_audit_events/` | Future Falcon audit persistence and internal compliance handoff. |
+| `map_workspace_response` | `1` | `tests/fixtures/synthetic_ui_map_workspace/map-workspace-response-v1.json` | Future Falcon internal Intelligence Map Workspace page. |
 
 The API response schema versions describe the response envelopes. Nested UI objects keep their own schema versions. For example, `build_falcon_intelligence_card_response` returns a `schema_version` for the Falcon response envelope and a separate `card.schema_version` for the Firm Intelligence Found card.
 
@@ -29,6 +30,7 @@ Use these constants instead of hard-coded version strings:
 - `FALCON_CARD_API_RESPONSE_SCHEMA_VERSION`
 - `FALCON_PASSPORT_DETAIL_API_RESPONSE_SCHEMA_VERSION`
 - `AUDIT_EVENT_ENVELOPE_SCHEMA_VERSION`
+- `MAP_WORKSPACE_RESPONSE_SCHEMA_VERSION`
 
 Current serializers and contract wrappers source versions from the registry constants.
 

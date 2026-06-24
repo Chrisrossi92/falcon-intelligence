@@ -4,6 +4,8 @@ Falcon Intelligence is a local-first prototype framework for an appraisal firm k
 
 This repository currently contains only the code and documentation scaffold. It must not contain real appraisal reports, client source documents, OneDrive files, extracted text, generated embeddings, or local data exports.
 
+The canonical long-range product roadmap is `FALCON_INTELLIGENCE_PRODUCT_ROADMAP.md`.
+
 ## Current Scope
 
 - Define the safety boundary for future local document processing.
@@ -52,6 +54,8 @@ PYTHONPATH=src python3 scripts/smoke_intelligence_card_cli.py
 PYTHONPATH=src python3 scripts/smoke_falcon_api_contract.py
 PYTHONPATH=src python3 scripts/smoke_match_audit.py
 PYTHONPATH=src python3 scripts/smoke_audit_event_snapshots.py
+PYTHONPATH=src python3 scripts/smoke_map_workspace.py
+PYTHONPATH=src python3 scripts/smoke_map_workspace_snapshot.py
 PYTHONPATH=src python3 scripts/smoke_historical_comp.py
 PYTHONPATH=src python3 scripts/smoke_evidence_links.py
 PYTHONPATH=src python3 scripts/smoke_data_passport.py
