@@ -200,3 +200,5 @@ Required guardrails:
 ## Current Implementation Boundary
 
 Current repository support is limited to synthetic fixtures, metadata-only scanners, synthetic matcher output, a UI-facing synthetic card schema, and versioned synthetic card snapshots. No real Falcon production data, OneDrive data, report contents, extraction, OCR, embeddings, or source-document reads are part of this contract.
+
+See `docs/intelligence-match-policy.md` for match scoring, ranking, warning, action prompt, and audit policy.
