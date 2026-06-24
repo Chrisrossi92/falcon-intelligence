@@ -48,6 +48,7 @@ $env:PYTHONPATH='src'; python scripts/smoke_data_passport_lookup.py
 $env:PYTHONPATH='src'; python scripts/smoke_falcon_passport_contract.py
 $env:PYTHONPATH='src'; python scripts/smoke_passport_detail_drawer.py
 $env:PYTHONPATH='src'; python scripts/smoke_falcon_evidence_contract.py
+$env:PYTHONPATH='src'; python scripts/smoke_permission_policy.py
 $env:PYTHONPATH='src'; python scripts/smoke_cli.py
 ```
 
@@ -71,6 +72,7 @@ PYTHONPATH=src python3 scripts/smoke_data_passport_lookup.py
 PYTHONPATH=src python3 scripts/smoke_falcon_passport_contract.py
 PYTHONPATH=src python3 scripts/smoke_passport_detail_drawer.py
 PYTHONPATH=src python3 scripts/smoke_falcon_evidence_contract.py
+PYTHONPATH=src python3 scripts/smoke_permission_policy.py
 PYTHONPATH=src python3 -m pytest
 ```
 
@@ -92,6 +94,7 @@ $env:PYTHONPATH='src'; python scripts/smoke_data_passport_lookup.py
 $env:PYTHONPATH='src'; python scripts/smoke_falcon_passport_contract.py
 $env:PYTHONPATH='src'; python scripts/smoke_passport_detail_drawer.py
 $env:PYTHONPATH='src'; python scripts/smoke_falcon_evidence_contract.py
+$env:PYTHONPATH='src'; python scripts/smoke_permission_policy.py
 $env:PYTHONPATH='src'; python -m pytest
 ```
 
@@ -103,7 +106,7 @@ GitHub Actions runs the core validation workflow on every push and pull request 
 - Synthetic fixture smoke validation.
 - Synthetic intelligence matcher smoke validation.
 - UI card schema, CLI, and snapshot smoke validation.
-- Synthetic audit, historical comparable justification, evidence link, data passport, passport lookup, Falcon passport contract, passport drawer snapshot, and Falcon evidence-open contract smoke validation.
+- Synthetic audit, historical comparable justification, evidence link, data passport, passport lookup, Falcon passport contract, passport drawer snapshot, Falcon evidence-open contract, and permission policy smoke validation.
 - The full pytest suite.
 
 The CI workflow must remain synthetic-only. It must not access OneDrive, real appraisal data, report contents, OCR, embeddings, or extraction pipelines.

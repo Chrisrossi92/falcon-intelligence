@@ -58,6 +58,7 @@ PYTHONPATH=src python3 scripts/smoke_data_passport_lookup.py
 PYTHONPATH=src python3 scripts/smoke_falcon_passport_contract.py
 PYTHONPATH=src python3 scripts/smoke_passport_detail_drawer.py
 PYTHONPATH=src python3 scripts/smoke_falcon_evidence_contract.py
+PYTHONPATH=src python3 scripts/smoke_permission_policy.py
 PYTHONPATH=src python3 -m pytest
 ```
 

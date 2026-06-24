@@ -76,6 +76,37 @@ Access-controlled opening rules should consider:
 - Whether the local file still exists at an approved location.
 - Whether the action is logged.
 
+## Permission Policy Scaffold
+
+The current synthetic/local permission policy scaffold lives in `src/falcon_intel/permission_policy.py`. It is not production authentication or authorization. It is a stable decision matrix for future Falcon UI/API wiring and tests.
+
+Stable role codes:
+
+- `owner`
+- `admin`
+- `appraiser`
+- `reviewer`
+- `trainee`
+- `client`
+
+Supported permission checks:
+
+- `can_view_intelligence_card`
+- `can_view_passport_detail`
+- `can_open_evidence_link`
+- `can_verify_fact`
+- `can_review_fact`
+- `can_override_fact`
+- `can_archive_fact`
+
+Decisions return:
+
+- `allowed`
+- `reason_code`
+- `reason_label`
+
+Client users are always denied access to internal Falcon Intelligence. Evidence decisions respect `internal_only`, `appraiser_reviewer_only`, `owner_admin_only`, and `disabled` access levels. Production Falcon must replace or wrap this scaffold with real tenant membership, role assignment, order access, and audit persistence.
+
 ## Data Passport Concept
 
 A data passport is the visible trust card for one verified field or intelligence record.

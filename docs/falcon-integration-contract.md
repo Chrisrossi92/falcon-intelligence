@@ -91,6 +91,16 @@ Rules:
 - No cross-tenant or cross-company intelligence mixing is allowed.
 - Supporting evidence links must be permission-limited and must not expose source documents or report contents unless a future approved workflow permits it.
 
+Current local permission scaffold:
+
+- Module: `src/falcon_intel/permission_policy.py`
+- Test: `tests/test_permission_policy.py`
+- Smoke script: `scripts/smoke_permission_policy.py`
+
+The scaffold defines role codes for `owner`, `admin`, `appraiser`, `reviewer`, `trainee`, and `client`. It returns decision objects with `allowed`, `reason_code`, and `reason_label` for card visibility, passport detail visibility, evidence link opening, fact verification, fact review, fact override, and fact archive actions.
+
+This scaffold is not production auth. Falcon production integration must enforce tenant membership, order access, user roles, source-document permissions, and durable audit logging outside this local policy helper.
+
 ## Future API/RPC Boundary
 
 The production boundary can be implemented as an internal API or Supabase RPC. The boundary should be narrow and auditable.
