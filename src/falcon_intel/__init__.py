@@ -1,5 +1,14 @@
 """Falcon Intelligence framework package."""
 
+from falcon_intel.audit import (
+    MatchAuditEvent,
+    build_card_viewed_event,
+    build_evidence_opened_event,
+    build_historical_comp_justification_event,
+    build_match_audit_event,
+    build_match_rejected_event,
+    build_match_selected_event,
+)
 from falcon_intel.core import AppProfile
 from falcon_intel.discovery import AssignmentCandidate, discover_assignments
 from falcon_intel.falcon_api_contract import (
@@ -76,11 +85,18 @@ __all__ = [
     "ManifestSearchQuery",
     "ManifestSearchResult",
     "ManifestSummary",
+    "MatchAuditEvent",
     "MatchCategoryCode",
     "RecommendedActionCode",
     "build_assignment_profile",
+    "build_card_viewed_event",
+    "build_evidence_opened_event",
     "build_falcon_intelligence_card_response",
     "build_firm_intelligence_card",
+    "build_historical_comp_justification_event",
+    "build_match_audit_event",
+    "build_match_rejected_event",
+    "build_match_selected_event",
     "create_scan_manifest",
     "discover_assignments",
     "is_likely_report_candidate",

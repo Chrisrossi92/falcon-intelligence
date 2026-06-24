@@ -42,5 +42,8 @@ jobs:
       - name: Smoke Falcon API contract
         run: PYTHONPATH=src python scripts/smoke_falcon_api_contract.py
 
+      - name: Smoke match audit events
+        run: PYTHONPATH=src python scripts/smoke_match_audit.py
+
       - name: Run pytest
         run: PYTHONPATH=src python -m pytest

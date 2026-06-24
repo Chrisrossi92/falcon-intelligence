@@ -159,6 +159,30 @@ Minimum audit context:
 
 Audit events should be append-only. Selecting, rejecting, or justifying a match should not mutate the underlying verified intelligence record.
 
+## Local Audit Event Builder
+
+The repository includes a lightweight local builder in `src/falcon_intel/audit.py` for future Falcon interaction tests. It creates in-memory audit event objects only. It does not persist events, write to a database, call a service, access OneDrive, or read report contents.
+
+Supported local builders:
+
+- `build_card_viewed_event`
+- `build_evidence_opened_event`
+- `build_match_selected_event`
+- `build_match_rejected_event`
+- `build_historical_comp_justification_event`
+
+Each event includes:
+
+- `event_code`
+- `tenant_id`
+- `order_id`
+- `user_id`
+- `match_id`, when applicable
+- `timestamp`
+- `metadata`
+
+The builder validates required fields and uses stable audit event codes from `src/falcon_intel/match_policy.py`.
+
 ## Guardrails
 
 Required guardrails:
