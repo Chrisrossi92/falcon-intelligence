@@ -22,6 +22,7 @@ Current dependency-free smoke validation:
 $env:PYTHONPATH='src'; python scripts/smoke_metadata_scan.py
 $env:PYTHONPATH='src'; python scripts/smoke_manifest.py
 $env:PYTHONPATH='src'; python scripts/smoke_manifest_search.py
+$env:PYTHONPATH='src'; python scripts/smoke_assignment_discovery.py
 $env:PYTHONPATH='src'; python scripts/smoke_cli.py
 ```
 

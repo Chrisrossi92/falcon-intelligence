@@ -47,3 +47,5 @@ Likely report candidates are estimated only from extension, file name, and relat
 Manifest search cannot answer questions about report body content, comparable details, market narrative, values, clients, conclusions, or appraisal methodology. Those require content ingestion, which remains deferred behind a separate approval gate.
 
 See `docs/cli.md` for PowerShell examples that run metadata-only search from the command line.
+
+See `docs/assignment-discovery.md` for metadata-only assignment folder estimates built on manifest records.
