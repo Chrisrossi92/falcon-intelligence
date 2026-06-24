@@ -24,11 +24,25 @@ python -m falcon_intel.cli scan --root "C:\Path\To\SelectedFolder" --label "Frie
 
 Use that option carefully because absolute paths may reveal local folder names or client context.
 
+List saved manifests:
+
+```powershell
+$env:PYTHONPATH='src'
+python -m falcon_intel.cli manifests
+```
+
 Search by file name keyword:
 
 ```powershell
 $env:PYTHONPATH='src'
 python -m falcon_intel.cli search --manifest "data\manifests\scan-example.json" --name "report"
+```
+
+Search the latest saved manifest:
+
+```powershell
+$env:PYTHONPATH='src'
+python -m falcon_intel.cli search --latest --name "report"
 ```
 
 Search by extension, relative path keyword, and supported future-indexing flag:
@@ -45,11 +59,25 @@ $env:PYTHONPATH='src'
 python -m falcon_intel.cli summary --manifest "data\manifests\scan-example.json"
 ```
 
+Summarize the latest saved manifest:
+
+```powershell
+$env:PYTHONPATH='src'
+python -m falcon_intel.cli summary --latest
+```
+
 Discover probable assignment folders:
 
 ```powershell
 $env:PYTHONPATH='src'
 python -m falcon_intel.cli discover --manifest "data\manifests\scan-example.json"
+```
+
+Discover assignments in the latest saved manifest:
+
+```powershell
+$env:PYTHONPATH='src'
+python -m falcon_intel.cli discover --latest
 ```
 
 Filter discovery results by completeness score, heuristic label, and limit:
@@ -66,6 +94,13 @@ $env:PYTHONPATH='src'
 python -m falcon_intel.cli profile --manifest "data\manifests\scan-example.json" --assignment-folder "assignments/100-main"
 ```
 
+Build a profile from the latest saved manifest:
+
+```powershell
+$env:PYTHONPATH='src'
+python -m falcon_intel.cli profile --latest --assignment-folder "assignments/100-main"
+```
+
 Save the profile under ignored local storage:
 
 ```powershell
@@ -80,6 +115,7 @@ CLI output is JSON so it can be reviewed or consumed by a future local UI. Resul
 ## Safety Boundary
 
 - `scan` uses filesystem metadata only.
+- `manifests` reads local manifest JSON only.
 - `search` reads manifest JSON only.
 - `summary` reads manifest JSON only.
 - `discover` reads manifest JSON only.

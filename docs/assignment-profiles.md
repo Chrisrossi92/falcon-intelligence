@@ -33,3 +33,5 @@ Profiles may be saved under `data/profiles/`, which is ignored by git. Saved pro
 ## Guardrail
 
 Assignment profiles are not verified intelligence records. They are metadata-only summaries that can support a future appraiser-approved extraction workflow after a separate approval gate.
+
+See `docs/verified-intelligence-workflow.md` for the future review workflow that would govern any extracted suggestions.

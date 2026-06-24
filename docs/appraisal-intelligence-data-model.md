@@ -101,3 +101,6 @@ All intelligence records are tenant-scoped. The future database must enforce no 
 ## Current Guardrail
 
 This data model does not permit extraction. The current repository still supports metadata-only scanning, local manifests, metadata search, and assignment discovery. Real report contents must not be read, copied, parsed, summarized, embedded, or ingested until a separate approval gate is documented and implemented.
+
+See `docs/verified-intelligence-workflow.md` for the future human-in-the-loop verification workflow.
+See `docs/verified-intelligence-extraction-pipeline.md` for the future extraction-to-verification pipeline.

@@ -6,7 +6,12 @@ from pathlib import Path
 from typing import Any
 
 from falcon_intel.discovery import AssignmentCandidate, discover_assignments
-from falcon_intel.manifest import create_scan_manifest, save_scan_manifest
+from falcon_intel.manifest import (
+    create_scan_manifest,
+    latest_manifest_path,
+    list_saved_manifests,
+    save_scan_manifest,
+)
 from falcon_intel.profile import build_assignment_profile, save_assignment_profile
 from falcon_intel.scanner import scan_metadata
 from falcon_intel.search import (
@@ -42,8 +47,14 @@ def _build_parser() -> ArgumentParser:
     )
     scan_parser.set_defaults(handler=_handle_scan)
 
+    manifests_parser = subparsers.add_parser(
+        "manifests",
+        help="List saved manifests under data/manifests/.",
+    )
+    manifests_parser.set_defaults(handler=_handle_manifests)
+
     search_parser = subparsers.add_parser("search", help="Search one manifest by metadata only.")
-    search_parser.add_argument("--manifest", required=True, help="Manifest JSON path.")
+    _add_manifest_selector(search_parser)
     search_parser.add_argument("--name", help="File name keyword.")
     search_parser.add_argument("--extension", help="File extension filter, such as pdf or .pdf.")
     search_parser.add_argument("--path", dest="path_keyword", help="Relative path keyword.")
@@ -55,14 +66,14 @@ def _build_parser() -> ArgumentParser:
     search_parser.set_defaults(handler=_handle_search)
 
     summary_parser = subparsers.add_parser("summary", help="Summarize one manifest by metadata only.")
-    summary_parser.add_argument("--manifest", required=True, help="Manifest JSON path.")
+    _add_manifest_selector(summary_parser)
     summary_parser.set_defaults(handler=_handle_summary)
 
     discover_parser = subparsers.add_parser(
         "discover",
         help="Discover probable assignment folders from one manifest.",
     )
-    discover_parser.add_argument("--manifest", required=True, help="Manifest JSON path.")
+    _add_manifest_selector(discover_parser)
     discover_parser.add_argument(
         "--min-confidence",
         type=int,
@@ -86,7 +97,7 @@ def _build_parser() -> ArgumentParser:
         "profile",
         help="Build one metadata-only assignment profile from a manifest.",
     )
-    profile_parser.add_argument("--manifest", required=True, help="Manifest JSON path.")
+    _add_manifest_selector(profile_parser)
     profile_parser.add_argument(
         "--assignment-folder",
         required=True,
@@ -100,6 +111,16 @@ def _build_parser() -> ArgumentParser:
     profile_parser.set_defaults(handler=_handle_profile)
 
     return parser
+
+
+def _add_manifest_selector(parser: ArgumentParser) -> None:
+    manifest_group = parser.add_mutually_exclusive_group(required=True)
+    manifest_group.add_argument("--manifest", help="Manifest JSON path.")
+    manifest_group.add_argument(
+        "--latest",
+        action="store_true",
+        help="Use the most recently created manifest under data/manifests/.",
+    )
 
 
 def _handle_scan(args: Namespace) -> dict[str, Any]:
@@ -121,24 +142,46 @@ def _handle_scan(args: Namespace) -> dict[str, Any]:
     }
 
 
+def _handle_manifests(args: Namespace) -> dict[str, Any]:
+    manifests = list_saved_manifests()
+    return {
+        "manifest_count": len(manifests),
+        "manifests": [
+            {
+                "filename": manifest.filename,
+                "path": manifest.path,
+                "scan_timestamp": manifest.scan_timestamp,
+                "label": manifest.selected_root_label,
+                "total_files": manifest.file_count,
+                "supported_future_indexing_count": manifest.supported_future_indexing_count,
+            }
+            for manifest in manifests
+        ],
+    }
+
+
 def _handle_search(args: Namespace) -> dict[str, Any]:
+    manifest_path = _resolve_manifest_path(args)
     query = ManifestSearchQuery(
         file_name_keyword=args.name,
         extension=args.extension,
         relative_path_keyword=args.path_keyword,
         supported_for_future_indexing=True if args.supported_only else None,
     )
-    results = search_manifest(load_manifest(args.manifest), query)
+    results = search_manifest(load_manifest(manifest_path), query)
     return {
+        "manifest_path": str(manifest_path),
         "result_count": len(results),
         "results": [result.to_dict() for result in results],
     }
 
 
 def _handle_summary(args: Namespace) -> dict[str, Any]:
-    results = search_manifest(load_manifest(args.manifest))
+    manifest_path = _resolve_manifest_path(args)
+    results = search_manifest(load_manifest(manifest_path))
     summary = summarize_results(results)
     return {
+        "manifest_path": str(manifest_path),
         "total_files": summary.total_files,
         "extension_counts": dict(summary.top_extensions),
         "supported_future_indexing_files": summary.supported_future_indexing_files,
@@ -152,9 +195,10 @@ def _handle_discover(args: Namespace) -> dict[str, Any]:
     if args.limit is not None and args.limit < 1:
         raise ValueError("--limit must be at least 1.")
 
+    manifest_path = _resolve_manifest_path(args)
     candidates = [
         candidate
-        for candidate in discover_assignments(load_manifest(args.manifest))
+        for candidate in discover_assignments(load_manifest(manifest_path))
         if candidate.estimated_completeness_score >= args.min_confidence
     ]
     if args.label is not None:
@@ -167,6 +211,7 @@ def _handle_discover(args: Namespace) -> dict[str, Any]:
         candidates = candidates[: args.limit]
 
     return {
+        "manifest_path": str(manifest_path),
         "candidate_count": len(candidates),
         "candidates": [_candidate_payload(candidate) for candidate in candidates],
     }
@@ -200,14 +245,22 @@ def _heuristic_label(candidate: AssignmentCandidate) -> str:
 
 
 def _handle_profile(args: Namespace) -> dict[str, Any]:
+    manifest_path = _resolve_manifest_path(args)
     profile = build_assignment_profile(
-        load_manifest(args.manifest),
+        load_manifest(manifest_path),
         args.assignment_folder,
     )
     payload = profile.to_dict()
+    payload["manifest_path"] = str(manifest_path)
     if args.save:
         payload["profile_path"] = str(save_assignment_profile(profile))
     return payload
+
+
+def _resolve_manifest_path(args: Namespace) -> Path:
+    if getattr(args, "latest", False):
+        return latest_manifest_path()
+    return Path(args.manifest)
 
 
 if __name__ == "__main__":

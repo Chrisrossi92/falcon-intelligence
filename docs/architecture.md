@@ -301,6 +301,8 @@ See `docs/manifest-search.md` for metadata-only search limits.
 See `docs/assignment-discovery.md` for assignment discovery heuristics.
 See `docs/assignment-profiles.md` for metadata-only assignment profile exports.
 See `docs/appraisal-intelligence-data-model.md` for the future verified intelligence model.
+See `docs/verified-intelligence-workflow.md` for the future human verification workflow.
+See `docs/verified-intelligence-extraction-pipeline.md` for the future human-approved extraction pipeline.
 See `docs/cli.md` for local command-line prototype usage.
 
 ### Phase 3: Review and QA Workflow Shell

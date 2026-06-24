@@ -29,12 +29,16 @@ def main_smoke() -> None:
             manifest_payload = json.loads(manifests[0].read_text(encoding="utf-8"))
             assert "absolute_root_path" not in manifest_payload
 
+            assert main(["manifests"]) == 0
             assert main(["search", "--manifest", str(manifests[0]), "--name", "report"]) == 0
+            assert main(["search", "--latest", "--name", "report"]) == 0
             assert main(["search", "--manifest", str(manifests[0]), "--extension", "pdf"]) == 0
             assert main(["search", "--manifest", str(manifests[0]), "--path", "reports"]) == 0
             assert main(["search", "--manifest", str(manifests[0]), "--supported-only"]) == 0
             assert main(["summary", "--manifest", str(manifests[0])]) == 0
+            assert main(["summary", "--latest"]) == 0
             assert main(["discover", "--manifest", str(manifests[0])]) == 0
+            assert main(["discover", "--latest"]) == 0
             assert main(
                 [
                     "discover",
@@ -60,6 +64,14 @@ def main_smoke() -> None:
             assert main(
                 [
                     "profile",
+                    "--latest",
+                    "--assignment-folder",
+                    "reports",
+                ]
+            ) == 0
+            assert main(
+                [
+                    "profile",
                     "--manifest",
                     str(manifests[0]),
                     "--assignment-folder",
@@ -67,6 +79,12 @@ def main_smoke() -> None:
                     "--save",
                 ]
             ) == 0
+            try:
+                main(["summary", "--manifest", str(manifests[0]), "--latest"])
+            except SystemExit as error:
+                assert error.code == 2
+            else:
+                raise AssertionError("Expected --manifest and --latest to be mutually exclusive.")
         finally:
             os.chdir(original_cwd)
 

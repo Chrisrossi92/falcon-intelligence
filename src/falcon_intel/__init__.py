@@ -2,7 +2,14 @@
 
 from falcon_intel.core import AppProfile
 from falcon_intel.discovery import AssignmentCandidate, discover_assignments
-from falcon_intel.manifest import ScanManifest, create_scan_manifest, save_scan_manifest
+from falcon_intel.manifest import (
+    SavedManifestInfo,
+    ScanManifest,
+    create_scan_manifest,
+    latest_manifest_path,
+    list_saved_manifests,
+    save_scan_manifest,
+)
 from falcon_intel.profile import (
     AssignmentProfile,
     build_assignment_profile,
@@ -25,6 +32,7 @@ __all__ = [
     "AssignmentCandidate",
     "AssignmentProfile",
     "FileMetadata",
+    "SavedManifestInfo",
     "ScanManifest",
     "ManifestSearchQuery",
     "ManifestSearchResult",
@@ -33,6 +41,8 @@ __all__ = [
     "create_scan_manifest",
     "discover_assignments",
     "is_likely_report_candidate",
+    "latest_manifest_path",
+    "list_saved_manifests",
     "load_manifest",
     "save_assignment_profile",
     "save_scan_manifest",

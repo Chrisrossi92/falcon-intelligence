@@ -37,3 +37,5 @@ Manifest creation uses scanner metadata only. It does not read file contents, ex
 Manifest files can be searched by metadata only. See `docs/manifest-search.md` for search filters and limitations.
 
 See `docs/cli.md` for PowerShell examples that create local ignored manifests.
+
+The CLI can list saved manifests and can use `--latest` to select the most recently created local manifest for summary, search, discovery, and profile commands.

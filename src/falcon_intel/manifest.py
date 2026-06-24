@@ -33,6 +33,18 @@ class ScanManifest:
         return payload
 
 
+@dataclass(frozen=True)
+class SavedManifestInfo:
+    """Summary of one saved local scan manifest."""
+
+    path: str
+    filename: str
+    scan_timestamp: str
+    selected_root_label: str
+    file_count: int
+    supported_future_indexing_count: int
+
+
 def create_scan_manifest(
     scanner_results: Iterable[FileMetadata],
     selected_root_label: str,
@@ -91,6 +103,45 @@ def save_scan_manifest(
     output_path = manifest_dir / output_name
     output_path.write_text(json.dumps(manifest.to_dict(), indent=2, sort_keys=True), encoding="utf-8")
     return output_path
+
+
+def list_saved_manifests(
+    manifest_dir: str | Path = DEFAULT_MANIFEST_DIR,
+) -> list[SavedManifestInfo]:
+    """List saved local manifests without reading source files."""
+
+    manifest_path = Path(manifest_dir)
+    _require_manifest_dir(manifest_path)
+    if not manifest_path.exists():
+        return []
+
+    manifests: list[SavedManifestInfo] = []
+    for path in sorted(manifest_path.glob("*.json"), key=lambda item: item.stat().st_ctime, reverse=True):
+        payload = json.loads(path.read_text(encoding="utf-8"))
+        manifests.append(
+            SavedManifestInfo(
+                path=str(path),
+                filename=path.name,
+                scan_timestamp=str(payload.get("scan_timestamp", "")),
+                selected_root_label=str(payload.get("selected_root_label", "")),
+                file_count=int(payload.get("file_count", 0)),
+                supported_future_indexing_count=int(payload.get("supported_future_indexing_count", 0)),
+            )
+        )
+    return manifests
+
+
+def latest_manifest_path(
+    manifest_dir: str | Path = DEFAULT_MANIFEST_DIR,
+) -> Path:
+    """Return the most recently created local manifest path."""
+
+    manifest_path = Path(manifest_dir)
+    _require_manifest_dir(manifest_path)
+    manifests = sorted(manifest_path.glob("*.json"), key=lambda item: item.stat().st_ctime, reverse=True)
+    if not manifests:
+        raise FileNotFoundError("No saved manifests found under data/manifests/.")
+    return manifests[0]
 
 
 def _require_manifest_dir(output_dir: Path) -> None:
