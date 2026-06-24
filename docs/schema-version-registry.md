@@ -4,6 +4,8 @@ Falcon Intelligence keeps a lightweight schema version registry for UI and local
 
 This registry does not authorize real appraisal data, OneDrive access, report parsing, extraction, OCR, embeddings, or source-document preview.
 
+Before changing a versioned schema or overwriting a committed snapshot, create or update the review entry in `docs/schema-changelog.md`.
+
 ## Current Schemas
 
 | Schema | Current version | Snapshot fixture | Intended consumer |
@@ -56,11 +58,12 @@ UI-facing schemas with committed snapshots must be updated deliberately.
 
 When a schema change is intentional:
 
-1. Update the relevant registry constant only if the schema version changes.
-2. Regenerate or add the matching fixture snapshot.
-3. Review the JSON diff.
-4. Update tests and smoke validation.
-5. Update this document and the Falcon integration notes.
+1. Add or update the matching entry in `docs/schema-changelog.md`.
+2. Update the relevant registry constant only if the schema version changes.
+3. Regenerate or add the matching fixture snapshot.
+4. Review the JSON diff.
+5. Update tests and smoke validation.
+6. Update this document and the Falcon integration notes.
 
 Do not overwrite snapshots as a side effect of unrelated work.
 
