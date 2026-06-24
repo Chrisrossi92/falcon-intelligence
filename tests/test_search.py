@@ -95,7 +95,7 @@ def test_summary_helpers_use_metadata_only() -> None:
 
     assert summary.total_files == 3
     assert summary.supported_future_indexing_files == 2
-    assert summary.top_extensions == [(".docx", 1), (".jpg", 1), (".pdf", 1)]
+    assert summary.top_extensions == [(".jpg", 1), (".pdf", 1), (".xlsx", 1)]
     assert summary.likely_report_candidates == 1
     assert is_likely_report_candidate(results[0]) is True
     assert is_likely_report_candidate(results[1]) is False

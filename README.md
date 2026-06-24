@@ -31,3 +31,19 @@ tests/                 Tests and committed synthetic metadata fixtures
 ## Development Status
 
 This is an initial scaffold. No ingestion, parsing, OCR, embedding, or retrieval code is active yet.
+
+## Local Tests
+
+Install development test tooling without adding runtime dependencies:
+
+```bash
+python3 -m pip install -e ".[dev]"
+```
+
+Run the core local checks:
+
+```bash
+PYTHONPATH=src python3 -m compileall -q src scripts tests
+PYTHONPATH=src python3 scripts/smoke_synthetic_fixtures.py
+PYTHONPATH=src python3 -m pytest
+```

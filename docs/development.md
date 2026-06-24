@@ -2,10 +2,20 @@
 
 ## Setup
 
-This scaffold uses Python packaging conventions but does not require third-party dependencies yet.
+This scaffold keeps runtime dependencies empty. Install the package itself for normal local development, or install the `dev` extra when you need the full pytest suite.
+
+macOS:
+
+```bash
+python3 -m pip install -e .
+python3 -m pip install -e ".[dev]"
+```
+
+Windows PowerShell:
 
 ```powershell
 python -m pip install -e .
+python -m pip install -e ".[dev]"
 ```
 
 ## Checks
@@ -26,6 +36,24 @@ $env:PYTHONPATH='src'; python scripts/smoke_assignment_discovery.py
 $env:PYTHONPATH='src'; python scripts/smoke_assignment_profile.py
 $env:PYTHONPATH='src'; python scripts/smoke_synthetic_fixtures.py
 $env:PYTHONPATH='src'; python scripts/smoke_cli.py
+```
+
+## Test Commands
+
+macOS:
+
+```bash
+PYTHONPATH=src python3 -m compileall -q src scripts tests
+PYTHONPATH=src python3 scripts/smoke_synthetic_fixtures.py
+PYTHONPATH=src python3 -m pytest
+```
+
+Windows PowerShell:
+
+```powershell
+$env:PYTHONPATH='src'; python -m compileall -q src scripts tests
+$env:PYTHONPATH='src'; python scripts/smoke_synthetic_fixtures.py
+$env:PYTHONPATH='src'; python -m pytest
 ```
 
 ## Fixture Policy

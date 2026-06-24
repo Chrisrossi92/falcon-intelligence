@@ -13,6 +13,11 @@ authors = [
 ]
 dependencies = []
 
+[project.optional-dependencies]
+dev = [
+  "pytest>=8,<9",
+]
+
 [project.scripts]
 falcon-intel = "falcon_intel.cli:main"
 
