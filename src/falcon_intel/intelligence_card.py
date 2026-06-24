@@ -11,6 +11,7 @@ from falcon_intel.match_policy import (
     RecommendedActionCode,
     WarningCode,
 )
+from falcon_intel.schema_registry import FIRM_INTELLIGENCE_CARD_SCHEMA_VERSION
 
 
 TOP_MATCHES_PER_GROUP = 3
@@ -131,7 +132,7 @@ def build_firm_intelligence_card(
     ]
 
     return FirmIntelligenceCard(
-        schema_version="1",
+        schema_version=FIRM_INTELLIGENCE_CARD_SCHEMA_VERSION,
         headline=_headline(total_matches, groups),
         order_summary=_order_summary(matcher_payload["order"]),
         match_group_summaries=[

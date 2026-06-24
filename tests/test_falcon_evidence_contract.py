@@ -4,6 +4,7 @@ from pathlib import Path
 from falcon_intel.falcon_evidence_contract import build_falcon_evidence_open_response
 from falcon_intel.passport_detail_drawer import build_passport_detail_drawer
 from falcon_intel.data_passport_lookup import lookup_data_passport_detail
+from falcon_intel.schema_registry import FALCON_EVIDENCE_OPEN_RESPONSE_SCHEMA_VERSION
 
 
 FIXTURE_ROOT = Path(__file__).parent / "fixtures"
@@ -26,6 +27,7 @@ def test_evidence_link_from_drawer_resolves_through_falcon_boundary() -> None:
     )
 
     assert response["status"] == "ok"
+    assert response["schema_version"] == FALCON_EVIDENCE_OPEN_RESPONSE_SCHEMA_VERSION
     assert response["evidence_summary"] == {
         "evidence_id": "synthetic-evidence-assignment-industrial-alpha",
         "source_document_id": "synthetic-source-report-industrial-alpha",
@@ -65,6 +67,7 @@ def test_evidence_open_contract_validates_missing_required_input() -> None:
         "user_id": None,
         "passport_id": "synthetic-passport-assignment-industrial-alpha",
         "evidence_id": None,
+        "schema_version": FALCON_EVIDENCE_OPEN_RESPONSE_SCHEMA_VERSION,
         "error": {
             "code": "missing_required_input",
             "message": "Falcon evidence-open payload is missing required fields.",

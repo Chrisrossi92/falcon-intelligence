@@ -75,6 +75,7 @@ Required top-level fields:
 Schema versioning rules:
 
 - `schema_version` is required on every response.
+- Current schema constants and ownership notes are tracked in `src/falcon_intel/schema_registry.py` and documented in `docs/schema-version-registry.md`.
 - Backward-compatible additions may keep the same major version when existing fields retain meaning and type.
 - Field removals, renames, type changes, or semantic changes require a new schema version.
 - Snapshot updates must be deliberate: update docs, regenerate `tests/fixtures/synthetic_ui_cards/firm-intelligence-card-v1.json` or add a new versioned snapshot, and review the JSON diff.
@@ -144,6 +145,7 @@ Response shape:
 {
   "request_id": "req-synthetic-001",
   "status": "ok",
+  "schema_version": "1",
   "card": {
     "schema_version": "1",
     "headline": "Firm Intelligence Found: 17 synthetic matches across 8 groups."
@@ -180,6 +182,7 @@ Passport detail response shape:
   "order_id": "falcon-order-synthetic-001",
   "user_id": "user-synthetic-001",
   "passport_id": "synthetic-passport-assignment-industrial-alpha",
+  "schema_version": "1",
   "passport": {
     "passport_id": "synthetic-passport-assignment-industrial-alpha",
     "verification_status": "verified",
@@ -226,6 +229,28 @@ Evidence-open request shape:
   "user_id": "user-synthetic-001",
   "passport_id": "synthetic-passport-assignment-industrial-alpha",
   "evidence_id": "synthetic-evidence-assignment-industrial-alpha"
+}
+```
+
+Evidence-open response shape:
+
+```json
+{
+  "status": "ok",
+  "tenant_id": "tenant-synthetic-001",
+  "order_id": "falcon-order-synthetic-001",
+  "user_id": "user-synthetic-001",
+  "passport_id": "synthetic-passport-assignment-industrial-alpha",
+  "evidence_id": "synthetic-evidence-assignment-industrial-alpha",
+  "schema_version": "1",
+  "evidence_summary": {
+    "evidence_id": "synthetic-evidence-assignment-industrial-alpha",
+    "source_document_type": "source_report",
+    "display_label": "Synthetic industrial assignment source metadata"
+  },
+  "suggested_audit_event": {
+    "event_code": "opened_evidence"
+  }
 }
 ```
 

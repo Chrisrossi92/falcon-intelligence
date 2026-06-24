@@ -6,6 +6,7 @@ from pathlib import Path
 from falcon_intel.data_passport_lookup import lookup_data_passport_detail
 from falcon_intel.falcon_evidence_contract import build_falcon_evidence_open_response
 from falcon_intel.passport_detail_drawer import build_passport_detail_drawer
+from falcon_intel.schema_registry import FALCON_EVIDENCE_OPEN_RESPONSE_SCHEMA_VERSION
 
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
@@ -39,6 +40,7 @@ def main() -> None:
         synthetic_passport_path=PASSPORT_FIXTURE_PATH,
     )
     assert response["status"] == "ok"
+    assert response["schema_version"] == FALCON_EVIDENCE_OPEN_RESPONSE_SCHEMA_VERSION
     assert response["evidence_summary"]["evidence_id"] == evidence_id
     assert response["suggested_audit_event"]["event_code"] == "opened_evidence"
     assert response["suggested_audit_event"]["metadata"]["detail_type"] == "evidence_link"

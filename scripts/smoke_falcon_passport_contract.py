@@ -10,6 +10,7 @@ from falcon_intel.intelligence_matcher import (
     load_synthetic_verified_intelligence,
     match_firm_intelligence,
 )
+from falcon_intel.schema_registry import FALCON_PASSPORT_DETAIL_API_RESPONSE_SCHEMA_VERSION
 
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
@@ -57,6 +58,7 @@ def main() -> None:
     )
 
     assert response["status"] == "ok"
+    assert response["schema_version"] == FALCON_PASSPORT_DETAIL_API_RESPONSE_SCHEMA_VERSION
     assert response["passport"]["passport_id"] == passport_id
     assert response["suggested_audit_event"]["event_code"] == "opened_evidence"
     assert response["suggested_audit_event"]["metadata"]["detail_type"] == "data_passport"

@@ -4,6 +4,10 @@ import json
 from pathlib import Path
 
 from falcon_intel.falcon_api_contract import build_falcon_intelligence_card_response
+from falcon_intel.schema_registry import (
+    FALCON_CARD_API_RESPONSE_SCHEMA_VERSION,
+    FIRM_INTELLIGENCE_CARD_SCHEMA_VERSION,
+)
 
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
@@ -33,7 +37,8 @@ def main() -> None:
     snapshot = json.loads(SNAPSHOT_PATH.read_text(encoding="utf-8"))
 
     assert response["status"] == "ok"
-    assert response["card"]["schema_version"] == "1"
+    assert response["schema_version"] == FALCON_CARD_API_RESPONSE_SCHEMA_VERSION
+    assert response["card"]["schema_version"] == FIRM_INTELLIGENCE_CARD_SCHEMA_VERSION
     assert response["card"] == snapshot
 
     missing_response = build_falcon_intelligence_card_response(

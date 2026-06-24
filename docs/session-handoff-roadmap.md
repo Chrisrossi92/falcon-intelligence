@@ -68,6 +68,7 @@ Trust, provenance, and audit scaffolding:
 - End-to-end synthetic workflow that builds a card, opens passport detail, checks permissions, opens evidence, and returns suggested audit payloads.
 - Documentation-only real data production readiness gate at `docs/real-data-production-readiness-gate.md`.
 - Documentation-only Falcon UI integration notes at `docs/falcon-ui-integration-notes.md`.
+- Lightweight schema version registry at `docs/schema-version-registry.md` and `src/falcon_intel/schema_registry.py`.
 
 ## Current Validation Status
 
@@ -91,6 +92,7 @@ PYTHONPATH=src python3 scripts/smoke_data_passport_lookup.py
 PYTHONPATH=src python3 scripts/smoke_falcon_passport_contract.py
 PYTHONPATH=src python3 scripts/smoke_passport_detail_drawer.py
 PYTHONPATH=src python3 scripts/smoke_falcon_evidence_contract.py
+PYTHONPATH=src python3 scripts/smoke_schema_registry.py
 PYTHONPATH=src python3 scripts/smoke_permission_policy.py
 PYTHONPATH=src python3 scripts/smoke_synthetic_workflow.py
 PYTHONPATH=src python3 -m pytest
@@ -131,11 +133,11 @@ Visibility must remain internal-only. Client-facing views must not show Firm Int
 
 ## Recommended Next 5 Slices
 
-1. Schema version registry: document ownership and update rules for card, passport drawer, and future evidence-open response schemas.
-2. Permission policy contract tests for Falcon request wrappers: thread role/access decisions through the local Falcon card, passport, and evidence-open boundaries without production auth.
-3. Audit event envelope snapshot: create a stable synthetic UI/API fixture for the audit payloads produced by the end-to-end workflow.
-4. Production gate review packet template: add a documentation template for approvals, test plans, retention decisions, and rollback plans before any real content pilot.
-5. First Falcon UI slice spec: turn `docs/falcon-ui-integration-notes.md` into a scoped implementation checklist for an internal-only Order Detail card preview.
+1. Permission policy contract tests for Falcon request wrappers: thread role/access decisions through the local Falcon card, passport, and evidence-open boundaries without production auth.
+2. Audit event envelope snapshot: create a stable synthetic UI/API fixture for the audit payloads produced by the end-to-end workflow.
+3. Production gate review packet template: add a documentation template for approvals, test plans, retention decisions, and rollback plans before any real content pilot.
+4. First Falcon UI slice spec: turn `docs/falcon-ui-integration-notes.md` into a scoped implementation checklist for an internal-only Order Detail card preview.
+5. Schema changelog template: add a documentation pattern for deliberate v2 schema proposals and fixture snapshot review.
 
 ## Current Known Risks
 
@@ -146,6 +148,7 @@ Visibility must remain internal-only. Client-facing views must not show Firm Int
 - Evidence links are placeholders and do not open source documents.
 - Data passport fixtures cover only selected synthetic records.
 - UI schemas are stable enough for prototype work but may need versioning as frontend requirements mature.
+- Schema versions are registered, but only the card and passport drawer currently have committed UI snapshots.
 - The repository contains no approved ingestion or extraction pipeline; adding one prematurely would violate the current safety boundary.
 - Real content work remains blocked until the production readiness gate passes; metadata-only scans are the only allowed real-data activity.
 - CI validates synthetic workflows only and cannot prove production readiness.

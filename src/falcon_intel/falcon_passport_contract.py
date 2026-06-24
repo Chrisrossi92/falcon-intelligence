@@ -9,6 +9,7 @@ from falcon_intel.data_passport_lookup import (
     DEFAULT_DATA_PASSPORT_FIXTURE_PATH,
     lookup_data_passport_detail,
 )
+from falcon_intel.schema_registry import FALCON_PASSPORT_DETAIL_API_RESPONSE_SCHEMA_VERSION
 
 
 REQUIRED_PASSPORT_DETAIL_FIELDS = (
@@ -28,6 +29,7 @@ class FalconPassportDetailBoundaryResponse:
     order_id: str | None
     user_id: str | None
     passport_id: str | None
+    schema_version: str = FALCON_PASSPORT_DETAIL_API_RESPONSE_SCHEMA_VERSION
     passport: dict[str, Any] | None = None
     suggested_audit_event: dict[str, Any] | None = None
     error: dict[str, Any] | None = None
@@ -39,6 +41,7 @@ class FalconPassportDetailBoundaryResponse:
             "order_id": self.order_id,
             "user_id": self.user_id,
             "passport_id": self.passport_id,
+            "schema_version": self.schema_version,
         }
         if self.passport is not None:
             payload["passport"] = self.passport

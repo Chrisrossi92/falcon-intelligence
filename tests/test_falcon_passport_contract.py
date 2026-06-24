@@ -8,6 +8,7 @@ from falcon_intel.intelligence_matcher import (
     load_synthetic_verified_intelligence,
     match_firm_intelligence,
 )
+from falcon_intel.schema_registry import FALCON_PASSPORT_DETAIL_API_RESPONSE_SCHEMA_VERSION
 
 
 FIXTURE_ROOT = Path(__file__).parent / "fixtures"
@@ -30,6 +31,7 @@ def test_card_top_match_passport_id_resolves_through_falcon_boundary() -> None:
     )
 
     assert response["status"] == "ok"
+    assert response["schema_version"] == FALCON_PASSPORT_DETAIL_API_RESPONSE_SCHEMA_VERSION
     assert response["tenant_id"] == "tenant-synthetic-001"
     assert response["order_id"] == "falcon-order-synthetic-001"
     assert response["user_id"] == "user-synthetic-001"
@@ -64,6 +66,7 @@ def test_falcon_passport_boundary_validates_missing_required_input() -> None:
         "order_id": "falcon-order-synthetic-001",
         "user_id": None,
         "passport_id": None,
+        "schema_version": FALCON_PASSPORT_DETAIL_API_RESPONSE_SCHEMA_VERSION,
         "error": {
             "code": "missing_required_input",
             "message": "Falcon passport detail payload is missing required fields.",

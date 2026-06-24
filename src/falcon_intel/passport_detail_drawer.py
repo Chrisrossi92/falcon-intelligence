@@ -4,6 +4,7 @@ from dataclasses import asdict, dataclass
 from typing import Any
 
 from falcon_intel.match_policy import WarningCode
+from falcon_intel.schema_registry import PASSPORT_DETAIL_DRAWER_SCHEMA_VERSION
 
 
 @dataclass(frozen=True)
@@ -80,7 +81,7 @@ def build_passport_detail_drawer(passport_detail: dict[str, Any]) -> PassportDet
 
     warnings = _warnings(passport_detail)
     return PassportDetailDrawer(
-        schema_version="1",
+        schema_version=PASSPORT_DETAIL_DRAWER_SCHEMA_VERSION,
         passport_identity=PassportDrawerIdentity(
             passport_id=str(passport_detail["passport_id"]),
             fact_id=str(passport_detail["fact_id"]),

@@ -9,6 +9,7 @@ from falcon_intel.data_passport_lookup import (
     DEFAULT_DATA_PASSPORT_FIXTURE_PATH,
     lookup_data_passport_detail,
 )
+from falcon_intel.schema_registry import FALCON_EVIDENCE_OPEN_RESPONSE_SCHEMA_VERSION
 
 
 REQUIRED_EVIDENCE_OPEN_FIELDS = (
@@ -30,6 +31,7 @@ class FalconEvidenceOpenBoundaryResponse:
     user_id: str | None
     passport_id: str | None
     evidence_id: str | None
+    schema_version: str = FALCON_EVIDENCE_OPEN_RESPONSE_SCHEMA_VERSION
     evidence_summary: dict[str, Any] | None = None
     suggested_audit_event: dict[str, Any] | None = None
     error: dict[str, Any] | None = None
@@ -42,6 +44,7 @@ class FalconEvidenceOpenBoundaryResponse:
             "user_id": self.user_id,
             "passport_id": self.passport_id,
             "evidence_id": self.evidence_id,
+            "schema_version": self.schema_version,
         }
         if self.evidence_summary is not None:
             payload["evidence_summary"] = self.evidence_summary

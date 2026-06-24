@@ -2,6 +2,7 @@ import json
 from pathlib import Path
 
 from falcon_intel.falcon_api_contract import build_falcon_intelligence_card_response
+from falcon_intel.schema_registry import FALCON_CARD_API_RESPONSE_SCHEMA_VERSION
 
 
 SNAPSHOT_PATH = (
@@ -19,6 +20,7 @@ def test_falcon_card_boundary_returns_v1_snapshot_schema() -> None:
     assert response["status"] == "ok"
     assert response["order_id"] == "falcon-order-synthetic-001"
     assert response["tenant_id"] == "tenant-synthetic-001"
+    assert response["schema_version"] == FALCON_CARD_API_RESPONSE_SCHEMA_VERSION
     assert response["card"]["schema_version"] == "1"
     assert response["card"] == snapshot
 
@@ -34,6 +36,7 @@ def test_falcon_card_boundary_reports_missing_required_fields() -> None:
         "status": "missing_required_input",
         "order_id": "falcon-order-synthetic-001",
         "tenant_id": "tenant-synthetic-001",
+        "schema_version": FALCON_CARD_API_RESPONSE_SCHEMA_VERSION,
         "error": {
             "code": "missing_required_input",
             "message": "Falcon order payload is missing required fields.",

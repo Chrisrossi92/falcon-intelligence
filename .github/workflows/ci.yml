@@ -66,6 +66,9 @@ jobs:
       - name: Smoke Falcon evidence-open contract
         run: PYTHONPATH=src python scripts/smoke_falcon_evidence_contract.py
 
+      - name: Smoke schema version registry
+        run: PYTHONPATH=src python scripts/smoke_schema_registry.py
+
       - name: Smoke permission policy
         run: PYTHONPATH=src python scripts/smoke_permission_policy.py
 

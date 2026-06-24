@@ -10,6 +10,7 @@ from falcon_intel.intelligence_matcher import (
     load_synthetic_verified_intelligence,
     match_firm_intelligence,
 )
+from falcon_intel.schema_registry import FALCON_CARD_API_RESPONSE_SCHEMA_VERSION
 
 
 DEFAULT_SYNTHETIC_INTELLIGENCE_PATH = (
@@ -38,6 +39,7 @@ class FalconCardBoundaryResponse:
     status: str
     order_id: str | None
     tenant_id: str | None
+    schema_version: str = FALCON_CARD_API_RESPONSE_SCHEMA_VERSION
     card: dict[str, Any] | None = None
     error: dict[str, Any] | None = None
 
@@ -46,6 +48,7 @@ class FalconCardBoundaryResponse:
             "status": self.status,
             "order_id": self.order_id,
             "tenant_id": self.tenant_id,
+            "schema_version": self.schema_version,
         }
         if self.card is not None:
             payload["card"] = self.card
