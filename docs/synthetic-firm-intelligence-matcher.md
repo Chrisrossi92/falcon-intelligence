@@ -153,6 +153,18 @@ Example shape:
 
 Stale data flags are currently fixture-driven. A synthetic record can mark `stale_after` as `expired` to surface a `stale` flag and a card-level `stale_data_present` warning. Future production stale logic must use verified dates and firm policy.
 
+## Versioned UI Snapshot
+
+The committed v1 UI card snapshot lives at:
+
+```text
+tests/fixtures/synthetic_ui_cards/firm-intelligence-card-v1.json
+```
+
+The snapshot is generated only from the fake order used in tests and the synthetic verified intelligence fixture. It is intended for future frontend and Falcon integration work to detect schema drift.
+
+Snapshot tests compare the current serializer output exactly against this file. If a card schema change is intentional, update the serializer, update the docs, regenerate the snapshot deliberately, and review the JSON diff before committing. Do not update the snapshot just to make tests pass.
+
 Run the full local suite after installing the dev extra:
 
 ```bash
@@ -160,6 +172,7 @@ PYTHONPATH=src python3 -m compileall -q src scripts tests
 PYTHONPATH=src python3 scripts/smoke_synthetic_fixtures.py
 PYTHONPATH=src python3 scripts/smoke_synthetic_intelligence_matcher.py
 PYTHONPATH=src python3 scripts/smoke_intelligence_card_schema.py
+PYTHONPATH=src python3 scripts/smoke_intelligence_card_snapshot.py
 PYTHONPATH=src python3 scripts/smoke_intelligence_card_cli.py
 PYTHONPATH=src python3 -m pytest
 ```

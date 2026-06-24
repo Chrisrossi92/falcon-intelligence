@@ -1,0 +1,505 @@
+{
+  "confidence_provenance_summary": {
+    "highest_score": 100,
+    "source_fixture_kind": "synthetic_verified_intelligence",
+    "source_fixture_version": "1",
+    "synthetic_fixture_only": true,
+    "total_matches": 17,
+    "verified_match_count": 16
+  },
+  "headline": "Firm Intelligence Found: 17 synthetic matches across 8 groups.",
+  "match_group_summaries": [
+    {
+      "count": 1,
+      "group": "same_subject_property",
+      "label": "Same Subject Property",
+      "top_score": 100
+    },
+    {
+      "count": 2,
+      "group": "nearby_prior_assignments",
+      "label": "Nearby Prior Assignments",
+      "top_score": 80
+    },
+    {
+      "count": 2,
+      "group": "same_property_type",
+      "label": "Same Property Type",
+      "top_score": 80
+    },
+    {
+      "count": 4,
+      "group": "similar_building_size",
+      "label": "Similar Building Size",
+      "top_score": 90
+    },
+    {
+      "count": 2,
+      "group": "same_client",
+      "label": "Same Client",
+      "top_score": 85
+    },
+    {
+      "count": 2,
+      "group": "verified_sale_comps",
+      "label": "Verified Sale Comps",
+      "top_score": 95
+    },
+    {
+      "count": 2,
+      "group": "verified_lease_comps",
+      "label": "Verified Lease Comps",
+      "top_score": 95
+    },
+    {
+      "count": 2,
+      "group": "relevant_market_indicators",
+      "label": "Relevant Market Indicators",
+      "top_score": 90
+    }
+  ],
+  "order_summary": {
+    "address": "1000 Example Industrial Way",
+    "building_size_sf": 50000,
+    "city": "Sampleton",
+    "client": "Synthetic Lender A",
+    "property_type": "industrial",
+    "state": "ST"
+  },
+  "recommended_actions": [
+    {
+      "code": "review_top_matches",
+      "label": "Review top matches",
+      "reason": "Synthetic verified intelligence matches were found for this fake order."
+    },
+    {
+      "code": "confirm_relevance",
+      "label": "Confirm relevance",
+      "reason": "Scores are routing hints, not valuation conclusions."
+    },
+    {
+      "code": "evaluate_comparable_reuse",
+      "label": "Evaluate comparable reuse",
+      "reason": "Verified synthetic comparable matches are present."
+    }
+  ],
+  "schema_version": "1",
+  "top_match_cards": [
+    {
+      "confidence_label": "high",
+      "details": {
+        "address": "1000 Example Industrial Way",
+        "assignment_type": "refinance appraisal",
+        "building_size_sf": 50000,
+        "city": "Sampleton",
+        "client": "Synthetic Lender A",
+        "effective_date": "2026-01-15",
+        "property_type": "industrial",
+        "state": "ST"
+      },
+      "explanation": "Exact synthetic address, city, and state match.",
+      "group": "same_subject_property",
+      "provenance": {
+        "record_type": "assignment",
+        "source_id": "synthetic-assignment-industrial-alpha",
+        "synthetic_fixture": true,
+        "verification_status": "verified"
+      },
+      "score": 100,
+      "source_id": "synthetic-assignment-industrial-alpha",
+      "source_type": "assignment",
+      "stale_data_flags": [],
+      "title": "Prior subject property"
+    },
+    {
+      "confidence_label": "medium",
+      "details": {
+        "address": "1200 Example Logistics Loop",
+        "assignment_type": "purchase appraisal",
+        "building_size_sf": 62000,
+        "city": "Sampleton",
+        "client": "Synthetic Credit Union",
+        "effective_date": "2025-11-10",
+        "property_type": "industrial",
+        "state": "ST"
+      },
+      "explanation": "Same synthetic city and state; useful as a prior assignment prompt.",
+      "group": "nearby_prior_assignments",
+      "provenance": {
+        "record_type": "assignment",
+        "source_id": "synthetic-assignment-industrial-nearby",
+        "synthetic_fixture": true,
+        "verification_status": "verified"
+      },
+      "score": 80,
+      "source_id": "synthetic-assignment-industrial-nearby",
+      "source_type": "assignment",
+      "stale_data_flags": [],
+      "title": "Nearby prior assignment"
+    },
+    {
+      "confidence_label": "medium",
+      "details": {
+        "address": "2100 Example Retail Row",
+        "assignment_type": "market value appraisal",
+        "building_size_sf": 48000,
+        "city": "Sampleton",
+        "client": "Synthetic Lender A",
+        "effective_date": "2025-09-20",
+        "property_type": "retail",
+        "state": "ST"
+      },
+      "explanation": "Same synthetic city and state; useful as a prior assignment prompt.",
+      "group": "nearby_prior_assignments",
+      "provenance": {
+        "record_type": "assignment",
+        "source_id": "synthetic-assignment-retail-bravo",
+        "synthetic_fixture": true,
+        "verification_status": "verified"
+      },
+      "score": 70,
+      "source_id": "synthetic-assignment-retail-bravo",
+      "source_type": "assignment",
+      "stale_data_flags": [],
+      "title": "Nearby prior assignment"
+    },
+    {
+      "confidence_label": "medium",
+      "details": {
+        "address": "1000 Example Industrial Way",
+        "assignment_type": "refinance appraisal",
+        "building_size_sf": 50000,
+        "city": "Sampleton",
+        "client": "Synthetic Lender A",
+        "effective_date": "2026-01-15",
+        "property_type": "industrial",
+        "state": "ST"
+      },
+      "explanation": "Property type matches: industrial.",
+      "group": "same_property_type",
+      "provenance": {
+        "record_type": "assignment",
+        "source_id": "synthetic-assignment-industrial-alpha",
+        "synthetic_fixture": true,
+        "verification_status": "verified"
+      },
+      "score": 80,
+      "source_id": "synthetic-assignment-industrial-alpha",
+      "source_type": "assignment",
+      "stale_data_flags": [],
+      "title": "Same property type assignment"
+    },
+    {
+      "confidence_label": "medium",
+      "details": {
+        "address": "1200 Example Logistics Loop",
+        "assignment_type": "purchase appraisal",
+        "building_size_sf": 62000,
+        "city": "Sampleton",
+        "client": "Synthetic Credit Union",
+        "effective_date": "2025-11-10",
+        "property_type": "industrial",
+        "state": "ST"
+      },
+      "explanation": "Property type matches: industrial.",
+      "group": "same_property_type",
+      "provenance": {
+        "record_type": "assignment",
+        "source_id": "synthetic-assignment-industrial-nearby",
+        "synthetic_fixture": true,
+        "verification_status": "verified"
+      },
+      "score": 80,
+      "source_id": "synthetic-assignment-industrial-nearby",
+      "source_type": "assignment",
+      "stale_data_flags": [],
+      "title": "Same property type assignment"
+    },
+    {
+      "confidence_label": "high",
+      "details": {
+        "address": "1000 Example Industrial Way",
+        "assignment_type": "refinance appraisal",
+        "building_size_sf": 50000,
+        "city": "Sampleton",
+        "client": "Synthetic Lender A",
+        "effective_date": "2026-01-15",
+        "property_type": "industrial",
+        "state": "ST"
+      },
+      "explanation": "Building size is within 0.0% of the fake order.",
+      "group": "similar_building_size",
+      "provenance": {
+        "record_type": "assignment",
+        "source_id": "synthetic-assignment-industrial-alpha",
+        "synthetic_fixture": true,
+        "verification_status": "verified"
+      },
+      "score": 90,
+      "source_id": "synthetic-assignment-industrial-alpha",
+      "source_type": "assignment",
+      "stale_data_flags": [],
+      "title": "Similar building size assignment"
+    },
+    {
+      "confidence_label": "high",
+      "details": {
+        "address": "2100 Example Retail Row",
+        "assignment_type": "market value appraisal",
+        "building_size_sf": 48000,
+        "city": "Sampleton",
+        "client": "Synthetic Lender A",
+        "effective_date": "2025-09-20",
+        "property_type": "retail",
+        "state": "ST"
+      },
+      "explanation": "Building size is within 4.0% of the fake order.",
+      "group": "similar_building_size",
+      "provenance": {
+        "record_type": "assignment",
+        "source_id": "synthetic-assignment-retail-bravo",
+        "synthetic_fixture": true,
+        "verification_status": "verified"
+      },
+      "score": 86,
+      "source_id": "synthetic-assignment-retail-bravo",
+      "source_type": "assignment",
+      "stale_data_flags": [],
+      "title": "Similar building size assignment"
+    },
+    {
+      "confidence_label": "high",
+      "details": {
+        "address": "3100 Example Office Plaza",
+        "assignment_type": "lease-heavy appraisal",
+        "building_size_sf": 52000,
+        "city": "Demo City",
+        "client": "Synthetic Regional Bank",
+        "effective_date": "2025-07-05",
+        "property_type": "office",
+        "state": "ST"
+      },
+      "explanation": "Building size is within 4.0% of the fake order.",
+      "group": "similar_building_size",
+      "provenance": {
+        "record_type": "assignment",
+        "source_id": "synthetic-assignment-office-charlie",
+        "synthetic_fixture": true,
+        "verification_status": "verified"
+      },
+      "score": 86,
+      "source_id": "synthetic-assignment-office-charlie",
+      "source_type": "assignment",
+      "stale_data_flags": [],
+      "title": "Similar building size assignment"
+    },
+    {
+      "confidence_label": "high",
+      "details": {
+        "address": "1000 Example Industrial Way",
+        "assignment_type": "refinance appraisal",
+        "building_size_sf": 50000,
+        "city": "Sampleton",
+        "client": "Synthetic Lender A",
+        "effective_date": "2026-01-15",
+        "property_type": "industrial",
+        "state": "ST"
+      },
+      "explanation": "Client name matches the fake order client exactly after normalization.",
+      "group": "same_client",
+      "provenance": {
+        "record_type": "assignment",
+        "source_id": "synthetic-assignment-industrial-alpha",
+        "synthetic_fixture": true,
+        "verification_status": "verified"
+      },
+      "score": 85,
+      "source_id": "synthetic-assignment-industrial-alpha",
+      "source_type": "assignment",
+      "stale_data_flags": [],
+      "title": "Same synthetic client"
+    },
+    {
+      "confidence_label": "high",
+      "details": {
+        "address": "2100 Example Retail Row",
+        "assignment_type": "market value appraisal",
+        "building_size_sf": 48000,
+        "city": "Sampleton",
+        "client": "Synthetic Lender A",
+        "effective_date": "2025-09-20",
+        "property_type": "retail",
+        "state": "ST"
+      },
+      "explanation": "Client name matches the fake order client exactly after normalization.",
+      "group": "same_client",
+      "provenance": {
+        "record_type": "assignment",
+        "source_id": "synthetic-assignment-retail-bravo",
+        "synthetic_fixture": true,
+        "verification_status": "verified"
+      },
+      "score": 85,
+      "source_id": "synthetic-assignment-retail-bravo",
+      "source_type": "assignment",
+      "stale_data_flags": [],
+      "title": "Same synthetic client"
+    },
+    {
+      "confidence_label": "high",
+      "details": {
+        "address": "1300 Example Distribution Drive",
+        "building_size_sf": 54000,
+        "city": "Sampleton",
+        "property_type": "industrial",
+        "sale_date": "2025-12-01",
+        "state": "ST"
+      },
+      "explanation": "Verified synthetic sale comparable matched on same property type, same synthetic market, similar building size.",
+      "group": "verified_sale_comps",
+      "provenance": {
+        "record_type": "sale_comp",
+        "source_id": "synthetic-sale-industrial-1",
+        "synthetic_fixture": true,
+        "verification_status": "verified"
+      },
+      "score": 95,
+      "source_id": "synthetic-sale-industrial-1",
+      "source_type": "sale_comp",
+      "stale_data_flags": [],
+      "title": "Verified sale comp"
+    },
+    {
+      "confidence_label": "low",
+      "details": {
+        "address": "2200 Example Shop Street",
+        "building_size_sf": 47000,
+        "city": "Sampleton",
+        "property_type": "retail",
+        "sale_date": "2025-10-12",
+        "state": "ST"
+      },
+      "explanation": "Verified synthetic sale comparable matched on same synthetic market, similar building size.",
+      "group": "verified_sale_comps",
+      "provenance": {
+        "record_type": "sale_comp",
+        "source_id": "synthetic-sale-retail-1",
+        "synthetic_fixture": true,
+        "verification_status": "verified"
+      },
+      "score": 45,
+      "source_id": "synthetic-sale-retail-1",
+      "source_type": "sale_comp",
+      "stale_data_flags": [],
+      "title": "Verified sale comp"
+    },
+    {
+      "confidence_label": "high",
+      "details": {
+        "address": "1400 Example Loading Court",
+        "building_size_sf": 45000,
+        "city": "Sampleton",
+        "lease_date": "2025-08-15",
+        "property_type": "industrial",
+        "state": "ST"
+      },
+      "explanation": "Verified synthetic lease comparable matched on same property type, same synthetic market, similar building size.",
+      "group": "verified_lease_comps",
+      "provenance": {
+        "record_type": "lease_comp",
+        "source_id": "synthetic-lease-industrial-1",
+        "synthetic_fixture": true,
+        "verification_status": "verified"
+      },
+      "score": 95,
+      "source_id": "synthetic-lease-industrial-1",
+      "source_type": "lease_comp",
+      "stale_data_flags": [],
+      "title": "Verified lease comp"
+    },
+    {
+      "confidence_label": "low",
+      "details": {
+        "address": "3200 Example Workspace Avenue",
+        "building_size_sf": 51000,
+        "city": "Demo City",
+        "lease_date": "2025-06-30",
+        "property_type": "office",
+        "state": "ST"
+      },
+      "explanation": "Verified synthetic lease comparable matched on similar building size.",
+      "group": "verified_lease_comps",
+      "provenance": {
+        "record_type": "lease_comp",
+        "source_id": "synthetic-lease-office-1",
+        "synthetic_fixture": true,
+        "verification_status": "verified"
+      },
+      "score": 20,
+      "source_id": "synthetic-lease-office-1",
+      "source_type": "lease_comp",
+      "stale_data_flags": [],
+      "title": "Verified lease comp"
+    },
+    {
+      "confidence_label": "high",
+      "details": {
+        "date_range": "2025 Q4",
+        "indicator_type": "vacancy_rate",
+        "market": "Sampleton",
+        "property_type": "industrial",
+        "state": "ST",
+        "value": "4.8%"
+      },
+      "explanation": "Verified synthetic market indicator matched on property type and synthetic market.",
+      "group": "relevant_market_indicators",
+      "provenance": {
+        "record_type": "market_indicator",
+        "source_id": "synthetic-market-industrial-sampleton-vacancy",
+        "synthetic_fixture": true,
+        "verification_status": "verified"
+      },
+      "score": 90,
+      "source_id": "synthetic-market-industrial-sampleton-vacancy",
+      "source_type": "market_indicator",
+      "stale_data_flags": [],
+      "title": "Relevant market indicator"
+    },
+    {
+      "confidence_label": "low",
+      "details": {
+        "date_range": "2025 Q4",
+        "indicator_type": "asking_rent",
+        "market": "Sampleton",
+        "property_type": "retail",
+        "state": "ST",
+        "value": "$24.00 per sf"
+      },
+      "explanation": "Verified synthetic market indicator matched on synthetic market.",
+      "group": "relevant_market_indicators",
+      "provenance": {
+        "record_type": "market_indicator",
+        "source_id": "synthetic-market-retail-sampleton-rent",
+        "synthetic_fixture": true,
+        "verification_status": "verified"
+      },
+      "score": 35,
+      "source_id": "synthetic-market-retail-sampleton-rent",
+      "source_type": "market_indicator",
+      "stale_data_flags": [],
+      "title": "Relevant market indicator"
+    }
+  ],
+  "warnings": [
+    {
+      "code": "synthetic_preview_only",
+      "message": "Synthetic preview only; do not use as production firm intelligence.",
+      "severity": "info"
+    },
+    {
+      "code": "appraiser_review_required",
+      "message": "Matches are routing prompts and require appraiser judgment before reuse.",
+      "severity": "info"
+    }
+  ]
+}
