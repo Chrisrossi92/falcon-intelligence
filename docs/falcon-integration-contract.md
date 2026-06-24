@@ -112,6 +112,7 @@ Current local contract test boundary:
 
 - Module: `src/falcon_intel/falcon_api_contract.py`
 - Function: `build_falcon_intelligence_card_response`
+- Snapshot: `tests/fixtures/synthetic_api_envelopes/falcon-card-api-response-v1.json`
 - Test: `tests/test_falcon_api_contract.py`
 - Smoke script: `scripts/smoke_falcon_api_contract.py`
 
@@ -157,6 +158,7 @@ Passport detail local contract boundary:
 
 - Module: `src/falcon_intel/falcon_passport_contract.py`
 - Function: `build_falcon_passport_detail_response`
+- Snapshot: `tests/fixtures/synthetic_api_envelopes/falcon-passport-detail-api-response-v1.json`
 - Test: `tests/test_falcon_passport_contract.py`
 - Smoke script: `scripts/smoke_falcon_passport_contract.py`
 
@@ -215,6 +217,7 @@ Evidence-open local contract boundary:
 
 - Module: `src/falcon_intel/falcon_evidence_contract.py`
 - Function: `build_falcon_evidence_open_response`
+- Snapshot: `tests/fixtures/synthetic_api_envelopes/falcon-evidence-open-api-response-v1.json`
 - Test: `tests/test_falcon_evidence_contract.py`
 - Smoke script: `scripts/smoke_falcon_evidence_contract.py`
 

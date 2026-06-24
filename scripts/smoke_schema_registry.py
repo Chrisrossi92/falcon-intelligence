@@ -30,10 +30,16 @@ PASSPORT_FIXTURE_PATH = (
 def main() -> None:
     card_entry = get_schema_registry_entry(SchemaName.FIRM_INTELLIGENCE_CARD)
     passport_entry = get_schema_registry_entry(SchemaName.PASSPORT_DETAIL_DRAWER)
+    card_api_entry = get_schema_registry_entry(SchemaName.FALCON_CARD_API_RESPONSE)
+    passport_api_entry = get_schema_registry_entry(SchemaName.FALCON_PASSPORT_DETAIL_API_RESPONSE)
+    evidence_api_entry = get_schema_registry_entry(SchemaName.FALCON_EVIDENCE_OPEN_RESPONSE)
     assert card_entry.current_version == FIRM_INTELLIGENCE_CARD_SCHEMA_VERSION
     assert passport_entry.current_version == PASSPORT_DETAIL_DRAWER_SCHEMA_VERSION
     assert card_entry.fixture_snapshot_path is not None
     assert passport_entry.fixture_snapshot_path is not None
+    assert card_api_entry.fixture_snapshot_path is not None
+    assert passport_api_entry.fixture_snapshot_path is not None
+    assert evidence_api_entry.fixture_snapshot_path is not None
 
     card_response = build_falcon_intelligence_card_response(
         {

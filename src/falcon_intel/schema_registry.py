@@ -71,7 +71,7 @@ SCHEMA_REGISTRY: dict[SchemaName, SchemaRegistryEntry] = {
     SchemaName.FALCON_EVIDENCE_OPEN_RESPONSE: SchemaRegistryEntry(
         schema_name=SchemaName.FALCON_EVIDENCE_OPEN_RESPONSE.value,
         current_version=FALCON_EVIDENCE_OPEN_RESPONSE_SCHEMA_VERSION,
-        fixture_snapshot_path=None,
+        fixture_snapshot_path="tests/fixtures/synthetic_api_envelopes/falcon-evidence-open-api-response-v1.json",
         breaking_change_rules=_BREAKING_CHANGE_RULES,
         backward_compatibility_notes=(
             "The response is a local contract wrapper only. Optional metadata may be added, "
@@ -82,7 +82,7 @@ SCHEMA_REGISTRY: dict[SchemaName, SchemaRegistryEntry] = {
     SchemaName.FALCON_CARD_API_RESPONSE: SchemaRegistryEntry(
         schema_name=SchemaName.FALCON_CARD_API_RESPONSE.value,
         current_version=FALCON_CARD_API_RESPONSE_SCHEMA_VERSION,
-        fixture_snapshot_path=None,
+        fixture_snapshot_path="tests/fixtures/synthetic_api_envelopes/falcon-card-api-response-v1.json",
         breaking_change_rules=_BREAKING_CHANGE_RULES,
         backward_compatibility_notes=(
             "The API boundary version describes the response envelope. "
@@ -93,7 +93,7 @@ SCHEMA_REGISTRY: dict[SchemaName, SchemaRegistryEntry] = {
     SchemaName.FALCON_PASSPORT_DETAIL_API_RESPONSE: SchemaRegistryEntry(
         schema_name=SchemaName.FALCON_PASSPORT_DETAIL_API_RESPONSE.value,
         current_version=FALCON_PASSPORT_DETAIL_API_RESPONSE_SCHEMA_VERSION,
-        fixture_snapshot_path=None,
+        fixture_snapshot_path="tests/fixtures/synthetic_api_envelopes/falcon-passport-detail-api-response-v1.json",
         breaking_change_rules=_BREAKING_CHANGE_RULES,
         backward_compatibility_notes=(
             "The API boundary version describes the response envelope. "

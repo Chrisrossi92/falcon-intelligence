@@ -10,11 +10,13 @@ This registry does not authorize real appraisal data, OneDrive access, report pa
 | --- | --- | --- | --- |
 | `firm_intelligence_found_card` | `1` | `tests/fixtures/synthetic_ui_cards/firm-intelligence-card-v1.json` | Falcon internal Order Detail, New Order intake, and Assignment workspace UI. |
 | `passport_detail_drawer` | `1` | `tests/fixtures/synthetic_ui_passports/passport-detail-drawer-v1.json` | Falcon internal passport detail drawer. |
-| `falcon_evidence_open_response` | `1` | None yet | Falcon internal evidence metadata and audit handoff flow. |
-| `falcon_card_api_response` | `1` | None yet | Future Falcon API/RPC client for Firm Intelligence card retrieval. |
-| `falcon_passport_detail_api_response` | `1` | None yet | Future Falcon API/RPC client for passport detail lookup. |
+| `falcon_evidence_open_response` | `1` | `tests/fixtures/synthetic_api_envelopes/falcon-evidence-open-api-response-v1.json` | Falcon internal evidence metadata and audit handoff flow. |
+| `falcon_card_api_response` | `1` | `tests/fixtures/synthetic_api_envelopes/falcon-card-api-response-v1.json` | Future Falcon API/RPC client for Firm Intelligence card retrieval. |
+| `falcon_passport_detail_api_response` | `1` | `tests/fixtures/synthetic_api_envelopes/falcon-passport-detail-api-response-v1.json` | Future Falcon API/RPC client for passport detail lookup. |
 
 The API response schema versions describe the response envelopes. Nested UI objects keep their own schema versions. For example, `build_falcon_intelligence_card_response` returns a `schema_version` for the Falcon response envelope and a separate `card.schema_version` for the Firm Intelligence Found card.
+
+Passport detail and evidence-open envelope snapshots include suggested audit payloads. Their generated audit timestamps are normalized to `synthetic-dynamic-timestamp` so snapshot tests detect schema drift without depending on wall-clock time.
 
 ## Registry Constants
 

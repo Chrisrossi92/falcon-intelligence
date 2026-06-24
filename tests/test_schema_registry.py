@@ -26,6 +26,7 @@ PASSPORT_DRAWER_SNAPSHOT_PATH = (
     / "synthetic_ui_passports"
     / "passport-detail-drawer-v1.json"
 )
+API_ENVELOPE_FIXTURE_ROOT = REPO_ROOT / "tests" / "fixtures" / "synthetic_api_envelopes"
 PASSPORT_FIXTURE_PATH = REPO_ROOT / "tests" / "fixtures" / "synthetic_data_passports" / "data-passports.json"
 
 
@@ -49,14 +50,35 @@ def test_schema_registry_has_required_contract_entries() -> None:
 def test_schema_registry_fixture_paths_match_snapshots() -> None:
     card_entry = get_schema_registry_entry(SchemaName.FIRM_INTELLIGENCE_CARD)
     passport_entry = get_schema_registry_entry(SchemaName.PASSPORT_DETAIL_DRAWER)
+    card_api_entry = get_schema_registry_entry(SchemaName.FALCON_CARD_API_RESPONSE)
+    passport_api_entry = get_schema_registry_entry(SchemaName.FALCON_PASSPORT_DETAIL_API_RESPONSE)
+    evidence_api_entry = get_schema_registry_entry(SchemaName.FALCON_EVIDENCE_OPEN_RESPONSE)
 
     assert card_entry.fixture_snapshot_path == "tests/fixtures/synthetic_ui_cards/firm-intelligence-card-v1.json"
     assert passport_entry.fixture_snapshot_path == "tests/fixtures/synthetic_ui_passports/passport-detail-drawer-v1.json"
+    assert card_api_entry.fixture_snapshot_path == (
+        "tests/fixtures/synthetic_api_envelopes/falcon-card-api-response-v1.json"
+    )
+    assert passport_api_entry.fixture_snapshot_path == (
+        "tests/fixtures/synthetic_api_envelopes/falcon-passport-detail-api-response-v1.json"
+    )
+    assert evidence_api_entry.fixture_snapshot_path == (
+        "tests/fixtures/synthetic_api_envelopes/falcon-evidence-open-api-response-v1.json"
+    )
     assert json.loads(CARD_SNAPSHOT_PATH.read_text(encoding="utf-8"))["schema_version"] == (
         FIRM_INTELLIGENCE_CARD_SCHEMA_VERSION
     )
     assert json.loads(PASSPORT_DRAWER_SNAPSHOT_PATH.read_text(encoding="utf-8"))["schema_version"] == (
         PASSPORT_DETAIL_DRAWER_SCHEMA_VERSION
+    )
+    assert _api_snapshot_version("falcon-card-api-response-v1.json") == (
+        FALCON_CARD_API_RESPONSE_SCHEMA_VERSION
+    )
+    assert _api_snapshot_version("falcon-passport-detail-api-response-v1.json") == (
+        FALCON_PASSPORT_DETAIL_API_RESPONSE_SCHEMA_VERSION
+    )
+    assert _api_snapshot_version("falcon-evidence-open-api-response-v1.json") == (
+        FALCON_EVIDENCE_OPEN_RESPONSE_SCHEMA_VERSION
     )
 
 
@@ -108,3 +130,7 @@ def _order_payload() -> dict[str, object]:
         "building_size_sf": 50000,
         "client": "Synthetic Lender A",
     }
+
+
+def _api_snapshot_version(filename: str) -> str:
+    return json.loads((API_ENVELOPE_FIXTURE_ROOT / filename).read_text(encoding="utf-8"))["schema_version"]

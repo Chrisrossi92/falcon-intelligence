@@ -69,6 +69,9 @@ jobs:
       - name: Smoke schema version registry
         run: PYTHONPATH=src python scripts/smoke_schema_registry.py
 
+      - name: Smoke Falcon API envelope snapshots
+        run: PYTHONPATH=src python scripts/smoke_api_envelope_snapshots.py
+
       - name: Smoke permission policy
         run: PYTHONPATH=src python scripts/smoke_permission_policy.py
 

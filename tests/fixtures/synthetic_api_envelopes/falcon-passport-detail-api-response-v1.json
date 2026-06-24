@@ -1,0 +1,65 @@
+{
+  "order_id": "falcon-order-synthetic-001",
+  "passport": {
+    "assignment_id": "synthetic-assignment-industrial-alpha",
+    "audit_event_ids": [
+      "synthetic-audit-assignment-industrial-alpha-viewed",
+      "synthetic-audit-assignment-industrial-alpha-verified"
+    ],
+    "confidence_dimensions": {
+      "extraction_confidence": "not_applicable_synthetic",
+      "freshness": "current_for_synthetic_fixture",
+      "historical_consistency": "consistent_with_synthetic_history",
+      "reviewer_approval": "reviewed",
+      "source_agreement": "single_verified_synthetic_record",
+      "source_quality": "verified_synthetic_source_metadata"
+    },
+    "display_label": "Synthetic industrial assignment summary",
+    "display_value": "Industrial assignment metadata for 50,000 sf synthetic property",
+    "evidence_links": [
+      {
+        "access_level": "internal_only",
+        "assignment_id": "synthetic-assignment-industrial-alpha",
+        "display_label": "Synthetic industrial assignment source metadata",
+        "evidence_id": "synthetic-evidence-assignment-industrial-alpha",
+        "future_highlight_text": null,
+        "future_page_number": null,
+        "future_section_anchor": null,
+        "source_document_id": "synthetic-source-report-industrial-alpha",
+        "source_document_type": "source_report",
+        "status": "placeholder",
+        "tenant_id": "tenant-synthetic-001"
+      }
+    ],
+    "fact_id": "synthetic-fact-assignment-industrial-alpha-building-size",
+    "fact_type": "assignment_summary",
+    "passport_id": "synthetic-passport-assignment-industrial-alpha",
+    "reviewed_at": "2026-06-24T13:00:00+00:00",
+    "reviewed_by": "synthetic-reviewer-001",
+    "searchable_status": "searchable",
+    "tenant_id": "tenant-synthetic-001",
+    "verification_status": "verified",
+    "verified_at": "2026-06-24T12:00:00+00:00",
+    "verified_by": "synthetic-appraiser-001"
+  },
+  "passport_id": "synthetic-passport-assignment-industrial-alpha",
+  "schema_version": "1",
+  "status": "ok",
+  "suggested_audit_event": {
+    "event_code": "opened_evidence",
+    "match_id": "synthetic-passport-assignment-industrial-alpha",
+    "metadata": {
+      "detail_type": "data_passport",
+      "evidence_link_count": 1,
+      "fact_id": "synthetic-fact-assignment-industrial-alpha-building-size",
+      "passport_id": "synthetic-passport-assignment-industrial-alpha",
+      "searchable_status": "searchable"
+    },
+    "order_id": "falcon-order-synthetic-001",
+    "tenant_id": "tenant-synthetic-001",
+    "timestamp": "synthetic-dynamic-timestamp",
+    "user_id": "user-synthetic-001"
+  },
+  "tenant_id": "tenant-synthetic-001",
+  "user_id": "user-synthetic-001"
+}

@@ -69,6 +69,7 @@ Trust, provenance, and audit scaffolding:
 - Documentation-only real data production readiness gate at `docs/real-data-production-readiness-gate.md`.
 - Documentation-only Falcon UI integration notes at `docs/falcon-ui-integration-notes.md`.
 - Lightweight schema version registry at `docs/schema-version-registry.md` and `src/falcon_intel/schema_registry.py`.
+- Versioned synthetic Falcon API envelope snapshots at `tests/fixtures/synthetic_api_envelopes/`.
 
 ## Current Validation Status
 
@@ -93,6 +94,7 @@ PYTHONPATH=src python3 scripts/smoke_falcon_passport_contract.py
 PYTHONPATH=src python3 scripts/smoke_passport_detail_drawer.py
 PYTHONPATH=src python3 scripts/smoke_falcon_evidence_contract.py
 PYTHONPATH=src python3 scripts/smoke_schema_registry.py
+PYTHONPATH=src python3 scripts/smoke_api_envelope_snapshots.py
 PYTHONPATH=src python3 scripts/smoke_permission_policy.py
 PYTHONPATH=src python3 scripts/smoke_synthetic_workflow.py
 PYTHONPATH=src python3 -m pytest
@@ -112,6 +114,7 @@ The following remain synthetic/local only:
 - Falcon card, passport, and evidence-open contract boundaries.
 - Historical comparable justification narratives.
 - UI card and passport detail drawer snapshots.
+- Falcon API envelope snapshots.
 - Permission decisions.
 
 None of these are production APIs, database queries, permission checks, source-document viewers, report readers, or extraction systems.
@@ -148,7 +151,7 @@ Visibility must remain internal-only. Client-facing views must not show Firm Int
 - Evidence links are placeholders and do not open source documents.
 - Data passport fixtures cover only selected synthetic records.
 - UI schemas are stable enough for prototype work but may need versioning as frontend requirements mature.
-- Schema versions are registered, but only the card and passport drawer currently have committed UI snapshots.
+- Schema versions and API envelope snapshots are registered, but these still describe local synthetic contracts rather than production APIs.
 - The repository contains no approved ingestion or extraction pipeline; adding one prematurely would violate the current safety boundary.
 - Real content work remains blocked until the production readiness gate passes; metadata-only scans are the only allowed real-data activity.
 - CI validates synthetic workflows only and cannot prove production readiness.

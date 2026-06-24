@@ -49,6 +49,7 @@ $env:PYTHONPATH='src'; python scripts/smoke_falcon_passport_contract.py
 $env:PYTHONPATH='src'; python scripts/smoke_passport_detail_drawer.py
 $env:PYTHONPATH='src'; python scripts/smoke_falcon_evidence_contract.py
 $env:PYTHONPATH='src'; python scripts/smoke_schema_registry.py
+$env:PYTHONPATH='src'; python scripts/smoke_api_envelope_snapshots.py
 $env:PYTHONPATH='src'; python scripts/smoke_permission_policy.py
 $env:PYTHONPATH='src'; python scripts/smoke_synthetic_workflow.py
 $env:PYTHONPATH='src'; python scripts/smoke_cli.py
@@ -75,6 +76,7 @@ PYTHONPATH=src python3 scripts/smoke_falcon_passport_contract.py
 PYTHONPATH=src python3 scripts/smoke_passport_detail_drawer.py
 PYTHONPATH=src python3 scripts/smoke_falcon_evidence_contract.py
 PYTHONPATH=src python3 scripts/smoke_schema_registry.py
+PYTHONPATH=src python3 scripts/smoke_api_envelope_snapshots.py
 PYTHONPATH=src python3 scripts/smoke_permission_policy.py
 PYTHONPATH=src python3 scripts/smoke_synthetic_workflow.py
 PYTHONPATH=src python3 -m pytest
@@ -99,6 +101,7 @@ $env:PYTHONPATH='src'; python scripts/smoke_falcon_passport_contract.py
 $env:PYTHONPATH='src'; python scripts/smoke_passport_detail_drawer.py
 $env:PYTHONPATH='src'; python scripts/smoke_falcon_evidence_contract.py
 $env:PYTHONPATH='src'; python scripts/smoke_schema_registry.py
+$env:PYTHONPATH='src'; python scripts/smoke_api_envelope_snapshots.py
 $env:PYTHONPATH='src'; python scripts/smoke_permission_policy.py
 $env:PYTHONPATH='src'; python scripts/smoke_synthetic_workflow.py
 $env:PYTHONPATH='src'; python -m pytest
@@ -112,7 +115,7 @@ GitHub Actions runs the core validation workflow on every push and pull request 
 - Synthetic fixture smoke validation.
 - Synthetic intelligence matcher smoke validation.
 - UI card schema, CLI, and snapshot smoke validation.
-- Synthetic audit, historical comparable justification, evidence link, data passport, passport lookup, Falcon passport contract, passport drawer snapshot, Falcon evidence-open contract, schema registry, permission policy, and end-to-end workflow smoke validation.
+- Synthetic audit, historical comparable justification, evidence link, data passport, passport lookup, Falcon passport contract, passport drawer snapshot, Falcon evidence-open contract, schema registry, Falcon API envelope snapshots, permission policy, and end-to-end workflow smoke validation.
 - The full pytest suite.
 
 The CI workflow must remain synthetic-only. It must not access OneDrive, real appraisal data, report contents, OCR, embeddings, or extraction pipelines.
@@ -150,3 +153,5 @@ The versioned UI card snapshot at `tests/fixtures/synthetic_ui_cards/firm-intell
 Synthetic full data passport detail records live at `tests/fixtures/synthetic_data_passports/data-passports.json`. Use `scripts/smoke_data_passport_lookup.py` to validate that a Firm Intelligence card `passport_id` can resolve to a full local detail payload without source-file access.
 
 The versioned passport detail drawer snapshot at `tests/fixtures/synthetic_ui_passports/passport-detail-drawer-v1.json` exists to detect accidental drawer schema drift. Update it only when a drawer contract change is intentional and reviewed.
+
+Versioned Falcon API envelope snapshots live under `tests/fixtures/synthetic_api_envelopes/`. They cover the local Falcon card response, passport detail response, and evidence-open response wrappers. Passport and evidence snapshots normalize generated audit timestamps to `synthetic-dynamic-timestamp`; do not update these snapshots unless the envelope change is intentional and reviewed.
