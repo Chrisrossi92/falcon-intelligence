@@ -65,6 +65,8 @@ def test_matches_fake_order_against_synthetic_verified_intelligence() -> None:
     serialized = json.dumps(result).lower()
     assert "report_text" not in serialized
     assert "source_file_path" not in serialized
+    assert "absolute_path" not in serialized
+    assert "onedrive" not in serialized
 
 
 def test_accepts_order_dict_and_keeps_all_match_groups() -> None:
@@ -117,7 +119,7 @@ def test_rejects_non_synthetic_or_unverified_intelligence() -> None:
 
 def test_rejects_prohibited_source_content_fields() -> None:
     payload = load_synthetic_verified_intelligence(FIXTURE_PATH)
-    payload["sale_comps"][0]["report_text"] = "prohibited"
+    payload["sale_comps"][0]["passport"]["evidence_links"][0]["source_file_path"] = "prohibited"
 
     with pytest.raises(ValueError, match="prohibited"):
         match_firm_intelligence(

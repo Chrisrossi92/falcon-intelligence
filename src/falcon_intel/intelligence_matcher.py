@@ -204,7 +204,7 @@ def _validate_synthetic_index(payload: dict[str, Any]) -> None:
                 raise ValueError(f"{collection_name} contains a non-verified record.")
             if record.get("synthetic_fixture") is not True:
                 raise ValueError(f"{collection_name} contains a non-synthetic record.")
-            if "report_text" in record or "source_file_path" in record:
+            if _contains_prohibited_source_content(record):
                 raise ValueError(f"{collection_name} contains prohibited source-content fields.")
 
 
@@ -220,6 +220,20 @@ def _coerce_order(order: FakeOrder | dict[str, Any]) -> FakeOrder:
         client=str(order["client"]),
         borrower_contact=str(order["borrower_contact"]) if order.get("borrower_contact") else None,
     )
+
+
+def _contains_prohibited_source_content(value: Any) -> bool:
+    prohibited_keys = {"report_text", "source_file_path", "absolute_path", "onedrive_path"}
+    if isinstance(value, dict):
+        return any(
+            str(key).lower() in prohibited_keys or _contains_prohibited_source_content(item)
+            for key, item in value.items()
+        )
+    if isinstance(value, list):
+        return any(_contains_prohibited_source_content(item) for item in value)
+    if isinstance(value, str):
+        return "onedrive" in value.lower()
+    return False
 
 
 def _match(

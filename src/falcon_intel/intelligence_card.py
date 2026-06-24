@@ -51,6 +51,11 @@ class IntelligenceCardTopMatch:
     score: int
     explanation: str
     confidence_label: str
+    passport_id: str | None
+    verification_status: str | None
+    evidence_link_count: int
+    confidence_summary: str | None
+    searchable_status: str | None
     provenance: dict[str, Any]
     stale_data_flags: list[str]
     details: dict[str, Any]
@@ -180,6 +185,7 @@ def _source_lookup(intelligence: dict[str, Any]) -> dict[str, dict[str, Any]]:
 def _top_match_card(match: dict[str, Any], source_records: dict[str, dict[str, Any]]) -> IntelligenceCardTopMatch:
     source_record = source_records.get(str(match["source_id"]), {})
     stale_flags = _stale_flags(source_record)
+    passport = _passport_summary(source_record)
     return IntelligenceCardTopMatch(
         group=str(match["group"]),
         category_code=str(match["group"]),
@@ -189,6 +195,11 @@ def _top_match_card(match: dict[str, Any], source_records: dict[str, dict[str, A
         score=int(match["score"]),
         explanation=str(match["explanation"]),
         confidence_label=_confidence_label(int(match["score"])),
+        passport_id=passport["passport_id"],
+        verification_status=passport["verification_status"],
+        evidence_link_count=passport["evidence_link_count"],
+        confidence_summary=passport["confidence_summary"],
+        searchable_status=passport["searchable_status"],
         provenance={
             "verification_status": source_record.get("verification_status"),
             "synthetic_fixture": source_record.get("synthetic_fixture"),
@@ -198,6 +209,18 @@ def _top_match_card(match: dict[str, Any], source_records: dict[str, dict[str, A
         stale_data_flags=stale_flags,
         details=dict(match["details"]),
     )
+
+
+def _passport_summary(source_record: dict[str, Any]) -> dict[str, Any]:
+    passport = source_record.get("passport") or {}
+    evidence_links = passport.get("evidence_links") or []
+    return {
+        "passport_id": passport.get("passport_id"),
+        "verification_status": source_record.get("verification_status"),
+        "evidence_link_count": len(evidence_links),
+        "confidence_summary": passport.get("confidence_summary"),
+        "searchable_status": passport.get("searchable_status"),
+    }
 
 
 def _stale_flags(source_record: dict[str, Any]) -> list[str]:

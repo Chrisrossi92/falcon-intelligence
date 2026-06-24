@@ -142,6 +142,18 @@ Current confidence dimension fields:
 
 The `evidence_links` field uses the synthetic/local evidence link model described above. In the current prototype, a passport explains provenance through IDs, labels, confidence dimensions, and evidence metadata only. It must not contain real client names, report text, absolute paths, OneDrive paths, or source-file contents.
 
+## Card Summary vs Passport Detail
+
+The Firm Intelligence Found card should remain a concise routing surface. Top match rows may show only data passport summary fields:
+
+- `passport_id`
+- `verification_status`
+- `evidence_link_count`
+- `confidence_summary`
+- `searchable_status`
+
+Full passport objects, confidence dimensions, evidence link arrays, audit IDs, and future page/section anchors belong in a dedicated passport or evidence detail drawer. This keeps the card readable and prevents broad exposure of source metadata before a user explicitly opens the supporting provenance view.
+
 ## Historical Comparable Workflow
 
 Historical comparables can be useful, but they require explicit context before reuse.

@@ -41,6 +41,11 @@ def main() -> None:
     assert card["order_summary"]["property_type"] == "industrial"
     assert card["match_group_summaries"]
     assert card["top_match_cards"]
+    assert card["top_match_cards"][0]["passport_id"] == "synthetic-passport-assignment-industrial-alpha"
+    assert card["top_match_cards"][0]["verification_status"] == "verified"
+    assert card["top_match_cards"][0]["evidence_link_count"] == 1
+    assert card["top_match_cards"][0]["searchable_status"] == "searchable"
+    assert "evidence_links" not in card["top_match_cards"][0]
     assert card["confidence_provenance_summary"]["synthetic_fixture_only"] is True
     assert card["warnings"]
     assert card["recommended_actions"]
@@ -48,6 +53,7 @@ def main() -> None:
     serialized = json.dumps(card).lower()
     assert "report_text" not in serialized
     assert "source_file_path" not in serialized
+    assert "absolute_path" not in serialized
     assert "onedrive" not in serialized
 
     print("synthetic intelligence card schema smoke validation passed")

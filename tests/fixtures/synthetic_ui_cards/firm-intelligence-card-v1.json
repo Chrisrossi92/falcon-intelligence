@@ -99,6 +99,7 @@
     {
       "category_code": "same_subject_property",
       "confidence_label": "high",
+      "confidence_summary": "Verified synthetic assignment metadata with source-report evidence.",
       "details": {
         "address": "1000 Example Industrial Way",
         "assignment_type": "refinance appraisal",
@@ -109,8 +110,10 @@
         "property_type": "industrial",
         "state": "ST"
       },
+      "evidence_link_count": 1,
       "explanation": "Exact synthetic address, city, and state match.",
       "group": "same_subject_property",
+      "passport_id": "synthetic-passport-assignment-industrial-alpha",
       "provenance": {
         "record_type": "assignment",
         "source_id": "synthetic-assignment-industrial-alpha",
@@ -118,14 +121,17 @@
         "verification_status": "verified"
       },
       "score": 100,
+      "searchable_status": "searchable",
       "source_id": "synthetic-assignment-industrial-alpha",
       "source_type": "assignment",
       "stale_data_flags": [],
-      "title": "Prior subject property"
+      "title": "Prior subject property",
+      "verification_status": "verified"
     },
     {
       "category_code": "nearby_prior_assignments",
       "confidence_label": "medium",
+      "confidence_summary": "Verified synthetic nearby assignment metadata with source-report evidence.",
       "details": {
         "address": "1200 Example Logistics Loop",
         "assignment_type": "purchase appraisal",
@@ -136,8 +142,10 @@
         "property_type": "industrial",
         "state": "ST"
       },
+      "evidence_link_count": 1,
       "explanation": "Same synthetic city and state; useful as a prior assignment prompt.",
       "group": "nearby_prior_assignments",
+      "passport_id": "synthetic-passport-assignment-industrial-nearby",
       "provenance": {
         "record_type": "assignment",
         "source_id": "synthetic-assignment-industrial-nearby",
@@ -145,14 +153,17 @@
         "verification_status": "verified"
       },
       "score": 80,
+      "searchable_status": "searchable",
       "source_id": "synthetic-assignment-industrial-nearby",
       "source_type": "assignment",
       "stale_data_flags": [],
-      "title": "Nearby prior assignment"
+      "title": "Nearby prior assignment",
+      "verification_status": "verified"
     },
     {
       "category_code": "nearby_prior_assignments",
       "confidence_label": "medium",
+      "confidence_summary": "Verified synthetic retail assignment metadata with source-report evidence.",
       "details": {
         "address": "2100 Example Retail Row",
         "assignment_type": "market value appraisal",
@@ -163,8 +174,10 @@
         "property_type": "retail",
         "state": "ST"
       },
+      "evidence_link_count": 1,
       "explanation": "Same synthetic city and state; useful as a prior assignment prompt.",
       "group": "nearby_prior_assignments",
+      "passport_id": "synthetic-passport-assignment-retail-bravo",
       "provenance": {
         "record_type": "assignment",
         "source_id": "synthetic-assignment-retail-bravo",
@@ -172,14 +185,17 @@
         "verification_status": "verified"
       },
       "score": 70,
+      "searchable_status": "searchable",
       "source_id": "synthetic-assignment-retail-bravo",
       "source_type": "assignment",
       "stale_data_flags": [],
-      "title": "Nearby prior assignment"
+      "title": "Nearby prior assignment",
+      "verification_status": "verified"
     },
     {
       "category_code": "same_property_type",
       "confidence_label": "medium",
+      "confidence_summary": "Verified synthetic assignment metadata with source-report evidence.",
       "details": {
         "address": "1000 Example Industrial Way",
         "assignment_type": "refinance appraisal",
@@ -190,8 +206,10 @@
         "property_type": "industrial",
         "state": "ST"
       },
+      "evidence_link_count": 1,
       "explanation": "Property type matches: industrial.",
       "group": "same_property_type",
+      "passport_id": "synthetic-passport-assignment-industrial-alpha",
       "provenance": {
         "record_type": "assignment",
         "source_id": "synthetic-assignment-industrial-alpha",
@@ -199,14 +217,17 @@
         "verification_status": "verified"
       },
       "score": 80,
+      "searchable_status": "searchable",
       "source_id": "synthetic-assignment-industrial-alpha",
       "source_type": "assignment",
       "stale_data_flags": [],
-      "title": "Same property type assignment"
+      "title": "Same property type assignment",
+      "verification_status": "verified"
     },
     {
       "category_code": "same_property_type",
       "confidence_label": "medium",
+      "confidence_summary": "Verified synthetic nearby assignment metadata with source-report evidence.",
       "details": {
         "address": "1200 Example Logistics Loop",
         "assignment_type": "purchase appraisal",
@@ -217,8 +238,10 @@
         "property_type": "industrial",
         "state": "ST"
       },
+      "evidence_link_count": 1,
       "explanation": "Property type matches: industrial.",
       "group": "same_property_type",
+      "passport_id": "synthetic-passport-assignment-industrial-nearby",
       "provenance": {
         "record_type": "assignment",
         "source_id": "synthetic-assignment-industrial-nearby",
@@ -226,14 +249,17 @@
         "verification_status": "verified"
       },
       "score": 80,
+      "searchable_status": "searchable",
       "source_id": "synthetic-assignment-industrial-nearby",
       "source_type": "assignment",
       "stale_data_flags": [],
-      "title": "Same property type assignment"
+      "title": "Same property type assignment",
+      "verification_status": "verified"
     },
     {
       "category_code": "similar_building_size",
       "confidence_label": "high",
+      "confidence_summary": "Verified synthetic assignment metadata with source-report evidence.",
       "details": {
         "address": "1000 Example Industrial Way",
         "assignment_type": "refinance appraisal",
@@ -244,8 +270,10 @@
         "property_type": "industrial",
         "state": "ST"
       },
+      "evidence_link_count": 1,
       "explanation": "Building size is within 0.0% of the fake order.",
       "group": "similar_building_size",
+      "passport_id": "synthetic-passport-assignment-industrial-alpha",
       "provenance": {
         "record_type": "assignment",
         "source_id": "synthetic-assignment-industrial-alpha",
@@ -253,14 +281,17 @@
         "verification_status": "verified"
       },
       "score": 90,
+      "searchable_status": "searchable",
       "source_id": "synthetic-assignment-industrial-alpha",
       "source_type": "assignment",
       "stale_data_flags": [],
-      "title": "Similar building size assignment"
+      "title": "Similar building size assignment",
+      "verification_status": "verified"
     },
     {
       "category_code": "similar_building_size",
       "confidence_label": "high",
+      "confidence_summary": "Verified synthetic retail assignment metadata with source-report evidence.",
       "details": {
         "address": "2100 Example Retail Row",
         "assignment_type": "market value appraisal",
@@ -271,8 +302,10 @@
         "property_type": "retail",
         "state": "ST"
       },
+      "evidence_link_count": 1,
       "explanation": "Building size is within 4.0% of the fake order.",
       "group": "similar_building_size",
+      "passport_id": "synthetic-passport-assignment-retail-bravo",
       "provenance": {
         "record_type": "assignment",
         "source_id": "synthetic-assignment-retail-bravo",
@@ -280,14 +313,17 @@
         "verification_status": "verified"
       },
       "score": 86,
+      "searchable_status": "searchable",
       "source_id": "synthetic-assignment-retail-bravo",
       "source_type": "assignment",
       "stale_data_flags": [],
-      "title": "Similar building size assignment"
+      "title": "Similar building size assignment",
+      "verification_status": "verified"
     },
     {
       "category_code": "similar_building_size",
       "confidence_label": "high",
+      "confidence_summary": "Verified synthetic office assignment metadata with source-report evidence.",
       "details": {
         "address": "3100 Example Office Plaza",
         "assignment_type": "lease-heavy appraisal",
@@ -298,8 +334,10 @@
         "property_type": "office",
         "state": "ST"
       },
+      "evidence_link_count": 1,
       "explanation": "Building size is within 4.0% of the fake order.",
       "group": "similar_building_size",
+      "passport_id": "synthetic-passport-assignment-office-charlie",
       "provenance": {
         "record_type": "assignment",
         "source_id": "synthetic-assignment-office-charlie",
@@ -307,14 +345,17 @@
         "verification_status": "verified"
       },
       "score": 86,
+      "searchable_status": "searchable",
       "source_id": "synthetic-assignment-office-charlie",
       "source_type": "assignment",
       "stale_data_flags": [],
-      "title": "Similar building size assignment"
+      "title": "Similar building size assignment",
+      "verification_status": "verified"
     },
     {
       "category_code": "same_client",
       "confidence_label": "high",
+      "confidence_summary": "Verified synthetic assignment metadata with source-report evidence.",
       "details": {
         "address": "1000 Example Industrial Way",
         "assignment_type": "refinance appraisal",
@@ -325,8 +366,10 @@
         "property_type": "industrial",
         "state": "ST"
       },
+      "evidence_link_count": 1,
       "explanation": "Client name matches the fake order client exactly after normalization.",
       "group": "same_client",
+      "passport_id": "synthetic-passport-assignment-industrial-alpha",
       "provenance": {
         "record_type": "assignment",
         "source_id": "synthetic-assignment-industrial-alpha",
@@ -334,14 +377,17 @@
         "verification_status": "verified"
       },
       "score": 85,
+      "searchable_status": "searchable",
       "source_id": "synthetic-assignment-industrial-alpha",
       "source_type": "assignment",
       "stale_data_flags": [],
-      "title": "Same synthetic client"
+      "title": "Same synthetic client",
+      "verification_status": "verified"
     },
     {
       "category_code": "same_client",
       "confidence_label": "high",
+      "confidence_summary": "Verified synthetic retail assignment metadata with source-report evidence.",
       "details": {
         "address": "2100 Example Retail Row",
         "assignment_type": "market value appraisal",
@@ -352,8 +398,10 @@
         "property_type": "retail",
         "state": "ST"
       },
+      "evidence_link_count": 1,
       "explanation": "Client name matches the fake order client exactly after normalization.",
       "group": "same_client",
+      "passport_id": "synthetic-passport-assignment-retail-bravo",
       "provenance": {
         "record_type": "assignment",
         "source_id": "synthetic-assignment-retail-bravo",
@@ -361,14 +409,17 @@
         "verification_status": "verified"
       },
       "score": 85,
+      "searchable_status": "searchable",
       "source_id": "synthetic-assignment-retail-bravo",
       "source_type": "assignment",
       "stale_data_flags": [],
-      "title": "Same synthetic client"
+      "title": "Same synthetic client",
+      "verification_status": "verified"
     },
     {
       "category_code": "verified_sale_comps",
       "confidence_label": "high",
+      "confidence_summary": "Verified synthetic sale comparable metadata with comparable-support evidence.",
       "details": {
         "address": "1300 Example Distribution Drive",
         "building_size_sf": 54000,
@@ -377,8 +428,10 @@
         "sale_date": "2025-12-01",
         "state": "ST"
       },
+      "evidence_link_count": 1,
       "explanation": "Verified synthetic sale comparable matched on same property type, same synthetic market, similar building size.",
       "group": "verified_sale_comps",
+      "passport_id": "synthetic-passport-sale-industrial-1",
       "provenance": {
         "record_type": "sale_comp",
         "source_id": "synthetic-sale-industrial-1",
@@ -386,14 +439,17 @@
         "verification_status": "verified"
       },
       "score": 95,
+      "searchable_status": "searchable",
       "source_id": "synthetic-sale-industrial-1",
       "source_type": "sale_comp",
       "stale_data_flags": [],
-      "title": "Verified sale comp"
+      "title": "Verified sale comp",
+      "verification_status": "verified"
     },
     {
       "category_code": "verified_sale_comps",
       "confidence_label": "low",
+      "confidence_summary": "Verified synthetic sale comparable metadata with comparable-support evidence.",
       "details": {
         "address": "2200 Example Shop Street",
         "building_size_sf": 47000,
@@ -402,8 +458,10 @@
         "sale_date": "2025-10-12",
         "state": "ST"
       },
+      "evidence_link_count": 1,
       "explanation": "Verified synthetic sale comparable matched on same synthetic market, similar building size.",
       "group": "verified_sale_comps",
+      "passport_id": "synthetic-passport-sale-retail-1",
       "provenance": {
         "record_type": "sale_comp",
         "source_id": "synthetic-sale-retail-1",
@@ -411,14 +469,17 @@
         "verification_status": "verified"
       },
       "score": 45,
+      "searchable_status": "searchable",
       "source_id": "synthetic-sale-retail-1",
       "source_type": "sale_comp",
       "stale_data_flags": [],
-      "title": "Verified sale comp"
+      "title": "Verified sale comp",
+      "verification_status": "verified"
     },
     {
       "category_code": "verified_lease_comps",
       "confidence_label": "high",
+      "confidence_summary": "Verified synthetic lease comparable metadata with comparable-support evidence.",
       "details": {
         "address": "1400 Example Loading Court",
         "building_size_sf": 45000,
@@ -427,8 +488,10 @@
         "property_type": "industrial",
         "state": "ST"
       },
+      "evidence_link_count": 1,
       "explanation": "Verified synthetic lease comparable matched on same property type, same synthetic market, similar building size.",
       "group": "verified_lease_comps",
+      "passport_id": "synthetic-passport-lease-industrial-1",
       "provenance": {
         "record_type": "lease_comp",
         "source_id": "synthetic-lease-industrial-1",
@@ -436,14 +499,17 @@
         "verification_status": "verified"
       },
       "score": 95,
+      "searchable_status": "searchable",
       "source_id": "synthetic-lease-industrial-1",
       "source_type": "lease_comp",
       "stale_data_flags": [],
-      "title": "Verified lease comp"
+      "title": "Verified lease comp",
+      "verification_status": "verified"
     },
     {
       "category_code": "verified_lease_comps",
       "confidence_label": "low",
+      "confidence_summary": "Verified synthetic lease comparable metadata with comparable-support evidence.",
       "details": {
         "address": "3200 Example Workspace Avenue",
         "building_size_sf": 51000,
@@ -452,8 +518,10 @@
         "property_type": "office",
         "state": "ST"
       },
+      "evidence_link_count": 1,
       "explanation": "Verified synthetic lease comparable matched on similar building size.",
       "group": "verified_lease_comps",
+      "passport_id": "synthetic-passport-lease-office-1",
       "provenance": {
         "record_type": "lease_comp",
         "source_id": "synthetic-lease-office-1",
@@ -461,14 +529,17 @@
         "verification_status": "verified"
       },
       "score": 20,
+      "searchable_status": "searchable",
       "source_id": "synthetic-lease-office-1",
       "source_type": "lease_comp",
       "stale_data_flags": [],
-      "title": "Verified lease comp"
+      "title": "Verified lease comp",
+      "verification_status": "verified"
     },
     {
       "category_code": "relevant_market_indicators",
       "confidence_label": "high",
+      "confidence_summary": "Verified synthetic market indicator metadata with market-support evidence.",
       "details": {
         "date_range": "2025 Q4",
         "indicator_type": "vacancy_rate",
@@ -477,8 +548,10 @@
         "state": "ST",
         "value": "4.8%"
       },
+      "evidence_link_count": 1,
       "explanation": "Verified synthetic market indicator matched on property type and synthetic market.",
       "group": "relevant_market_indicators",
+      "passport_id": "synthetic-passport-market-industrial-sampleton-vacancy",
       "provenance": {
         "record_type": "market_indicator",
         "source_id": "synthetic-market-industrial-sampleton-vacancy",
@@ -486,14 +559,17 @@
         "verification_status": "verified"
       },
       "score": 90,
+      "searchable_status": "searchable",
       "source_id": "synthetic-market-industrial-sampleton-vacancy",
       "source_type": "market_indicator",
       "stale_data_flags": [],
-      "title": "Relevant market indicator"
+      "title": "Relevant market indicator",
+      "verification_status": "verified"
     },
     {
       "category_code": "relevant_market_indicators",
       "confidence_label": "low",
+      "confidence_summary": "Verified synthetic market indicator metadata with market-support evidence.",
       "details": {
         "date_range": "2025 Q4",
         "indicator_type": "asking_rent",
@@ -502,8 +578,10 @@
         "state": "ST",
         "value": "$24.00 per sf"
       },
+      "evidence_link_count": 1,
       "explanation": "Verified synthetic market indicator matched on synthetic market.",
       "group": "relevant_market_indicators",
+      "passport_id": "synthetic-passport-market-retail-sampleton-rent",
       "provenance": {
         "record_type": "market_indicator",
         "source_id": "synthetic-market-retail-sampleton-rent",
@@ -511,10 +589,12 @@
         "verification_status": "verified"
       },
       "score": 35,
+      "searchable_status": "searchable",
       "source_id": "synthetic-market-retail-sampleton-rent",
       "source_type": "market_indicator",
       "stale_data_flags": [],
-      "title": "Relevant market indicator"
+      "title": "Relevant market indicator",
+      "verification_status": "verified"
     }
   ],
   "warnings": [

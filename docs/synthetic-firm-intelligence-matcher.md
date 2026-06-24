@@ -78,6 +78,16 @@ PYTHONPATH=src python3 -m falcon_intel.cli intelligence-card \
 
 The CLI output is the UI-facing card schema with headline, order summary, match group summaries, top match cards, confidence/provenance summary, warnings, and recommended actions.
 
+Top match cards include compact data passport summary fields when the synthetic fixture provides passport metadata:
+
+- `passport_id`
+- `verification_status`
+- `evidence_link_count`
+- `confidence_summary`
+- `searchable_status`
+
+The card intentionally does not embed full passport detail or evidence link arrays. Detailed passport data belongs in a future evidence/passport detail drawer so the card remains scannable and does not expose source metadata more broadly than needed.
+
 ## UI Card Schema
 
 The stable UI-facing schema is produced by `build_firm_intelligence_card`.
@@ -115,6 +125,11 @@ Example shape:
       "score": 100,
       "explanation": "Exact synthetic address, city, and state match.",
       "confidence_label": "high",
+      "passport_id": "synthetic-passport-assignment-industrial-alpha",
+      "verification_status": "verified",
+      "evidence_link_count": 1,
+      "confidence_summary": "Verified synthetic assignment metadata with source-report evidence.",
+      "searchable_status": "searchable",
       "provenance": {
         "verification_status": "verified",
         "synthetic_fixture": true,

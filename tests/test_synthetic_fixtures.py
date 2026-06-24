@@ -12,6 +12,7 @@ FIXTURE_ROOT = Path(__file__).parent / "fixtures"
 SAMPLE_ROOT = FIXTURE_ROOT / "synthetic_sample_data"
 MANIFEST_PATH = FIXTURE_ROOT / "synthetic_manifests" / "synthetic-sample-intelligence-manifest.json"
 PROFILE_DIR = FIXTURE_ROOT / "synthetic_profiles"
+VERIFIED_INTELLIGENCE_PATH = FIXTURE_ROOT / "synthetic_verified_intelligence" / "verified-intelligence.json"
 
 EXPECTED_ASSIGNMENTS = {
     "assignments/synthetic-industrial-flex-alpha",
@@ -85,6 +86,21 @@ def test_synthetic_fixtures_do_not_contain_known_real_data_markers() -> None:
         if path.is_file():
             text = path.read_text(encoding="utf-8").lower()
             assert not any(term in text for term in blocked_terms), path
+
+
+def test_synthetic_verified_intelligence_includes_passport_references() -> None:
+    fixture = json.loads(VERIFIED_INTELLIGENCE_PATH.read_text(encoding="utf-8"))
+
+    for collection_name in ("assignments", "sale_comps", "lease_comps", "market_indicators"):
+        for record in fixture[collection_name]:
+            passport = record["passport"]
+            assert passport["passport_id"].startswith("synthetic-passport-")
+            assert passport["confidence_summary"].startswith("Verified synthetic ")
+            assert passport["searchable_status"] == "searchable"
+            assert len(passport["evidence_links"]) == 1
+            evidence_link = passport["evidence_links"][0]
+            assert evidence_link["evidence_id"].startswith("synthetic-evidence-")
+            assert evidence_link["status"] == "placeholder"
 
 
 def _load_profile_fixture(assignment_folder: str) -> dict[str, object]:

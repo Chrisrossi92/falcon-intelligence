@@ -38,12 +38,17 @@ def main_smoke() -> None:
     }
     assert group_counts["same_subject_property"] == 1
     assert payload["top_match_cards"][0]["score"] == 100
+    assert payload["top_match_cards"][0]["passport_id"] == "synthetic-passport-assignment-industrial-alpha"
+    assert payload["top_match_cards"][0]["evidence_link_count"] == 1
+    assert "evidence_links" not in payload["top_match_cards"][0]
     assert payload["top_match_cards"][0]["provenance"]["verification_status"] == "verified"
     assert "synthetic_preview_only" in {warning["code"] for warning in payload["warnings"]}
 
     serialized = json.dumps(payload).lower()
     assert "report_text" not in serialized
     assert "source_file_path" not in serialized
+    assert "absolute_path" not in serialized
+    assert "onedrive" not in serialized
 
     print("synthetic intelligence card CLI smoke validation passed")
 

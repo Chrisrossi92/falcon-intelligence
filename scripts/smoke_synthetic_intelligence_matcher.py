@@ -48,6 +48,7 @@ def main() -> None:
     serialized = json.dumps(result).lower()
     assert "report_text" not in serialized
     assert "source_file_path" not in serialized
+    assert "absolute_path" not in serialized
     assert "onedrive" not in serialized
 
     print("synthetic intelligence matcher smoke validation passed")

@@ -8,6 +8,26 @@
       "record_type": "assignment",
       "synthetic_fixture": true,
       "verification_status": "verified",
+      "passport": {
+        "passport_id": "synthetic-passport-assignment-industrial-alpha",
+        "confidence_summary": "Verified synthetic assignment metadata with source-report evidence.",
+        "searchable_status": "searchable",
+        "evidence_links": [
+          {
+            "evidence_id": "synthetic-evidence-assignment-industrial-alpha",
+            "tenant_id": "tenant-synthetic-001",
+            "assignment_id": "synthetic-assignment-industrial-alpha",
+            "source_document_id": "synthetic-source-report-industrial-alpha",
+            "source_document_type": "source_report",
+            "display_label": "Synthetic industrial assignment source metadata",
+            "access_level": "internal_only",
+            "future_page_number": null,
+            "future_section_anchor": null,
+            "future_highlight_text": null,
+            "status": "placeholder"
+          }
+        ]
+      },
       "address": "1000 Example Industrial Way",
       "city": "Sampleton",
       "state": "ST",
@@ -22,6 +42,26 @@
       "record_type": "assignment",
       "synthetic_fixture": true,
       "verification_status": "verified",
+      "passport": {
+        "passport_id": "synthetic-passport-assignment-industrial-nearby",
+        "confidence_summary": "Verified synthetic nearby assignment metadata with source-report evidence.",
+        "searchable_status": "searchable",
+        "evidence_links": [
+          {
+            "evidence_id": "synthetic-evidence-assignment-industrial-nearby",
+            "tenant_id": "tenant-synthetic-001",
+            "assignment_id": "synthetic-assignment-industrial-nearby",
+            "source_document_id": "synthetic-source-report-industrial-nearby",
+            "source_document_type": "source_report",
+            "display_label": "Synthetic nearby industrial assignment source metadata",
+            "access_level": "internal_only",
+            "future_page_number": null,
+            "future_section_anchor": null,
+            "future_highlight_text": null,
+            "status": "placeholder"
+          }
+        ]
+      },
       "address": "1200 Example Logistics Loop",
       "city": "Sampleton",
       "state": "ST",
@@ -36,6 +76,26 @@
       "record_type": "assignment",
       "synthetic_fixture": true,
       "verification_status": "verified",
+      "passport": {
+        "passport_id": "synthetic-passport-assignment-retail-bravo",
+        "confidence_summary": "Verified synthetic retail assignment metadata with source-report evidence.",
+        "searchable_status": "searchable",
+        "evidence_links": [
+          {
+            "evidence_id": "synthetic-evidence-assignment-retail-bravo",
+            "tenant_id": "tenant-synthetic-001",
+            "assignment_id": "synthetic-assignment-retail-bravo",
+            "source_document_id": "synthetic-source-report-retail-bravo",
+            "source_document_type": "source_report",
+            "display_label": "Synthetic retail assignment source metadata",
+            "access_level": "internal_only",
+            "future_page_number": null,
+            "future_section_anchor": null,
+            "future_highlight_text": null,
+            "status": "placeholder"
+          }
+        ]
+      },
       "address": "2100 Example Retail Row",
       "city": "Sampleton",
       "state": "ST",
@@ -50,6 +110,26 @@
       "record_type": "assignment",
       "synthetic_fixture": true,
       "verification_status": "verified",
+      "passport": {
+        "passport_id": "synthetic-passport-assignment-office-charlie",
+        "confidence_summary": "Verified synthetic office assignment metadata with source-report evidence.",
+        "searchable_status": "searchable",
+        "evidence_links": [
+          {
+            "evidence_id": "synthetic-evidence-assignment-office-charlie",
+            "tenant_id": "tenant-synthetic-001",
+            "assignment_id": "synthetic-assignment-office-charlie",
+            "source_document_id": "synthetic-source-report-office-charlie",
+            "source_document_type": "source_report",
+            "display_label": "Synthetic office assignment source metadata",
+            "access_level": "internal_only",
+            "future_page_number": null,
+            "future_section_anchor": null,
+            "future_highlight_text": null,
+            "status": "placeholder"
+          }
+        ]
+      },
       "address": "3100 Example Office Plaza",
       "city": "Demo City",
       "state": "ST",
@@ -66,6 +146,26 @@
       "record_type": "sale_comp",
       "synthetic_fixture": true,
       "verification_status": "verified",
+      "passport": {
+        "passport_id": "synthetic-passport-sale-industrial-1",
+        "confidence_summary": "Verified synthetic sale comparable metadata with comparable-support evidence.",
+        "searchable_status": "searchable",
+        "evidence_links": [
+          {
+            "evidence_id": "synthetic-evidence-sale-industrial-1",
+            "tenant_id": "tenant-synthetic-001",
+            "assignment_id": "synthetic-assignment-industrial-alpha",
+            "source_document_id": "synthetic-source-comp-sale-industrial-1",
+            "source_document_type": "comparable_support",
+            "display_label": "Synthetic industrial sale comp support metadata",
+            "access_level": "appraiser_reviewer_only",
+            "future_page_number": null,
+            "future_section_anchor": null,
+            "future_highlight_text": null,
+            "status": "placeholder"
+          }
+        ]
+      },
       "address": "1300 Example Distribution Drive",
       "city": "Sampleton",
       "state": "ST",
@@ -79,6 +179,26 @@
       "record_type": "sale_comp",
       "synthetic_fixture": true,
       "verification_status": "verified",
+      "passport": {
+        "passport_id": "synthetic-passport-sale-retail-1",
+        "confidence_summary": "Verified synthetic sale comparable metadata with comparable-support evidence.",
+        "searchable_status": "searchable",
+        "evidence_links": [
+          {
+            "evidence_id": "synthetic-evidence-sale-retail-1",
+            "tenant_id": "tenant-synthetic-001",
+            "assignment_id": "synthetic-assignment-retail-bravo",
+            "source_document_id": "synthetic-source-comp-sale-retail-1",
+            "source_document_type": "comparable_support",
+            "display_label": "Synthetic retail sale comp support metadata",
+            "access_level": "appraiser_reviewer_only",
+            "future_page_number": null,
+            "future_section_anchor": null,
+            "future_highlight_text": null,
+            "status": "placeholder"
+          }
+        ]
+      },
       "address": "2200 Example Shop Street",
       "city": "Sampleton",
       "state": "ST",
@@ -94,6 +214,26 @@
       "record_type": "lease_comp",
       "synthetic_fixture": true,
       "verification_status": "verified",
+      "passport": {
+        "passport_id": "synthetic-passport-lease-industrial-1",
+        "confidence_summary": "Verified synthetic lease comparable metadata with comparable-support evidence.",
+        "searchable_status": "searchable",
+        "evidence_links": [
+          {
+            "evidence_id": "synthetic-evidence-lease-industrial-1",
+            "tenant_id": "tenant-synthetic-001",
+            "assignment_id": "synthetic-assignment-industrial-alpha",
+            "source_document_id": "synthetic-source-comp-lease-industrial-1",
+            "source_document_type": "comparable_support",
+            "display_label": "Synthetic industrial lease comp support metadata",
+            "access_level": "appraiser_reviewer_only",
+            "future_page_number": null,
+            "future_section_anchor": null,
+            "future_highlight_text": null,
+            "status": "placeholder"
+          }
+        ]
+      },
       "address": "1400 Example Loading Court",
       "city": "Sampleton",
       "state": "ST",
@@ -108,6 +248,26 @@
       "record_type": "lease_comp",
       "synthetic_fixture": true,
       "verification_status": "verified",
+      "passport": {
+        "passport_id": "synthetic-passport-lease-office-1",
+        "confidence_summary": "Verified synthetic lease comparable metadata with comparable-support evidence.",
+        "searchable_status": "searchable",
+        "evidence_links": [
+          {
+            "evidence_id": "synthetic-evidence-lease-office-1",
+            "tenant_id": "tenant-synthetic-001",
+            "assignment_id": "synthetic-assignment-office-charlie",
+            "source_document_id": "synthetic-source-comp-lease-office-1",
+            "source_document_type": "comparable_support",
+            "display_label": "Synthetic office lease comp support metadata",
+            "access_level": "appraiser_reviewer_only",
+            "future_page_number": null,
+            "future_section_anchor": null,
+            "future_highlight_text": null,
+            "status": "placeholder"
+          }
+        ]
+      },
       "address": "3200 Example Workspace Avenue",
       "city": "Demo City",
       "state": "ST",
@@ -124,6 +284,26 @@
       "record_type": "market_indicator",
       "synthetic_fixture": true,
       "verification_status": "verified",
+      "passport": {
+        "passport_id": "synthetic-passport-market-industrial-sampleton-vacancy",
+        "confidence_summary": "Verified synthetic market indicator metadata with market-support evidence.",
+        "searchable_status": "searchable",
+        "evidence_links": [
+          {
+            "evidence_id": "synthetic-evidence-market-industrial-sampleton-vacancy",
+            "tenant_id": "tenant-synthetic-001",
+            "assignment_id": "synthetic-assignment-industrial-alpha",
+            "source_document_id": "synthetic-source-market-industrial-sampleton-vacancy",
+            "source_document_type": "market_support",
+            "display_label": "Synthetic industrial market support metadata",
+            "access_level": "internal_only",
+            "future_page_number": null,
+            "future_section_anchor": null,
+            "future_highlight_text": null,
+            "status": "placeholder"
+          }
+        ]
+      },
       "market": "Sampleton",
       "state": "ST",
       "property_type": "industrial",
@@ -136,6 +316,26 @@
       "record_type": "market_indicator",
       "synthetic_fixture": true,
       "verification_status": "verified",
+      "passport": {
+        "passport_id": "synthetic-passport-market-retail-sampleton-rent",
+        "confidence_summary": "Verified synthetic market indicator metadata with market-support evidence.",
+        "searchable_status": "searchable",
+        "evidence_links": [
+          {
+            "evidence_id": "synthetic-evidence-market-retail-sampleton-rent",
+            "tenant_id": "tenant-synthetic-001",
+            "assignment_id": "synthetic-assignment-retail-bravo",
+            "source_document_id": "synthetic-source-market-retail-sampleton-rent",
+            "source_document_type": "market_support",
+            "display_label": "Synthetic retail market support metadata",
+            "access_level": "internal_only",
+            "future_page_number": null,
+            "future_section_anchor": null,
+            "future_highlight_text": null,
+            "status": "placeholder"
+          }
+        ]
+      },
       "market": "Sampleton",
       "state": "ST",
       "property_type": "retail",

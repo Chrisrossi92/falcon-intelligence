@@ -43,6 +43,11 @@ def test_intelligence_card_cli_outputs_synthetic_card_preview() -> None:
     assert subject_match["source_id"] == "synthetic-assignment-industrial-alpha"
     assert subject_match["score"] == 100
     assert "Exact synthetic address" in subject_match["explanation"]
+    assert subject_match["passport_id"] == "synthetic-passport-assignment-industrial-alpha"
+    assert subject_match["verification_status"] == "verified"
+    assert subject_match["evidence_link_count"] == 1
+    assert subject_match["searchable_status"] == "searchable"
+    assert "evidence_links" not in subject_match
     assert subject_match["provenance"] == {
         "record_type": "assignment",
         "source_id": "synthetic-assignment-industrial-alpha",
@@ -64,6 +69,8 @@ def test_intelligence_card_cli_outputs_synthetic_card_preview() -> None:
     serialized = json.dumps(payload).lower()
     assert "report_text" not in serialized
     assert "source_file_path" not in serialized
+    assert "absolute_path" not in serialized
+    assert "onedrive" not in serialized
 
 
 def test_intelligence_card_cli_requires_positive_building_size() -> None:

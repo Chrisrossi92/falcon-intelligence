@@ -63,8 +63,16 @@ def test_builds_ui_facing_intelligence_card_schema() -> None:
     assert first_match["category_code"] == "same_subject_property"
     assert first_match["source_id"] == "synthetic-assignment-industrial-alpha"
     assert first_match["confidence_label"] == "high"
+    assert first_match["passport_id"] == "synthetic-passport-assignment-industrial-alpha"
+    assert first_match["verification_status"] == "verified"
+    assert first_match["evidence_link_count"] == 1
+    assert first_match["confidence_summary"] == (
+        "Verified synthetic assignment metadata with source-report evidence."
+    )
+    assert first_match["searchable_status"] == "searchable"
     assert first_match["provenance"]["verification_status"] == "verified"
     assert first_match["stale_data_flags"] == []
+    assert "evidence_links" not in first_match
     assert {warning["code"] for warning in card["warnings"]} == {
         "appraiser_review_required",
         "synthetic_preview_only",
@@ -83,6 +91,8 @@ def test_builds_ui_facing_intelligence_card_schema() -> None:
     serialized = json.dumps(card).lower()
     assert "report_text" not in serialized
     assert "source_file_path" not in serialized
+    assert "absolute_path" not in serialized
+    assert "onedrive" not in serialized
 
 
 def test_schema_includes_stale_warning_when_fixture_marks_record_stale() -> None:
