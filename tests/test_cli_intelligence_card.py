@@ -36,8 +36,10 @@ def test_intelligence_card_cli_outputs_synthetic_card_preview() -> None:
     }
     assert group_counts["same_subject_property"] == 1
     assert group_counts["verified_sale_comps"] == 2
+    assert payload["match_group_summaries"][0]["category_code"] == "same_subject_property"
 
     subject_match = payload["top_match_cards"][0]
+    assert subject_match["category_code"] == "same_subject_property"
     assert subject_match["source_id"] == "synthetic-assignment-industrial-alpha"
     assert subject_match["score"] == 100
     assert "Exact synthetic address" in subject_match["explanation"]
@@ -54,6 +56,7 @@ def test_intelligence_card_cli_outputs_synthetic_card_preview() -> None:
         if match_card["group"] == "verified_sale_comps"
     ][0]
     assert sale_match["score"] == 95
+    assert sale_match["category_code"] == "verified_sale_comps"
     assert "Verified synthetic sale comparable" in sale_match["explanation"]
     assert sale_match["provenance"]["verification_status"] == "verified"
     assert "synthetic_preview_only" in {warning["code"] for warning in payload["warnings"]}

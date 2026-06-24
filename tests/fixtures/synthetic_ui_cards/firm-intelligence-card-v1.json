@@ -10,48 +10,56 @@
   "headline": "Firm Intelligence Found: 17 synthetic matches across 8 groups.",
   "match_group_summaries": [
     {
+      "category_code": "same_subject_property",
       "count": 1,
       "group": "same_subject_property",
       "label": "Same Subject Property",
       "top_score": 100
     },
     {
+      "category_code": "nearby_prior_assignments",
       "count": 2,
       "group": "nearby_prior_assignments",
       "label": "Nearby Prior Assignments",
       "top_score": 80
     },
     {
+      "category_code": "same_property_type",
       "count": 2,
       "group": "same_property_type",
       "label": "Same Property Type",
       "top_score": 80
     },
     {
+      "category_code": "similar_building_size",
       "count": 4,
       "group": "similar_building_size",
       "label": "Similar Building Size",
       "top_score": 90
     },
     {
+      "category_code": "same_client",
       "count": 2,
       "group": "same_client",
       "label": "Same Client",
       "top_score": 85
     },
     {
+      "category_code": "verified_sale_comps",
       "count": 2,
       "group": "verified_sale_comps",
       "label": "Verified Sale Comps",
       "top_score": 95
     },
     {
+      "category_code": "verified_lease_comps",
       "count": 2,
       "group": "verified_lease_comps",
       "label": "Verified Lease Comps",
       "top_score": 95
     },
     {
+      "category_code": "relevant_market_indicators",
       "count": 2,
       "group": "relevant_market_indicators",
       "label": "Relevant Market Indicators",
@@ -68,16 +76,19 @@
   },
   "recommended_actions": [
     {
+      "audit_event_code": "viewed_match",
       "code": "review_top_matches",
       "label": "Review top matches",
       "reason": "Synthetic verified intelligence matches were found for this fake order."
     },
     {
+      "audit_event_code": null,
       "code": "confirm_relevance",
       "label": "Confirm relevance",
       "reason": "Scores are routing hints, not valuation conclusions."
     },
     {
+      "audit_event_code": "selected_comp_fact",
       "code": "evaluate_comparable_reuse",
       "label": "Evaluate comparable reuse",
       "reason": "Verified synthetic comparable matches are present."
@@ -86,6 +97,7 @@
   "schema_version": "1",
   "top_match_cards": [
     {
+      "category_code": "same_subject_property",
       "confidence_label": "high",
       "details": {
         "address": "1000 Example Industrial Way",
@@ -112,6 +124,7 @@
       "title": "Prior subject property"
     },
     {
+      "category_code": "nearby_prior_assignments",
       "confidence_label": "medium",
       "details": {
         "address": "1200 Example Logistics Loop",
@@ -138,6 +151,7 @@
       "title": "Nearby prior assignment"
     },
     {
+      "category_code": "nearby_prior_assignments",
       "confidence_label": "medium",
       "details": {
         "address": "2100 Example Retail Row",
@@ -164,6 +178,7 @@
       "title": "Nearby prior assignment"
     },
     {
+      "category_code": "same_property_type",
       "confidence_label": "medium",
       "details": {
         "address": "1000 Example Industrial Way",
@@ -190,6 +205,7 @@
       "title": "Same property type assignment"
     },
     {
+      "category_code": "same_property_type",
       "confidence_label": "medium",
       "details": {
         "address": "1200 Example Logistics Loop",
@@ -216,6 +232,7 @@
       "title": "Same property type assignment"
     },
     {
+      "category_code": "similar_building_size",
       "confidence_label": "high",
       "details": {
         "address": "1000 Example Industrial Way",
@@ -242,6 +259,7 @@
       "title": "Similar building size assignment"
     },
     {
+      "category_code": "similar_building_size",
       "confidence_label": "high",
       "details": {
         "address": "2100 Example Retail Row",
@@ -268,6 +286,7 @@
       "title": "Similar building size assignment"
     },
     {
+      "category_code": "similar_building_size",
       "confidence_label": "high",
       "details": {
         "address": "3100 Example Office Plaza",
@@ -294,6 +313,7 @@
       "title": "Similar building size assignment"
     },
     {
+      "category_code": "same_client",
       "confidence_label": "high",
       "details": {
         "address": "1000 Example Industrial Way",
@@ -320,6 +340,7 @@
       "title": "Same synthetic client"
     },
     {
+      "category_code": "same_client",
       "confidence_label": "high",
       "details": {
         "address": "2100 Example Retail Row",
@@ -346,6 +367,7 @@
       "title": "Same synthetic client"
     },
     {
+      "category_code": "verified_sale_comps",
       "confidence_label": "high",
       "details": {
         "address": "1300 Example Distribution Drive",
@@ -370,6 +392,7 @@
       "title": "Verified sale comp"
     },
     {
+      "category_code": "verified_sale_comps",
       "confidence_label": "low",
       "details": {
         "address": "2200 Example Shop Street",
@@ -394,6 +417,7 @@
       "title": "Verified sale comp"
     },
     {
+      "category_code": "verified_lease_comps",
       "confidence_label": "high",
       "details": {
         "address": "1400 Example Loading Court",
@@ -418,6 +442,7 @@
       "title": "Verified lease comp"
     },
     {
+      "category_code": "verified_lease_comps",
       "confidence_label": "low",
       "details": {
         "address": "3200 Example Workspace Avenue",
@@ -442,6 +467,7 @@
       "title": "Verified lease comp"
     },
     {
+      "category_code": "relevant_market_indicators",
       "confidence_label": "high",
       "details": {
         "date_range": "2025 Q4",
@@ -466,6 +492,7 @@
       "title": "Relevant market indicator"
     },
     {
+      "category_code": "relevant_market_indicators",
       "confidence_label": "low",
       "details": {
         "date_range": "2025 Q4",

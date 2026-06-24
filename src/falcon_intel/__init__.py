@@ -31,6 +31,12 @@ from falcon_intel.manifest import (
     list_saved_manifests,
     save_scan_manifest,
 )
+from falcon_intel.match_policy import (
+    AuditEventCode,
+    MatchCategoryCode,
+    RecommendedActionCode,
+    WarningCode,
+)
 from falcon_intel.profile import (
     AssignmentProfile,
     build_assignment_profile,
@@ -52,6 +58,7 @@ __all__ = [
     "AppProfile",
     "AssignmentCandidate",
     "AssignmentProfile",
+    "AuditEventCode",
     "FalconCardBoundaryResponse",
     "FileMetadata",
     "FakeOrder",
@@ -69,6 +76,8 @@ __all__ = [
     "ManifestSearchQuery",
     "ManifestSearchResult",
     "ManifestSummary",
+    "MatchCategoryCode",
+    "RecommendedActionCode",
     "build_assignment_profile",
     "build_falcon_intelligence_card_response",
     "build_firm_intelligence_card",
@@ -86,4 +95,5 @@ __all__ = [
     "search_manifest_files",
     "scan_metadata",
     "summarize_results",
+    "WarningCode",
 ]

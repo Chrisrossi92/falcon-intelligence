@@ -4,6 +4,13 @@ from dataclasses import asdict, dataclass
 from typing import Any
 
 from falcon_intel.intelligence_matcher import FirmIntelligenceMatchResult, MATCH_GROUPS
+from falcon_intel.match_policy import (
+    MATCH_CATEGORY_LABELS,
+    AuditEventCode,
+    MatchCategoryCode,
+    RecommendedActionCode,
+    WarningCode,
+)
 
 
 TOP_MATCHES_PER_GROUP = 3
@@ -26,6 +33,7 @@ class IntelligenceCardMatchGroupSummary:
     """One grouped match count and score summary."""
 
     group: str
+    category_code: str
     label: str
     count: int
     top_score: int | None
@@ -36,6 +44,7 @@ class IntelligenceCardTopMatch:
     """One UI card row for a surfaced synthetic match."""
 
     group: str
+    category_code: str
     source_id: str
     source_type: str
     title: str
@@ -75,6 +84,7 @@ class IntelligenceCardRecommendedAction:
     code: str
     label: str
     reason: str
+    audit_event_code: str | None = None
 
 
 @dataclass(frozen=True)
@@ -122,7 +132,8 @@ def build_firm_intelligence_card(
         match_group_summaries=[
             IntelligenceCardMatchGroupSummary(
                 group=group,
-                label=group.replace("_", " ").title(),
+                category_code=group,
+                label=_category_label(group),
                 count=len(groups.get(group, [])),
                 top_score=max((int(match["score"]) for match in groups.get(group, [])), default=None),
             )
@@ -171,6 +182,7 @@ def _top_match_card(match: dict[str, Any], source_records: dict[str, dict[str, A
     stale_flags = _stale_flags(source_record)
     return IntelligenceCardTopMatch(
         group=str(match["group"]),
+        category_code=str(match["group"]),
         source_id=str(match["source_id"]),
         source_type=str(match["source_type"]),
         title=str(match["title"]),
@@ -190,7 +202,7 @@ def _top_match_card(match: dict[str, Any], source_records: dict[str, dict[str, A
 
 def _stale_flags(source_record: dict[str, Any]) -> list[str]:
     if source_record.get("stale_after") == "expired":
-        return ["stale"]
+        return [WarningCode.STALE_MATCH.value]
     return []
 
 
@@ -215,12 +227,12 @@ def _headline(total_matches: int, groups: dict[str, list[dict[str, Any]]]) -> st
 def _warnings(top_match_cards: list[IntelligenceCardTopMatch]) -> list[IntelligenceCardWarning]:
     warnings = [
         IntelligenceCardWarning(
-            code="synthetic_preview_only",
+            code=WarningCode.SYNTHETIC_PREVIEW_ONLY.value,
             severity="info",
             message="Synthetic preview only; do not use as production firm intelligence.",
         ),
         IntelligenceCardWarning(
-            code="appraiser_review_required",
+            code=WarningCode.APPRAISER_REVIEW_REQUIRED.value,
             severity="info",
             message="Matches are routing prompts and require appraiser judgment before reuse.",
         ),
@@ -228,7 +240,7 @@ def _warnings(top_match_cards: list[IntelligenceCardTopMatch]) -> list[Intellige
     if any(card.stale_data_flags for card in top_match_cards):
         warnings.append(
             IntelligenceCardWarning(
-                code="stale_data_present",
+                code=WarningCode.STALE_DATA_PRESENT.value,
                 severity="warning",
                 message="One or more matches has stale data flags.",
             )
@@ -243,30 +255,34 @@ def _recommended_actions(
     if total_matches == 0:
         return [
             IntelligenceCardRecommendedAction(
-                code="continue_standard_research",
+                code=RecommendedActionCode.CONTINUE_STANDARD_RESEARCH.value,
                 label="Continue standard research",
                 reason="No synthetic verified intelligence matches were found.",
+                audit_event_code=None,
             )
         ]
 
     actions = [
         IntelligenceCardRecommendedAction(
-            code="review_top_matches",
+            code=RecommendedActionCode.REVIEW_TOP_MATCHES.value,
             label="Review top matches",
             reason="Synthetic verified intelligence matches were found for this fake order.",
+            audit_event_code=AuditEventCode.VIEWED_MATCH.value,
         ),
         IntelligenceCardRecommendedAction(
-            code="confirm_relevance",
+            code=RecommendedActionCode.CONFIRM_RELEVANCE.value,
             label="Confirm relevance",
             reason="Scores are routing hints, not valuation conclusions.",
+            audit_event_code=None,
         ),
     ]
     if any(card.group in {"verified_sale_comps", "verified_lease_comps"} for card in top_match_cards):
         actions.append(
             IntelligenceCardRecommendedAction(
-                code="evaluate_comparable_reuse",
+                code=RecommendedActionCode.EVALUATE_COMPARABLE_REUSE.value,
                 label="Evaluate comparable reuse",
                 reason="Verified synthetic comparable matches are present.",
+                audit_event_code=AuditEventCode.SELECTED_COMP_FACT.value,
             )
         )
     return actions
@@ -278,3 +294,11 @@ def _confidence_label(score: int) -> str:
     if score >= 60:
         return "medium"
     return "low"
+
+
+def _category_label(group: str) -> str:
+    try:
+        category = MatchCategoryCode(group)
+    except ValueError:
+        return group.replace("_", " ").title()
+    return MATCH_CATEGORY_LABELS[category]

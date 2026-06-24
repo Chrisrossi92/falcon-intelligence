@@ -99,6 +99,7 @@ Example shape:
   "match_group_summaries": [
     {
       "group": "same_subject_property",
+      "category_code": "same_subject_property",
       "label": "Same Subject Property",
       "count": 1,
       "top_score": 100
@@ -107,6 +108,7 @@ Example shape:
   "top_match_cards": [
     {
       "group": "same_subject_property",
+      "category_code": "same_subject_property",
       "source_id": "synthetic-assignment-industrial-alpha",
       "source_type": "assignment",
       "title": "Prior subject property",
@@ -144,6 +146,7 @@ Example shape:
   "recommended_actions": [
     {
       "code": "review_top_matches",
+      "audit_event_code": "viewed_match",
       "label": "Review top matches",
       "reason": "Synthetic verified intelligence matches were found for this fake order."
     }
@@ -152,6 +155,8 @@ Example shape:
 ```
 
 Stale data flags are currently fixture-driven. A synthetic record can mark `stale_after` as `expired` to surface a `stale` flag and a card-level `stale_data_present` warning. Future production stale logic must use verified dates and firm policy.
+
+Stable policy identifiers for categories, warnings, recommended actions, and audit events live in `src/falcon_intel/match_policy.py`. Future UI/API work should use these codes rather than human-readable labels.
 
 ## Versioned UI Snapshot
 

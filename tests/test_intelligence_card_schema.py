@@ -44,6 +44,7 @@ def test_builds_ui_facing_intelligence_card_schema() -> None:
         "state": "ST",
     }
     assert card["match_group_summaries"][0] == {
+        "category_code": "same_subject_property",
         "count": 1,
         "group": "same_subject_property",
         "label": "Same Subject Property",
@@ -59,6 +60,7 @@ def test_builds_ui_facing_intelligence_card_schema() -> None:
     }
 
     first_match = card["top_match_cards"][0]
+    assert first_match["category_code"] == "same_subject_property"
     assert first_match["source_id"] == "synthetic-assignment-industrial-alpha"
     assert first_match["confidence_label"] == "high"
     assert first_match["provenance"]["verification_status"] == "verified"
@@ -71,6 +73,11 @@ def test_builds_ui_facing_intelligence_card_schema() -> None:
         "confirm_relevance",
         "evaluate_comparable_reuse",
         "review_top_matches",
+    }
+    assert {action["audit_event_code"] for action in card["recommended_actions"]} == {
+        None,
+        "selected_comp_fact",
+        "viewed_match",
     }
 
     serialized = json.dumps(card).lower()

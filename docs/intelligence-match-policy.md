@@ -21,6 +21,17 @@ The card may surface these match categories:
 | Lease comps | Surface verified lease evidence. | Verified lease comp, same or nearby market, matching type/subtype, recent lease date. | "Verified lease comp matches on type, market, and size." |
 | Market indicators | Surface verified market context. | Same market/submarket, same property type, current date range, sufficient source count. | "Verified market indicator matches this market and property type." |
 
+Stable category identifiers are defined in `src/falcon_intel/match_policy.py`. Future UI/API code should use these identifiers instead of display labels:
+
+- `same_subject_property`
+- `nearby_prior_assignments`
+- `same_client`
+- `same_property_type`
+- `similar_building_size`
+- `verified_sale_comps`
+- `verified_lease_comps`
+- `relevant_market_indicators`
+
 ## Scoring Principles
 
 Scores are routing aids. They should help prioritize review, not decide valuation relevance.
@@ -65,6 +76,17 @@ Warnings should be visible before a user relies on a match.
 
 Warnings should not be hidden inside tooltips only. They should be surfaced on the card row or detail panel with a clear code and human-readable explanation.
 
+Stable warning identifiers include:
+
+- `synthetic_preview_only`
+- `appraiser_review_required`
+- `stale_data_present`
+- `stale`
+- `conflicting_data`
+- `low_confidence`
+- `unreviewed_extraction`
+- `different_property_subtype`
+
 ## Explanation Requirements
 
 Each match should explain:
@@ -98,6 +120,18 @@ The card may offer these prompts:
 
 Prompts should make the appraiser's responsibility explicit. The UI should avoid language that suggests automatic selection, automatic conclusions, or automatic report writing.
 
+Stable action identifiers include:
+
+- `review_top_matches`
+- `confirm_relevance`
+- `evaluate_comparable_reuse`
+- `continue_standard_research`
+- `use_as_reference`
+- `open_evidence`
+- `mark_not_relevant`
+- `select_for_report_consideration`
+- `justify_historical_comp_use`
+
 ## Audit Events
 
 Falcon should create audit events for:
@@ -107,6 +141,8 @@ Falcon should create audit events for:
 - `selected_comp_fact`: user selected a comp, fact, or indicator for report consideration.
 - `rejected_match`: user marked a match not relevant.
 - `wrote_justification`: user entered justification for historical/stale comp use or policy override.
+
+These event names are stable audit identifiers and should be used by future Falcon UI/API work.
 
 Minimum audit context:
 
@@ -139,6 +175,10 @@ Required guardrails:
 ## Current Synthetic Implementation
 
 The current synthetic matcher uses simple structured-field scoring and deterministic UI card serialization. It is useful for schema and workflow testing only. Production policy implementation must add real tenant-scoped verification status, stale-date policy, conflict detection, subtype handling, reviewer status, evidence links, and audit persistence before it can govern live Falcon recommendations.
+
+## Code Stability
+
+Policy codes are stable integration identifiers. Display labels may change for UX clarity, but code values should not be renamed casually. If a code must be replaced, add a new code, document the migration, update the UI card snapshot deliberately, and preserve compatibility until Falcon consumers have migrated.
 
 See `docs/falcon-integration-contract.md` for the Falcon API/RPC contract.
 See `docs/data-confidence-provenance-model.md` for broader confidence and provenance dimensions.
