@@ -187,6 +187,15 @@ Passport detail statuses:
 | `not_found` | Passport ID is missing, unknown, or does not belong to the tenant. | Do not show detail; keep card visible and show a quiet internal unavailable state. |
 | `missing_required_input` | Required detail request fields are missing. | Do not call the detail drawer; log local integration issue during development. |
 
+Passport detail drawer UI contract:
+
+- Serializer: `build_passport_detail_drawer`
+- Snapshot: `tests/fixtures/synthetic_ui_passports/passport-detail-drawer-v1.json`
+- Test: `tests/test_passport_detail_drawer.py`
+- Smoke script: `scripts/smoke_passport_detail_drawer.py`
+
+The drawer contract is a UI-facing projection of full passport detail. It shows summary evidence rows and warning states, but it does not open source documents, read report contents, or expose extraction output.
+
 Error states:
 
 | Status | Meaning | Expected Falcon behavior |

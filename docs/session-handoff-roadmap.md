@@ -62,6 +62,7 @@ Trust, provenance, and audit scaffolding:
 - Synthetic data passport detail fixture at `tests/fixtures/synthetic_data_passports/data-passports.json`.
 - Local passport detail lookup from `tenant_id` and `passport_id`.
 - Falcon-style passport detail contract boundary with suggested `opened_evidence` audit event.
+- Versioned synthetic passport detail drawer UI contract snapshot at `tests/fixtures/synthetic_ui_passports/passport-detail-drawer-v1.json`.
 
 ## Current Validation Status
 
@@ -83,6 +84,7 @@ PYTHONPATH=src python3 scripts/smoke_evidence_links.py
 PYTHONPATH=src python3 scripts/smoke_data_passport.py
 PYTHONPATH=src python3 scripts/smoke_data_passport_lookup.py
 PYTHONPATH=src python3 scripts/smoke_falcon_passport_contract.py
+PYTHONPATH=src python3 scripts/smoke_passport_detail_drawer.py
 PYTHONPATH=src python3 -m pytest
 ```
 
@@ -99,7 +101,7 @@ The following remain synthetic/local only:
 - Audit events.
 - Falcon card and passport contract boundaries.
 - Historical comparable justification narratives.
-- UI card snapshot.
+- UI card and passport detail drawer snapshots.
 
 None of these are production APIs, database queries, permission checks, source-document viewers, report readers, or extraction systems.
 
@@ -120,11 +122,11 @@ Visibility must remain internal-only. Client-facing views must not show Firm Int
 
 ## Recommended Next 5 Slices
 
-1. Passport detail drawer UI contract snapshot: define a stable UI-facing JSON shape for the future passport detail drawer, with a versioned synthetic snapshot and schema tests.
-2. Evidence-open audit contract: add a synthetic Falcon-style boundary that accepts an evidence link ID and returns a suggested audit event plus safe unavailable/permission placeholder states.
-3. Permission policy scaffold: add documentation and constants for internal roles, evidence visibility levels, and tenant-scoped access decisions without enforcing production auth yet.
-4. Card-to-detail workflow smoke: add an end-to-end synthetic smoke script that builds a card, opens a passport detail, selects an evidence link, and records suggested audit payloads.
-5. Production-readiness checklist: create a documentation-only gate for any future real data work, including approval requirements, storage boundaries, redaction rules, audit persistence, tenant isolation, and rollback procedures.
+1. Evidence-open audit contract: add a synthetic Falcon-style boundary that accepts an evidence link ID and returns a suggested audit event plus safe unavailable/permission placeholder states.
+2. Permission policy scaffold: add documentation and constants for internal roles, evidence visibility levels, and tenant-scoped access decisions without enforcing production auth yet.
+3. Card-to-detail workflow smoke: add an end-to-end synthetic smoke script that builds a card, opens a passport detail, selects an evidence link, and records suggested audit payloads.
+4. Production-readiness checklist: create a documentation-only gate for any future real data work, including approval requirements, storage boundaries, redaction rules, audit persistence, tenant isolation, and rollback procedures.
+5. UI integration notes for Falcon: document expected frontend states for card loading, passport drawer opening, not-found detail responses, and audit persistence handoff.
 
 ## Current Known Risks
 

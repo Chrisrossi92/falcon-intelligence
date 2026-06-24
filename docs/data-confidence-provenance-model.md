@@ -170,6 +170,14 @@ The lookup is local and in-memory only. It is not a web API, database query, sou
 
 For Falcon-style integration tests, `build_falcon_passport_detail_response` wraps this lookup with `tenant_id`, `order_id`, `user_id`, and `passport_id`. A found response includes a suggested `opened_evidence` audit event for the future detail drawer interaction. Falcon remains responsible for permission checks and durable audit persistence in production.
 
+The future Falcon passport detail drawer has a versioned synthetic UI contract snapshot at:
+
+```text
+tests/fixtures/synthetic_ui_passports/passport-detail-drawer-v1.json
+```
+
+The drawer schema is produced by `build_passport_detail_drawer` and includes `schema_version`, passport identity, fact summary, verification/review summary, confidence dimensions, evidence link summaries, audit event IDs, searchable status, and warnings. It intentionally summarizes evidence links and does not open source files or include report contents.
+
 ## Historical Comparable Workflow
 
 Historical comparables can be useful, but they require explicit context before reuse.

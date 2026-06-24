@@ -82,6 +82,15 @@ from falcon_intel.match_policy import (
     RecommendedActionCode,
     WarningCode,
 )
+from falcon_intel.passport_detail_drawer import (
+    PassportDetailDrawer,
+    PassportDrawerEvidenceLinkSummary,
+    PassportDrawerFactSummary,
+    PassportDrawerIdentity,
+    PassportDrawerVerificationSummary,
+    PassportDrawerWarning,
+    build_passport_detail_drawer,
+)
 from falcon_intel.profile import (
     AssignmentProfile,
     build_assignment_profile,
@@ -137,6 +146,12 @@ __all__ = [
     "ManifestSummary",
     "MatchAuditEvent",
     "MatchCategoryCode",
+    "PassportDetailDrawer",
+    "PassportDrawerEvidenceLinkSummary",
+    "PassportDrawerFactSummary",
+    "PassportDrawerIdentity",
+    "PassportDrawerVerificationSummary",
+    "PassportDrawerWarning",
     "RecommendedActionCode",
     "VerificationStatus",
     "build_assignment_profile",
@@ -155,6 +170,7 @@ __all__ = [
     "build_match_rejected_event",
     "build_match_selected_event",
     "build_market_support_evidence_link",
+    "build_passport_detail_drawer",
     "build_source_document_evidence_link",
     "build_source_report_evidence_link",
     "create_scan_manifest",

@@ -1,0 +1,56 @@
+{
+  "audit_event_ids": [
+    "synthetic-audit-assignment-industrial-alpha-viewed",
+    "synthetic-audit-assignment-industrial-alpha-verified"
+  ],
+  "confidence_dimensions": {
+    "extraction_confidence": "not_applicable_synthetic",
+    "freshness": "current_for_synthetic_fixture",
+    "historical_consistency": "consistent_with_synthetic_history",
+    "reviewer_approval": "reviewed",
+    "source_agreement": "single_verified_synthetic_record",
+    "source_quality": "verified_synthetic_source_metadata"
+  },
+  "evidence_links_summary": [
+    {
+      "access_level": "internal_only",
+      "display_label": "Synthetic industrial assignment source metadata",
+      "evidence_id": "synthetic-evidence-assignment-industrial-alpha",
+      "has_future_anchor": false,
+      "source_document_type": "source_report",
+      "status": "placeholder"
+    }
+  ],
+  "fact_summary": {
+    "display_label": "Synthetic industrial assignment summary",
+    "display_value": "Industrial assignment metadata for 50,000 sf synthetic property",
+    "fact_type": "assignment_summary"
+  },
+  "passport_identity": {
+    "assignment_id": "synthetic-assignment-industrial-alpha",
+    "fact_id": "synthetic-fact-assignment-industrial-alpha-building-size",
+    "passport_id": "synthetic-passport-assignment-industrial-alpha",
+    "tenant_id": "tenant-synthetic-001"
+  },
+  "schema_version": "1",
+  "searchable_status": "searchable",
+  "verification_review_summary": {
+    "reviewed_at": "2026-06-24T13:00:00+00:00",
+    "reviewed_by": "synthetic-reviewer-001",
+    "verification_status": "verified",
+    "verified_at": "2026-06-24T12:00:00+00:00",
+    "verified_by": "synthetic-appraiser-001"
+  },
+  "warnings": [
+    {
+      "code": "synthetic_preview_only",
+      "message": "Synthetic passport detail only; do not use as production firm intelligence.",
+      "severity": "info"
+    },
+    {
+      "code": "evidence_placeholder_only",
+      "message": "Evidence links are metadata placeholders and do not open source documents.",
+      "severity": "info"
+    }
+  ]
+}
