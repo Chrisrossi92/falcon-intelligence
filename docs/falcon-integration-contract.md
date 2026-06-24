@@ -340,6 +340,15 @@ Minimum audit event fields:
 
 Audit logs should be append-only. Reuse of a comp or fact should preserve source provenance and create a new event rather than rewriting prior history.
 
+Current synthetic audit event snapshots:
+
+- Card viewed: `tests/fixtures/synthetic_audit_events/card-viewed-audit-event-v1.json`
+- Passport detail opened: `tests/fixtures/synthetic_audit_events/passport-detail-opened-audit-event-v1.json`
+- Evidence opened: `tests/fixtures/synthetic_audit_events/evidence-opened-audit-event-v1.json`
+- Historical comp justification: `tests/fixtures/synthetic_audit_events/historical-comp-justification-audit-event-v1.json`
+
+The snapshot tests normalize generated timestamps to `synthetic-dynamic-timestamp`. These fixtures are local contract references only and do not persist audit events.
+
 ## Guardrails
 
 The card is assistive.

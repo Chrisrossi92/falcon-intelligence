@@ -117,6 +117,7 @@ from falcon_intel.profile import (
 )
 from falcon_intel.scanner import FileMetadata, scan_metadata
 from falcon_intel.schema_registry import (
+    AUDIT_EVENT_ENVELOPE_SCHEMA_VERSION,
     FALCON_CARD_API_RESPONSE_SCHEMA_VERSION,
     FALCON_EVIDENCE_OPEN_RESPONSE_SCHEMA_VERSION,
     FALCON_PASSPORT_DETAIL_API_RESPONSE_SCHEMA_VERSION,
@@ -148,6 +149,7 @@ __all__ = [
     "AssignmentCandidate",
     "AssignmentProfile",
     "AuditEventCode",
+    "AUDIT_EVENT_ENVELOPE_SCHEMA_VERSION",
     "ConfidenceDimensions",
     "EVIDENCE_ACCESS_LEVEL_CODES",
     "FALCON_CARD_API_RESPONSE_SCHEMA_VERSION",

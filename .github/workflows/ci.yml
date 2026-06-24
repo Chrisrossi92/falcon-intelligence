@@ -45,6 +45,9 @@ jobs:
       - name: Smoke match audit events
         run: PYTHONPATH=src python scripts/smoke_match_audit.py
 
+      - name: Smoke audit event snapshots
+        run: PYTHONPATH=src python scripts/smoke_audit_event_snapshots.py
+
       - name: Smoke historical comp justification
         run: PYTHONPATH=src python scripts/smoke_historical_comp.py
 

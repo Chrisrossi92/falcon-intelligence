@@ -1,0 +1,15 @@
+{
+  "event_code": "wrote_justification",
+  "match_id": "synthetic-sale-industrial-1",
+  "metadata": {
+    "audit_reason": "wrote_justification",
+    "comp_date": "2025-12-01",
+    "justification": "Historical comparable synthetic-sale-industrial-1, dated 2025-12-01, was retained for consideration because it provides benchmark sale context for the market.",
+    "reason_code": "benchmark_sale",
+    "warning_code": "stale"
+  },
+  "order_id": "falcon-order-synthetic-001",
+  "tenant_id": "tenant-synthetic-001",
+  "timestamp": "synthetic-dynamic-timestamp",
+  "user_id": "user-synthetic-001"
+}

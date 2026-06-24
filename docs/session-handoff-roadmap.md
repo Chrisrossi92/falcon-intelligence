@@ -70,6 +70,7 @@ Trust, provenance, and audit scaffolding:
 - Documentation-only Falcon UI integration notes at `docs/falcon-ui-integration-notes.md`.
 - Lightweight schema version registry at `docs/schema-version-registry.md` and `src/falcon_intel/schema_registry.py`.
 - Versioned synthetic Falcon API envelope snapshots at `tests/fixtures/synthetic_api_envelopes/`.
+- Versioned synthetic audit event snapshots at `tests/fixtures/synthetic_audit_events/`.
 
 ## Current Validation Status
 
@@ -86,6 +87,7 @@ PYTHONPATH=src python3 scripts/smoke_intelligence_card_snapshot.py
 PYTHONPATH=src python3 scripts/smoke_intelligence_card_cli.py
 PYTHONPATH=src python3 scripts/smoke_falcon_api_contract.py
 PYTHONPATH=src python3 scripts/smoke_match_audit.py
+PYTHONPATH=src python3 scripts/smoke_audit_event_snapshots.py
 PYTHONPATH=src python3 scripts/smoke_historical_comp.py
 PYTHONPATH=src python3 scripts/smoke_evidence_links.py
 PYTHONPATH=src python3 scripts/smoke_data_passport.py
@@ -116,6 +118,7 @@ The following remain synthetic/local only:
 - Historical comparable justification narratives.
 - UI card and passport detail drawer snapshots.
 - Falcon API envelope snapshots.
+- Audit event snapshots.
 - Permission decisions.
 
 None of these are production APIs, database queries, permission checks, source-document viewers, report readers, or extraction systems.
@@ -137,11 +140,11 @@ Visibility must remain internal-only. Client-facing views must not show Firm Int
 
 ## Recommended Next 5 Slices
 
-1. Audit event envelope snapshot: create a stable synthetic UI/API fixture for the audit payloads produced by the end-to-end workflow.
-2. Production gate review packet template: add a documentation template for approvals, test plans, retention decisions, and rollback plans before any real content pilot.
-3. First Falcon UI slice spec: turn `docs/falcon-ui-integration-notes.md` into a scoped implementation checklist for an internal-only Order Detail card preview.
-4. Schema changelog template: add a documentation pattern for deliberate v2 schema proposals and fixture snapshot review.
-5. Permission role matrix review: decide whether owner/admin should continue to inherit `appraiser_reviewer_only` evidence access in production.
+1. Production gate review packet template: add a documentation template for approvals, test plans, retention decisions, and rollback plans before any real content pilot.
+2. First Falcon UI slice spec: turn `docs/falcon-ui-integration-notes.md` into a scoped implementation checklist for an internal-only Order Detail card preview.
+3. Schema changelog template: add a documentation pattern for deliberate v2 schema proposals and fixture snapshot review.
+4. Permission role matrix review: decide whether owner/admin should continue to inherit `appraiser_reviewer_only` evidence access in production.
+5. Audit persistence contract notes: document how Falcon should persist suggested audit payloads once production auth and storage are approved.
 
 ## Current Known Risks
 

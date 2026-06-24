@@ -1,0 +1,15 @@
+{
+  "event_code": "opened_evidence",
+  "match_id": "synthetic-passport-assignment-industrial-alpha",
+  "metadata": {
+    "detail_type": "data_passport",
+    "evidence_link_count": 1,
+    "fact_id": "synthetic-fact-assignment-industrial-alpha-building-size",
+    "passport_id": "synthetic-passport-assignment-industrial-alpha",
+    "searchable_status": "searchable"
+  },
+  "order_id": "falcon-order-synthetic-001",
+  "tenant_id": "tenant-synthetic-001",
+  "timestamp": "synthetic-dynamic-timestamp",
+  "user_id": "user-synthetic-001"
+}

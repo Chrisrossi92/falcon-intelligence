@@ -1,0 +1,12 @@
+{
+  "event_code": "viewed_match",
+  "metadata": {
+    "schema_version": "1",
+    "selected_passport_id": "synthetic-passport-assignment-industrial-alpha",
+    "top_match_source_id": "synthetic-assignment-industrial-alpha"
+  },
+  "order_id": "falcon-order-synthetic-001",
+  "tenant_id": "tenant-synthetic-001",
+  "timestamp": "synthetic-dynamic-timestamp",
+  "user_id": "user-synthetic-001"
+}

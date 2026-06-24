@@ -10,6 +10,7 @@ PASSPORT_DETAIL_DRAWER_SCHEMA_VERSION = "1"
 FALCON_EVIDENCE_OPEN_RESPONSE_SCHEMA_VERSION = "1"
 FALCON_CARD_API_RESPONSE_SCHEMA_VERSION = "1"
 FALCON_PASSPORT_DETAIL_API_RESPONSE_SCHEMA_VERSION = "1"
+AUDIT_EVENT_ENVELOPE_SCHEMA_VERSION = "1"
 
 
 class SchemaName(StrEnum):
@@ -20,6 +21,7 @@ class SchemaName(StrEnum):
     FALCON_EVIDENCE_OPEN_RESPONSE = "falcon_evidence_open_response"
     FALCON_CARD_API_RESPONSE = "falcon_card_api_response"
     FALCON_PASSPORT_DETAIL_API_RESPONSE = "falcon_passport_detail_api_response"
+    AUDIT_EVENT_ENVELOPE = "audit_event_envelope"
 
 
 @dataclass(frozen=True)
@@ -100,6 +102,17 @@ SCHEMA_REGISTRY: dict[SchemaName, SchemaRegistryEntry] = {
             "Full passport detail and drawer schemas remain separate contracts."
         ),
         intended_consumer="Future Falcon API/RPC client for passport detail lookup.",
+    ),
+    SchemaName.AUDIT_EVENT_ENVELOPE: SchemaRegistryEntry(
+        schema_name=SchemaName.AUDIT_EVENT_ENVELOPE.value,
+        current_version=AUDIT_EVENT_ENVELOPE_SCHEMA_VERSION,
+        fixture_snapshot_path="tests/fixtures/synthetic_audit_events/",
+        breaking_change_rules=_BREAKING_CHANGE_RULES,
+        backward_compatibility_notes=(
+            "Audit event snapshots cover local suggested audit payloads only. "
+            "Generated timestamps are normalized in snapshots for deterministic regression tests."
+        ),
+        intended_consumer="Future Falcon audit persistence and internal compliance handoff.",
     ),
 }
 

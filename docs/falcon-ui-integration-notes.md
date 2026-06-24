@@ -171,6 +171,7 @@ After that, add the passport detail drawer using the v1 drawer snapshot, then co
 - Card schema snapshot: `tests/fixtures/synthetic_ui_cards/firm-intelligence-card-v1.json`
 - Passport drawer snapshot: `tests/fixtures/synthetic_ui_passports/passport-detail-drawer-v1.json`
 - Falcon API envelope snapshots: `tests/fixtures/synthetic_api_envelopes/`
+- Synthetic audit event snapshots: `tests/fixtures/synthetic_audit_events/`
 - Synthetic end-to-end workflow: `scripts/smoke_synthetic_workflow.py`
 - Falcon card contract: `src/falcon_intel/falcon_api_contract.py`
 - Falcon passport contract: `src/falcon_intel/falcon_passport_contract.py`

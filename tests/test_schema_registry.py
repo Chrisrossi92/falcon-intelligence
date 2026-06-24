@@ -5,6 +5,7 @@ from falcon_intel.falcon_api_contract import build_falcon_intelligence_card_resp
 from falcon_intel.falcon_evidence_contract import build_falcon_evidence_open_response
 from falcon_intel.falcon_passport_contract import build_falcon_passport_detail_response
 from falcon_intel.schema_registry import (
+    AUDIT_EVENT_ENVELOPE_SCHEMA_VERSION,
     FALCON_CARD_API_RESPONSE_SCHEMA_VERSION,
     FALCON_EVIDENCE_OPEN_RESPONSE_SCHEMA_VERSION,
     FALCON_PASSPORT_DETAIL_API_RESPONSE_SCHEMA_VERSION,
@@ -27,6 +28,7 @@ PASSPORT_DRAWER_SNAPSHOT_PATH = (
     / "passport-detail-drawer-v1.json"
 )
 API_ENVELOPE_FIXTURE_ROOT = REPO_ROOT / "tests" / "fixtures" / "synthetic_api_envelopes"
+AUDIT_EVENT_FIXTURE_ROOT = REPO_ROOT / "tests" / "fixtures" / "synthetic_audit_events"
 PASSPORT_FIXTURE_PATH = REPO_ROOT / "tests" / "fixtures" / "synthetic_data_passports" / "data-passports.json"
 
 
@@ -37,6 +39,7 @@ def test_schema_registry_has_required_contract_entries() -> None:
         SchemaName.FALCON_EVIDENCE_OPEN_RESPONSE,
         SchemaName.FALCON_CARD_API_RESPONSE,
         SchemaName.FALCON_PASSPORT_DETAIL_API_RESPONSE,
+        SchemaName.AUDIT_EVENT_ENVELOPE,
     }
 
     for entry in SCHEMA_REGISTRY.values():
@@ -53,6 +56,7 @@ def test_schema_registry_fixture_paths_match_snapshots() -> None:
     card_api_entry = get_schema_registry_entry(SchemaName.FALCON_CARD_API_RESPONSE)
     passport_api_entry = get_schema_registry_entry(SchemaName.FALCON_PASSPORT_DETAIL_API_RESPONSE)
     evidence_api_entry = get_schema_registry_entry(SchemaName.FALCON_EVIDENCE_OPEN_RESPONSE)
+    audit_event_entry = get_schema_registry_entry(SchemaName.AUDIT_EVENT_ENVELOPE)
 
     assert card_entry.fixture_snapshot_path == "tests/fixtures/synthetic_ui_cards/firm-intelligence-card-v1.json"
     assert passport_entry.fixture_snapshot_path == "tests/fixtures/synthetic_ui_passports/passport-detail-drawer-v1.json"
@@ -65,6 +69,7 @@ def test_schema_registry_fixture_paths_match_snapshots() -> None:
     assert evidence_api_entry.fixture_snapshot_path == (
         "tests/fixtures/synthetic_api_envelopes/falcon-evidence-open-api-response-v1.json"
     )
+    assert audit_event_entry.fixture_snapshot_path == "tests/fixtures/synthetic_audit_events/"
     assert json.loads(CARD_SNAPSHOT_PATH.read_text(encoding="utf-8"))["schema_version"] == (
         FIRM_INTELLIGENCE_CARD_SCHEMA_VERSION
     )
@@ -80,6 +85,8 @@ def test_schema_registry_fixture_paths_match_snapshots() -> None:
     assert _api_snapshot_version("falcon-evidence-open-api-response-v1.json") == (
         FALCON_EVIDENCE_OPEN_RESPONSE_SCHEMA_VERSION
     )
+    assert AUDIT_EVENT_FIXTURE_ROOT.exists()
+    assert audit_event_entry.current_version == AUDIT_EVENT_ENVELOPE_SCHEMA_VERSION
 
 
 def test_schema_registry_serialization_is_synthetic_only() -> None:
