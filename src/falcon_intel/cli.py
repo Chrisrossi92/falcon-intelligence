@@ -19,6 +19,11 @@ from falcon_intel.manifest import (
     save_scan_manifest,
 )
 from falcon_intel.profile import build_assignment_profile, save_assignment_profile
+from falcon_intel.property_library import (
+    PropertyLibraryFilters,
+    build_demo_property_library_workspace,
+)
+from falcon_intel.report_registry import build_demo_subject_profile
 from falcon_intel.scanner import scan_metadata
 from falcon_intel.search import (
     ManifestSearchQuery,
@@ -141,6 +146,41 @@ def _build_parser() -> ArgumentParser:
     )
     intelligence_card_parser.add_argument("--client", required=True, help="Fake order client.")
     intelligence_card_parser.set_defaults(handler=_handle_intelligence_card)
+
+    subject_profile_parser = subparsers.add_parser(
+        "subject-profile",
+        help="Preview the synthetic Subject Profile and Report Field Registry workflow.",
+    )
+    subject_profile_parser.add_argument(
+        "--approve",
+        action="append",
+        default=[],
+        help="Mark a value-bearing report field approved in the preview.",
+    )
+    subject_profile_parser.add_argument(
+        "--lock",
+        action="append",
+        default=[],
+        help="Mark a value-bearing report field locked in the preview.",
+    )
+    subject_profile_parser.set_defaults(handler=_handle_subject_profile)
+
+    property_library_parser = subparsers.add_parser(
+        "property-library",
+        help="Preview the synthetic Property Library and Controlled Comp Vault workspace.",
+    )
+    property_library_parser.add_argument("--query", help="Search across property, evidence, and report usage fields.")
+    property_library_parser.add_argument("--property-type", help="Filter by property type.")
+    property_library_parser.add_argument("--county", help="Filter by county.")
+    property_library_parser.add_argument("--comp-role", help="Filter by report usage role.")
+    property_library_parser.add_argument("--report-usage", help="Filter by synthetic order number.")
+    property_library_parser.add_argument("--date-from", help="Filter evidence or report usage dates from YYYY-MM-DD.")
+    property_library_parser.add_argument("--date-to", help="Filter evidence or report usage dates through YYYY-MM-DD.")
+    property_library_parser.add_argument("--min-size-sf", type=int, help="Minimum building size in square feet.")
+    property_library_parser.add_argument("--max-size-sf", type=int, help="Maximum building size in square feet.")
+    property_library_parser.add_argument("--verification-status", help="Filter by verification status.")
+    property_library_parser.add_argument("--selected-property-id", help="Property ID to show in the details drawer.")
+    property_library_parser.set_defaults(handler=_handle_property_library)
 
     return parser
 
@@ -306,6 +346,38 @@ def _handle_intelligence_card(args: Namespace) -> dict[str, Any]:
         intelligence,
     )
     return build_firm_intelligence_card(result, intelligence).to_dict()
+
+
+def _handle_subject_profile(args: Namespace) -> dict[str, Any]:
+    profile = build_demo_subject_profile(
+        approve=tuple(args.approve),
+        lock=tuple(args.lock),
+    )
+    payload = profile.to_dict()
+    payload["profileType"] = "synthetic_subject_profile_preview"
+    payload["guardrail"] = (
+        "Synthetic demo data only. No report export, OCR, embeddings, "
+        "OneDrive integration, or source document ingestion is performed."
+    )
+    return payload
+
+
+def _handle_property_library(args: Namespace) -> dict[str, Any]:
+    return build_demo_property_library_workspace(
+        PropertyLibraryFilters(
+            query=args.query,
+            property_type=args.property_type,
+            county=args.county,
+            comp_role=args.comp_role,
+            report_usage=args.report_usage,
+            date_from=args.date_from,
+            date_to=args.date_to,
+            min_size_sf=args.min_size_sf,
+            max_size_sf=args.max_size_sf,
+            verification_status=args.verification_status,
+            selected_property_id=args.selected_property_id,
+        )
+    )
 
 
 def _resolve_manifest_path(args: Namespace) -> Path:

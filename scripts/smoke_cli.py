@@ -96,6 +96,28 @@ def main_smoke() -> None:
                     "Synthetic Lender A",
                 ]
             ) == 0
+            assert main(["subject-profile"]) == 0
+            assert main(
+                [
+                    "subject-profile",
+                    "--approve",
+                    "assignment.property_rights",
+                    "--lock",
+                    "transaction.purchase_price",
+                ]
+            ) == 0
+            assert main(["property-library"]) == 0
+            assert main(
+                [
+                    "property-library",
+                    "--query",
+                    "medical",
+                    "--property-type",
+                    "Office",
+                    "--selected-property-id",
+                    "prop-market-88",
+                ]
+            ) == 0
             try:
                 main(["summary", "--manifest", str(manifests[0]), "--latest"])
             except SystemExit as error:

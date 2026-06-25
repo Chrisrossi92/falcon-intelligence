@@ -117,6 +117,34 @@ python -m falcon_intel.cli intelligence-card --address "1000 Example Industrial 
 
 The `intelligence-card` command always uses the committed synthetic verified intelligence fixture by default. It returns the UI-facing card schema: headline, order summary, match group summaries, top match cards, confidence/provenance summary, warnings, and recommended actions.
 
+Preview the synthetic Subject Profile and Report Field Registry workflow:
+
+```powershell
+$env:PYTHONPATH='src'
+python -m falcon_intel.cli subject-profile
+```
+
+Simulate appraiser review actions in the preview:
+
+```powershell
+$env:PYTHONPATH='src'
+python -m falcon_intel.cli subject-profile --approve assignment.property_rights --lock transaction.purchase_price
+```
+
+Preview the synthetic Property Library and Controlled Comp Vault workspace:
+
+```powershell
+$env:PYTHONPATH='src'
+python -m falcon_intel.cli property-library
+```
+
+Filter the Property Library preview:
+
+```powershell
+$env:PYTHONPATH='src'
+python -m falcon_intel.cli property-library --property-type Commercial --county "Montgomery County" --comp-role sale_comparable
+```
+
 ## Output
 
 CLI output is JSON so it can be reviewed or consumed by a future local UI. Results include metadata only.
@@ -130,6 +158,8 @@ CLI output is JSON so it can be reviewed or consumed by a future local UI. Resul
 - `discover` reads manifest JSON only.
 - `profile` reads manifest JSON only.
 - `intelligence-card` reads the committed synthetic verified intelligence fixture only.
+- `subject-profile` uses synthetic demo registry data only.
+- `property-library` uses synthetic demo property, evidence, report usage, and candidate match data only.
 - Source files are never copied or opened for content.
 - Manifest files remain local ignored prototype artifacts.
 - The synthetic intelligence card preview does not use OneDrive data, report parsing, OCR, embeddings, or source-document content.

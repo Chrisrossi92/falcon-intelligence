@@ -132,6 +132,18 @@ GitHub Actions runs the core validation workflow on every push and pull request 
 
 The CI workflow must remain synthetic-only. It must not access OneDrive, real appraisal data, report contents, OCR, embeddings, or extraction pipelines.
 
+Subject Profile preview:
+
+```powershell
+$env:PYTHONPATH='src'; python -m falcon_intel.cli subject-profile
+```
+
+Property Library preview:
+
+```powershell
+$env:PYTHONPATH='src'; python -m falcon_intel.cli property-library
+```
+
 ## Fixture Policy
 
 Tests may use synthetic fixtures only. Do not create fixtures from real reports, client records, OneDrive exports, or extracted report text.

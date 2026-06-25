@@ -300,6 +300,8 @@ See `docs/scan-manifests.md` for local manifest privacy rules.
 See `docs/manifest-search.md` for metadata-only search limits.
 See `docs/assignment-discovery.md` for assignment discovery heuristics.
 See `docs/assignment-profiles.md` for metadata-only assignment profile exports.
+See `docs/report-field-registry.md` for the synthetic Subject Profile and report assembly control layer.
+See `docs/property-library.md` for the synthetic Property Library and Controlled Comp Vault foundation.
 See `docs/appraisal-intelligence-data-model.md` for the future verified intelligence model.
 See `docs/verified-intelligence-workflow.md` for the future human verification workflow.
 See `docs/verified-intelligence-extraction-pipeline.md` for the future human-approved extraction pipeline.
@@ -313,6 +315,11 @@ See `docs/cli.md` for local command-line prototype usage.
 - Link metadata records to assignments without parsing document bodies.
 - Add role-based access checks.
 - Add synthetic fixtures for tests.
+- Add the synthetic Report Field Registry and Subject Profile preview as the first report assembly control layer.
+- Track field-level `missing`, `needs_review`, `approved`, and `locked` states before any report export exists.
+- Measure report merge readiness from approved or locked structured fields only.
+- Add the synthetic Property Library and Controlled Comp Vault preview for map-first property search.
+- Separate canonical property records from evidence events, report usages, and candidate normalization matches.
 
 ### Phase 4: Controlled Content Evaluation
 

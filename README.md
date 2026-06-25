@@ -34,6 +34,10 @@ tests/                 Tests and committed synthetic metadata fixtures
 
 This is an initial scaffold. No ingestion, parsing, OCR, embedding, or retrieval code is active yet.
 
+The current synthetic Report Field Registry and Subject Profile preview are documented in `docs/report-field-registry.md`. They use demo data only and do not generate reports.
+
+The synthetic Property Library and Controlled Comp Vault foundation is documented in `docs/property-library.md`. It uses demo property, evidence, report usage, and candidate match records only.
+
 ## Local Tests
 
 Install development test tooling without adding runtime dependencies:
