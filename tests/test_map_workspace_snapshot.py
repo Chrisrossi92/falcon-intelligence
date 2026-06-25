@@ -15,7 +15,6 @@ SNAPSHOT_PATH = (
 
 def test_map_workspace_response_matches_v1_snapshot() -> None:
     current_response = build_map_workspace_response(
-        filters={"property_type": "industrial"},
         selected_record_id="synthetic-map-sale-comp-001",
     ).to_dict()
     snapshot = json.loads(SNAPSHOT_PATH.read_text(encoding="utf-8"))

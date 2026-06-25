@@ -28,7 +28,7 @@ def main() -> None:
             "verification_status": "verified",
         },
     )
-    assert len(filtered) == 4
+    assert len(filtered) == 5
 
     response = build_map_workspace_response(
         records,
@@ -36,10 +36,10 @@ def main() -> None:
         selected_record_id="synthetic-map-sale-comp-001",
     ).to_dict()
     assert response["schema_version"] == MAP_WORKSPACE_RESPONSE_SCHEMA_VERSION
-    assert len(response["table_rows"]) == len(response["map_pins"]) == 5
+    assert len(response["table_rows"]) == len(response["map_pins"]) == 6
     assert response["selected_record"]["id"] == "synthetic-map-sale-comp-001"
-    assert response["result_counts"]["total_records"] == 6
-    assert response["result_counts"]["filtered_records"] == 5
+    assert response["result_counts"]["total_records"] == 8
+    assert response["result_counts"]["filtered_records"] == 6
 
     serialized = json.dumps(response).lower()
     assert "report_text" not in serialized

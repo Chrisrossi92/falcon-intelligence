@@ -29,6 +29,7 @@ env/
 
 # Node and frontend artifacts, if added later
 node_modules/
+*.tsbuildinfo
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*

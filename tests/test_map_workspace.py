@@ -29,8 +29,10 @@ def test_synthetic_map_fixture_covers_required_record_types() -> None:
         "historical_comp",
         "current_subject",
     }
-    assert len(records) == 6
+    assert len(records) == 8
     assert all(record.latitude and record.longitude for record in records)
+    assert {record.property_type for record in records} == {"industrial", "office", "retail"}
+    assert any(record.id == "synthetic-map-airport-warehouse-001" for record in records)
 
 
 def test_filter_map_records_supports_required_filters() -> None:
@@ -54,7 +56,7 @@ def test_filter_map_records_supports_required_filters() -> None:
         },
     )
 
-    assert len(industrial) == 5
+    assert len(industrial) == 6
     assert [record.id for record in stale] == ["synthetic-map-historical-comp-001"]
     assert len(sampleton_verified) == 4
     assert [record.id for record in sale_comps] == ["synthetic-map-sale-comp-001"]
@@ -68,8 +70,8 @@ def test_map_workspace_response_syncs_table_rows_and_map_pins() -> None:
     ).to_dict()
 
     assert response["schema_version"] == MAP_WORKSPACE_RESPONSE_SCHEMA_VERSION
-    assert len(response["table_rows"]) == 5
-    assert len(response["map_pins"]) == 5
+    assert len(response["table_rows"]) == 6
+    assert len(response["map_pins"]) == 6
     assert {row["id"] for row in response["table_rows"]} == {
         pin["id"] for pin in response["map_pins"]
     }
@@ -93,7 +95,7 @@ def test_map_workspace_response_includes_counts_and_available_filters() -> None:
     ).to_dict()
 
     assert response["result_counts"] == {
-        "total_records": 6,
+        "total_records": 8,
         "filtered_records": 1,
         "map_pins": 1,
         "stale_records": 1,
@@ -101,6 +103,7 @@ def test_map_workspace_response_includes_counts_and_available_filters() -> None:
     }
     assert "industrial" in response["available_filters"]["property_type"]
     assert "office" in response["available_filters"]["property_type"]
+    assert "retail" in response["available_filters"]["property_type"]
     assert response["available_filters"]["stale_flag"] == [False, True]
 
 

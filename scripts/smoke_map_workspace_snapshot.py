@@ -19,14 +19,13 @@ SNAPSHOT_PATH = (
 
 def main() -> None:
     current_response = build_map_workspace_response(
-        filters={"property_type": "industrial"},
         selected_record_id="synthetic-map-sale-comp-001",
     ).to_dict()
     snapshot = json.loads(SNAPSHOT_PATH.read_text(encoding="utf-8"))
 
     assert snapshot["schema_version"] == MAP_WORKSPACE_RESPONSE_SCHEMA_VERSION
     assert current_response == snapshot
-    assert len(snapshot["table_rows"]) == len(snapshot["map_pins"]) == 5
+    assert len(snapshot["table_rows"]) == len(snapshot["map_pins"]) == 8
     assert snapshot["selected_record"]["id"] == "synthetic-map-sale-comp-001"
 
     serialized = json.dumps(snapshot).lower()

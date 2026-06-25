@@ -55,6 +55,23 @@
       "verification_status": "verified"
     },
     {
+      "address": "1750 Example Airport Cargo Road",
+      "city": "Airport District",
+      "confidence_summary": "Verified synthetic airport warehouse building area record with source metadata and audit history.",
+      "display_label": "Airport warehouse",
+      "evidence_link_count": 1,
+      "id": "synthetic-map-airport-warehouse-001",
+      "latitude": 39.1085,
+      "longitude": -84.5085,
+      "passport_id": "synthetic-passport-assignment-industrial-alpha",
+      "property_type": "industrial",
+      "record_type": "completed_assignment",
+      "stale_flag": false,
+      "state": "ST",
+      "status": "completed",
+      "verification_status": "verified"
+    },
+    {
       "address": "1300 Example Distribution Drive",
       "city": "Sampleton",
       "confidence_summary": "Verified synthetic sale comparable with comparable-support metadata.",
@@ -87,6 +104,23 @@
       "state": "ST",
       "status": "verified_comp",
       "verification_status": "verified"
+    },
+    {
+      "address": "2050 Example Retail Renovation Road",
+      "city": "Demo City",
+      "confidence_summary": "Unverified synthetic retail lead with no evidence metadata yet.",
+      "display_label": "Unverified retail lead",
+      "evidence_link_count": 0,
+      "id": "synthetic-map-retail-unverified-001",
+      "latitude": 39.176,
+      "longitude": -84.585,
+      "passport_id": null,
+      "property_type": "retail",
+      "record_type": "active_order",
+      "stale_flag": false,
+      "state": "ST",
+      "status": "active",
+      "verification_status": "unverified"
     },
     {
       "address": "900 Example Archive Road",
