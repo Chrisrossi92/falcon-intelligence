@@ -320,6 +320,9 @@ See `docs/cli.md` for local command-line prototype usage.
 - Measure report merge readiness from approved or locked structured fields only.
 - Add the synthetic Property Library and Controlled Comp Vault preview for map-first property search.
 - Separate canonical property records from evidence events, report usages, and candidate normalization matches.
+- Add a synthetic Evidence Correction and Audit Trail control layer for field-level corrections.
+- Preserve prior values, corrected values, evidence references, confidence impact, and audit history without persistence.
+- Surface synthetic correction history in the React Passport drawer without real uploads, document opening, or write-back.
 
 ### Phase 4: Controlled Content Evaluation
 

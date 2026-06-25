@@ -144,6 +144,23 @@ Property Library preview:
 $env:PYTHONPATH='src'; python -m falcon_intel.cli property-library
 ```
 
+Evidence Correction and Audit Trail preview:
+
+```powershell
+$env:PYTHONPATH='src'; python -m falcon_intel.cli correction-audit
+```
+
+Frontend workspace preview:
+
+```powershell
+cd frontend
+npx tsc -b
+npx vitest run --configLoader runner
+npx vite build --configLoader runner
+```
+
+The `--configLoader runner` flag avoids Vite's bundled config loader in sandboxed environments that deny read access to parent directories while loading `vite.config.ts`.
+
 ## Fixture Policy
 
 Tests may use synthetic fixtures only. Do not create fixtures from real reports, client records, OneDrive exports, or extracted report text.

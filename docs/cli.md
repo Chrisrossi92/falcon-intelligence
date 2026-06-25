@@ -145,6 +145,13 @@ $env:PYTHONPATH='src'
 python -m falcon_intel.cli property-library --property-type Commercial --county "Montgomery County" --comp-role sale_comparable
 ```
 
+Preview the synthetic Evidence Correction and Audit Trail workflow:
+
+```powershell
+$env:PYTHONPATH='src'
+python -m falcon_intel.cli correction-audit
+```
+
 ## Output
 
 CLI output is JSON so it can be reviewed or consumed by a future local UI. Results include metadata only.
@@ -160,6 +167,7 @@ CLI output is JSON so it can be reviewed or consumed by a future local UI. Resul
 - `intelligence-card` reads the committed synthetic verified intelligence fixture only.
 - `subject-profile` uses synthetic demo registry data only.
 - `property-library` uses synthetic demo property, evidence, report usage, and candidate match data only.
+- `correction-audit` uses synthetic correction, evidence reference, confidence impact, and audit history data only.
 - Source files are never copied or opened for content.
 - Manifest files remain local ignored prototype artifacts.
 - The synthetic intelligence card preview does not use OneDrive data, report parsing, OCR, embeddings, or source-document content.

@@ -70,6 +70,30 @@ The profile reports:
 
 This readiness model is intentionally conservative. A profile can be mostly complete but still blocked from report merge if high-impact report fields remain missing or need review.
 
+## Evidence Corrections and Audit Trail
+
+Subject Profile fields can participate in the synthetic Evidence Correction and Audit Trail model.
+
+Corrections preserve:
+
+- Prior field value.
+- Corrected field value.
+- User, timestamp, reason, and review status.
+- Supporting synthetic evidence reference.
+- Confidence impact.
+- Audit event history.
+
+Approved corrections become the current resolved value. Needs-review or rejected corrections remain visible but do not overwrite the trusted field value.
+
+The CLI preview exposes the correction/audit JSON:
+
+```powershell
+$env:PYTHONPATH='src'
+python -m falcon_intel.cli correction-audit
+```
+
+The React workspace preview includes a compact Field History panel for Subject Profile-style field context when a selected Passport has synthetic correction history. It is read-only and does not save correction actions.
+
 ## CLI Preview
 
 Preview the synthetic profile:

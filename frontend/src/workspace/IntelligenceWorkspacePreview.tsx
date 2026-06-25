@@ -9,6 +9,10 @@ import {
   type TableRow
 } from "./mapWorkspaceData";
 import { buildAuditPreview, buildAuditUnavailablePreview, type AuditPreview } from "./auditData";
+import {
+  buildCorrectionAuditPreview,
+  type CorrectionAuditPreview
+} from "./correctionAuditData";
 import { buildEvidencePreview, buildEvidenceUnavailablePreview, type EvidencePreview } from "./evidenceData";
 import { buildPassportPreview, type EvidenceLink, type PassportPreview } from "./passportData";
 
@@ -397,6 +401,7 @@ export function IntelligenceWorkspacePreview() {
   const selectedRow = findSelectedRow(selectedId);
   const pins = mapWorkspaceData.map_pins;
   const selectedPassport = buildPassportPreview(selectedRow);
+  const selectedCorrectionAudit = buildCorrectionAuditPreview(selectedRow, selectedPassport);
   const isWorkspaceBlocked = blockingStates.includes(previewState);
   const isWorkspaceInteractive = contentVisibleStates.includes(previewState);
   const layerRows = isWorkspaceInteractive ? filterRowsByLayers(mapWorkspaceData.table_rows, layers) : [];
@@ -649,6 +654,7 @@ export function IntelligenceWorkspacePreview() {
       {isPassportOpen && (
         <PassportDrawer
           closeButtonRef={passportCloseRef}
+          correctionAudit={selectedCorrectionAudit}
           passport={selectedPassport}
           selectedRow={selectedRow}
           onClose={handleClosePassport}
@@ -1177,12 +1183,14 @@ function getLayerBadges(row: TableRow, layers: LayerState) {
 
 function PassportDrawer({
   closeButtonRef,
+  correctionAudit,
   passport,
   selectedRow,
   onClose,
   onOpenEvidence
 }: {
   closeButtonRef: RefObject<HTMLButtonElement | null>;
+  correctionAudit: CorrectionAuditPreview | null;
   passport: PassportPreview | null;
   selectedRow: TableRow;
   onClose: () => void;
@@ -1252,6 +1260,8 @@ function PassportDrawer({
             />
           </section>
 
+          <CorrectionHistoryPanel correctionAudit={correctionAudit} />
+
           <section className="drawer-section" aria-label="Supporting Evidence">
             <h3>Supporting Evidence</h3>
             <p className="guidance-hint">Supporting evidence explains why this knowledge can be reviewed and trusted.</p>
@@ -1312,6 +1322,69 @@ function PassportDrawer({
         </div>
       )}
     </aside>
+  );
+}
+
+function CorrectionHistoryPanel({ correctionAudit }: { correctionAudit: CorrectionAuditPreview | null }) {
+  if (!correctionAudit) {
+    return (
+      <section className="drawer-section" aria-label="Field History">
+        <h3>Field History</h3>
+        <p className="summary-note">No Correction history is attached to this preview field.</p>
+      </section>
+    );
+  }
+
+  return (
+    <section className="drawer-section correction-history" aria-label="Field History">
+      <div className="section-heading-row">
+        <h3>Field History</h3>
+        <span>{correctionAudit.reviewStatus}</span>
+      </div>
+      <p className="guidance-hint">
+        Correction history preserves the Prior Value, Current Value, Supporting Evidence, and Confidence change.
+      </p>
+      <p className="fact-label">Correction</p>
+      <p className="fact-value">
+        {correctionAudit.fieldLabel} was reviewed by {correctionAudit.actor}. Current Value is{" "}
+        {correctionAudit.correctedValue}.
+      </p>
+      <DefinitionRows
+        rows={[
+          { label: "Field", value: correctionAudit.fieldKey },
+          { label: "Prior Value", value: correctionAudit.originalValue },
+          { label: "Current Value", value: correctionAudit.correctedValue },
+          { label: "Original actor", value: correctionAudit.originalActor },
+          { label: "Correction actor", value: correctionAudit.actor },
+          { label: "Timestamp", value: formatAuditTimestamp(correctionAudit.timestamp) },
+          { label: "Reason", value: correctionAudit.reason },
+          { label: "Supporting Evidence", value: correctionAudit.supportingEvidence },
+          {
+            label: "Confidence",
+            value: `${correctionAudit.confidenceBefore}% to ${correctionAudit.confidenceAfter}%`
+          },
+          { label: "Status", value: correctionAudit.reviewStatus }
+        ]}
+      />
+      <ol className="audit-list compact-audit-list" aria-label="Correction audit event history">
+        {correctionAudit.events.map((event) => (
+          <li key={`${event.actor}-${event.timestamp}-${event.event}`}>
+            <div className="audit-event-line">
+              <span>Actor</span>
+              <strong>{event.actor}</strong>
+            </div>
+            <div className="audit-event-line">
+              <span>Action</span>
+              <strong>{event.event}</strong>
+            </div>
+            <div className="audit-result">
+              <span>Timestamp</span>
+              <strong>{formatAuditTimestamp(event.timestamp)}</strong>
+            </div>
+          </li>
+        ))}
+      </ol>
+    </section>
   );
 }
 

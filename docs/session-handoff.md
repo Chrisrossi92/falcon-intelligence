@@ -2,7 +2,7 @@
 
 ## Current Slice
 
-The current implementation adds the synthetic Property Library / Controlled Comp Vault foundation on top of the Subject Profile registry work.
+The current implementation surfaces the synthetic Evidence Correction and Audit Trail foundation in the React workspace preview on top of the Subject Profile registry and Property Library work.
 
 Added:
 
@@ -17,6 +17,12 @@ Added:
 - Filters for property type, county, comp role, report usage, date range, size range, and verification status.
 - Selected property drawer with linked evidence, reports/orders, and conflicts.
 - Controlled Comp Vault documentation covering property/evidence/report-usage separation.
+- Correction and audit models for subject fields, property fields, and candidate match fields.
+- Synthetic Chad-to-Chris GBA correction showing old value, new value, reason, supporting evidence, confidence impact, and audit history.
+- CLI JSON preview through `correction-audit`.
+- Frontend synthetic correction data for Passport drawer field history.
+- Compact Field History panel showing Correction, Prior Value, Current Value, Supporting Evidence, Confidence, approval status, and audit event history.
+- Subject-profile-style field history indicator for the current subject Passport context.
 
 ## Current Boundary
 
@@ -31,15 +37,18 @@ This slice does not add:
 - Persistent registry storage.
 - Persistent property library storage.
 - Automatic candidate merge or comp promotion.
+- Persistent correction storage.
+- Real uploads or source-document opening.
+- Frontend persistence or write-back for corrections.
 
 ## Next Useful Slice
 
-The next small slice should add a synthetic review queue shared by Subject Profile fields and Property Library candidate matches:
+The next small slice should make the audit/history panel interactive while keeping the data synthetic:
 
-- Queue missing or needs-review subject fields.
-- Queue candidate normalization conflicts.
-- Add appraiser notes to review actions.
-- Emit an audit-style event list in memory.
+- Add a read-only correction detail drill-in from the Field History panel.
+- Group multiple corrections by field when more than one audit exists.
+- Add rejected-correction and unapproved-correction examples to the frontend preview.
+- Add appraiser note display to review actions if the correction model carries multiple notes.
 - Keep all values synthetic and avoid report export.
 
 ## Validation Notes
@@ -58,4 +67,14 @@ The CLI previews can be checked with:
 $env:PYTHONPATH='src'
 python -m falcon_intel.cli subject-profile
 python -m falcon_intel.cli property-library
+python -m falcon_intel.cli correction-audit
+```
+
+Frontend preview checks:
+
+```powershell
+cd frontend
+npx tsc -b
+npx vitest run --configLoader runner
+npx vite build --configLoader runner
 ```

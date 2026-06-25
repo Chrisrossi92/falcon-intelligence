@@ -68,6 +68,38 @@ The synthetic model supports:
 
 Candidate matches do not merge data automatically. They are review prompts.
 
+## Evidence Corrections and Audit Trail
+
+Property Library fields and comparable candidate fields can be corrected through the synthetic Evidence Correction and Audit Trail model.
+
+The correction model records:
+
+- Prior value and corrected value.
+- Original actor and correcting actor.
+- Timestamp, reason, and review status.
+- Supporting synthetic evidence reference.
+- Confidence impact before and after correction.
+- Append-only audit events.
+
+Approved corrections resolve the current trusted value. Proposed, needs-review, and rejected corrections remain visible in history but do not silently overwrite the trusted value.
+
+Example demo scenario:
+
+- Chad originally entered a comparable GBA of `4,200 SF`.
+- Chris corrected the GBA to `4,800 SF`.
+- The reason is `based on auditor`.
+- The support is a synthetic auditor property record card.
+- Confidence increases from `58` to `88`.
+
+Preview the JSON model:
+
+```powershell
+$env:PYTHONPATH='src'
+python -m falcon_intel.cli correction-audit
+```
+
+The React workspace preview also surfaces this correction in the Passport drawer as a compact Field History panel. The panel shows Correction, Prior Value, Current Value, Supporting Evidence, Confidence before/after, approval status, and the synthetic audit event history. It remains read-only and does not persist user edits.
+
 ## Workspace Preview
 
 The CLI returns a JSON view model shaped like a future appraiser-facing workspace:

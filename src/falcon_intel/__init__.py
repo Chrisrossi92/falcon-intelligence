@@ -9,6 +9,15 @@ from falcon_intel.audit import (
     build_match_rejected_event,
     build_match_selected_event,
 )
+from falcon_intel.correction_audit import (
+    ConfidenceImpact,
+    CorrectionAuditEvent,
+    CorrectionEvent,
+    FieldProvenance,
+    SupportingEvidenceReference,
+    build_demo_correction_audit_workspace,
+    resolve_current_value,
+)
 from falcon_intel.core import AppProfile
 from falcon_intel.data_passport import (
     ConfidenceDimensions,
@@ -178,7 +187,10 @@ __all__ = [
     "AssignmentProfile",
     "AuditEventCode",
     "AUDIT_EVENT_ENVELOPE_SCHEMA_VERSION",
+    "ConfidenceImpact",
     "ConfidenceDimensions",
+    "CorrectionAuditEvent",
+    "CorrectionEvent",
     "EVIDENCE_ACCESS_LEVEL_CODES",
     "FALCON_CARD_API_RESPONSE_SCHEMA_VERSION",
     "FALCON_EVIDENCE_OPEN_RESPONSE_SCHEMA_VERSION",
@@ -195,6 +207,7 @@ __all__ = [
     "FalconEvidenceOpenBoundaryResponse",
     "FalconPassportDetailBoundaryResponse",
     "FalconRoleCode",
+    "FieldProvenance",
     "FileMetadata",
     "FakeOrder",
     "FIRM_INTELLIGENCE_CARD_SCHEMA_VERSION",
@@ -243,6 +256,7 @@ __all__ = [
     "SCHEMA_REGISTRY",
     "SubjectProfile",
     "SubjectProfileSection",
+    "SupportingEvidenceReference",
     "SyntheticMapRecord",
     "VerificationStatus",
     "SchemaName",
@@ -253,6 +267,7 @@ __all__ = [
     "build_confidence_dimensions",
     "build_comparable_support_evidence_link",
     "build_data_passport",
+    "build_demo_correction_audit_workspace",
     "build_demo_property_library_dataset",
     "build_demo_property_library_workspace",
     "build_demo_subject_profile",
@@ -294,6 +309,7 @@ __all__ = [
     "lookup_data_passport_detail",
     "match_firm_intelligence",
     "lock_report_fields",
+    "resolve_current_value",
     "save_assignment_profile",
     "save_scan_manifest",
     "search_manifest",

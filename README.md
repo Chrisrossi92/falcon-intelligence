@@ -38,6 +38,8 @@ The current synthetic Report Field Registry and Subject Profile preview are docu
 
 The synthetic Property Library and Controlled Comp Vault foundation is documented in `docs/property-library.md`. It uses demo property, evidence, report usage, and candidate match records only.
 
+The synthetic Evidence Correction and Audit Trail foundation is available through `falcon-intel correction-audit`. It preserves prior values, corrected values, supporting evidence references, confidence impact, and audit event history with demo data only.
+
 ## Local Tests
 
 Install development test tooling without adding runtime dependencies:

@@ -118,6 +118,7 @@ def main_smoke() -> None:
                     "prop-market-88",
                 ]
             ) == 0
+            assert main(["correction-audit"]) == 0
             try:
                 main(["summary", "--manifest", str(manifests[0]), "--latest"])
             except SystemExit as error:

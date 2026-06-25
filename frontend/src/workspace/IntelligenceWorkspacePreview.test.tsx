@@ -344,6 +344,45 @@ describe("IntelligenceWorkspacePreview", () => {
       .toBeInTheDocument();
   });
 
+  it("renders comparable Correction history with prior value, current value, evidence, confidence, and approval", async () => {
+    const user = userEvent.setup();
+    render(<IntelligenceWorkspacePreview />);
+
+    await user.click(screen.getByRole("button", { name: "Open Passport" }));
+
+    const drawer = screen.getByRole("dialog", { name: "Verified industrial sale comp" });
+    const history = within(drawer).getByLabelText("Field History");
+    expect(within(history).getByText("Correction")).toBeInTheDocument();
+    expect(within(history).getAllByText("Approved").length).toBeGreaterThan(0);
+    expect(within(history).getByText("Prior Value")).toBeInTheDocument();
+    expect(within(history).getAllByText("4,200 SF").length).toBeGreaterThan(0);
+    expect(within(history).getByText("Current Value")).toBeInTheDocument();
+    expect(within(history).getAllByText("4,800 SF").length).toBeGreaterThan(0);
+    expect(within(history).getAllByText("Chris").length).toBeGreaterThan(0);
+    expect(within(history).getAllByText("Chad").length).toBeGreaterThan(0);
+    expect(within(history).getByText("based on auditor")).toBeInTheDocument();
+    expect(within(history).getAllByText("Synthetic auditor property record card").length).toBeGreaterThan(0);
+    expect(within(history).getByText("58% to 88%")).toBeInTheDocument();
+    expect(within(history).getByLabelText("Correction audit event history")).toHaveTextContent(
+      "Original comparable GBA entered as 4,200 SF."
+    );
+  });
+
+  it("renders current subject field history indicator from synthetic subject profile context", async () => {
+    const user = userEvent.setup();
+    render(<IntelligenceWorkspacePreview />);
+
+    await user.click(screen.getByRole("button", { name: /Select Current subject/i }));
+    await user.click(screen.getByRole("button", { name: "Open Passport" }));
+
+    const drawer = screen.getByRole("dialog", { name: "Current subject" });
+    const history = within(drawer).getByLabelText("Field History");
+    expect(history).toHaveTextContent("Subject Gross Building Area");
+    expect(within(history).getAllByText("Needs Review").length).toBeGreaterThan(0);
+    expect(within(history).getByText("Synthetic subject profile property card")).toBeInTheDocument();
+    expect(within(history).getByText("confirmed against synthetic subject profile record")).toBeInTheDocument();
+  });
+
   it("closes the passport drawer while preserving the selected property", async () => {
     const user = userEvent.setup();
     render(<IntelligenceWorkspacePreview />);

@@ -5,6 +5,7 @@ import json
 from pathlib import Path
 from typing import Any
 
+from falcon_intel.correction_audit import build_demo_correction_audit_workspace
 from falcon_intel.discovery import AssignmentCandidate, discover_assignments
 from falcon_intel.intelligence_card import build_firm_intelligence_card
 from falcon_intel.intelligence_matcher import (
@@ -181,6 +182,12 @@ def _build_parser() -> ArgumentParser:
     property_library_parser.add_argument("--verification-status", help="Filter by verification status.")
     property_library_parser.add_argument("--selected-property-id", help="Property ID to show in the details drawer.")
     property_library_parser.set_defaults(handler=_handle_property_library)
+
+    correction_audit_parser = subparsers.add_parser(
+        "correction-audit",
+        help="Preview synthetic field correction and audit trail history.",
+    )
+    correction_audit_parser.set_defaults(handler=_handle_correction_audit)
 
     return parser
 
@@ -378,6 +385,10 @@ def _handle_property_library(args: Namespace) -> dict[str, Any]:
             selected_property_id=args.selected_property_id,
         )
     )
+
+
+def _handle_correction_audit(args: Namespace) -> dict[str, Any]:
+    return build_demo_correction_audit_workspace()
 
 
 def _resolve_manifest_path(args: Namespace) -> Path:
