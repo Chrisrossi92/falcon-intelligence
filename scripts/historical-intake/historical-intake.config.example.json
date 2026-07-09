@@ -1,0 +1,29 @@
+{
+  "source_directories": [
+    "C:/path/to/synthetic-or-approved-local-history"
+  ],
+  "include_extensions": [
+    ".pdf",
+    ".docx",
+    ".xlsx",
+    ".csv",
+    ".txt",
+    ".xml",
+    ".jpg",
+    ".jpeg",
+    ".png",
+    ".tif",
+    ".tiff"
+  ],
+  "exclude_directories": [
+    ".git",
+    "__pycache__",
+    "node_modules",
+    "data/historical-intake",
+    "data/manifests",
+    "data/profiles"
+  ],
+  "max_file_size_warning_mb": 50,
+  "dry_run": true,
+  "output_directory": "data/historical-intake"
+}
