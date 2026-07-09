@@ -39,6 +39,11 @@ pnpm-debug.log*
 data/
 data/manifests/
 data/profiles/
+data/historical-intake/
+data/historical-knowledge/
+data/verification/
+data/knowledge/
+data/memory/
 local_data/
 local-data/
 reports/
@@ -60,6 +65,23 @@ client-files/
 one_drive/
 onedrive/
 OneDrive/
+
+# Historical intake local configs and generated inventory reports
+historical-intake.config.json
+scripts/historical-intake/historical-intake.config.json
+scripts/historical-intake/historical-intake.config.local.json
+historical-intake-report.json
+historical-intake-report.csv
+historical-intake-summary.md
+historical-intake-report-summary.md
+historical-knowledge-report.json
+historical-knowledge-summary.md
+verification-report.json
+verification-summary.md
+knowledge-objects-report.json
+knowledge-objects-summary.md
+memory-graph-report.json
+memory-graph-summary.md
 
 # Report and office document formats
 *.pdf

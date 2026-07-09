@@ -4,11 +4,29 @@ Falcon Intelligence is planned as a future premium Project Falcon module for app
 
 This document defines the intended product architecture before any ingestion or data-processing code is added.
 
+The canonical Intelligence Engine foundation lives in `docs/architecture/FALCON_INTELLIGENCE_ENGINE.md`. All future AI and intelligence capabilities should align to its permanent hierarchy:
+
+```text
+Documents
+-> Facts
+-> Knowledge
+-> Insights
+-> Recommendations
+-> Actions
+```
+
+The supporting permanent architecture documents are:
+
+- `docs/architecture/FALCON_KNOWLEDGE_MODEL.md`
+- `docs/architecture/FALCON_INSIGHT_ENGINE.md`
+- `docs/architecture/FALCON_CONFIDENCE_MODEL.md`
+
 ## Architecture Principles
 
 - Local-first by default: private appraisal material stays under the firm's control.
 - Firm isolation first: every firm is treated as a separate tenant boundary.
 - Metadata before content: the MVP starts with safe folder scanning and metadata indexing only.
+- Knowledge before AI: future AI capabilities should consume verified knowledge objects and trust envelopes instead of bypassing the Documents -> Facts -> Knowledge -> Insights -> Recommendations -> Actions hierarchy.
 - Explicit user control: users choose folders and review what is indexed before any future expansion.
 - Premium as an extension: advanced Falcon capabilities live behind feature flags and stable interfaces.
 - No cross-firm learning in the pilot: one firm's data must not train, enrich, or search another firm's workspace.
@@ -302,6 +320,16 @@ See `docs/assignment-discovery.md` for assignment discovery heuristics.
 See `docs/assignment-profiles.md` for metadata-only assignment profile exports.
 See `docs/report-field-registry.md` for the synthetic Subject Profile and report assembly control layer.
 See `docs/property-library.md` for the synthetic Property Library and Controlled Comp Vault foundation.
+See `docs/architecture/FALCON_INTELLIGENCE_ENGINE.md` for the canonical Intelligence Engine lifecycle.
+See `docs/architecture/FALCON_KNOWLEDGE_MODEL.md` for the canonical object model.
+See `docs/architecture/FALCON_INSIGHT_ENGINE.md` for the future insight, recommendation, and action framework.
+See `docs/architecture/FALCON_CONFIDENCE_MODEL.md` for the cross-layer trust architecture.
+See `docs/architecture/FALCON_HISTORICAL_INTAKE_PIPELINE.md` for the local-only historical report intake inventory and staging approach.
+See `docs/architecture/FALCON_HISTORICAL_KNOWLEDGE_EXTRACTION.md` for local-only deterministic metadata extraction from likely final reports after intake.
+See `docs/architecture/FALCON_VERIFICATION_ENGINE.md` for the deterministic promotion boundary from candidate metadata to explainable Verified Facts.
+See `docs/architecture/FALCON_KNOWLEDGE_OBJECT_BUILDER.md` for the local bridge from Verified Facts into Knowledge Object candidates before any future Memory Graph.
+See `docs/architecture/FALCON_MEMORY_GRAPH.md` for the local graph prototype that connects Knowledge Objects into institutional memory.
+See `docs/architecture/FALCON_PROPERTY_PASSPORT.md` for the preview-only operator surface for property-centered Verified Fact ledgers.
 See `docs/appraisal-intelligence-data-model.md` for the future verified intelligence model.
 See `docs/verified-intelligence-workflow.md` for the future human verification workflow.
 See `docs/verified-intelligence-extraction-pipeline.md` for the future human-approved extraction pipeline.

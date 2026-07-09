@@ -6,6 +6,8 @@ This repository currently contains only the code and documentation scaffold. It 
 
 The canonical long-range product roadmap is `FALCON_INTELLIGENCE_PRODUCT_ROADMAP.md`.
 
+The canonical Intelligence Engine architecture is `docs/architecture/FALCON_INTELLIGENCE_ENGINE.md`, with the architecture index at `docs/architecture/README.md`.
+
 ## Current Scope
 
 - Define the safety boundary for future local document processing.
@@ -25,6 +27,7 @@ The canonical long-range product roadmap is `FALCON_INTELLIGENCE_PRODUCT_ROADMAP
 
 ```text
 docs/                  Project documentation and safety notes
+docs/architecture/     Permanent Intelligence Engine architecture foundations
 scripts/               Dependency-free smoke validation scripts
 src/falcon_intel/       Framework package
 tests/                 Tests and committed synthetic metadata fixtures
@@ -40,6 +43,8 @@ The synthetic Property Library and Controlled Comp Vault foundation is documente
 
 The synthetic Evidence Correction and Audit Trail foundation is available through `falcon-intel correction-audit`. It preserves prior values, corrected values, supporting evidence references, confidence impact, and audit event history with demo data only.
 
+The local Historical Report Intake Inventory is documented in `docs/architecture/FALCON_HISTORICAL_INTAKE_PIPELINE.md`. It scans configured folders read-only and produces ignored local inventory reports without parsing document bodies or modifying source files.
+
 ## Local Tests
 
 Install development test tooling without adding runtime dependencies:
@@ -47,6 +52,30 @@ Install development test tooling without adding runtime dependencies:
 ```bash
 python3 -m pip install -e ".[dev]"
 ```
+
+For local searchable-PDF extraction during historical sample calibration, install the optional PDF extra:
+
+```bash
+python3 -m pip install -e ".[pdf]"
+```
+
+This enables embedded/searchable PDF text extraction only. It does not enable OCR, AI extraction, embeddings, uploads, or storage of full report text.
+
+For local DOCX extraction during historical sample calibration, install the optional DOCX extra:
+
+```bash
+python3 -m pip install -e ".[docx]"
+```
+
+This enables embedded DOCX text extraction for likely final DOCX files and same-order DOCX companions only. It does not enable OCR, AI extraction, embeddings, uploads, or storage of full report text.
+
+For the opt-in local OCR/layout pilot, install the optional OCR Python wrappers and install the Tesseract executable separately on the Windows machine:
+
+```bash
+python3 -m pip install -e ".[ocr]"
+```
+
+The OCR pilot remains diagnostic-only. It must be run with an explicit `--enable-ocr` flag, processes only approved page buckets for `inspection_date` and `reviewer_name`, and writes only redacted shape/fingerprint diagnostics under ignored `data/` paths. It does not promote OCR results into verification, knowledge objects, or memory graph records.
 
 Run the core local checks:
 
@@ -63,6 +92,11 @@ PYTHONPATH=src python3 scripts/smoke_audit_event_snapshots.py
 PYTHONPATH=src python3 scripts/smoke_map_workspace.py
 PYTHONPATH=src python3 scripts/smoke_map_workspace_snapshot.py
 PYTHONPATH=src python3 scripts/smoke_historical_comp.py
+PYTHONPATH=src python3 scripts/smoke_historical_intake.py
+PYTHONPATH=src python3 scripts/smoke_historical_knowledge.py
+PYTHONPATH=src python3 scripts/smoke_verification_engine.py
+PYTHONPATH=src python3 scripts/smoke_knowledge_objects.py
+PYTHONPATH=src python3 scripts/smoke_memory_graph.py
 PYTHONPATH=src python3 scripts/smoke_evidence_links.py
 PYTHONPATH=src python3 scripts/smoke_data_passport.py
 PYTHONPATH=src python3 scripts/smoke_data_passport_lookup.py

@@ -10,6 +10,19 @@ This roadmap does not authorize real appraisal data access, OneDrive access, rep
 
 Falcon Intelligence turns a firm's verified appraisal work history into a trusted internal knowledge layer.
 
+The permanent Intelligence Engine foundation is:
+
+```text
+Documents
+-> Facts
+-> Knowledge
+-> Insights
+-> Recommendations
+-> Actions
+```
+
+The canonical architecture for this hierarchy lives in `docs/architecture/FALCON_INTELLIGENCE_ENGINE.md` and is supported by the knowledge, insight, and confidence models in `docs/architecture/`.
+
 The product should help appraisers and reviewers answer:
 
 - Have we worked on this property, borrower, client, market, or comparable before?
@@ -27,6 +40,7 @@ The product is assistive. It surfaces internal knowledge with context, provenanc
 - Metadata before content: metadata-only workflows come before any content extraction, OCR, embeddings, or source preview.
 - Verification before searchability: suggested facts do not become firm-searchable until approved.
 - Provenance before trust: every surfaced fact must explain source, verification, review, confidence, freshness, and evidence.
+- Knowledge before AI: AI-assisted capabilities must build from verified facts, knowledge objects, insight envelopes, recommendations, and operator-controlled actions.
 - Appraiser judgment remains final: intelligence supports professional review, not valuation automation.
 - Client visibility is blocked by default: internal intelligence, passports, evidence, audit, notes, and comp recommendations remain internal-only unless separately approved.
 - Stable contracts before UI scale: schemas, snapshots, and synthetic contract tests protect Falcon integration from drift.
@@ -77,6 +91,7 @@ Goal: Establish safe, synthetic-only foundations for Falcon Intelligence.
 Scope:
 
 - Metadata scanner, manifests, search, assignment discovery, and profiles.
+- Local-only historical report intake inventory for staging legacy folders before any future extraction.
 - Synthetic sample fixtures.
 - Synthetic verified intelligence fixtures.
 - Synthetic matcher for fake Falcon orders.

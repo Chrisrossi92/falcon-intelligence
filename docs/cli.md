@@ -171,3 +171,139 @@ CLI output is JSON so it can be reviewed or consumed by a future local UI. Resul
 - Source files are never copied or opened for content.
 - Manifest files remain local ignored prototype artifacts.
 - The synthetic intelligence card preview does not use OneDrive data, report parsing, OCR, embeddings, or source-document content.
+
+## Historical Intake Inventory
+
+Run the local-only historical report intake inventory with a machine-specific config:
+
+```bash
+PYTHONPATH=src python scripts/historical-intake/run_historical_intake.py --config scripts/historical-intake/historical-intake.config.json
+```
+
+Start from the safe example config:
+
+```text
+scripts/historical-intake/historical-intake.config.example.json
+```
+
+For real sample calibration, copy the example to `scripts/historical-intake/historical-intake.config.local.json`, point `source_directories` at one approved small sample folder only, and run the same command with that local config. Keep the local config out of commits.
+
+Generated outputs should be written under ignored local paths such as `data/historical-intake/`:
+
+```text
+historical-intake-report.json
+historical-intake-report.csv
+historical-intake-summary.md
+```
+
+The inventory is read-only. It records metadata, paths, filenames, folder names, timestamps, sizes, and hashes only. It does not parse report bodies, OCR files, call AI models, upload files, create production records, or modify source files.
+
+When a real sample exposes new filename or folder patterns, convert those observations into anonymized synthetic tests. Do not commit real client names, addresses, order numbers, source paths, or generated inventory files.
+
+## Historical Knowledge Extraction
+
+Run local-only deterministic metadata extraction from the ignored historical intake JSON:
+
+```bash
+PYTHONPATH=src python scripts/historical-knowledge/run_historical_knowledge.py --intake data/historical-intake/historical-intake-report.json
+```
+
+Generated outputs are ignored under `data/historical-knowledge/`:
+
+```text
+historical-knowledge-report.json
+historical-knowledge-summary.md
+```
+
+This phase considers likely final report PDFs, likely final report DOCX files, and same-order DOCX companion files from the intake output. It attempts embedded/searchable PDF text extraction when a local PDF text library is available and embedded DOCX text extraction when a local DOCX text library is available. It does not OCR scanned PDFs, parse spreadsheets/images, call AI models, create embeddings, upload files, write production records, or store full report text.
+
+If the run reports that `pypdf` is not installed, enable optional local searchable-PDF support:
+
+```bash
+python -m pip install -e ".[pdf]"
+```
+
+This only enables embedded text extraction for searchable PDFs. Scanned PDFs still produce a no-searchable-text warning, and OCR remains out of scope.
+
+If the run reports that `python-docx` is not installed, enable optional local DOCX support:
+
+```bash
+python -m pip install -e ".[docx]"
+```
+
+This only enables embedded text extraction for DOCX files already grouped by the intake inventory. DOCX-derived candidates carry `docx final report` or `docx companion source` provenance, and generated summaries do not include raw extracted document text.
+
+## OCR/Layout Pilot
+
+Run the privacy-safe OCR/layout pilot in availability-only mode:
+
+```powershell
+.\.venv\Scripts\python.exe scripts\run_ocr_layout_pilot.py --intake data\historical-intake\historical-intake-report.json --output-directory data\ocr-layout-pilot
+```
+
+Availability-only mode does not perform OCR. It records only whether the pilot would process the approved page buckets for `inspection_date` and `reviewer_name`.
+
+To opt in to local OCR, install the optional Python wrappers and install the Tesseract executable separately on the Windows machine:
+
+```powershell
+.\.venv\Scripts\python.exe -m pip install -e ".[ocr]"
+```
+
+Then run:
+
+```powershell
+.\.venv\Scripts\python.exe scripts\run_ocr_layout_pilot.py --intake data\historical-intake\historical-intake-report.json --output-directory data\ocr-layout-pilot --enable-ocr
+```
+
+The pilot does not save page images, screenshots, OCR text, snippets, raw extracted values, or source paths. Generated diagnostics stay under ignored `data/ocr-layout-pilot/` and include only anonymous report indexes, page buckets, target fields, anchor-family detection, candidate shapes, length buckets, fingerprints, and OCR availability or warning statuses. OCR-derived diagnostics are not wired into verification, promotion, Knowledge Objects, or the Memory Graph.
+
+## Verification Engine
+
+Run local deterministic verification from the ignored historical knowledge JSON:
+
+```bash
+PYTHONPATH=src python scripts/verification/run_verification.py --knowledge data/historical-knowledge/historical-knowledge-report.json
+```
+
+Generated outputs are ignored under `data/verification/`:
+
+```text
+verification-report.json
+verification-summary.md
+```
+
+This phase promotes candidate metadata into local Verified Fact ledgers only when deterministic rules support the value. It records supporting evidence, conflicts, missing values, confidence, method, timestamp, and source references. It does not extract new report content, OCR, call AI, create embeddings, upload files, write production records, or create Knowledge Graph / Memory Graph records.
+
+## Knowledge Object Builder
+
+Run local deterministic Knowledge Object candidate building from the ignored verification JSON:
+
+```bash
+PYTHONPATH=src python scripts/knowledge/run_knowledge_objects.py --verification data/verification/verification-report.json
+```
+
+Generated outputs are ignored under `data/knowledge/`:
+
+```text
+knowledge-objects-report.json
+knowledge-objects-summary.md
+```
+
+This phase groups Verified Facts into local Property, Report, Client/User, Personnel, and Open Issues candidates with readiness states. It does not create production schemas, upload data, parse source documents, call AI, or create Memory Graph records.
+
+## Memory Graph Prototype
+
+Run local deterministic Memory Graph building from the ignored Knowledge Object JSON:
+
+```bash
+PYTHONPATH=src python scripts/memory/run_memory_graph.py --knowledge-objects data/knowledge/knowledge-objects-report.json
+```
+
+Generated outputs are ignored under `data/memory/`:
+
+```text
+memory-graph-report.json
+memory-graph-summary.md
+```
+
+This phase turns local Knowledge Object candidates into graph nodes and deterministic relationships. It does not create a production graph database, Supabase schema, backend API, embeddings, vector search, AI output, uploads, or real report ingestion.

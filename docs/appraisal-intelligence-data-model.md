@@ -4,6 +4,19 @@ This document defines the future verified intelligence database for Falcon Intel
 
 The model separates suggested intelligence from verified firm-searchable intelligence. Every entity must remain tenant-isolated, appraiser-controlled, and auditable.
 
+This model is subordinate to the permanent Intelligence Engine hierarchy defined in `docs/architecture/FALCON_INTELLIGENCE_ENGINE.md`:
+
+```text
+Documents
+-> Facts
+-> Knowledge
+-> Insights
+-> Recommendations
+-> Actions
+```
+
+The entities below describe future verified knowledge objects and related governance records. They do not authorize extraction, storage, or production schemas.
+
 ## Status Definitions
 
 ### Suggested
@@ -105,4 +118,5 @@ This data model does not permit extraction. The current repository still support
 See `docs/verified-intelligence-workflow.md` for the future human-in-the-loop verification workflow.
 See `docs/verified-intelligence-extraction-pipeline.md` for the future extraction-to-verification pipeline.
 See `docs/data-confidence-provenance-model.md` for trust, evidence, and data passport rules.
+See `docs/architecture/FALCON_KNOWLEDGE_MODEL.md` for the canonical object model that future entity work should align with.
 See `docs/falcon-order-intelligence-loop.md` for order, assignment, and intelligence feedback-loop mapping.

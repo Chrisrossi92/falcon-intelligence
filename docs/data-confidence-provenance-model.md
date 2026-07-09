@@ -4,6 +4,8 @@ This document defines how Falcon Intelligence should make verified data trustwor
 
 Trust in Falcon Intelligence should come from visible provenance, human verification, freshness controls, conflict detection, and tenant-scoped auditability.
 
+This document remains the detailed provenance and data passport design. The permanent cross-layer trust architecture is defined in `docs/architecture/FALCON_CONFIDENCE_MODEL.md` and applies across Facts, Knowledge, Insights, Recommendations, and Actions.
+
 ## Data Confidence Dimensions
 
 Confidence should be multi-dimensional. A single score is not enough to decide whether appraisal intelligence can be trusted or reused.
@@ -352,3 +354,4 @@ Implementation requirements:
 This model is a trust and provenance design only. Falcon Intelligence currently supports metadata-only scanning, local manifests, metadata search, assignment discovery, and assignment profile export. It does not read report contents, extract text, OCR documents, create embeddings, copy files, or ingest appraisal reports.
 
 See `docs/falcon-order-intelligence-loop.md` for how verified intelligence may surface in future Falcon order workflows.
+See `docs/architecture/FALCON_CONFIDENCE_MODEL.md` for the canonical confidence architecture that future AI and recommendation work should use.
