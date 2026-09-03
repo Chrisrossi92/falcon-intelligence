@@ -1,0 +1,4645 @@
+{
+  "air": {
+    "assignment_context": {
+      "contact_references": [
+        {
+          "display_label": "Jordan Client Contact (synthetic)",
+          "reference_id": "contact-synthetic-jordan-client",
+          "reference_type": "assignment_contact",
+          "source_system": "falcon"
+        }
+      ],
+      "fact_ids": [
+        "fact-3f536de6d27b14b08d3f",
+        "fact-44bfe595b090c8d0d462",
+        "fact-59f05a48014289bb60af",
+        "fact-63df778382a7efd16ef6",
+        "fact-65e16c492c0f5ef4ee85",
+        "fact-8651b0d0880684185a8a",
+        "fact-b8fcaedd688f6cba0eeb",
+        "fact-bcf67548bf177f126a8d"
+      ]
+    },
+    "candidates": [
+      {
+        "candidate_id": "candidate-007e5f0e291e307685f0",
+        "category": "assignment",
+        "evidence_ids": [
+          "evidence-679144324c439e1d274b",
+          "evidence-fc74a382d79b3f718cf5"
+        ],
+        "field_key": "assignment.report_format",
+        "label": "Report format",
+        "machine_confidence": "low",
+        "machine_verification_status": "needs_review",
+        "material": true,
+        "normalized_value": "restricted appraisal report",
+        "observed_at": "2026-09-03T15:00:00+00:00",
+        "source_field_key": "report_type",
+        "state": "accepted",
+        "unit": null,
+        "value": "restricted appraisal report",
+        "value_type": "string"
+      },
+      {
+        "candidate_id": "candidate-03fcf753f48b0ebc6822",
+        "category": "subject_identity",
+        "evidence_ids": [
+          "evidence-03f396c24c76c29212b7",
+          "evidence-79ee6fd61e486ca46a36",
+          "evidence-c877f110968a02a73748"
+        ],
+        "field_key": "subject.address",
+        "label": "Property address",
+        "machine_confidence": "high",
+        "machine_verification_status": "verified",
+        "material": true,
+        "normalized_value": "1600 northstar logistics way",
+        "observed_at": "2026-09-03T15:00:00+00:00",
+        "source_field_key": "property_address",
+        "state": "extracted_candidate",
+        "unit": null,
+        "value": "1600 Northstar Logistics Way",
+        "value_type": "string"
+      },
+      {
+        "candidate_id": "candidate-1283eda138bd30091b1b",
+        "category": "assignment",
+        "evidence_ids": [
+          "evidence-7d7b0a341b41e16e2374"
+        ],
+        "field_key": "assignment.effective_date_requirement",
+        "label": "Effective date requirement",
+        "machine_confidence": "medium",
+        "machine_verification_status": "probable",
+        "material": true,
+        "normalized_value": "2026-09-01",
+        "observed_at": "2026-09-03T15:00:00+00:00",
+        "source_field_key": "effective_date",
+        "state": "accepted",
+        "unit": null,
+        "value": "September 1, 2026",
+        "value_type": "string"
+      },
+      {
+        "candidate_id": "candidate-14be01dddd1855bd3f98",
+        "category": "analysis",
+        "evidence_ids": [
+          "evidence-56e0f39ba86ced1047c3"
+        ],
+        "field_key": "analysis.approaches.sales_comparison",
+        "label": "Sales comparison approach referenced",
+        "machine_confidence": "medium",
+        "machine_verification_status": "probable",
+        "material": false,
+        "normalized_value": "present",
+        "observed_at": "2026-09-03T15:00:00+00:00",
+        "source_field_key": "sales_comparison_approach",
+        "state": "extracted_candidate",
+        "unit": null,
+        "value": "present",
+        "value_type": "string"
+      },
+      {
+        "candidate_id": "candidate-22c66fb022aef3666b7b",
+        "category": "report",
+        "evidence_ids": [
+          "evidence-e5dfccb88b7aad001efb"
+        ],
+        "field_key": "report.title",
+        "label": "Report title",
+        "machine_confidence": "medium",
+        "machine_verification_status": "probable",
+        "material": false,
+        "normalized_value": "synthetic appraisal intake restricted appraisal report",
+        "observed_at": "2026-09-03T15:00:00+00:00",
+        "source_field_key": "report_title",
+        "state": "extracted_candidate",
+        "unit": null,
+        "value": "SYNTHETIC APPRAISAL INTAKE Restricted Appraisal Report",
+        "value_type": "string"
+      },
+      {
+        "candidate_id": "candidate-44d098692f100ca81b5b",
+        "category": "assignment",
+        "evidence_ids": [
+          "evidence-cd0a5fb87b1b0c77c1a0",
+          "evidence-e5aecf182b39f348d22a",
+          "evidence-fa53ce620fd4c23894fd"
+        ],
+        "field_key": "assignment.effective_date_requirement",
+        "label": "Effective date requirement",
+        "machine_confidence": "high",
+        "machine_verification_status": "verified",
+        "material": true,
+        "normalized_value": "2026-09-01",
+        "observed_at": "2026-09-03T15:00:00+00:00",
+        "source_field_key": "effective_date",
+        "state": "extracted_candidate",
+        "unit": null,
+        "value": "September 1, 2026",
+        "value_type": "string"
+      },
+      {
+        "candidate_id": "candidate-5ccd1c98a71f3d7e82ad",
+        "category": "analysis",
+        "evidence_ids": [
+          "evidence-470000d9c4821275e026"
+        ],
+        "field_key": "analysis.approaches.income",
+        "label": "Income approach referenced",
+        "machine_confidence": "medium",
+        "machine_verification_status": "probable",
+        "material": false,
+        "normalized_value": "present",
+        "observed_at": "2026-09-03T15:00:00+00:00",
+        "source_field_key": "income_approach",
+        "state": "extracted_candidate",
+        "unit": null,
+        "value": "present",
+        "value_type": "string"
+      },
+      {
+        "candidate_id": "candidate-89e998d3b4b9c262ec61",
+        "category": "assignment",
+        "evidence_ids": [
+          "evidence-4fb2fc2c8a1f7d23a4ad"
+        ],
+        "field_key": "assignment.client",
+        "label": "Client",
+        "machine_confidence": "medium",
+        "machine_verification_status": "probable",
+        "material": true,
+        "normalized_value": "example regional bank n a",
+        "observed_at": "2026-09-03T15:00:00+00:00",
+        "source_field_key": "client",
+        "state": "accepted",
+        "unit": null,
+        "value": "Example Regional Bank, N.A.",
+        "value_type": "string"
+      },
+      {
+        "candidate_id": "candidate-98051c53798916edade4",
+        "category": "subject_identity",
+        "evidence_ids": [
+          "evidence-132460bda17f3a52917b"
+        ],
+        "field_key": "subject.address",
+        "label": "Property address",
+        "machine_confidence": "medium",
+        "machine_verification_status": "probable",
+        "material": true,
+        "normalized_value": "1600 northstar logistics way",
+        "observed_at": "2026-09-03T15:00:00+00:00",
+        "source_field_key": "property_address",
+        "state": "accepted",
+        "unit": null,
+        "value": "1600 Northstar Logistics Way",
+        "value_type": "string"
+      },
+      {
+        "candidate_id": "candidate-9e3a588f3fda5d742c3e",
+        "category": "assignment",
+        "evidence_ids": [
+          "evidence-0c63431a2a71b78ca6a7"
+        ],
+        "field_key": "assignment.report_date_requirement",
+        "label": "Report date requirement",
+        "machine_confidence": "medium",
+        "machine_verification_status": "probable",
+        "material": false,
+        "normalized_value": "2026-09-03",
+        "observed_at": "2026-09-03T15:00:00+00:00",
+        "source_field_key": "report_date",
+        "state": "deferred",
+        "unit": null,
+        "value": "September 3, 2026",
+        "value_type": "string"
+      },
+      {
+        "candidate_id": "candidate-9f1fa9f6d93338f75d53",
+        "category": "assignment",
+        "evidence_ids": [
+          "evidence-58869fea0d61fc3644ac"
+        ],
+        "field_key": "assignment.intended_use",
+        "label": "Intended use",
+        "machine_confidence": "conflicting",
+        "machine_verification_status": "conflicting",
+        "material": true,
+        "normalized_value": "internal_decision",
+        "observed_at": "2026-09-03T15:00:00+00:00",
+        "source_field_key": "intended_use",
+        "state": "unresolved_conflict",
+        "unit": null,
+        "value": "Internal portfolio planning",
+        "value_type": "string"
+      },
+      {
+        "candidate_id": "candidate-b5014b2a423fa7ba533e",
+        "category": "professional_review",
+        "evidence_ids": [
+          "evidence-4b72c6324cd1b8e1f008"
+        ],
+        "field_key": "assignment.reviewer",
+        "label": "Reviewer",
+        "machine_confidence": "medium",
+        "machine_verification_status": "probable",
+        "material": false,
+        "normalized_value": "taylor reviewer mai",
+        "observed_at": "2026-09-03T15:00:00+00:00",
+        "source_field_key": "reviewer_name",
+        "state": "rejected",
+        "unit": null,
+        "value": "Taylor Reviewer, MAI",
+        "value_type": "string"
+      },
+      {
+        "candidate_id": "candidate-b928436691e1a023c548",
+        "category": "assignment",
+        "evidence_ids": [
+          "evidence-c4709e937ac75a9744ab"
+        ],
+        "field_key": "assignment.extraordinary_assumptions_present",
+        "label": "Extraordinary assumptions present",
+        "machine_confidence": "medium",
+        "machine_verification_status": "probable",
+        "material": true,
+        "normalized_value": "present",
+        "observed_at": "2026-09-03T15:00:00+00:00",
+        "source_field_key": "extraordinary_assumptions_present",
+        "state": "extracted_candidate",
+        "unit": null,
+        "value": "present",
+        "value_type": "string"
+      },
+      {
+        "candidate_id": "candidate-c15f130195fe256e0da7",
+        "category": "assignment",
+        "evidence_ids": [
+          "evidence-d86cf29b486e3ee26bbe"
+        ],
+        "field_key": "assignment.report_format",
+        "label": "Report format",
+        "machine_confidence": "low",
+        "machine_verification_status": "needs_review",
+        "material": true,
+        "normalized_value": "appraisal report",
+        "observed_at": "2026-09-03T15:00:00+00:00",
+        "source_field_key": "report_type",
+        "state": "unresolved_conflict",
+        "unit": null,
+        "value": "appraisal report",
+        "value_type": "string"
+      },
+      {
+        "candidate_id": "candidate-cd2852a52ff103b87477",
+        "category": "assignment",
+        "evidence_ids": [
+          "evidence-689bb961834540e39529",
+          "evidence-b3ccc2ba131fe9945544",
+          "evidence-c03358c89a9bdccba3d5"
+        ],
+        "field_key": "assignment.client",
+        "label": "Client",
+        "machine_confidence": "high",
+        "machine_verification_status": "verified",
+        "material": true,
+        "normalized_value": "example regional bank",
+        "observed_at": "2026-09-03T15:00:00+00:00",
+        "source_field_key": "client",
+        "state": "rejected",
+        "unit": null,
+        "value": "Example Regional Bank",
+        "value_type": "string"
+      },
+      {
+        "candidate_id": "candidate-e04130423dbbb1a5e412",
+        "category": "subject_identity",
+        "evidence_ids": [
+          "evidence-227ed9294fdef062df89",
+          "evidence-929052453cd590d39e5c",
+          "evidence-bdd57a6a30d61080a895"
+        ],
+        "field_key": "subject.property_type",
+        "label": "Property type",
+        "machine_confidence": "high",
+        "machine_verification_status": "verified",
+        "material": true,
+        "normalized_value": "industrial",
+        "observed_at": "2026-09-03T15:00:00+00:00",
+        "source_field_key": "property_type",
+        "state": "corrected",
+        "unit": null,
+        "value": "Industrial",
+        "value_type": "string"
+      },
+      {
+        "candidate_id": "candidate-e07a9f51a16b2f3f4062",
+        "category": "professional_review",
+        "evidence_ids": [
+          "evidence-50331748dc1fd5fd40a1"
+        ],
+        "field_key": "assignment.signing_appraiser",
+        "label": "Signing appraiser",
+        "machine_confidence": "medium",
+        "machine_verification_status": "probable",
+        "material": true,
+        "normalized_value": "morgan appraiser mai",
+        "observed_at": "2026-09-03T15:00:00+00:00",
+        "source_field_key": "appraiser_name",
+        "state": "accepted",
+        "unit": null,
+        "value": "Morgan Appraiser, MAI",
+        "value_type": "string"
+      },
+      {
+        "candidate_id": "candidate-e57bf9158baa16ead212",
+        "category": "inspection",
+        "evidence_ids": [
+          "evidence-280f757b8a9eb0b3ead3",
+          "evidence-4dde0d7f6ccfbeb2a99e",
+          "evidence-74f05afcdc447112a854"
+        ],
+        "field_key": "assignment.inspection_date",
+        "label": "Inspection date",
+        "machine_confidence": "high",
+        "machine_verification_status": "verified",
+        "material": false,
+        "normalized_value": "2026-08-29",
+        "observed_at": "2026-09-03T15:00:00+00:00",
+        "source_field_key": "inspection_date",
+        "state": "extracted_candidate",
+        "unit": null,
+        "value": "August 29, 2026",
+        "value_type": "string"
+      },
+      {
+        "candidate_id": "candidate-e9c1662d1790243fe24d",
+        "category": "assignment",
+        "evidence_ids": [
+          "evidence-c46b5148e2ccd14be908"
+        ],
+        "field_key": "assignment.intended_use",
+        "label": "Intended use",
+        "machine_confidence": "conflicting",
+        "machine_verification_status": "conflicting",
+        "material": true,
+        "normalized_value": "loan_underwriting",
+        "observed_at": "2026-09-03T15:00:00+00:00",
+        "source_field_key": "intended_use",
+        "state": "unresolved_conflict",
+        "unit": null,
+        "value": "Loan underwriting",
+        "value_type": "string"
+      },
+      {
+        "candidate_id": "candidate-f0661837bf3122cdeb86",
+        "category": "assignment",
+        "evidence_ids": [
+          "evidence-83594c29b009ac86d87e",
+          "evidence-df344079be037c38dcb7",
+          "evidence-fe0add826fb22ed259ec"
+        ],
+        "field_key": "assignment.intended_user",
+        "label": "Intended user",
+        "machine_confidence": "high",
+        "machine_verification_status": "verified",
+        "material": true,
+        "normalized_value": "example regional bank",
+        "observed_at": "2026-09-03T15:00:00+00:00",
+        "source_field_key": "intended_user",
+        "state": "accepted",
+        "unit": null,
+        "value": "Example Regional Bank",
+        "value_type": "string"
+      }
+    ],
+    "comparable_references": [
+      {
+        "adjustment_reference_ids": [],
+        "comparable_id": "synthetic-lease-202",
+        "comparable_type": "lease",
+        "evidence_ids": [],
+        "freshness": "unknown",
+        "knowledge_object_id": null,
+        "notes": [
+          "Market lead only; relevance remains subject to appraiser review."
+        ],
+        "property_id": "property-synthetic-lease-202",
+        "qualitative_comparison_reference_ids": [],
+        "reference_id": "comp-lead-synthetic-lease-202",
+        "selection_status": "candidate",
+        "source_assignment_id": null
+      },
+      {
+        "adjustment_reference_ids": [],
+        "comparable_id": "synthetic-sale-101",
+        "comparable_type": "sale",
+        "evidence_ids": [],
+        "freshness": "current",
+        "knowledge_object_id": null,
+        "notes": [
+          "Extracted reference only; not professionally selected."
+        ],
+        "property_id": "property-synthetic-sale-101",
+        "qualitative_comparison_reference_ids": [],
+        "reference_id": "comp-lead-synthetic-sale-101",
+        "selection_status": "candidate",
+        "source_assignment_id": null
+      }
+    ],
+    "conclusions": [],
+    "conflicts": [
+      {
+        "candidate_ids": [
+          "candidate-89e998d3b4b9c262ec61",
+          "candidate-cd2852a52ff103b87477"
+        ],
+        "conflict_id": "conflict-336b55e112817476e50b",
+        "evidence_ids": [
+          "evidence-4fb2fc2c8a1f7d23a4ad",
+          "evidence-689bb961834540e39529",
+          "evidence-b3ccc2ba131fe9945544",
+          "evidence-c03358c89a9bdccba3d5"
+        ],
+        "field_key": "assignment.client",
+        "material": true,
+        "reason": "All competing values except one were explicitly rejected.",
+        "resolution_event_ids": [
+          "review-31e475ac6cf9c944e47a",
+          "review-c43f6e44571ce40fffb7"
+        ],
+        "status": "resolved"
+      },
+      {
+        "candidate_ids": [
+          "candidate-9f1fa9f6d93338f75d53",
+          "candidate-e9c1662d1790243fe24d"
+        ],
+        "conflict_id": "conflict-617c92536c3c0b623233",
+        "evidence_ids": [
+          "evidence-58869fea0d61fc3644ac",
+          "evidence-c46b5148e2ccd14be908"
+        ],
+        "field_key": "assignment.intended_use",
+        "material": true,
+        "reason": "Distinct normalized candidate values require an explicit appraiser resolution.",
+        "resolution_event_ids": [],
+        "status": "unresolved"
+      },
+      {
+        "candidate_ids": [
+          "candidate-007e5f0e291e307685f0",
+          "candidate-c15f130195fe256e0da7"
+        ],
+        "conflict_id": "conflict-c715b3c4a988da103207",
+        "evidence_ids": [
+          "evidence-679144324c439e1d274b",
+          "evidence-d86cf29b486e3ee26bbe",
+          "evidence-fc74a382d79b3f718cf5"
+        ],
+        "field_key": "assignment.report_format",
+        "material": true,
+        "reason": "Distinct normalized candidate values require an explicit appraiser resolution.",
+        "resolution_event_ids": [],
+        "status": "unresolved"
+      }
+    ],
+    "current_fact_ids": [
+      "fact-17a8f9b71a0c452f657b",
+      "fact-37f3fc19ddd6f31c4e50",
+      "fact-3f536de6d27b14b08d3f",
+      "fact-41735b0fd34a3922f57d",
+      "fact-44bfe595b090c8d0d462",
+      "fact-4e7a2f4661783ae8d4ce",
+      "fact-59f05a48014289bb60af",
+      "fact-63df778382a7efd16ef6",
+      "fact-65e16c492c0f5ef4ee85",
+      "fact-6834c52e0954952713e1",
+      "fact-71b6c6340f5f5e80945d",
+      "fact-8651b0d0880684185a8a",
+      "fact-883c3e653b588eae7397",
+      "fact-91f71bf861c9c0e52dea",
+      "fact-b8783ca5ce137f78be5d",
+      "fact-b8fcaedd688f6cba0eeb",
+      "fact-bcf67548bf177f126a8d",
+      "fact-d95879f5d466c1192a75"
+    ],
+    "evidence": [
+      {
+        "candidate_reference": "synthetic-intake-report-001:property_address:2",
+        "confidence": "high",
+        "evidence_id": "evidence-03f396c24c76c29212b7",
+        "extracted_at": "2026-09-03T15:00:00+00:00",
+        "extraction_method": "deterministic label match: Property Address",
+        "extractor_name": "falcon_historical_knowledge",
+        "extractor_version": "1",
+        "field_key": "subject.address",
+        "freshness": "unknown",
+        "locator": {
+          "cell": null,
+          "page_number": 1,
+          "paragraph": null,
+          "region": null,
+          "section": null,
+          "table": null
+        },
+        "quality": "primary_report",
+        "source_excerpt": null,
+        "source_field_key": "property_address",
+        "source_id": "source-33061be82f7b5b7ff636"
+      },
+      {
+        "candidate_reference": "synthetic-intake-report-001:report_date:1",
+        "confidence": "high",
+        "evidence_id": "evidence-0c63431a2a71b78ca6a7",
+        "extracted_at": "2026-09-03T15:00:00+00:00",
+        "extraction_method": "deterministic label match: Report Date",
+        "extractor_name": "falcon_historical_knowledge",
+        "extractor_version": "1",
+        "field_key": "assignment.report_date_requirement",
+        "freshness": "unknown",
+        "locator": {
+          "cell": null,
+          "page_number": 1,
+          "paragraph": null,
+          "region": null,
+          "section": null,
+          "table": null
+        },
+        "quality": "primary_report",
+        "source_excerpt": null,
+        "source_field_key": "report_date",
+        "source_id": "source-33061be82f7b5b7ff636"
+      },
+      {
+        "candidate_reference": "synthetic-engagement-letter-001:property_address:1",
+        "confidence": "high",
+        "evidence_id": "evidence-132460bda17f3a52917b",
+        "extracted_at": "2026-09-03T15:00:00+00:00",
+        "extraction_method": "deterministic label match: Property Address",
+        "extractor_name": "falcon_historical_knowledge",
+        "extractor_version": "1",
+        "field_key": "subject.address",
+        "freshness": "unknown",
+        "locator": {
+          "cell": null,
+          "page_number": 1,
+          "paragraph": null,
+          "region": null,
+          "section": null,
+          "table": null
+        },
+        "quality": "primary_report",
+        "source_excerpt": null,
+        "source_field_key": "property_address",
+        "source_id": "source-b070a12b1ab445a08ae4"
+      },
+      {
+        "candidate_reference": "synthetic-intake-report-001:property_type:3",
+        "confidence": "high",
+        "evidence_id": "evidence-227ed9294fdef062df89",
+        "extracted_at": "2026-09-03T15:00:00+00:00",
+        "extraction_method": "deterministic label match: Property Type",
+        "extractor_name": "falcon_historical_knowledge",
+        "extractor_version": "1",
+        "field_key": "subject.property_type",
+        "freshness": "unknown",
+        "locator": {
+          "cell": null,
+          "page_number": 1,
+          "paragraph": null,
+          "region": null,
+          "section": null,
+          "table": null
+        },
+        "quality": "primary_report",
+        "source_excerpt": null,
+        "source_field_key": "property_type",
+        "source_id": "source-33061be82f7b5b7ff636"
+      },
+      {
+        "candidate_reference": "synthetic-intake-report-001:inspection_date:2",
+        "confidence": "high",
+        "evidence_id": "evidence-280f757b8a9eb0b3ead3",
+        "extracted_at": "2026-09-03T15:00:00+00:00",
+        "extraction_method": "deterministic label match: Inspection Date",
+        "extractor_name": "falcon_historical_knowledge",
+        "extractor_version": "1",
+        "field_key": "assignment.inspection_date",
+        "freshness": "unknown",
+        "locator": {
+          "cell": null,
+          "page_number": 1,
+          "paragraph": null,
+          "region": null,
+          "section": null,
+          "table": null
+        },
+        "quality": "primary_report",
+        "source_excerpt": null,
+        "source_field_key": "inspection_date",
+        "source_id": "source-33061be82f7b5b7ff636"
+      },
+      {
+        "candidate_reference": "synthetic-intake-report-001:income_approach:presence",
+        "confidence": "medium",
+        "evidence_id": "evidence-470000d9c4821275e026",
+        "extracted_at": "2026-09-03T15:00:00+00:00",
+        "extraction_method": "deterministic phrase presence",
+        "extractor_name": "falcon_historical_knowledge",
+        "extractor_version": "1",
+        "field_key": "analysis.approaches.income",
+        "freshness": "unknown",
+        "locator": {
+          "cell": null,
+          "page_number": 1,
+          "paragraph": null,
+          "region": null,
+          "section": null,
+          "table": null
+        },
+        "quality": "primary_report",
+        "source_excerpt": null,
+        "source_field_key": "income_approach",
+        "source_id": "source-33061be82f7b5b7ff636"
+      },
+      {
+        "candidate_reference": "synthetic-intake-report-001:reviewer_name:1",
+        "confidence": "high",
+        "evidence_id": "evidence-4b72c6324cd1b8e1f008",
+        "extracted_at": "2026-09-03T15:00:00+00:00",
+        "extraction_method": "deterministic label match: Reviewer",
+        "extractor_name": "falcon_historical_knowledge",
+        "extractor_version": "1",
+        "field_key": "assignment.reviewer",
+        "freshness": "unknown",
+        "locator": {
+          "cell": null,
+          "page_number": 1,
+          "paragraph": null,
+          "region": null,
+          "section": null,
+          "table": null
+        },
+        "quality": "primary_report",
+        "source_excerpt": null,
+        "source_field_key": "reviewer_name",
+        "source_id": "source-33061be82f7b5b7ff636"
+      },
+      {
+        "candidate_reference": "synthetic-intake-report-001:inspection_date:3",
+        "confidence": "high",
+        "evidence_id": "evidence-4dde0d7f6ccfbeb2a99e",
+        "extracted_at": "2026-09-03T15:00:00+00:00",
+        "extraction_method": "deterministic label match: Inspection",
+        "extractor_name": "falcon_historical_knowledge",
+        "extractor_version": "1",
+        "field_key": "assignment.inspection_date",
+        "freshness": "unknown",
+        "locator": {
+          "cell": null,
+          "page_number": 1,
+          "paragraph": null,
+          "region": null,
+          "section": null,
+          "table": null
+        },
+        "quality": "primary_report",
+        "source_excerpt": null,
+        "source_field_key": "inspection_date",
+        "source_id": "source-33061be82f7b5b7ff636"
+      },
+      {
+        "candidate_reference": "synthetic-engagement-letter-001:client:1",
+        "confidence": "high",
+        "evidence_id": "evidence-4fb2fc2c8a1f7d23a4ad",
+        "extracted_at": "2026-09-03T15:00:00+00:00",
+        "extraction_method": "deterministic label match: Client",
+        "extractor_name": "falcon_historical_knowledge",
+        "extractor_version": "1",
+        "field_key": "assignment.client",
+        "freshness": "unknown",
+        "locator": {
+          "cell": null,
+          "page_number": 1,
+          "paragraph": null,
+          "region": null,
+          "section": null,
+          "table": null
+        },
+        "quality": "primary_report",
+        "source_excerpt": null,
+        "source_field_key": "client",
+        "source_id": "source-b070a12b1ab445a08ae4"
+      },
+      {
+        "candidate_reference": "synthetic-intake-report-001:appraiser_name:1",
+        "confidence": "high",
+        "evidence_id": "evidence-50331748dc1fd5fd40a1",
+        "extracted_at": "2026-09-03T15:00:00+00:00",
+        "extraction_method": "deterministic label match: Appraiser",
+        "extractor_name": "falcon_historical_knowledge",
+        "extractor_version": "1",
+        "field_key": "assignment.signing_appraiser",
+        "freshness": "unknown",
+        "locator": {
+          "cell": null,
+          "page_number": 1,
+          "paragraph": null,
+          "region": null,
+          "section": null,
+          "table": null
+        },
+        "quality": "primary_report",
+        "source_excerpt": null,
+        "source_field_key": "appraiser_name",
+        "source_id": "source-33061be82f7b5b7ff636"
+      },
+      {
+        "candidate_reference": "synthetic-intake-report-001:sales_comparison_approach:presence",
+        "confidence": "medium",
+        "evidence_id": "evidence-56e0f39ba86ced1047c3",
+        "extracted_at": "2026-09-03T15:00:00+00:00",
+        "extraction_method": "deterministic phrase presence",
+        "extractor_name": "falcon_historical_knowledge",
+        "extractor_version": "1",
+        "field_key": "analysis.approaches.sales_comparison",
+        "freshness": "unknown",
+        "locator": {
+          "cell": null,
+          "page_number": 1,
+          "paragraph": null,
+          "region": null,
+          "section": null,
+          "table": null
+        },
+        "quality": "primary_report",
+        "source_excerpt": null,
+        "source_field_key": "sales_comparison_approach",
+        "source_id": "source-33061be82f7b5b7ff636"
+      },
+      {
+        "candidate_reference": "synthetic-intake-report-001:intended_use:2",
+        "confidence": "conflicting",
+        "evidence_id": "evidence-58869fea0d61fc3644ac",
+        "extracted_at": "2026-09-03T15:00:00+00:00",
+        "extraction_method": "deterministic label match: Intended Use",
+        "extractor_name": "falcon_historical_knowledge",
+        "extractor_version": "1",
+        "field_key": "assignment.intended_use",
+        "freshness": "unknown",
+        "locator": {
+          "cell": null,
+          "page_number": 2,
+          "paragraph": null,
+          "region": null,
+          "section": null,
+          "table": null
+        },
+        "quality": "primary_report",
+        "source_excerpt": null,
+        "source_field_key": "intended_use",
+        "source_id": "source-33061be82f7b5b7ff636"
+      },
+      {
+        "candidate_reference": "synthetic-intake-report-001:report_title:1:report_type",
+        "confidence": "medium",
+        "evidence_id": "evidence-679144324c439e1d274b",
+        "extracted_at": "2026-09-03T15:00:00+00:00",
+        "extraction_method": "deterministic title agreement",
+        "extractor_name": "falcon_historical_knowledge",
+        "extractor_version": "1",
+        "field_key": "assignment.report_format",
+        "freshness": "unknown",
+        "locator": {
+          "cell": null,
+          "page_number": 1,
+          "paragraph": null,
+          "region": null,
+          "section": "first page title block",
+          "table": null
+        },
+        "quality": "metadata_only",
+        "source_excerpt": null,
+        "source_field_key": "report_type",
+        "source_id": "source-33061be82f7b5b7ff636"
+      },
+      {
+        "candidate_reference": "synthetic-intake-report-001:client:3",
+        "confidence": "high",
+        "evidence_id": "evidence-689bb961834540e39529",
+        "extracted_at": "2026-09-03T15:00:00+00:00",
+        "extraction_method": "deterministic label match: Client",
+        "extractor_name": "falcon_historical_knowledge",
+        "extractor_version": "1",
+        "field_key": "assignment.client",
+        "freshness": "unknown",
+        "locator": {
+          "cell": null,
+          "page_number": 1,
+          "paragraph": null,
+          "region": null,
+          "section": null,
+          "table": null
+        },
+        "quality": "primary_report",
+        "source_excerpt": null,
+        "source_field_key": "client",
+        "source_id": "source-33061be82f7b5b7ff636"
+      },
+      {
+        "candidate_reference": "synthetic-intake-report-001:inspection_date:1",
+        "confidence": "medium",
+        "evidence_id": "evidence-74f05afcdc447112a854",
+        "extracted_at": "2026-09-03T15:00:00+00:00",
+        "extraction_method": "inspection anchor: sentence date match",
+        "extractor_name": "falcon_historical_knowledge",
+        "extractor_version": "1",
+        "field_key": "assignment.inspection_date",
+        "freshness": "unknown",
+        "locator": {
+          "cell": null,
+          "page_number": 1,
+          "paragraph": null,
+          "region": null,
+          "section": "inspection anchor",
+          "table": null
+        },
+        "quality": "primary_report",
+        "source_excerpt": null,
+        "source_field_key": "inspection_date",
+        "source_id": "source-33061be82f7b5b7ff636"
+      },
+      {
+        "candidate_reference": "synthetic-intake-report-001:property_address:3",
+        "confidence": "high",
+        "evidence_id": "evidence-79ee6fd61e486ca46a36",
+        "extracted_at": "2026-09-03T15:00:00+00:00",
+        "extraction_method": "deterministic label match: Property Address",
+        "extractor_name": "falcon_historical_knowledge",
+        "extractor_version": "1",
+        "field_key": "subject.address",
+        "freshness": "unknown",
+        "locator": {
+          "cell": null,
+          "page_number": 1,
+          "paragraph": null,
+          "region": null,
+          "section": null,
+          "table": null
+        },
+        "quality": "primary_report",
+        "source_excerpt": null,
+        "source_field_key": "property_address",
+        "source_id": "source-33061be82f7b5b7ff636"
+      },
+      {
+        "candidate_reference": "synthetic-engagement-letter-001:effective_date:1",
+        "confidence": "high",
+        "evidence_id": "evidence-7d7b0a341b41e16e2374",
+        "extracted_at": "2026-09-03T15:00:00+00:00",
+        "extraction_method": "deterministic label match: Effective Date",
+        "extractor_name": "falcon_historical_knowledge",
+        "extractor_version": "1",
+        "field_key": "assignment.effective_date_requirement",
+        "freshness": "unknown",
+        "locator": {
+          "cell": null,
+          "page_number": 1,
+          "paragraph": null,
+          "region": null,
+          "section": null,
+          "table": null
+        },
+        "quality": "primary_report",
+        "source_excerpt": null,
+        "source_field_key": "effective_date",
+        "source_id": "source-b070a12b1ab445a08ae4"
+      },
+      {
+        "candidate_reference": "synthetic-intake-report-001:intended_user:1",
+        "confidence": "high",
+        "evidence_id": "evidence-83594c29b009ac86d87e",
+        "extracted_at": "2026-09-03T15:00:00+00:00",
+        "extraction_method": "summary of salient facts table: Intended User",
+        "extractor_name": "falcon_historical_knowledge",
+        "extractor_version": "1",
+        "field_key": "assignment.intended_user",
+        "freshness": "unknown",
+        "locator": {
+          "cell": null,
+          "page_number": 1,
+          "paragraph": null,
+          "region": null,
+          "section": null,
+          "table": null
+        },
+        "quality": "primary_report",
+        "source_excerpt": null,
+        "source_field_key": "intended_user",
+        "source_id": "source-33061be82f7b5b7ff636"
+      },
+      {
+        "candidate_reference": "synthetic-intake-report-001:property_type:1",
+        "confidence": "high",
+        "evidence_id": "evidence-929052453cd590d39e5c",
+        "extracted_at": "2026-09-03T15:00:00+00:00",
+        "extraction_method": "summary of salient facts table: Property Type",
+        "extractor_name": "falcon_historical_knowledge",
+        "extractor_version": "1",
+        "field_key": "subject.property_type",
+        "freshness": "unknown",
+        "locator": {
+          "cell": null,
+          "page_number": 1,
+          "paragraph": null,
+          "region": null,
+          "section": null,
+          "table": null
+        },
+        "quality": "primary_report",
+        "source_excerpt": null,
+        "source_field_key": "property_type",
+        "source_id": "source-33061be82f7b5b7ff636"
+      },
+      {
+        "candidate_reference": "synthetic-intake-report-001:client:2",
+        "confidence": "high",
+        "evidence_id": "evidence-b3ccc2ba131fe9945544",
+        "extracted_at": "2026-09-03T15:00:00+00:00",
+        "extraction_method": "deterministic label match: Client",
+        "extractor_name": "falcon_historical_knowledge",
+        "extractor_version": "1",
+        "field_key": "assignment.client",
+        "freshness": "unknown",
+        "locator": {
+          "cell": null,
+          "page_number": 1,
+          "paragraph": null,
+          "region": null,
+          "section": null,
+          "table": null
+        },
+        "quality": "primary_report",
+        "source_excerpt": null,
+        "source_field_key": "client",
+        "source_id": "source-33061be82f7b5b7ff636"
+      },
+      {
+        "candidate_reference": "synthetic-intake-report-001:property_type:2",
+        "confidence": "high",
+        "evidence_id": "evidence-bdd57a6a30d61080a895",
+        "extracted_at": "2026-09-03T15:00:00+00:00",
+        "extraction_method": "deterministic label match: Property Type",
+        "extractor_name": "falcon_historical_knowledge",
+        "extractor_version": "1",
+        "field_key": "subject.property_type",
+        "freshness": "unknown",
+        "locator": {
+          "cell": null,
+          "page_number": 1,
+          "paragraph": null,
+          "region": null,
+          "section": null,
+          "table": null
+        },
+        "quality": "primary_report",
+        "source_excerpt": null,
+        "source_field_key": "property_type",
+        "source_id": "source-33061be82f7b5b7ff636"
+      },
+      {
+        "candidate_reference": "synthetic-intake-report-001:client:1",
+        "confidence": "high",
+        "evidence_id": "evidence-c03358c89a9bdccba3d5",
+        "extracted_at": "2026-09-03T15:00:00+00:00",
+        "extraction_method": "summary of salient facts table: Client",
+        "extractor_name": "falcon_historical_knowledge",
+        "extractor_version": "1",
+        "field_key": "assignment.client",
+        "freshness": "unknown",
+        "locator": {
+          "cell": null,
+          "page_number": 1,
+          "paragraph": null,
+          "region": null,
+          "section": null,
+          "table": null
+        },
+        "quality": "primary_report",
+        "source_excerpt": null,
+        "source_field_key": "client",
+        "source_id": "source-33061be82f7b5b7ff636"
+      },
+      {
+        "candidate_reference": "synthetic-intake-report-001:intended_use:1",
+        "confidence": "conflicting",
+        "evidence_id": "evidence-c46b5148e2ccd14be908",
+        "extracted_at": "2026-09-03T15:00:00+00:00",
+        "extraction_method": "deterministic label match: Intended Use",
+        "extractor_name": "falcon_historical_knowledge",
+        "extractor_version": "1",
+        "field_key": "assignment.intended_use",
+        "freshness": "unknown",
+        "locator": {
+          "cell": null,
+          "page_number": 1,
+          "paragraph": null,
+          "region": null,
+          "section": null,
+          "table": null
+        },
+        "quality": "primary_report",
+        "source_excerpt": null,
+        "source_field_key": "intended_use",
+        "source_id": "source-33061be82f7b5b7ff636"
+      },
+      {
+        "candidate_reference": "synthetic-intake-report-001:extraordinary_assumptions_present:presence",
+        "confidence": "medium",
+        "evidence_id": "evidence-c4709e937ac75a9744ab",
+        "extracted_at": "2026-09-03T15:00:00+00:00",
+        "extraction_method": "deterministic phrase presence",
+        "extractor_name": "falcon_historical_knowledge",
+        "extractor_version": "1",
+        "field_key": "assignment.extraordinary_assumptions_present",
+        "freshness": "unknown",
+        "locator": {
+          "cell": null,
+          "page_number": 2,
+          "paragraph": null,
+          "region": null,
+          "section": null,
+          "table": null
+        },
+        "quality": "primary_report",
+        "source_excerpt": null,
+        "source_field_key": "extraordinary_assumptions_present",
+        "source_id": "source-33061be82f7b5b7ff636"
+      },
+      {
+        "candidate_reference": "synthetic-intake-report-001:property_address:1",
+        "confidence": "high",
+        "evidence_id": "evidence-c877f110968a02a73748",
+        "extracted_at": "2026-09-03T15:00:00+00:00",
+        "extraction_method": "summary of salient facts table: Property Address",
+        "extractor_name": "falcon_historical_knowledge",
+        "extractor_version": "1",
+        "field_key": "subject.address",
+        "freshness": "unknown",
+        "locator": {
+          "cell": null,
+          "page_number": 1,
+          "paragraph": null,
+          "region": null,
+          "section": null,
+          "table": null
+        },
+        "quality": "primary_report",
+        "source_excerpt": null,
+        "source_field_key": "property_address",
+        "source_id": "source-33061be82f7b5b7ff636"
+      },
+      {
+        "candidate_reference": "synthetic-intake-report-001:effective_date:2",
+        "confidence": "high",
+        "evidence_id": "evidence-cd0a5fb87b1b0c77c1a0",
+        "extracted_at": "2026-09-03T15:00:00+00:00",
+        "extraction_method": "deterministic label match: Effective Date",
+        "extractor_name": "falcon_historical_knowledge",
+        "extractor_version": "1",
+        "field_key": "assignment.effective_date_requirement",
+        "freshness": "unknown",
+        "locator": {
+          "cell": null,
+          "page_number": 1,
+          "paragraph": null,
+          "region": null,
+          "section": null,
+          "table": null
+        },
+        "quality": "primary_report",
+        "source_excerpt": null,
+        "source_field_key": "effective_date",
+        "source_id": "source-33061be82f7b5b7ff636"
+      },
+      {
+        "candidate_reference": "synthetic-intake-report-001:filename:report_type",
+        "confidence": "medium",
+        "evidence_id": "evidence-d86cf29b486e3ee26bbe",
+        "extracted_at": "2026-09-03T15:00:00+00:00",
+        "extraction_method": "deterministic filename phrase",
+        "extractor_name": "falcon_historical_knowledge",
+        "extractor_version": "1",
+        "field_key": "assignment.report_format",
+        "freshness": "unknown",
+        "locator": {
+          "cell": null,
+          "page_number": null,
+          "paragraph": null,
+          "region": null,
+          "section": null,
+          "table": null
+        },
+        "quality": "metadata_only",
+        "source_excerpt": null,
+        "source_field_key": "report_type",
+        "source_id": "source-33061be82f7b5b7ff636"
+      },
+      {
+        "candidate_reference": "synthetic-intake-report-001:intended_user:3",
+        "confidence": "high",
+        "evidence_id": "evidence-df344079be037c38dcb7",
+        "extracted_at": "2026-09-03T15:00:00+00:00",
+        "extraction_method": "deterministic label match: Intended User",
+        "extractor_name": "falcon_historical_knowledge",
+        "extractor_version": "1",
+        "field_key": "assignment.intended_user",
+        "freshness": "unknown",
+        "locator": {
+          "cell": null,
+          "page_number": 1,
+          "paragraph": null,
+          "region": null,
+          "section": null,
+          "table": null
+        },
+        "quality": "primary_report",
+        "source_excerpt": null,
+        "source_field_key": "intended_user",
+        "source_id": "source-33061be82f7b5b7ff636"
+      },
+      {
+        "candidate_reference": "synthetic-intake-report-001:effective_date:1",
+        "confidence": "high",
+        "evidence_id": "evidence-e5aecf182b39f348d22a",
+        "extracted_at": "2026-09-03T15:00:00+00:00",
+        "extraction_method": "summary of salient facts table: Effective Date",
+        "extractor_name": "falcon_historical_knowledge",
+        "extractor_version": "1",
+        "field_key": "assignment.effective_date_requirement",
+        "freshness": "unknown",
+        "locator": {
+          "cell": null,
+          "page_number": 1,
+          "paragraph": null,
+          "region": null,
+          "section": null,
+          "table": null
+        },
+        "quality": "primary_report",
+        "source_excerpt": null,
+        "source_field_key": "effective_date",
+        "source_id": "source-33061be82f7b5b7ff636"
+      },
+      {
+        "candidate_reference": "synthetic-intake-report-001:report_title:1",
+        "confidence": "medium",
+        "evidence_id": "evidence-e5dfccb88b7aad001efb",
+        "extracted_at": "2026-09-03T15:00:00+00:00",
+        "extraction_method": "first page title block: split-line deterministic title phrase",
+        "extractor_name": "falcon_historical_knowledge",
+        "extractor_version": "1",
+        "field_key": "report.title",
+        "freshness": "unknown",
+        "locator": {
+          "cell": null,
+          "page_number": 1,
+          "paragraph": null,
+          "region": null,
+          "section": "first page title block",
+          "table": null
+        },
+        "quality": "primary_report",
+        "source_excerpt": null,
+        "source_field_key": "report_title",
+        "source_id": "source-33061be82f7b5b7ff636"
+      },
+      {
+        "candidate_reference": "synthetic-intake-report-001:effective_date:3",
+        "confidence": "high",
+        "evidence_id": "evidence-fa53ce620fd4c23894fd",
+        "extracted_at": "2026-09-03T15:00:00+00:00",
+        "extraction_method": "deterministic label match: Effective Date",
+        "extractor_name": "falcon_historical_knowledge",
+        "extractor_version": "1",
+        "field_key": "assignment.effective_date_requirement",
+        "freshness": "unknown",
+        "locator": {
+          "cell": null,
+          "page_number": 1,
+          "paragraph": null,
+          "region": null,
+          "section": null,
+          "table": null
+        },
+        "quality": "primary_report",
+        "source_excerpt": null,
+        "source_field_key": "effective_date",
+        "source_id": "source-33061be82f7b5b7ff636"
+      },
+      {
+        "candidate_reference": "synthetic-intake-report-001:report_type:1",
+        "confidence": "high",
+        "evidence_id": "evidence-fc74a382d79b3f718cf5",
+        "extracted_at": "2026-09-03T15:00:00+00:00",
+        "extraction_method": "deterministic report type phrase",
+        "extractor_name": "falcon_historical_knowledge",
+        "extractor_version": "1",
+        "field_key": "assignment.report_format",
+        "freshness": "unknown",
+        "locator": {
+          "cell": null,
+          "page_number": null,
+          "paragraph": null,
+          "region": null,
+          "section": null,
+          "table": null
+        },
+        "quality": "primary_report",
+        "source_excerpt": null,
+        "source_field_key": "report_type",
+        "source_id": "source-33061be82f7b5b7ff636"
+      },
+      {
+        "candidate_reference": "synthetic-intake-report-001:intended_user:2",
+        "confidence": "high",
+        "evidence_id": "evidence-fe0add826fb22ed259ec",
+        "extracted_at": "2026-09-03T15:00:00+00:00",
+        "extraction_method": "deterministic label match: Intended User",
+        "extractor_name": "falcon_historical_knowledge",
+        "extractor_version": "1",
+        "field_key": "assignment.intended_user",
+        "freshness": "unknown",
+        "locator": {
+          "cell": null,
+          "page_number": 1,
+          "paragraph": null,
+          "region": null,
+          "section": null,
+          "table": null
+        },
+        "quality": "primary_report",
+        "source_excerpt": null,
+        "source_field_key": "intended_user",
+        "source_id": "source-33061be82f7b5b7ff636"
+      }
+    ],
+    "facts": [
+      {
+        "candidate_ids": [],
+        "category": "improvements",
+        "created_at": "2026-09-03T15:26:00+00:00",
+        "evidence_ids": [],
+        "fact_id": "fact-17a8f9b71a0c452f657b",
+        "field_key": "subject.building_area",
+        "label": "Building area",
+        "material": true,
+        "origin": "appraiser_entry",
+        "review_event_ids": [
+          "review-dee4191d69afc00dcea6"
+        ],
+        "state": "appraiser_entered",
+        "supersedes_fact_id": null,
+        "unit": "square_feet",
+        "value": 186500,
+        "value_type": "integer"
+      },
+      {
+        "candidate_ids": [
+          "candidate-98051c53798916edade4"
+        ],
+        "category": "subject_identity",
+        "created_at": "2026-09-03T15:15:00+00:00",
+        "evidence_ids": [
+          "evidence-132460bda17f3a52917b"
+        ],
+        "fact_id": "fact-37f3fc19ddd6f31c4e50",
+        "field_key": "subject.address",
+        "label": "Property address",
+        "material": true,
+        "origin": "verified_candidate",
+        "review_event_ids": [
+          "review-7e28b2dcc4085267c0e1"
+        ],
+        "state": "verified",
+        "supersedes_fact_id": null,
+        "unit": null,
+        "value": "1600 Northstar Logistics Way",
+        "value_type": "string"
+      },
+      {
+        "candidate_ids": [],
+        "category": "assignment",
+        "created_at": "2026-09-03T15:21:00+00:00",
+        "evidence_ids": [],
+        "fact_id": "fact-3f536de6d27b14b08d3f",
+        "field_key": "assignment.inspection_requirements",
+        "label": "Inspection requirements",
+        "material": true,
+        "origin": "appraiser_entry",
+        "review_event_ids": [
+          "review-52c6009931c0bb4ba72a"
+        ],
+        "state": "appraiser_entered",
+        "supersedes_fact_id": null,
+        "unit": null,
+        "value": "Interior and exterior inspection required",
+        "value_type": "string"
+      },
+      {
+        "candidate_ids": [
+          "candidate-e04130423dbbb1a5e412"
+        ],
+        "category": "subject_identity",
+        "created_at": "2026-09-03T15:16:00+00:00",
+        "evidence_ids": [
+          "evidence-227ed9294fdef062df89",
+          "evidence-929052453cd590d39e5c",
+          "evidence-bdd57a6a30d61080a895"
+        ],
+        "fact_id": "fact-41735b0fd34a3922f57d",
+        "field_key": "subject.property_type",
+        "label": "Property type",
+        "material": true,
+        "origin": "corrected_candidate",
+        "review_event_ids": [
+          "review-0dc464a795bc2368296a"
+        ],
+        "state": "corrected",
+        "supersedes_fact_id": null,
+        "unit": null,
+        "value": "Industrial / Distribution Warehouse",
+        "value_type": "string"
+      },
+      {
+        "candidate_ids": [
+          "candidate-007e5f0e291e307685f0"
+        ],
+        "category": "assignment",
+        "created_at": "2026-09-03T15:13:00+00:00",
+        "evidence_ids": [
+          "evidence-679144324c439e1d274b",
+          "evidence-fc74a382d79b3f718cf5"
+        ],
+        "fact_id": "fact-44bfe595b090c8d0d462",
+        "field_key": "assignment.report_format",
+        "label": "Report format",
+        "material": true,
+        "origin": "verified_candidate",
+        "review_event_ids": [
+          "review-40c63acf4b93ad0f6e8e"
+        ],
+        "state": "verified",
+        "supersedes_fact_id": null,
+        "unit": null,
+        "value": "restricted appraisal report",
+        "value_type": "string"
+      },
+      {
+        "candidate_ids": [],
+        "category": "physical_legal",
+        "created_at": "2026-09-03T15:29:00+00:00",
+        "evidence_ids": [],
+        "fact_id": "fact-4e7a2f4661783ae8d4ce",
+        "field_key": "subject.zoning",
+        "label": "Zoning",
+        "material": true,
+        "origin": "appraiser_entry",
+        "review_event_ids": [
+          "review-c642db1d5dee38291631"
+        ],
+        "state": "appraiser_entered",
+        "supersedes_fact_id": null,
+        "unit": null,
+        "value": "LI — Light Industrial (synthetic)",
+        "value_type": "string"
+      },
+      {
+        "candidate_ids": [],
+        "category": "assignment",
+        "created_at": "2026-09-03T15:22:00+00:00",
+        "evidence_ids": [],
+        "fact_id": "fact-59f05a48014289bb60af",
+        "field_key": "assignment.engagement_constraints",
+        "label": "Engagement constraints",
+        "material": true,
+        "origin": "appraiser_entry",
+        "review_event_ids": [
+          "review-2c49ffd969cb64df58a0"
+        ],
+        "state": "appraiser_entered",
+        "supersedes_fact_id": null,
+        "unit": null,
+        "value": "Reliance limited to the named client and intended user",
+        "value_type": "string"
+      },
+      {
+        "candidate_ids": [
+          "candidate-1283eda138bd30091b1b"
+        ],
+        "category": "assignment",
+        "created_at": "2026-09-03T15:12:00+00:00",
+        "evidence_ids": [
+          "evidence-7d7b0a341b41e16e2374"
+        ],
+        "fact_id": "fact-63df778382a7efd16ef6",
+        "field_key": "assignment.effective_date_requirement",
+        "label": "Effective date requirement",
+        "material": true,
+        "origin": "verified_candidate",
+        "review_event_ids": [
+          "review-206df80d1ce97209acaf"
+        ],
+        "state": "verified",
+        "supersedes_fact_id": null,
+        "unit": null,
+        "value": "September 1, 2026",
+        "value_type": "string"
+      },
+      {
+        "candidate_ids": [],
+        "category": "assignment",
+        "created_at": "2026-09-03T15:20:00+00:00",
+        "evidence_ids": [],
+        "fact_id": "fact-65e16c492c0f5ef4ee85",
+        "field_key": "assignment.interest_appraised",
+        "label": "Interest appraised",
+        "material": true,
+        "origin": "appraiser_entry",
+        "review_event_ids": [
+          "review-b0f4c10938e1f34e925f"
+        ],
+        "state": "appraiser_entered",
+        "supersedes_fact_id": null,
+        "unit": null,
+        "value": "Leased fee interest",
+        "value_type": "string"
+      },
+      {
+        "candidate_ids": [],
+        "category": "improvements",
+        "created_at": "2026-09-03T15:27:00+00:00",
+        "evidence_ids": [],
+        "fact_id": "fact-6834c52e0954952713e1",
+        "field_key": "subject.year_built",
+        "label": "Year built",
+        "material": true,
+        "origin": "appraiser_entry",
+        "review_event_ids": [
+          "review-8024939bd937d476ac8e"
+        ],
+        "state": "appraiser_entered",
+        "supersedes_fact_id": null,
+        "unit": null,
+        "value": 2008,
+        "value_type": "integer"
+      },
+      {
+        "candidate_ids": [],
+        "category": "subject_identity",
+        "created_at": "2026-09-03T15:24:00+00:00",
+        "evidence_ids": [],
+        "fact_id": "fact-71b6c6340f5f5e80945d",
+        "field_key": "subject.parcel_identifiers",
+        "label": "Parcel identifiers",
+        "material": true,
+        "origin": "appraiser_entry",
+        "review_event_ids": [
+          "review-a97f1eddbb2d444eda6e"
+        ],
+        "state": "appraiser_entered",
+        "supersedes_fact_id": null,
+        "unit": null,
+        "value": [
+          "SYN-440-22-018"
+        ],
+        "value_type": "array"
+      },
+      {
+        "candidate_ids": [
+          "candidate-89e998d3b4b9c262ec61"
+        ],
+        "category": "assignment",
+        "created_at": "2026-09-03T15:10:00+00:00",
+        "evidence_ids": [
+          "evidence-4fb2fc2c8a1f7d23a4ad"
+        ],
+        "fact_id": "fact-8651b0d0880684185a8a",
+        "field_key": "assignment.client",
+        "label": "Client",
+        "material": true,
+        "origin": "verified_candidate",
+        "review_event_ids": [
+          "review-31e475ac6cf9c944e47a"
+        ],
+        "state": "verified",
+        "supersedes_fact_id": null,
+        "unit": null,
+        "value": "Example Regional Bank, N.A.",
+        "value_type": "string"
+      },
+      {
+        "candidate_ids": [],
+        "category": "economic_operational",
+        "created_at": "2026-09-03T15:28:00+00:00",
+        "evidence_ids": [],
+        "fact_id": "fact-883c3e653b588eae7397",
+        "field_key": "subject.occupancy",
+        "label": "Occupancy",
+        "material": true,
+        "origin": "appraiser_entry",
+        "review_event_ids": [
+          "review-fca056a8bf6babf3033a"
+        ],
+        "state": "appraiser_entered",
+        "supersedes_fact_id": null,
+        "unit": null,
+        "value": "Single-tenant occupied",
+        "value_type": "string"
+      },
+      {
+        "candidate_ids": [],
+        "category": "economic_operational",
+        "created_at": "2026-09-03T15:30:00+00:00",
+        "evidence_ids": [],
+        "fact_id": "fact-91f71bf861c9c0e52dea",
+        "field_key": "subject.taxes",
+        "label": "Taxes",
+        "material": true,
+        "origin": "appraiser_entry",
+        "review_event_ids": [
+          "review-bcc45d7250a99369d08c"
+        ],
+        "state": "appraiser_entered",
+        "supersedes_fact_id": null,
+        "unit": null,
+        "value": {
+          "amount": 148200,
+          "currency": "USD",
+          "tax_year": 2026
+        },
+        "value_type": "object"
+      },
+      {
+        "candidate_ids": [],
+        "category": "site",
+        "created_at": "2026-09-03T15:25:00+00:00",
+        "evidence_ids": [],
+        "fact_id": "fact-b8783ca5ce137f78be5d",
+        "field_key": "subject.site_area",
+        "label": "Site area",
+        "material": true,
+        "origin": "appraiser_entry",
+        "review_event_ids": [
+          "review-91c4abe9a66cd3b6c04d"
+        ],
+        "state": "appraiser_entered",
+        "supersedes_fact_id": null,
+        "unit": "acres",
+        "value": 12.4,
+        "value_type": "number"
+      },
+      {
+        "candidate_ids": [
+          "candidate-f0661837bf3122cdeb86"
+        ],
+        "category": "assignment",
+        "created_at": "2026-09-03T15:11:00+00:00",
+        "evidence_ids": [
+          "evidence-83594c29b009ac86d87e",
+          "evidence-df344079be037c38dcb7",
+          "evidence-fe0add826fb22ed259ec"
+        ],
+        "fact_id": "fact-b8fcaedd688f6cba0eeb",
+        "field_key": "assignment.intended_user",
+        "label": "Intended user",
+        "material": true,
+        "origin": "verified_candidate",
+        "review_event_ids": [
+          "review-fbbbc34c2db40f2ec767"
+        ],
+        "state": "verified",
+        "supersedes_fact_id": null,
+        "unit": null,
+        "value": "Example Regional Bank",
+        "value_type": "string"
+      },
+      {
+        "candidate_ids": [
+          "candidate-e07a9f51a16b2f3f4062"
+        ],
+        "category": "professional_review",
+        "created_at": "2026-09-03T15:14:00+00:00",
+        "evidence_ids": [
+          "evidence-50331748dc1fd5fd40a1"
+        ],
+        "fact_id": "fact-bcf67548bf177f126a8d",
+        "field_key": "assignment.signing_appraiser",
+        "label": "Signing appraiser",
+        "material": true,
+        "origin": "verified_candidate",
+        "review_event_ids": [
+          "review-38ceb9c2489f6c4ba6d1"
+        ],
+        "state": "verified",
+        "supersedes_fact_id": null,
+        "unit": null,
+        "value": "Morgan Appraiser, MAI",
+        "value_type": "string"
+      },
+      {
+        "candidate_ids": [],
+        "category": "subject_identity",
+        "created_at": "2026-09-03T15:23:00+00:00",
+        "evidence_ids": [],
+        "fact_id": "fact-d95879f5d466c1192a75",
+        "field_key": "subject.name",
+        "label": "Property name",
+        "material": true,
+        "origin": "appraiser_entry",
+        "review_event_ids": [
+          "review-ba8633fef56c558b8450"
+        ],
+        "state": "appraiser_entered",
+        "supersedes_fact_id": null,
+        "unit": null,
+        "value": "Northstar Distribution Center",
+        "value_type": "string"
+      }
+    ],
+    "falcon_assignment_reference": {
+      "display_label": "Synthetic Northstar Distribution Center assignment",
+      "reference_id": "falcon-order-synthetic-intake-001",
+      "reference_type": "falcon_assignment",
+      "source_system": "falcon"
+    },
+    "identity": {
+      "created_at": "2026-09-03T15:00:00+00:00",
+      "lifecycle_state": "in_review",
+      "lineage": {
+        "previous_record_id": null,
+        "previous_record_version": null
+      },
+      "record_id": "air-15e8ae4332f8bbd65268",
+      "record_version": 1,
+      "schema_version": "1",
+      "updated_at": "2026-09-03T15:30:00+00:00"
+    },
+    "local_assignment_key": "synthetic-local-intake-review-001",
+    "market_references": [
+      {
+        "evidence_ids": [],
+        "freshness": "current",
+        "notes": [
+          "Synthetic reference without a market conclusion."
+        ],
+        "reference_id": "market-lead-synthetic-logistics-001",
+        "reference_type": "market_observation",
+        "relationship": "assignment_market_lead"
+      }
+    ],
+    "prior_knowledge_references": [],
+    "readiness": {
+      "areas": [
+        {
+          "area": "assignment_context",
+          "current_fact_ids": [
+            "fact-3f536de6d27b14b08d3f",
+            "fact-44bfe595b090c8d0d462",
+            "fact-59f05a48014289bb60af",
+            "fact-63df778382a7efd16ef6",
+            "fact-65e16c492c0f5ef4ee85",
+            "fact-8651b0d0880684185a8a",
+            "fact-b8fcaedd688f6cba0eeb",
+            "fact-bcf67548bf177f126a8d"
+          ],
+          "issue_ids": [
+            "issue-31ca68e5b403462a8fa3",
+            "issue-4ccf45045d3ed8439283",
+            "issue-522b440afbfdedd5eed8",
+            "issue-63d387dfe15e1a61c980",
+            "issue-755971be54ca554554b2",
+            "issue-b778a415276e07fb1908",
+            "issue-f6b5600e026701a9f701"
+          ],
+          "required_field_keys": [
+            "assignment.client",
+            "assignment.intended_user",
+            "assignment.intended_use",
+            "assignment.appraisal_purpose",
+            "assignment.interest_appraised",
+            "assignment.effective_date_requirement"
+          ],
+          "status": "blocked"
+        },
+        {
+          "area": "improvements",
+          "current_fact_ids": [
+            "fact-17a8f9b71a0c452f657b",
+            "fact-4e7a2f4661783ae8d4ce",
+            "fact-6834c52e0954952713e1",
+            "fact-883c3e653b588eae7397",
+            "fact-91f71bf861c9c0e52dea"
+          ],
+          "issue_ids": [],
+          "required_field_keys": [
+            "subject.building_area"
+          ],
+          "status": "ready"
+        },
+        {
+          "area": "income_and_occupancy",
+          "current_fact_ids": [
+            "fact-883c3e653b588eae7397"
+          ],
+          "issue_ids": [],
+          "required_field_keys": [
+            "subject.occupancy"
+          ],
+          "status": "ready"
+        },
+        {
+          "area": "professional_review",
+          "current_fact_ids": [
+            "fact-bcf67548bf177f126a8d"
+          ],
+          "issue_ids": [],
+          "required_field_keys": [
+            "assignment.signing_appraiser"
+          ],
+          "status": "ready"
+        },
+        {
+          "area": "site",
+          "current_fact_ids": [
+            "fact-b8783ca5ce137f78be5d"
+          ],
+          "issue_ids": [],
+          "required_field_keys": [
+            "subject.site_area"
+          ],
+          "status": "ready"
+        },
+        {
+          "area": "subject_identity",
+          "current_fact_ids": [
+            "fact-37f3fc19ddd6f31c4e50",
+            "fact-41735b0fd34a3922f57d",
+            "fact-71b6c6340f5f5e80945d",
+            "fact-d95879f5d466c1192a75"
+          ],
+          "issue_ids": [
+            "issue-f36f3c1647ea51de6a1b"
+          ],
+          "required_field_keys": [
+            "subject.address",
+            "subject.property_type"
+          ],
+          "status": "blocked"
+        }
+      ],
+      "blocking_issue_ids": [
+        "issue-31ca68e5b403462a8fa3",
+        "issue-522b440afbfdedd5eed8",
+        "issue-63d387dfe15e1a61c980",
+        "issue-755971be54ca554554b2",
+        "issue-f36f3c1647ea51de6a1b",
+        "issue-f6b5600e026701a9f701"
+      ],
+      "calculated_at": "2026-09-03T15:30:00+00:00",
+      "issues": [
+        {
+          "area": "assignment_context",
+          "field_keys": [
+            "assignment.intended_use"
+          ],
+          "issue_id": "issue-31ca68e5b403462a8fa3",
+          "issue_type": "unresolved_conflict",
+          "message": "Conflicting candidate values remain unresolved for assignment.intended_use.",
+          "related_ids": [
+            "conflict-617c92536c3c0b623233"
+          ],
+          "severity": "blocking"
+        },
+        {
+          "area": "assignment_context",
+          "field_keys": [
+            "assignment.report_date_requirement"
+          ],
+          "issue_id": "issue-4ccf45045d3ed8439283",
+          "issue_type": "deferred_review_candidate",
+          "message": "Candidate review was deferred: assignment.report_date_requirement.",
+          "related_ids": [
+            "candidate-9e3a588f3fda5d742c3e"
+          ],
+          "severity": "nonblocking"
+        },
+        {
+          "area": "assignment_context",
+          "field_keys": [
+            "assignment.intended_use"
+          ],
+          "issue_id": "issue-522b440afbfdedd5eed8",
+          "issue_type": "missing_required_fact",
+          "message": "Required fact is missing: assignment.intended_use.",
+          "related_ids": [],
+          "severity": "blocking"
+        },
+        {
+          "area": "assignment_context",
+          "field_keys": [
+            "assignment.appraisal_purpose"
+          ],
+          "issue_id": "issue-63d387dfe15e1a61c980",
+          "issue_type": "missing_required_fact",
+          "message": "Required fact is missing: assignment.appraisal_purpose.",
+          "related_ids": [],
+          "severity": "blocking"
+        },
+        {
+          "area": "assignment_context",
+          "field_keys": [
+            "assignment.report_format"
+          ],
+          "issue_id": "issue-755971be54ca554554b2",
+          "issue_type": "unresolved_conflict",
+          "message": "Conflicting candidate values remain unresolved for assignment.report_format.",
+          "related_ids": [
+            "conflict-c715b3c4a988da103207"
+          ],
+          "severity": "blocking"
+        },
+        {
+          "area": "assignment_context",
+          "field_keys": [
+            "assignment.extraordinary_assumptions_present"
+          ],
+          "issue_id": "issue-b778a415276e07fb1908",
+          "issue_type": "unverified_material_candidate",
+          "message": "Material candidate still requires an appraiser decision: assignment.extraordinary_assumptions_present.",
+          "related_ids": [
+            "candidate-b928436691e1a023c548"
+          ],
+          "severity": "nonblocking"
+        },
+        {
+          "area": "subject_identity",
+          "field_keys": [
+            "subject.address"
+          ],
+          "issue_id": "issue-f36f3c1647ea51de6a1b",
+          "issue_type": "unverified_material_candidate",
+          "message": "Material candidate still requires an appraiser decision: subject.address.",
+          "related_ids": [
+            "candidate-03fcf753f48b0ebc6822"
+          ],
+          "severity": "blocking"
+        },
+        {
+          "area": "assignment_context",
+          "field_keys": [
+            "assignment.effective_date_requirement"
+          ],
+          "issue_id": "issue-f6b5600e026701a9f701",
+          "issue_type": "unverified_material_candidate",
+          "message": "Material candidate still requires an appraiser decision: assignment.effective_date_requirement.",
+          "related_ids": [
+            "candidate-44d098692f100ca81b5b"
+          ],
+          "severity": "blocking"
+        }
+      ],
+      "nonblocking_issue_ids": [
+        "issue-4ccf45045d3ed8439283",
+        "issue-b778a415276e07fb1908"
+      ],
+      "overall_status": "blocked"
+    },
+    "report_section_references": [],
+    "review_events": [
+      {
+        "action": "candidate_verified",
+        "actor_id": "user-synthetic-appraiser-brief-001",
+        "actor_name": "Morgan Appraiser",
+        "actor_role": "appraiser",
+        "event_id": "review-31e475ac6cf9c944e47a",
+        "evidence_ids": [],
+        "field_key": "assignment.client",
+        "occurred_at": "2026-09-03T15:10:00+00:00",
+        "prior_value": "Example Regional Bank, N.A.",
+        "reason": "Engagement letter controls the synthetic legal client name.",
+        "resulting_value": "Example Regional Bank, N.A.",
+        "target_id": "candidate-89e998d3b4b9c262ec61",
+        "target_type": "candidate"
+      },
+      {
+        "action": "candidate_rejected",
+        "actor_id": "user-synthetic-appraiser-brief-001",
+        "actor_name": "Morgan Appraiser",
+        "actor_role": "appraiser",
+        "event_id": "review-c43f6e44571ce40fffb7",
+        "evidence_ids": [],
+        "field_key": "assignment.client",
+        "occurred_at": "2026-09-03T15:10:00+00:00",
+        "prior_value": "Example Regional Bank",
+        "reason": "Engagement letter controls the synthetic legal client name.",
+        "resulting_value": null,
+        "target_id": "candidate-cd2852a52ff103b87477",
+        "target_type": "candidate"
+      },
+      {
+        "action": "candidate_verified",
+        "actor_id": "user-synthetic-appraiser-brief-001",
+        "actor_name": "Morgan Appraiser",
+        "actor_role": "appraiser",
+        "event_id": "review-fbbbc34c2db40f2ec767",
+        "evidence_ids": [],
+        "field_key": "assignment.intended_user",
+        "occurred_at": "2026-09-03T15:11:00+00:00",
+        "prior_value": "Example Regional Bank",
+        "reason": "Accepted after appraiser review.",
+        "resulting_value": "Example Regional Bank",
+        "target_id": "candidate-f0661837bf3122cdeb86",
+        "target_type": "candidate"
+      },
+      {
+        "action": "candidate_verified",
+        "actor_id": "user-synthetic-appraiser-brief-001",
+        "actor_name": "Morgan Appraiser",
+        "actor_role": "appraiser",
+        "event_id": "review-206df80d1ce97209acaf",
+        "evidence_ids": [],
+        "field_key": "assignment.effective_date_requirement",
+        "occurred_at": "2026-09-03T15:12:00+00:00",
+        "prior_value": "September 1, 2026",
+        "reason": "Accepted after appraiser review.",
+        "resulting_value": "September 1, 2026",
+        "target_id": "candidate-1283eda138bd30091b1b",
+        "target_type": "candidate"
+      },
+      {
+        "action": "candidate_verified",
+        "actor_id": "user-synthetic-appraiser-brief-001",
+        "actor_name": "Morgan Appraiser",
+        "actor_role": "appraiser",
+        "event_id": "review-40c63acf4b93ad0f6e8e",
+        "evidence_ids": [],
+        "field_key": "assignment.report_format",
+        "occurred_at": "2026-09-03T15:13:00+00:00",
+        "prior_value": "restricted appraisal report",
+        "reason": "Accepted after appraiser review.",
+        "resulting_value": "restricted appraisal report",
+        "target_id": "candidate-007e5f0e291e307685f0",
+        "target_type": "candidate"
+      },
+      {
+        "action": "candidate_verified",
+        "actor_id": "user-synthetic-appraiser-brief-001",
+        "actor_name": "Morgan Appraiser",
+        "actor_role": "appraiser",
+        "event_id": "review-38ceb9c2489f6c4ba6d1",
+        "evidence_ids": [],
+        "field_key": "assignment.signing_appraiser",
+        "occurred_at": "2026-09-03T15:14:00+00:00",
+        "prior_value": "Morgan Appraiser, MAI",
+        "reason": "Accepted after appraiser review.",
+        "resulting_value": "Morgan Appraiser, MAI",
+        "target_id": "candidate-e07a9f51a16b2f3f4062",
+        "target_type": "candidate"
+      },
+      {
+        "action": "candidate_verified",
+        "actor_id": "user-synthetic-appraiser-brief-001",
+        "actor_name": "Morgan Appraiser",
+        "actor_role": "appraiser",
+        "event_id": "review-7e28b2dcc4085267c0e1",
+        "evidence_ids": [],
+        "field_key": "subject.address",
+        "occurred_at": "2026-09-03T15:15:00+00:00",
+        "prior_value": "1600 Northstar Logistics Way",
+        "reason": "Accepted after appraiser review.",
+        "resulting_value": "1600 Northstar Logistics Way",
+        "target_id": "candidate-98051c53798916edade4",
+        "target_type": "candidate"
+      },
+      {
+        "action": "candidate_corrected",
+        "actor_id": "user-synthetic-appraiser-brief-001",
+        "actor_name": "Morgan Appraiser",
+        "actor_role": "appraiser",
+        "event_id": "review-0dc464a795bc2368296a",
+        "evidence_ids": [],
+        "field_key": "subject.property_type",
+        "occurred_at": "2026-09-03T15:16:00+00:00",
+        "prior_value": "Industrial",
+        "reason": "Refined the broad extracted type using the synthetic assignment scope.",
+        "resulting_value": "Industrial / Distribution Warehouse",
+        "target_id": "candidate-e04130423dbbb1a5e412",
+        "target_type": "candidate"
+      },
+      {
+        "action": "candidate_rejected",
+        "actor_id": "user-synthetic-appraiser-brief-001",
+        "actor_name": "Morgan Appraiser",
+        "actor_role": "appraiser",
+        "event_id": "review-8e002c3d1b327ff744a6",
+        "evidence_ids": [],
+        "field_key": "assignment.reviewer",
+        "occurred_at": "2026-09-03T15:17:00+00:00",
+        "prior_value": "Taylor Reviewer, MAI",
+        "reason": "Historical report reviewer is not assigned to the current synthetic engagement.",
+        "resulting_value": null,
+        "target_id": "candidate-b5014b2a423fa7ba533e",
+        "target_type": "candidate"
+      },
+      {
+        "action": "candidate_deferred",
+        "actor_id": "user-synthetic-appraiser-brief-001",
+        "actor_name": "Morgan Appraiser",
+        "actor_role": "appraiser",
+        "event_id": "review-c8794b3923df1ad146ad",
+        "evidence_ids": [],
+        "field_key": "assignment.report_date_requirement",
+        "occurred_at": "2026-09-03T15:18:00+00:00",
+        "prior_value": "September 3, 2026",
+        "reason": "Report-date requirement awaits confirmation from the synthetic engagement team.",
+        "resulting_value": null,
+        "target_id": "candidate-9e3a588f3fda5d742c3e",
+        "target_type": "candidate"
+      },
+      {
+        "action": "appraiser_fact_entered",
+        "actor_id": "user-synthetic-appraiser-brief-001",
+        "actor_name": "Morgan Appraiser",
+        "actor_role": "appraiser",
+        "event_id": "review-b0f4c10938e1f34e925f",
+        "evidence_ids": [],
+        "field_key": "assignment.interest_appraised",
+        "occurred_at": "2026-09-03T15:20:00+00:00",
+        "prior_value": null,
+        "reason": "Entered by the appraiser from the synthetic engagement scope.",
+        "resulting_value": "Leased fee interest",
+        "target_id": "fact-65e16c492c0f5ef4ee85",
+        "target_type": "fact"
+      },
+      {
+        "action": "appraiser_fact_entered",
+        "actor_id": "user-synthetic-appraiser-brief-001",
+        "actor_name": "Morgan Appraiser",
+        "actor_role": "appraiser",
+        "event_id": "review-52c6009931c0bb4ba72a",
+        "evidence_ids": [],
+        "field_key": "assignment.inspection_requirements",
+        "occurred_at": "2026-09-03T15:21:00+00:00",
+        "prior_value": null,
+        "reason": "Appraiser-entered synthetic inspection scope.",
+        "resulting_value": "Interior and exterior inspection required",
+        "target_id": "fact-3f536de6d27b14b08d3f",
+        "target_type": "fact"
+      },
+      {
+        "action": "appraiser_fact_entered",
+        "actor_id": "user-synthetic-appraiser-brief-001",
+        "actor_name": "Morgan Appraiser",
+        "actor_role": "appraiser",
+        "event_id": "review-2c49ffd969cb64df58a0",
+        "evidence_ids": [],
+        "field_key": "assignment.engagement_constraints",
+        "occurred_at": "2026-09-03T15:22:00+00:00",
+        "prior_value": null,
+        "reason": "Appraiser-entered synthetic engagement constraint.",
+        "resulting_value": "Reliance limited to the named client and intended user",
+        "target_id": "fact-59f05a48014289bb60af",
+        "target_type": "fact"
+      },
+      {
+        "action": "appraiser_fact_entered",
+        "actor_id": "user-synthetic-appraiser-brief-001",
+        "actor_name": "Morgan Appraiser",
+        "actor_role": "appraiser",
+        "event_id": "review-ba8633fef56c558b8450",
+        "evidence_ids": [],
+        "field_key": "subject.name",
+        "occurred_at": "2026-09-03T15:23:00+00:00",
+        "prior_value": null,
+        "reason": "Appraiser-entered synthetic property identity.",
+        "resulting_value": "Northstar Distribution Center",
+        "target_id": "fact-d95879f5d466c1192a75",
+        "target_type": "fact"
+      },
+      {
+        "action": "appraiser_fact_entered",
+        "actor_id": "user-synthetic-appraiser-brief-001",
+        "actor_name": "Morgan Appraiser",
+        "actor_role": "appraiser",
+        "event_id": "review-a97f1eddbb2d444eda6e",
+        "evidence_ids": [],
+        "field_key": "subject.parcel_identifiers",
+        "occurred_at": "2026-09-03T15:24:00+00:00",
+        "prior_value": null,
+        "reason": "Appraiser-entered synthetic parcel identifier.",
+        "resulting_value": [
+          "SYN-440-22-018"
+        ],
+        "target_id": "fact-71b6c6340f5f5e80945d",
+        "target_type": "fact"
+      },
+      {
+        "action": "appraiser_fact_entered",
+        "actor_id": "user-synthetic-appraiser-brief-001",
+        "actor_name": "Morgan Appraiser",
+        "actor_role": "appraiser",
+        "event_id": "review-91c4abe9a66cd3b6c04d",
+        "evidence_ids": [],
+        "field_key": "subject.site_area",
+        "occurred_at": "2026-09-03T15:25:00+00:00",
+        "prior_value": null,
+        "reason": "Appraiser-entered synthetic site measurement.",
+        "resulting_value": 12.4,
+        "target_id": "fact-b8783ca5ce137f78be5d",
+        "target_type": "fact"
+      },
+      {
+        "action": "appraiser_fact_entered",
+        "actor_id": "user-synthetic-appraiser-brief-001",
+        "actor_name": "Morgan Appraiser",
+        "actor_role": "appraiser",
+        "event_id": "review-dee4191d69afc00dcea6",
+        "evidence_ids": [],
+        "field_key": "subject.building_area",
+        "occurred_at": "2026-09-03T15:26:00+00:00",
+        "prior_value": null,
+        "reason": "Appraiser-entered synthetic gross building area.",
+        "resulting_value": 186500,
+        "target_id": "fact-17a8f9b71a0c452f657b",
+        "target_type": "fact"
+      },
+      {
+        "action": "appraiser_fact_entered",
+        "actor_id": "user-synthetic-appraiser-brief-001",
+        "actor_name": "Morgan Appraiser",
+        "actor_role": "appraiser",
+        "event_id": "review-8024939bd937d476ac8e",
+        "evidence_ids": [],
+        "field_key": "subject.year_built",
+        "occurred_at": "2026-09-03T15:27:00+00:00",
+        "prior_value": null,
+        "reason": "Appraiser-entered synthetic year built.",
+        "resulting_value": 2008,
+        "target_id": "fact-6834c52e0954952713e1",
+        "target_type": "fact"
+      },
+      {
+        "action": "appraiser_fact_entered",
+        "actor_id": "user-synthetic-appraiser-brief-001",
+        "actor_name": "Morgan Appraiser",
+        "actor_role": "appraiser",
+        "event_id": "review-fca056a8bf6babf3033a",
+        "evidence_ids": [],
+        "field_key": "subject.occupancy",
+        "occurred_at": "2026-09-03T15:28:00+00:00",
+        "prior_value": null,
+        "reason": "Appraiser-entered synthetic occupancy observation.",
+        "resulting_value": "Single-tenant occupied",
+        "target_id": "fact-883c3e653b588eae7397",
+        "target_type": "fact"
+      },
+      {
+        "action": "appraiser_fact_entered",
+        "actor_id": "user-synthetic-appraiser-brief-001",
+        "actor_name": "Morgan Appraiser",
+        "actor_role": "appraiser",
+        "event_id": "review-c642db1d5dee38291631",
+        "evidence_ids": [],
+        "field_key": "subject.zoning",
+        "occurred_at": "2026-09-03T15:29:00+00:00",
+        "prior_value": null,
+        "reason": "Appraiser-entered synthetic zoning fact.",
+        "resulting_value": "LI — Light Industrial (synthetic)",
+        "target_id": "fact-4e7a2f4661783ae8d4ce",
+        "target_type": "fact"
+      },
+      {
+        "action": "appraiser_fact_entered",
+        "actor_id": "user-synthetic-appraiser-brief-001",
+        "actor_name": "Morgan Appraiser",
+        "actor_role": "appraiser",
+        "event_id": "review-bcc45d7250a99369d08c",
+        "evidence_ids": [],
+        "field_key": "subject.taxes",
+        "occurred_at": "2026-09-03T15:30:00+00:00",
+        "prior_value": null,
+        "reason": "Appraiser-entered synthetic tax fact.",
+        "resulting_value": {
+          "amount": 148200,
+          "currency": "USD",
+          "tax_year": 2026
+        },
+        "target_id": "fact-91f71bf861c9c0e52dea",
+        "target_type": "fact"
+      }
+    ],
+    "sources": [
+      {
+        "content_included": false,
+        "display_label": "Synthetic Northstar Appraisal Report.pdf",
+        "document_id": "synthetic-intake-report-001",
+        "safe_reference": "appraisal-report.pdf",
+        "source_id": "source-33061be82f7b5b7ff636",
+        "source_type": "source_document"
+      },
+      {
+        "content_included": false,
+        "display_label": "Synthetic Northstar Engagement Letter.docx",
+        "document_id": "synthetic-engagement-letter-001",
+        "safe_reference": "engagement-letter.docx",
+        "source_id": "source-b070a12b1ab445a08ae4",
+        "source_type": "source_document"
+      }
+    ],
+    "subject_property": {
+      "characteristic_groups": [
+        {
+          "fact_ids": [
+            "fact-883c3e653b588eae7397",
+            "fact-91f71bf861c9c0e52dea"
+          ],
+          "group_key": "economic_operational"
+        },
+        {
+          "fact_ids": [
+            "fact-17a8f9b71a0c452f657b",
+            "fact-6834c52e0954952713e1"
+          ],
+          "group_key": "improvements"
+        },
+        {
+          "fact_ids": [
+            "fact-4e7a2f4661783ae8d4ce",
+            "fact-b8783ca5ce137f78be5d"
+          ],
+          "group_key": "physical_legal"
+        }
+      ],
+      "identity_fact_ids": [
+        "fact-37f3fc19ddd6f31c4e50",
+        "fact-41735b0fd34a3922f57d",
+        "fact-71b6c6340f5f5e80945d",
+        "fact-d95879f5d466c1192a75"
+      ],
+      "ownership_references": [
+        {
+          "display_label": "Northstar Holdings LLC (synthetic)",
+          "reference_id": "owner-synthetic-northstar-holdings",
+          "reference_type": "ownership_entity",
+          "source_system": "falcon_intelligence"
+        }
+      ],
+      "property_reference": {
+        "display_label": "Northstar Distribution Center",
+        "reference_id": "property-synthetic-northstar-001",
+        "reference_type": "property",
+        "source_system": "falcon_intelligence_property_library"
+      }
+    },
+    "tenant_id": "tenant-synthetic-intake-review"
+  },
+  "assignment": {
+    "label": "Synthetic Northstar Distribution Center assignment",
+    "lifecycle_state": "in_review",
+    "local_assignment_key": "synthetic-local-intake-review-001",
+    "overview": [
+      {
+        "evidence_ids": [
+          "evidence-4fb2fc2c8a1f7d23a4ad"
+        ],
+        "fact_id": "fact-8651b0d0880684185a8a",
+        "fact_state": "verified",
+        "field_key": "assignment.client",
+        "label": "Client",
+        "origin": "verified_candidate",
+        "professional_boundary": "verified_fact",
+        "unit": null,
+        "value": "Example Regional Bank, N.A.",
+        "value_type": "string"
+      },
+      {
+        "evidence_ids": [
+          "evidence-83594c29b009ac86d87e",
+          "evidence-df344079be037c38dcb7",
+          "evidence-fe0add826fb22ed259ec"
+        ],
+        "fact_id": "fact-b8fcaedd688f6cba0eeb",
+        "fact_state": "verified",
+        "field_key": "assignment.intended_user",
+        "label": "Intended user",
+        "origin": "verified_candidate",
+        "professional_boundary": "verified_fact",
+        "unit": null,
+        "value": "Example Regional Bank",
+        "value_type": "string"
+      },
+      {
+        "evidence_ids": [],
+        "fact_id": "fact-65e16c492c0f5ef4ee85",
+        "fact_state": "appraiser_entered",
+        "field_key": "assignment.interest_appraised",
+        "label": "Interest appraised",
+        "origin": "appraiser_entry",
+        "professional_boundary": "appraiser_entered_fact",
+        "unit": null,
+        "value": "Leased fee interest",
+        "value_type": "string"
+      },
+      {
+        "evidence_ids": [
+          "evidence-7d7b0a341b41e16e2374"
+        ],
+        "fact_id": "fact-63df778382a7efd16ef6",
+        "fact_state": "verified",
+        "field_key": "assignment.effective_date_requirement",
+        "label": "Effective date requirement",
+        "origin": "verified_candidate",
+        "professional_boundary": "verified_fact",
+        "unit": null,
+        "value": "September 1, 2026",
+        "value_type": "string"
+      },
+      {
+        "evidence_ids": [
+          "evidence-679144324c439e1d274b",
+          "evidence-fc74a382d79b3f718cf5"
+        ],
+        "fact_id": "fact-44bfe595b090c8d0d462",
+        "fact_state": "verified",
+        "field_key": "assignment.report_format",
+        "label": "Report format",
+        "origin": "verified_candidate",
+        "professional_boundary": "verified_fact",
+        "unit": null,
+        "value": "restricted appraisal report",
+        "value_type": "string"
+      },
+      {
+        "evidence_ids": [],
+        "fact_id": "fact-3f536de6d27b14b08d3f",
+        "fact_state": "appraiser_entered",
+        "field_key": "assignment.inspection_requirements",
+        "label": "Inspection requirements",
+        "origin": "appraiser_entry",
+        "professional_boundary": "appraiser_entered_fact",
+        "unit": null,
+        "value": "Interior and exterior inspection required",
+        "value_type": "string"
+      },
+      {
+        "evidence_ids": [],
+        "fact_id": "fact-59f05a48014289bb60af",
+        "fact_state": "appraiser_entered",
+        "field_key": "assignment.engagement_constraints",
+        "label": "Engagement constraints",
+        "origin": "appraiser_entry",
+        "professional_boundary": "appraiser_entered_fact",
+        "unit": null,
+        "value": "Reliance limited to the named client and intended user",
+        "value_type": "string"
+      },
+      {
+        "evidence_ids": [
+          "evidence-50331748dc1fd5fd40a1"
+        ],
+        "fact_id": "fact-bcf67548bf177f126a8d",
+        "fact_state": "verified",
+        "field_key": "assignment.signing_appraiser",
+        "label": "Signing appraiser",
+        "origin": "verified_candidate",
+        "professional_boundary": "verified_fact",
+        "unit": null,
+        "value": "Morgan Appraiser, MAI",
+        "value_type": "string"
+      }
+    ]
+  },
+  "brief": {
+    "air_record_id": "air-15e8ae4332f8bbd65268",
+    "air_record_version": 1,
+    "air_schema_version": "1",
+    "assignment_contacts": [
+      {
+        "display_label": "Jordan Client Contact (synthetic)",
+        "reference_id": "contact-synthetic-jordan-client",
+        "reference_type": "assignment_contact",
+        "source_system": "falcon"
+      }
+    ],
+    "assignment_synopsis": [
+      {
+        "evidence_ids": [
+          "evidence-4fb2fc2c8a1f7d23a4ad"
+        ],
+        "fact_id": "fact-8651b0d0880684185a8a",
+        "fact_state": "verified",
+        "field_key": "assignment.client",
+        "label": "Client",
+        "origin": "verified_candidate",
+        "professional_boundary": "verified_fact",
+        "unit": null,
+        "value": "Example Regional Bank, N.A.",
+        "value_type": "string"
+      },
+      {
+        "evidence_ids": [
+          "evidence-83594c29b009ac86d87e",
+          "evidence-df344079be037c38dcb7",
+          "evidence-fe0add826fb22ed259ec"
+        ],
+        "fact_id": "fact-b8fcaedd688f6cba0eeb",
+        "fact_state": "verified",
+        "field_key": "assignment.intended_user",
+        "label": "Intended user",
+        "origin": "verified_candidate",
+        "professional_boundary": "verified_fact",
+        "unit": null,
+        "value": "Example Regional Bank",
+        "value_type": "string"
+      },
+      {
+        "evidence_ids": [],
+        "fact_id": "fact-65e16c492c0f5ef4ee85",
+        "fact_state": "appraiser_entered",
+        "field_key": "assignment.interest_appraised",
+        "label": "Interest appraised",
+        "origin": "appraiser_entry",
+        "professional_boundary": "appraiser_entered_fact",
+        "unit": null,
+        "value": "Leased fee interest",
+        "value_type": "string"
+      },
+      {
+        "evidence_ids": [
+          "evidence-7d7b0a341b41e16e2374"
+        ],
+        "fact_id": "fact-63df778382a7efd16ef6",
+        "fact_state": "verified",
+        "field_key": "assignment.effective_date_requirement",
+        "label": "Effective date requirement",
+        "origin": "verified_candidate",
+        "professional_boundary": "verified_fact",
+        "unit": null,
+        "value": "September 1, 2026",
+        "value_type": "string"
+      },
+      {
+        "evidence_ids": [
+          "evidence-679144324c439e1d274b",
+          "evidence-fc74a382d79b3f718cf5"
+        ],
+        "fact_id": "fact-44bfe595b090c8d0d462",
+        "fact_state": "verified",
+        "field_key": "assignment.report_format",
+        "label": "Report format",
+        "origin": "verified_candidate",
+        "professional_boundary": "verified_fact",
+        "unit": null,
+        "value": "restricted appraisal report",
+        "value_type": "string"
+      },
+      {
+        "evidence_ids": [],
+        "fact_id": "fact-3f536de6d27b14b08d3f",
+        "fact_state": "appraiser_entered",
+        "field_key": "assignment.inspection_requirements",
+        "label": "Inspection requirements",
+        "origin": "appraiser_entry",
+        "professional_boundary": "appraiser_entered_fact",
+        "unit": null,
+        "value": "Interior and exterior inspection required",
+        "value_type": "string"
+      },
+      {
+        "evidence_ids": [],
+        "fact_id": "fact-59f05a48014289bb60af",
+        "fact_state": "appraiser_entered",
+        "field_key": "assignment.engagement_constraints",
+        "label": "Engagement constraints",
+        "origin": "appraiser_entry",
+        "professional_boundary": "appraiser_entered_fact",
+        "unit": null,
+        "value": "Reliance limited to the named client and intended user",
+        "value_type": "string"
+      },
+      {
+        "evidence_ids": [
+          "evidence-50331748dc1fd5fd40a1"
+        ],
+        "fact_id": "fact-bcf67548bf177f126a8d",
+        "fact_state": "verified",
+        "field_key": "assignment.signing_appraiser",
+        "label": "Signing appraiser",
+        "origin": "verified_candidate",
+        "professional_boundary": "verified_fact",
+        "unit": null,
+        "value": "Morgan Appraiser, MAI",
+        "value_type": "string"
+      }
+    ],
+    "brief_format": "assignment_property_brief",
+    "brief_version": "1",
+    "comparable_and_market_leads": [
+      {
+        "evidence_ids": [],
+        "freshness": "unknown",
+        "lead_type": "comparable_lease",
+        "notes": [
+          "Market lead only; relevance remains subject to appraiser review."
+        ],
+        "reference_id": "comp-lead-synthetic-lease-202",
+        "relationship": "assignment_comparable_reference",
+        "selection_status": "candidate"
+      },
+      {
+        "evidence_ids": [],
+        "freshness": "current",
+        "lead_type": "comparable_sale",
+        "notes": [
+          "Extracted reference only; not professionally selected."
+        ],
+        "reference_id": "comp-lead-synthetic-sale-101",
+        "relationship": "assignment_comparable_reference",
+        "selection_status": "candidate"
+      },
+      {
+        "evidence_ids": [],
+        "freshness": "current",
+        "lead_type": "market_observation",
+        "notes": [
+          "Synthetic reference without a market conclusion."
+        ],
+        "reference_id": "market-lead-synthetic-logistics-001",
+        "relationship": "assignment_market_lead",
+        "selection_status": "reference_only"
+      }
+    ],
+    "evidence_summary": [
+      {
+        "confidence": "high",
+        "evidence_id": "evidence-132460bda17f3a52917b",
+        "extraction_method": "deterministic label match: Property Address",
+        "fact_ids": [
+          "fact-37f3fc19ddd6f31c4e50"
+        ],
+        "freshness": "unknown",
+        "locator": {
+          "cell": null,
+          "page_number": 1,
+          "paragraph": null,
+          "region": null,
+          "section": null,
+          "table": null
+        },
+        "quality": "primary_report",
+        "safe_reference": "engagement-letter.docx",
+        "source_document": "Synthetic Northstar Engagement Letter.docx",
+        "source_id": "source-b070a12b1ab445a08ae4"
+      },
+      {
+        "confidence": "high",
+        "evidence_id": "evidence-227ed9294fdef062df89",
+        "extraction_method": "deterministic label match: Property Type",
+        "fact_ids": [
+          "fact-41735b0fd34a3922f57d"
+        ],
+        "freshness": "unknown",
+        "locator": {
+          "cell": null,
+          "page_number": 1,
+          "paragraph": null,
+          "region": null,
+          "section": null,
+          "table": null
+        },
+        "quality": "primary_report",
+        "safe_reference": "appraisal-report.pdf",
+        "source_document": "Synthetic Northstar Appraisal Report.pdf",
+        "source_id": "source-33061be82f7b5b7ff636"
+      },
+      {
+        "confidence": "high",
+        "evidence_id": "evidence-4fb2fc2c8a1f7d23a4ad",
+        "extraction_method": "deterministic label match: Client",
+        "fact_ids": [
+          "fact-8651b0d0880684185a8a"
+        ],
+        "freshness": "unknown",
+        "locator": {
+          "cell": null,
+          "page_number": 1,
+          "paragraph": null,
+          "region": null,
+          "section": null,
+          "table": null
+        },
+        "quality": "primary_report",
+        "safe_reference": "engagement-letter.docx",
+        "source_document": "Synthetic Northstar Engagement Letter.docx",
+        "source_id": "source-b070a12b1ab445a08ae4"
+      },
+      {
+        "confidence": "high",
+        "evidence_id": "evidence-50331748dc1fd5fd40a1",
+        "extraction_method": "deterministic label match: Appraiser",
+        "fact_ids": [
+          "fact-bcf67548bf177f126a8d"
+        ],
+        "freshness": "unknown",
+        "locator": {
+          "cell": null,
+          "page_number": 1,
+          "paragraph": null,
+          "region": null,
+          "section": null,
+          "table": null
+        },
+        "quality": "primary_report",
+        "safe_reference": "appraisal-report.pdf",
+        "source_document": "Synthetic Northstar Appraisal Report.pdf",
+        "source_id": "source-33061be82f7b5b7ff636"
+      },
+      {
+        "confidence": "medium",
+        "evidence_id": "evidence-679144324c439e1d274b",
+        "extraction_method": "deterministic title agreement",
+        "fact_ids": [
+          "fact-44bfe595b090c8d0d462"
+        ],
+        "freshness": "unknown",
+        "locator": {
+          "cell": null,
+          "page_number": 1,
+          "paragraph": null,
+          "region": null,
+          "section": "first page title block",
+          "table": null
+        },
+        "quality": "metadata_only",
+        "safe_reference": "appraisal-report.pdf",
+        "source_document": "Synthetic Northstar Appraisal Report.pdf",
+        "source_id": "source-33061be82f7b5b7ff636"
+      },
+      {
+        "confidence": "high",
+        "evidence_id": "evidence-7d7b0a341b41e16e2374",
+        "extraction_method": "deterministic label match: Effective Date",
+        "fact_ids": [
+          "fact-63df778382a7efd16ef6"
+        ],
+        "freshness": "unknown",
+        "locator": {
+          "cell": null,
+          "page_number": 1,
+          "paragraph": null,
+          "region": null,
+          "section": null,
+          "table": null
+        },
+        "quality": "primary_report",
+        "safe_reference": "engagement-letter.docx",
+        "source_document": "Synthetic Northstar Engagement Letter.docx",
+        "source_id": "source-b070a12b1ab445a08ae4"
+      },
+      {
+        "confidence": "high",
+        "evidence_id": "evidence-83594c29b009ac86d87e",
+        "extraction_method": "summary of salient facts table: Intended User",
+        "fact_ids": [
+          "fact-b8fcaedd688f6cba0eeb"
+        ],
+        "freshness": "unknown",
+        "locator": {
+          "cell": null,
+          "page_number": 1,
+          "paragraph": null,
+          "region": null,
+          "section": null,
+          "table": null
+        },
+        "quality": "primary_report",
+        "safe_reference": "appraisal-report.pdf",
+        "source_document": "Synthetic Northstar Appraisal Report.pdf",
+        "source_id": "source-33061be82f7b5b7ff636"
+      },
+      {
+        "confidence": "high",
+        "evidence_id": "evidence-929052453cd590d39e5c",
+        "extraction_method": "summary of salient facts table: Property Type",
+        "fact_ids": [
+          "fact-41735b0fd34a3922f57d"
+        ],
+        "freshness": "unknown",
+        "locator": {
+          "cell": null,
+          "page_number": 1,
+          "paragraph": null,
+          "region": null,
+          "section": null,
+          "table": null
+        },
+        "quality": "primary_report",
+        "safe_reference": "appraisal-report.pdf",
+        "source_document": "Synthetic Northstar Appraisal Report.pdf",
+        "source_id": "source-33061be82f7b5b7ff636"
+      },
+      {
+        "confidence": "high",
+        "evidence_id": "evidence-bdd57a6a30d61080a895",
+        "extraction_method": "deterministic label match: Property Type",
+        "fact_ids": [
+          "fact-41735b0fd34a3922f57d"
+        ],
+        "freshness": "unknown",
+        "locator": {
+          "cell": null,
+          "page_number": 1,
+          "paragraph": null,
+          "region": null,
+          "section": null,
+          "table": null
+        },
+        "quality": "primary_report",
+        "safe_reference": "appraisal-report.pdf",
+        "source_document": "Synthetic Northstar Appraisal Report.pdf",
+        "source_id": "source-33061be82f7b5b7ff636"
+      },
+      {
+        "confidence": "high",
+        "evidence_id": "evidence-df344079be037c38dcb7",
+        "extraction_method": "deterministic label match: Intended User",
+        "fact_ids": [
+          "fact-b8fcaedd688f6cba0eeb"
+        ],
+        "freshness": "unknown",
+        "locator": {
+          "cell": null,
+          "page_number": 1,
+          "paragraph": null,
+          "region": null,
+          "section": null,
+          "table": null
+        },
+        "quality": "primary_report",
+        "safe_reference": "appraisal-report.pdf",
+        "source_document": "Synthetic Northstar Appraisal Report.pdf",
+        "source_id": "source-33061be82f7b5b7ff636"
+      },
+      {
+        "confidence": "high",
+        "evidence_id": "evidence-fc74a382d79b3f718cf5",
+        "extraction_method": "deterministic report type phrase",
+        "fact_ids": [
+          "fact-44bfe595b090c8d0d462"
+        ],
+        "freshness": "unknown",
+        "locator": {
+          "cell": null,
+          "page_number": null,
+          "paragraph": null,
+          "region": null,
+          "section": null,
+          "table": null
+        },
+        "quality": "primary_report",
+        "safe_reference": "appraisal-report.pdf",
+        "source_document": "Synthetic Northstar Appraisal Report.pdf",
+        "source_id": "source-33061be82f7b5b7ff636"
+      },
+      {
+        "confidence": "high",
+        "evidence_id": "evidence-fe0add826fb22ed259ec",
+        "extraction_method": "deterministic label match: Intended User",
+        "fact_ids": [
+          "fact-b8fcaedd688f6cba0eeb"
+        ],
+        "freshness": "unknown",
+        "locator": {
+          "cell": null,
+          "page_number": 1,
+          "paragraph": null,
+          "region": null,
+          "section": null,
+          "table": null
+        },
+        "quality": "primary_report",
+        "safe_reference": "appraisal-report.pdf",
+        "source_document": "Synthetic Northstar Appraisal Report.pdf",
+        "source_id": "source-33061be82f7b5b7ff636"
+      }
+    ],
+    "generated_at": "2026-09-03T15:30:00+00:00",
+    "issues_requiring_attention": [
+      {
+        "area": "assignment_context",
+        "field_keys": [
+          "assignment.intended_use"
+        ],
+        "issue_id": "issue-31ca68e5b403462a8fa3",
+        "issue_type": "unresolved_conflict",
+        "message": "Conflicting candidate values remain unresolved for assignment.intended_use.",
+        "related_ids": [
+          "conflict-617c92536c3c0b623233"
+        ],
+        "severity": "blocking"
+      },
+      {
+        "area": "assignment_context",
+        "field_keys": [
+          "assignment.report_date_requirement"
+        ],
+        "issue_id": "issue-4ccf45045d3ed8439283",
+        "issue_type": "deferred_review_candidate",
+        "message": "Candidate review was deferred: assignment.report_date_requirement.",
+        "related_ids": [
+          "candidate-9e3a588f3fda5d742c3e"
+        ],
+        "severity": "nonblocking"
+      },
+      {
+        "area": "assignment_context",
+        "field_keys": [
+          "assignment.intended_use"
+        ],
+        "issue_id": "issue-522b440afbfdedd5eed8",
+        "issue_type": "missing_required_fact",
+        "message": "Required fact is missing: assignment.intended_use.",
+        "related_ids": [],
+        "severity": "blocking"
+      },
+      {
+        "area": "assignment_context",
+        "field_keys": [
+          "assignment.appraisal_purpose"
+        ],
+        "issue_id": "issue-63d387dfe15e1a61c980",
+        "issue_type": "missing_required_fact",
+        "message": "Required fact is missing: assignment.appraisal_purpose.",
+        "related_ids": [],
+        "severity": "blocking"
+      },
+      {
+        "area": "assignment_context",
+        "field_keys": [
+          "assignment.report_format"
+        ],
+        "issue_id": "issue-755971be54ca554554b2",
+        "issue_type": "unresolved_conflict",
+        "message": "Conflicting candidate values remain unresolved for assignment.report_format.",
+        "related_ids": [
+          "conflict-c715b3c4a988da103207"
+        ],
+        "severity": "blocking"
+      },
+      {
+        "area": "assignment_context",
+        "field_keys": [
+          "assignment.extraordinary_assumptions_present"
+        ],
+        "issue_id": "issue-b778a415276e07fb1908",
+        "issue_type": "unverified_material_candidate",
+        "message": "Material candidate still requires an appraiser decision: assignment.extraordinary_assumptions_present.",
+        "related_ids": [
+          "candidate-b928436691e1a023c548"
+        ],
+        "severity": "nonblocking"
+      },
+      {
+        "area": "subject_identity",
+        "field_keys": [
+          "subject.address"
+        ],
+        "issue_id": "issue-f36f3c1647ea51de6a1b",
+        "issue_type": "unverified_material_candidate",
+        "message": "Material candidate still requires an appraiser decision: subject.address.",
+        "related_ids": [
+          "candidate-03fcf753f48b0ebc6822"
+        ],
+        "severity": "blocking"
+      },
+      {
+        "area": "assignment_context",
+        "field_keys": [
+          "assignment.effective_date_requirement"
+        ],
+        "issue_id": "issue-f6b5600e026701a9f701",
+        "issue_type": "unverified_material_candidate",
+        "message": "Material candidate still requires an appraiser decision: assignment.effective_date_requirement.",
+        "related_ids": [
+          "candidate-44d098692f100ca81b5b"
+        ],
+        "severity": "blocking"
+      }
+    ],
+    "ownership_references": [
+      {
+        "display_label": "Northstar Holdings LLC (synthetic)",
+        "reference_id": "owner-synthetic-northstar-holdings",
+        "reference_type": "ownership_entity",
+        "source_system": "falcon_intelligence"
+      }
+    ],
+    "professional_boundary": [
+      "Verified and corrected facts come only from explicit AIR review events.",
+      "Appraiser-entered facts are identified by their AIR origin and review event.",
+      "Unresolved observations remain issues and are not presented as facts.",
+      "Professional conclusions are separate and are never inferred from readiness.",
+      "This brief does not provide a value conclusion, highest and best use conclusion, comparable selection, adjustment, capitalization rate, or appraisal narrative."
+    ],
+    "professional_conclusions": [],
+    "readiness_areas": [
+      {
+        "area": "assignment_context",
+        "issue_ids": [
+          "issue-31ca68e5b403462a8fa3",
+          "issue-4ccf45045d3ed8439283",
+          "issue-522b440afbfdedd5eed8",
+          "issue-63d387dfe15e1a61c980",
+          "issue-755971be54ca554554b2",
+          "issue-b778a415276e07fb1908",
+          "issue-f6b5600e026701a9f701"
+        ],
+        "status": "blocked"
+      },
+      {
+        "area": "improvements",
+        "issue_ids": [],
+        "status": "ready"
+      },
+      {
+        "area": "income_and_occupancy",
+        "issue_ids": [],
+        "status": "ready"
+      },
+      {
+        "area": "professional_review",
+        "issue_ids": [],
+        "status": "ready"
+      },
+      {
+        "area": "site",
+        "issue_ids": [],
+        "status": "ready"
+      },
+      {
+        "area": "subject_identity",
+        "issue_ids": [
+          "issue-f36f3c1647ea51de6a1b"
+        ],
+        "status": "blocked"
+      }
+    ],
+    "readiness_status": "blocked",
+    "subject_synopsis": [
+      {
+        "evidence_ids": [],
+        "fact_id": "fact-d95879f5d466c1192a75",
+        "fact_state": "appraiser_entered",
+        "field_key": "subject.name",
+        "label": "Property name",
+        "origin": "appraiser_entry",
+        "professional_boundary": "appraiser_entered_fact",
+        "unit": null,
+        "value": "Northstar Distribution Center",
+        "value_type": "string"
+      },
+      {
+        "evidence_ids": [
+          "evidence-132460bda17f3a52917b"
+        ],
+        "fact_id": "fact-37f3fc19ddd6f31c4e50",
+        "fact_state": "verified",
+        "field_key": "subject.address",
+        "label": "Property address",
+        "origin": "verified_candidate",
+        "professional_boundary": "verified_fact",
+        "unit": null,
+        "value": "1600 Northstar Logistics Way",
+        "value_type": "string"
+      },
+      {
+        "evidence_ids": [],
+        "fact_id": "fact-71b6c6340f5f5e80945d",
+        "fact_state": "appraiser_entered",
+        "field_key": "subject.parcel_identifiers",
+        "label": "Parcel identifiers",
+        "origin": "appraiser_entry",
+        "professional_boundary": "appraiser_entered_fact",
+        "unit": null,
+        "value": [
+          "SYN-440-22-018"
+        ],
+        "value_type": "array"
+      },
+      {
+        "evidence_ids": [
+          "evidence-227ed9294fdef062df89",
+          "evidence-929052453cd590d39e5c",
+          "evidence-bdd57a6a30d61080a895"
+        ],
+        "fact_id": "fact-41735b0fd34a3922f57d",
+        "fact_state": "corrected",
+        "field_key": "subject.property_type",
+        "label": "Property type",
+        "origin": "corrected_candidate",
+        "professional_boundary": "corrected_fact",
+        "unit": null,
+        "value": "Industrial / Distribution Warehouse",
+        "value_type": "string"
+      },
+      {
+        "evidence_ids": [],
+        "fact_id": "fact-b8783ca5ce137f78be5d",
+        "fact_state": "appraiser_entered",
+        "field_key": "subject.site_area",
+        "label": "Site area",
+        "origin": "appraiser_entry",
+        "professional_boundary": "appraiser_entered_fact",
+        "unit": "acres",
+        "value": 12.4,
+        "value_type": "number"
+      },
+      {
+        "evidence_ids": [],
+        "fact_id": "fact-17a8f9b71a0c452f657b",
+        "fact_state": "appraiser_entered",
+        "field_key": "subject.building_area",
+        "label": "Building area",
+        "origin": "appraiser_entry",
+        "professional_boundary": "appraiser_entered_fact",
+        "unit": "square_feet",
+        "value": 186500,
+        "value_type": "integer"
+      },
+      {
+        "evidence_ids": [],
+        "fact_id": "fact-6834c52e0954952713e1",
+        "fact_state": "appraiser_entered",
+        "field_key": "subject.year_built",
+        "label": "Year built",
+        "origin": "appraiser_entry",
+        "professional_boundary": "appraiser_entered_fact",
+        "unit": null,
+        "value": 2008,
+        "value_type": "integer"
+      },
+      {
+        "evidence_ids": [],
+        "fact_id": "fact-883c3e653b588eae7397",
+        "fact_state": "appraiser_entered",
+        "field_key": "subject.occupancy",
+        "label": "Occupancy",
+        "origin": "appraiser_entry",
+        "professional_boundary": "appraiser_entered_fact",
+        "unit": null,
+        "value": "Single-tenant occupied",
+        "value_type": "string"
+      },
+      {
+        "evidence_ids": [],
+        "fact_id": "fact-4e7a2f4661783ae8d4ce",
+        "fact_state": "appraiser_entered",
+        "field_key": "subject.zoning",
+        "label": "Zoning",
+        "origin": "appraiser_entry",
+        "professional_boundary": "appraiser_entered_fact",
+        "unit": null,
+        "value": "LI — Light Industrial (synthetic)",
+        "value_type": "string"
+      },
+      {
+        "evidence_ids": [],
+        "fact_id": "fact-91f71bf861c9c0e52dea",
+        "fact_state": "appraiser_entered",
+        "field_key": "subject.taxes",
+        "label": "Taxes",
+        "origin": "appraiser_entry",
+        "professional_boundary": "appraiser_entered_fact",
+        "unit": null,
+        "value": {
+          "amount": 148200,
+          "currency": "USD",
+          "tax_year": 2026
+        },
+        "value_type": "object"
+      }
+    ]
+  },
+  "brief_markdown": "# Assignment / Property Brief\n\n- Brief format: `assignment_property_brief` v1\n- AIR: `air-15e8ae4332f8bbd65268` v1 (schema 1)\n- Generated: 2026-09-03T15:30:00+00:00\n- Readiness: **Blocked**\n\n## Assignment Synopsis\n\n- **Client:** Example Regional Bank, N.A. — Verified Fact (`fact-8651b0d0880684185a8a`)\n- **Intended user:** Example Regional Bank — Verified Fact (`fact-b8fcaedd688f6cba0eeb`)\n- **Interest appraised:** Leased fee interest — Appraiser Entered Fact (`fact-65e16c492c0f5ef4ee85`)\n- **Effective date requirement:** September 1, 2026 — Verified Fact (`fact-63df778382a7efd16ef6`)\n- **Report format:** restricted appraisal report — Verified Fact (`fact-44bfe595b090c8d0d462`)\n- **Inspection requirements:** Interior and exterior inspection required — Appraiser Entered Fact (`fact-3f536de6d27b14b08d3f`)\n- **Engagement constraints:** Reliance limited to the named client and intended user — Appraiser Entered Fact (`fact-59f05a48014289bb60af`)\n- **Signing appraiser:** Morgan Appraiser, MAI — Verified Fact (`fact-bcf67548bf177f126a8d`)\n\n### Assignment Contacts\n\n- Jordan Client Contact (synthetic) (`contact-synthetic-jordan-client`)\n\n## Subject Synopsis\n\n- **Property name:** Northstar Distribution Center — Appraiser Entered Fact (`fact-d95879f5d466c1192a75`)\n- **Property address:** 1600 Northstar Logistics Way — Verified Fact (`fact-37f3fc19ddd6f31c4e50`)\n- **Parcel identifiers:** [\"SYN-440-22-018\"] — Appraiser Entered Fact (`fact-71b6c6340f5f5e80945d`)\n- **Property type:** Industrial / Distribution Warehouse — Corrected Fact (`fact-41735b0fd34a3922f57d`)\n- **Site area:** 12.4 Acres — Appraiser Entered Fact (`fact-b8783ca5ce137f78be5d`)\n- **Building area:** 186500 Square Feet — Appraiser Entered Fact (`fact-17a8f9b71a0c452f657b`)\n- **Year built:** 2008 — Appraiser Entered Fact (`fact-6834c52e0954952713e1`)\n- **Occupancy:** Single-tenant occupied — Appraiser Entered Fact (`fact-883c3e653b588eae7397`)\n- **Zoning:** LI — Light Industrial (synthetic) — Appraiser Entered Fact (`fact-4e7a2f4661783ae8d4ce`)\n- **Taxes:** {\"amount\": 148200, \"currency\": \"USD\", \"tax_year\": 2026} — Appraiser Entered Fact (`fact-91f71bf861c9c0e52dea`)\n\n### Ownership References\n\n- Northstar Holdings LLC (synthetic) (`owner-synthetic-northstar-holdings`)\n\n## Issues Requiring Attention\n\n- **Blocking — Assignment Context:** Conflicting candidate values remain unresolved for assignment.intended_use.\n- **Nonblocking — Assignment Context:** Candidate review was deferred: assignment.report_date_requirement.\n- **Blocking — Assignment Context:** Required fact is missing: assignment.intended_use.\n- **Blocking — Assignment Context:** Required fact is missing: assignment.appraisal_purpose.\n- **Blocking — Assignment Context:** Conflicting candidate values remain unresolved for assignment.report_format.\n- **Nonblocking — Assignment Context:** Material candidate still requires an appraiser decision: assignment.extraordinary_assumptions_present.\n- **Blocking — Subject Identity:** Material candidate still requires an appraiser decision: subject.address.\n- **Blocking — Assignment Context:** Material candidate still requires an appraiser decision: assignment.effective_date_requirement.\n\n## Readiness by Appraisal Area\n\n- Assignment Context: **Blocked** (7 issue(s))\n- Improvements: **Ready** (0 issue(s))\n- Income And Occupancy: **Ready** (0 issue(s))\n- Professional Review: **Ready** (0 issue(s))\n- Site: **Ready** (0 issue(s))\n- Subject Identity: **Blocked** (1 issue(s))\n\n## Evidence Summary\n\n- `evidence-132460bda17f3a52917b` — Synthetic Northstar Engagement Letter.docx; Page Number 1; deterministic label match: Property Address; confidence High; supports `fact-37f3fc19ddd6f31c4e50`.\n- `evidence-227ed9294fdef062df89` — Synthetic Northstar Appraisal Report.pdf; Page Number 1; deterministic label match: Property Type; confidence High; supports `fact-41735b0fd34a3922f57d`.\n- `evidence-4fb2fc2c8a1f7d23a4ad` — Synthetic Northstar Engagement Letter.docx; Page Number 1; deterministic label match: Client; confidence High; supports `fact-8651b0d0880684185a8a`.\n- `evidence-50331748dc1fd5fd40a1` — Synthetic Northstar Appraisal Report.pdf; Page Number 1; deterministic label match: Appraiser; confidence High; supports `fact-bcf67548bf177f126a8d`.\n- `evidence-679144324c439e1d274b` — Synthetic Northstar Appraisal Report.pdf; Page Number 1, Section first page title block; deterministic title agreement; confidence Medium; supports `fact-44bfe595b090c8d0d462`.\n- `evidence-7d7b0a341b41e16e2374` — Synthetic Northstar Engagement Letter.docx; Page Number 1; deterministic label match: Effective Date; confidence High; supports `fact-63df778382a7efd16ef6`.\n- `evidence-83594c29b009ac86d87e` — Synthetic Northstar Appraisal Report.pdf; Page Number 1; summary of salient facts table: Intended User; confidence High; supports `fact-b8fcaedd688f6cba0eeb`.\n- `evidence-929052453cd590d39e5c` — Synthetic Northstar Appraisal Report.pdf; Page Number 1; summary of salient facts table: Property Type; confidence High; supports `fact-41735b0fd34a3922f57d`.\n- `evidence-bdd57a6a30d61080a895` — Synthetic Northstar Appraisal Report.pdf; Page Number 1; deterministic label match: Property Type; confidence High; supports `fact-41735b0fd34a3922f57d`.\n- `evidence-df344079be037c38dcb7` — Synthetic Northstar Appraisal Report.pdf; Page Number 1; deterministic label match: Intended User; confidence High; supports `fact-b8fcaedd688f6cba0eeb`.\n- `evidence-fc74a382d79b3f718cf5` — Synthetic Northstar Appraisal Report.pdf; source-level locator; deterministic report type phrase; confidence High; supports `fact-44bfe595b090c8d0d462`.\n- `evidence-fe0add826fb22ed259ec` — Synthetic Northstar Appraisal Report.pdf; Page Number 1; deterministic label match: Intended User; confidence High; supports `fact-b8fcaedd688f6cba0eeb`.\n\n## Comparable and Market Leads\n\n- `comp-lead-synthetic-lease-202` — Comparable Lease; Candidate; Assignment Comparable Reference.\n- `comp-lead-synthetic-sale-101` — Comparable Sale; Candidate; Assignment Comparable Reference.\n- `market-lead-synthetic-logistics-001` — Market Observation; Reference Only; Assignment Market Lead.\n\n> Leads are references only. Extraction does not constitute professional comparable selection.\n\n## Professional Boundary\n\n- Verified and corrected facts come only from explicit AIR review events.\n- Appraiser-entered facts are identified by their AIR origin and review event.\n- Unresolved observations remain issues and are not presented as facts.\n- Professional conclusions are separate and are never inferred from readiness.\n- This brief does not provide a value conclusion, highest and best use conclusion, comparable selection, adjustment, capitalization rate, or appraisal narrative.\n\n- No professional conclusions are included in this brief.\n",
+  "conflicts": [
+    {
+      "candidate_ids": [
+        "candidate-89e998d3b4b9c262ec61",
+        "candidate-cd2852a52ff103b87477"
+      ],
+      "conflict_id": "conflict-336b55e112817476e50b",
+      "evidence_ids": [
+        "evidence-4fb2fc2c8a1f7d23a4ad",
+        "evidence-689bb961834540e39529",
+        "evidence-b3ccc2ba131fe9945544",
+        "evidence-c03358c89a9bdccba3d5"
+      ],
+      "field_key": "assignment.client",
+      "material": true,
+      "reason": "All competing values except one were explicitly rejected.",
+      "resolution_event_ids": [
+        "review-31e475ac6cf9c944e47a",
+        "review-c43f6e44571ce40fffb7"
+      ],
+      "status": "resolved"
+    },
+    {
+      "candidate_ids": [
+        "candidate-9f1fa9f6d93338f75d53",
+        "candidate-e9c1662d1790243fe24d"
+      ],
+      "conflict_id": "conflict-617c92536c3c0b623233",
+      "evidence_ids": [
+        "evidence-58869fea0d61fc3644ac",
+        "evidence-c46b5148e2ccd14be908"
+      ],
+      "field_key": "assignment.intended_use",
+      "material": true,
+      "reason": "Distinct normalized candidate values require an explicit appraiser resolution.",
+      "resolution_event_ids": [],
+      "status": "unresolved"
+    },
+    {
+      "candidate_ids": [
+        "candidate-007e5f0e291e307685f0",
+        "candidate-c15f130195fe256e0da7"
+      ],
+      "conflict_id": "conflict-c715b3c4a988da103207",
+      "evidence_ids": [
+        "evidence-679144324c439e1d274b",
+        "evidence-d86cf29b486e3ee26bbe",
+        "evidence-fc74a382d79b3f718cf5"
+      ],
+      "field_key": "assignment.report_format",
+      "material": true,
+      "reason": "Distinct normalized candidate values require an explicit appraiser resolution.",
+      "resolution_event_ids": [],
+      "status": "unresolved"
+    }
+  ],
+  "export_formats": [
+    "air_json",
+    "brief_json",
+    "brief_markdown"
+  ],
+  "guardrail": "Synthetic local proof only. Review actions use AIR event names; source documents, valuation conclusions, narrative generation, and production persistence are unavailable.",
+  "missing_critical_information": [
+    {
+      "area": "assignment_context",
+      "field_keys": [
+        "assignment.intended_use"
+      ],
+      "issue_id": "issue-522b440afbfdedd5eed8",
+      "issue_type": "missing_required_fact",
+      "message": "Required fact is missing: assignment.intended_use.",
+      "related_ids": [],
+      "severity": "blocking"
+    },
+    {
+      "area": "assignment_context",
+      "field_keys": [
+        "assignment.appraisal_purpose"
+      ],
+      "issue_id": "issue-63d387dfe15e1a61c980",
+      "issue_type": "missing_required_fact",
+      "message": "Required fact is missing: assignment.appraisal_purpose.",
+      "related_ids": [],
+      "severity": "blocking"
+    }
+  ],
+  "readiness": {
+    "areas": [
+      {
+        "area": "assignment_context",
+        "current_fact_ids": [
+          "fact-3f536de6d27b14b08d3f",
+          "fact-44bfe595b090c8d0d462",
+          "fact-59f05a48014289bb60af",
+          "fact-63df778382a7efd16ef6",
+          "fact-65e16c492c0f5ef4ee85",
+          "fact-8651b0d0880684185a8a",
+          "fact-b8fcaedd688f6cba0eeb",
+          "fact-bcf67548bf177f126a8d"
+        ],
+        "issue_ids": [
+          "issue-31ca68e5b403462a8fa3",
+          "issue-4ccf45045d3ed8439283",
+          "issue-522b440afbfdedd5eed8",
+          "issue-63d387dfe15e1a61c980",
+          "issue-755971be54ca554554b2",
+          "issue-b778a415276e07fb1908",
+          "issue-f6b5600e026701a9f701"
+        ],
+        "required_field_keys": [
+          "assignment.client",
+          "assignment.intended_user",
+          "assignment.intended_use",
+          "assignment.appraisal_purpose",
+          "assignment.interest_appraised",
+          "assignment.effective_date_requirement"
+        ],
+        "status": "blocked"
+      },
+      {
+        "area": "improvements",
+        "current_fact_ids": [
+          "fact-17a8f9b71a0c452f657b",
+          "fact-4e7a2f4661783ae8d4ce",
+          "fact-6834c52e0954952713e1",
+          "fact-883c3e653b588eae7397",
+          "fact-91f71bf861c9c0e52dea"
+        ],
+        "issue_ids": [],
+        "required_field_keys": [
+          "subject.building_area"
+        ],
+        "status": "ready"
+      },
+      {
+        "area": "income_and_occupancy",
+        "current_fact_ids": [
+          "fact-883c3e653b588eae7397"
+        ],
+        "issue_ids": [],
+        "required_field_keys": [
+          "subject.occupancy"
+        ],
+        "status": "ready"
+      },
+      {
+        "area": "professional_review",
+        "current_fact_ids": [
+          "fact-bcf67548bf177f126a8d"
+        ],
+        "issue_ids": [],
+        "required_field_keys": [
+          "assignment.signing_appraiser"
+        ],
+        "status": "ready"
+      },
+      {
+        "area": "site",
+        "current_fact_ids": [
+          "fact-b8783ca5ce137f78be5d"
+        ],
+        "issue_ids": [],
+        "required_field_keys": [
+          "subject.site_area"
+        ],
+        "status": "ready"
+      },
+      {
+        "area": "subject_identity",
+        "current_fact_ids": [
+          "fact-37f3fc19ddd6f31c4e50",
+          "fact-41735b0fd34a3922f57d",
+          "fact-71b6c6340f5f5e80945d",
+          "fact-d95879f5d466c1192a75"
+        ],
+        "issue_ids": [
+          "issue-f36f3c1647ea51de6a1b"
+        ],
+        "required_field_keys": [
+          "subject.address",
+          "subject.property_type"
+        ],
+        "status": "blocked"
+      }
+    ],
+    "blocking_issue_ids": [
+      "issue-31ca68e5b403462a8fa3",
+      "issue-522b440afbfdedd5eed8",
+      "issue-63d387dfe15e1a61c980",
+      "issue-755971be54ca554554b2",
+      "issue-f36f3c1647ea51de6a1b",
+      "issue-f6b5600e026701a9f701"
+    ],
+    "calculated_at": "2026-09-03T15:30:00+00:00",
+    "issues": [
+      {
+        "area": "assignment_context",
+        "field_keys": [
+          "assignment.intended_use"
+        ],
+        "issue_id": "issue-31ca68e5b403462a8fa3",
+        "issue_type": "unresolved_conflict",
+        "message": "Conflicting candidate values remain unresolved for assignment.intended_use.",
+        "related_ids": [
+          "conflict-617c92536c3c0b623233"
+        ],
+        "severity": "blocking"
+      },
+      {
+        "area": "assignment_context",
+        "field_keys": [
+          "assignment.report_date_requirement"
+        ],
+        "issue_id": "issue-4ccf45045d3ed8439283",
+        "issue_type": "deferred_review_candidate",
+        "message": "Candidate review was deferred: assignment.report_date_requirement.",
+        "related_ids": [
+          "candidate-9e3a588f3fda5d742c3e"
+        ],
+        "severity": "nonblocking"
+      },
+      {
+        "area": "assignment_context",
+        "field_keys": [
+          "assignment.intended_use"
+        ],
+        "issue_id": "issue-522b440afbfdedd5eed8",
+        "issue_type": "missing_required_fact",
+        "message": "Required fact is missing: assignment.intended_use.",
+        "related_ids": [],
+        "severity": "blocking"
+      },
+      {
+        "area": "assignment_context",
+        "field_keys": [
+          "assignment.appraisal_purpose"
+        ],
+        "issue_id": "issue-63d387dfe15e1a61c980",
+        "issue_type": "missing_required_fact",
+        "message": "Required fact is missing: assignment.appraisal_purpose.",
+        "related_ids": [],
+        "severity": "blocking"
+      },
+      {
+        "area": "assignment_context",
+        "field_keys": [
+          "assignment.report_format"
+        ],
+        "issue_id": "issue-755971be54ca554554b2",
+        "issue_type": "unresolved_conflict",
+        "message": "Conflicting candidate values remain unresolved for assignment.report_format.",
+        "related_ids": [
+          "conflict-c715b3c4a988da103207"
+        ],
+        "severity": "blocking"
+      },
+      {
+        "area": "assignment_context",
+        "field_keys": [
+          "assignment.extraordinary_assumptions_present"
+        ],
+        "issue_id": "issue-b778a415276e07fb1908",
+        "issue_type": "unverified_material_candidate",
+        "message": "Material candidate still requires an appraiser decision: assignment.extraordinary_assumptions_present.",
+        "related_ids": [
+          "candidate-b928436691e1a023c548"
+        ],
+        "severity": "nonblocking"
+      },
+      {
+        "area": "subject_identity",
+        "field_keys": [
+          "subject.address"
+        ],
+        "issue_id": "issue-f36f3c1647ea51de6a1b",
+        "issue_type": "unverified_material_candidate",
+        "message": "Material candidate still requires an appraiser decision: subject.address.",
+        "related_ids": [
+          "candidate-03fcf753f48b0ebc6822"
+        ],
+        "severity": "blocking"
+      },
+      {
+        "area": "assignment_context",
+        "field_keys": [
+          "assignment.effective_date_requirement"
+        ],
+        "issue_id": "issue-f6b5600e026701a9f701",
+        "issue_type": "unverified_material_candidate",
+        "message": "Material candidate still requires an appraiser decision: assignment.effective_date_requirement.",
+        "related_ids": [
+          "candidate-44d098692f100ca81b5b"
+        ],
+        "severity": "blocking"
+      }
+    ],
+    "nonblocking_issue_ids": [
+      "issue-4ccf45045d3ed8439283",
+      "issue-b778a415276e07fb1908"
+    ],
+    "overall_status": "blocked"
+  },
+  "review_progress": {
+    "counts": {
+      "accepted": 6,
+      "corrected": 1,
+      "deferred": 1,
+      "needs_review": 10,
+      "rejected": 2
+    },
+    "percent_complete": 50,
+    "reviewed_candidates": 10,
+    "total_candidates": 20
+  },
+  "schema_version": "1",
+  "semantic_source": {
+    "adapter_mode": "local_synthetic_fixture",
+    "air_record_id": "air-15e8ae4332f8bbd65268",
+    "air_record_version": 1,
+    "air_schema_version": "1",
+    "canonical_model": "assignment_intelligence_record"
+  },
+  "topics": [
+    {
+      "candidates": [
+        {
+          "available_actions": [
+            "accept",
+            "correct",
+            "reject",
+            "defer"
+          ],
+          "candidate_id": "candidate-b928436691e1a023c548",
+          "conflict_ids": [],
+          "evidence": [
+            {
+              "confidence": "medium",
+              "evidence_id": "evidence-c4709e937ac75a9744ab",
+              "extraction_method": "deterministic phrase presence",
+              "locator": {
+                "cell": null,
+                "page_number": 2,
+                "paragraph": null,
+                "region": null,
+                "section": null,
+                "table": null
+              },
+              "quality": "primary_report",
+              "safe_reference": "appraisal-report.pdf",
+              "source_document": "Synthetic Northstar Appraisal Report.pdf"
+            }
+          ],
+          "field_key": "assignment.extraordinary_assumptions_present",
+          "label": "Extraordinary assumptions present",
+          "latest_review": null,
+          "machine_confidence": "medium",
+          "machine_verification_status": "probable",
+          "material": true,
+          "normalized_value": "present",
+          "state": "extracted_candidate",
+          "unit": null,
+          "value": "present",
+          "value_type": "string"
+        },
+        {
+          "available_actions": [
+            "accept",
+            "correct",
+            "reject",
+            "defer"
+          ],
+          "candidate_id": "candidate-007e5f0e291e307685f0",
+          "conflict_ids": [
+            "conflict-c715b3c4a988da103207"
+          ],
+          "evidence": [
+            {
+              "confidence": "medium",
+              "evidence_id": "evidence-679144324c439e1d274b",
+              "extraction_method": "deterministic title agreement",
+              "locator": {
+                "cell": null,
+                "page_number": 1,
+                "paragraph": null,
+                "region": null,
+                "section": "first page title block",
+                "table": null
+              },
+              "quality": "metadata_only",
+              "safe_reference": "appraisal-report.pdf",
+              "source_document": "Synthetic Northstar Appraisal Report.pdf"
+            },
+            {
+              "confidence": "high",
+              "evidence_id": "evidence-fc74a382d79b3f718cf5",
+              "extraction_method": "deterministic report type phrase",
+              "locator": {
+                "cell": null,
+                "page_number": null,
+                "paragraph": null,
+                "region": null,
+                "section": null,
+                "table": null
+              },
+              "quality": "primary_report",
+              "safe_reference": "appraisal-report.pdf",
+              "source_document": "Synthetic Northstar Appraisal Report.pdf"
+            }
+          ],
+          "field_key": "assignment.report_format",
+          "label": "Report format",
+          "latest_review": {
+            "action": "candidate_verified",
+            "actor_id": "user-synthetic-appraiser-brief-001",
+            "actor_name": "Morgan Appraiser",
+            "actor_role": "appraiser",
+            "event_id": "review-40c63acf4b93ad0f6e8e",
+            "evidence_ids": [],
+            "field_key": "assignment.report_format",
+            "occurred_at": "2026-09-03T15:13:00+00:00",
+            "prior_value": "restricted appraisal report",
+            "reason": "Accepted after appraiser review.",
+            "resulting_value": "restricted appraisal report",
+            "target_id": "candidate-007e5f0e291e307685f0",
+            "target_type": "candidate"
+          },
+          "machine_confidence": "low",
+          "machine_verification_status": "needs_review",
+          "material": true,
+          "normalized_value": "restricted appraisal report",
+          "state": "accepted",
+          "unit": null,
+          "value": "restricted appraisal report",
+          "value_type": "string"
+        },
+        {
+          "available_actions": [
+            "accept",
+            "correct",
+            "reject",
+            "defer"
+          ],
+          "candidate_id": "candidate-c15f130195fe256e0da7",
+          "conflict_ids": [
+            "conflict-c715b3c4a988da103207"
+          ],
+          "evidence": [
+            {
+              "confidence": "medium",
+              "evidence_id": "evidence-d86cf29b486e3ee26bbe",
+              "extraction_method": "deterministic filename phrase",
+              "locator": {
+                "cell": null,
+                "page_number": null,
+                "paragraph": null,
+                "region": null,
+                "section": null,
+                "table": null
+              },
+              "quality": "metadata_only",
+              "safe_reference": "appraisal-report.pdf",
+              "source_document": "Synthetic Northstar Appraisal Report.pdf"
+            }
+          ],
+          "field_key": "assignment.report_format",
+          "label": "Report format",
+          "latest_review": null,
+          "machine_confidence": "low",
+          "machine_verification_status": "needs_review",
+          "material": true,
+          "normalized_value": "appraisal report",
+          "state": "unresolved_conflict",
+          "unit": null,
+          "value": "appraisal report",
+          "value_type": "string"
+        },
+        {
+          "available_actions": [
+            "accept",
+            "correct",
+            "reject",
+            "defer"
+          ],
+          "candidate_id": "candidate-22c66fb022aef3666b7b",
+          "conflict_ids": [],
+          "evidence": [
+            {
+              "confidence": "medium",
+              "evidence_id": "evidence-e5dfccb88b7aad001efb",
+              "extraction_method": "first page title block: split-line deterministic title phrase",
+              "locator": {
+                "cell": null,
+                "page_number": 1,
+                "paragraph": null,
+                "region": null,
+                "section": "first page title block",
+                "table": null
+              },
+              "quality": "primary_report",
+              "safe_reference": "appraisal-report.pdf",
+              "source_document": "Synthetic Northstar Appraisal Report.pdf"
+            }
+          ],
+          "field_key": "report.title",
+          "label": "Report title",
+          "latest_review": null,
+          "machine_confidence": "medium",
+          "machine_verification_status": "probable",
+          "material": false,
+          "normalized_value": "synthetic appraisal intake restricted appraisal report",
+          "state": "extracted_candidate",
+          "unit": null,
+          "value": "SYNTHETIC APPRAISAL INTAKE Restricted Appraisal Report",
+          "value_type": "string"
+        }
+      ],
+      "label": "Assignment and engagement",
+      "topic_key": "assignment_and_engagement"
+    },
+    {
+      "candidates": [
+        {
+          "available_actions": [
+            "accept",
+            "correct",
+            "reject",
+            "defer"
+          ],
+          "candidate_id": "candidate-89e998d3b4b9c262ec61",
+          "conflict_ids": [
+            "conflict-336b55e112817476e50b"
+          ],
+          "evidence": [
+            {
+              "confidence": "high",
+              "evidence_id": "evidence-4fb2fc2c8a1f7d23a4ad",
+              "extraction_method": "deterministic label match: Client",
+              "locator": {
+                "cell": null,
+                "page_number": 1,
+                "paragraph": null,
+                "region": null,
+                "section": null,
+                "table": null
+              },
+              "quality": "primary_report",
+              "safe_reference": "engagement-letter.docx",
+              "source_document": "Synthetic Northstar Engagement Letter.docx"
+            }
+          ],
+          "field_key": "assignment.client",
+          "label": "Client",
+          "latest_review": {
+            "action": "candidate_verified",
+            "actor_id": "user-synthetic-appraiser-brief-001",
+            "actor_name": "Morgan Appraiser",
+            "actor_role": "appraiser",
+            "event_id": "review-31e475ac6cf9c944e47a",
+            "evidence_ids": [],
+            "field_key": "assignment.client",
+            "occurred_at": "2026-09-03T15:10:00+00:00",
+            "prior_value": "Example Regional Bank, N.A.",
+            "reason": "Engagement letter controls the synthetic legal client name.",
+            "resulting_value": "Example Regional Bank, N.A.",
+            "target_id": "candidate-89e998d3b4b9c262ec61",
+            "target_type": "candidate"
+          },
+          "machine_confidence": "medium",
+          "machine_verification_status": "probable",
+          "material": true,
+          "normalized_value": "example regional bank n a",
+          "state": "accepted",
+          "unit": null,
+          "value": "Example Regional Bank, N.A.",
+          "value_type": "string"
+        },
+        {
+          "available_actions": [
+            "accept",
+            "correct",
+            "reject",
+            "defer"
+          ],
+          "candidate_id": "candidate-cd2852a52ff103b87477",
+          "conflict_ids": [
+            "conflict-336b55e112817476e50b"
+          ],
+          "evidence": [
+            {
+              "confidence": "high",
+              "evidence_id": "evidence-689bb961834540e39529",
+              "extraction_method": "deterministic label match: Client",
+              "locator": {
+                "cell": null,
+                "page_number": 1,
+                "paragraph": null,
+                "region": null,
+                "section": null,
+                "table": null
+              },
+              "quality": "primary_report",
+              "safe_reference": "appraisal-report.pdf",
+              "source_document": "Synthetic Northstar Appraisal Report.pdf"
+            },
+            {
+              "confidence": "high",
+              "evidence_id": "evidence-b3ccc2ba131fe9945544",
+              "extraction_method": "deterministic label match: Client",
+              "locator": {
+                "cell": null,
+                "page_number": 1,
+                "paragraph": null,
+                "region": null,
+                "section": null,
+                "table": null
+              },
+              "quality": "primary_report",
+              "safe_reference": "appraisal-report.pdf",
+              "source_document": "Synthetic Northstar Appraisal Report.pdf"
+            },
+            {
+              "confidence": "high",
+              "evidence_id": "evidence-c03358c89a9bdccba3d5",
+              "extraction_method": "summary of salient facts table: Client",
+              "locator": {
+                "cell": null,
+                "page_number": 1,
+                "paragraph": null,
+                "region": null,
+                "section": null,
+                "table": null
+              },
+              "quality": "primary_report",
+              "safe_reference": "appraisal-report.pdf",
+              "source_document": "Synthetic Northstar Appraisal Report.pdf"
+            }
+          ],
+          "field_key": "assignment.client",
+          "label": "Client",
+          "latest_review": {
+            "action": "candidate_rejected",
+            "actor_id": "user-synthetic-appraiser-brief-001",
+            "actor_name": "Morgan Appraiser",
+            "actor_role": "appraiser",
+            "event_id": "review-c43f6e44571ce40fffb7",
+            "evidence_ids": [],
+            "field_key": "assignment.client",
+            "occurred_at": "2026-09-03T15:10:00+00:00",
+            "prior_value": "Example Regional Bank",
+            "reason": "Engagement letter controls the synthetic legal client name.",
+            "resulting_value": null,
+            "target_id": "candidate-cd2852a52ff103b87477",
+            "target_type": "candidate"
+          },
+          "machine_confidence": "high",
+          "machine_verification_status": "verified",
+          "material": true,
+          "normalized_value": "example regional bank",
+          "state": "rejected",
+          "unit": null,
+          "value": "Example Regional Bank",
+          "value_type": "string"
+        },
+        {
+          "available_actions": [
+            "accept",
+            "correct",
+            "reject",
+            "defer"
+          ],
+          "candidate_id": "candidate-f0661837bf3122cdeb86",
+          "conflict_ids": [],
+          "evidence": [
+            {
+              "confidence": "high",
+              "evidence_id": "evidence-83594c29b009ac86d87e",
+              "extraction_method": "summary of salient facts table: Intended User",
+              "locator": {
+                "cell": null,
+                "page_number": 1,
+                "paragraph": null,
+                "region": null,
+                "section": null,
+                "table": null
+              },
+              "quality": "primary_report",
+              "safe_reference": "appraisal-report.pdf",
+              "source_document": "Synthetic Northstar Appraisal Report.pdf"
+            },
+            {
+              "confidence": "high",
+              "evidence_id": "evidence-df344079be037c38dcb7",
+              "extraction_method": "deterministic label match: Intended User",
+              "locator": {
+                "cell": null,
+                "page_number": 1,
+                "paragraph": null,
+                "region": null,
+                "section": null,
+                "table": null
+              },
+              "quality": "primary_report",
+              "safe_reference": "appraisal-report.pdf",
+              "source_document": "Synthetic Northstar Appraisal Report.pdf"
+            },
+            {
+              "confidence": "high",
+              "evidence_id": "evidence-fe0add826fb22ed259ec",
+              "extraction_method": "deterministic label match: Intended User",
+              "locator": {
+                "cell": null,
+                "page_number": 1,
+                "paragraph": null,
+                "region": null,
+                "section": null,
+                "table": null
+              },
+              "quality": "primary_report",
+              "safe_reference": "appraisal-report.pdf",
+              "source_document": "Synthetic Northstar Appraisal Report.pdf"
+            }
+          ],
+          "field_key": "assignment.intended_user",
+          "label": "Intended user",
+          "latest_review": {
+            "action": "candidate_verified",
+            "actor_id": "user-synthetic-appraiser-brief-001",
+            "actor_name": "Morgan Appraiser",
+            "actor_role": "appraiser",
+            "event_id": "review-fbbbc34c2db40f2ec767",
+            "evidence_ids": [],
+            "field_key": "assignment.intended_user",
+            "occurred_at": "2026-09-03T15:11:00+00:00",
+            "prior_value": "Example Regional Bank",
+            "reason": "Accepted after appraiser review.",
+            "resulting_value": "Example Regional Bank",
+            "target_id": "candidate-f0661837bf3122cdeb86",
+            "target_type": "candidate"
+          },
+          "machine_confidence": "high",
+          "machine_verification_status": "verified",
+          "material": true,
+          "normalized_value": "example regional bank",
+          "state": "accepted",
+          "unit": null,
+          "value": "Example Regional Bank",
+          "value_type": "string"
+        }
+      ],
+      "label": "Client and intended users",
+      "topic_key": "client_and_intended_users"
+    },
+    {
+      "candidates": [
+        {
+          "available_actions": [
+            "accept",
+            "correct",
+            "reject",
+            "defer"
+          ],
+          "candidate_id": "candidate-9f1fa9f6d93338f75d53",
+          "conflict_ids": [
+            "conflict-617c92536c3c0b623233"
+          ],
+          "evidence": [
+            {
+              "confidence": "conflicting",
+              "evidence_id": "evidence-58869fea0d61fc3644ac",
+              "extraction_method": "deterministic label match: Intended Use",
+              "locator": {
+                "cell": null,
+                "page_number": 2,
+                "paragraph": null,
+                "region": null,
+                "section": null,
+                "table": null
+              },
+              "quality": "primary_report",
+              "safe_reference": "appraisal-report.pdf",
+              "source_document": "Synthetic Northstar Appraisal Report.pdf"
+            }
+          ],
+          "field_key": "assignment.intended_use",
+          "label": "Intended use",
+          "latest_review": null,
+          "machine_confidence": "conflicting",
+          "machine_verification_status": "conflicting",
+          "material": true,
+          "normalized_value": "internal_decision",
+          "state": "unresolved_conflict",
+          "unit": null,
+          "value": "Internal portfolio planning",
+          "value_type": "string"
+        },
+        {
+          "available_actions": [
+            "accept",
+            "correct",
+            "reject",
+            "defer"
+          ],
+          "candidate_id": "candidate-e9c1662d1790243fe24d",
+          "conflict_ids": [
+            "conflict-617c92536c3c0b623233"
+          ],
+          "evidence": [
+            {
+              "confidence": "conflicting",
+              "evidence_id": "evidence-c46b5148e2ccd14be908",
+              "extraction_method": "deterministic label match: Intended Use",
+              "locator": {
+                "cell": null,
+                "page_number": 1,
+                "paragraph": null,
+                "region": null,
+                "section": null,
+                "table": null
+              },
+              "quality": "primary_report",
+              "safe_reference": "appraisal-report.pdf",
+              "source_document": "Synthetic Northstar Appraisal Report.pdf"
+            }
+          ],
+          "field_key": "assignment.intended_use",
+          "label": "Intended use",
+          "latest_review": null,
+          "machine_confidence": "conflicting",
+          "machine_verification_status": "conflicting",
+          "material": true,
+          "normalized_value": "loan_underwriting",
+          "state": "unresolved_conflict",
+          "unit": null,
+          "value": "Loan underwriting",
+          "value_type": "string"
+        }
+      ],
+      "label": "Intended use and appraisal purpose",
+      "topic_key": "intended_use_and_appraisal_purpose"
+    },
+    {
+      "candidates": [
+        {
+          "available_actions": [
+            "accept",
+            "correct",
+            "reject",
+            "defer"
+          ],
+          "candidate_id": "candidate-1283eda138bd30091b1b",
+          "conflict_ids": [],
+          "evidence": [
+            {
+              "confidence": "high",
+              "evidence_id": "evidence-7d7b0a341b41e16e2374",
+              "extraction_method": "deterministic label match: Effective Date",
+              "locator": {
+                "cell": null,
+                "page_number": 1,
+                "paragraph": null,
+                "region": null,
+                "section": null,
+                "table": null
+              },
+              "quality": "primary_report",
+              "safe_reference": "engagement-letter.docx",
+              "source_document": "Synthetic Northstar Engagement Letter.docx"
+            }
+          ],
+          "field_key": "assignment.effective_date_requirement",
+          "label": "Effective date requirement",
+          "latest_review": {
+            "action": "candidate_verified",
+            "actor_id": "user-synthetic-appraiser-brief-001",
+            "actor_name": "Morgan Appraiser",
+            "actor_role": "appraiser",
+            "event_id": "review-206df80d1ce97209acaf",
+            "evidence_ids": [],
+            "field_key": "assignment.effective_date_requirement",
+            "occurred_at": "2026-09-03T15:12:00+00:00",
+            "prior_value": "September 1, 2026",
+            "reason": "Accepted after appraiser review.",
+            "resulting_value": "September 1, 2026",
+            "target_id": "candidate-1283eda138bd30091b1b",
+            "target_type": "candidate"
+          },
+          "machine_confidence": "medium",
+          "machine_verification_status": "probable",
+          "material": true,
+          "normalized_value": "2026-09-01",
+          "state": "accepted",
+          "unit": null,
+          "value": "September 1, 2026",
+          "value_type": "string"
+        },
+        {
+          "available_actions": [
+            "accept",
+            "correct",
+            "reject",
+            "defer"
+          ],
+          "candidate_id": "candidate-44d098692f100ca81b5b",
+          "conflict_ids": [],
+          "evidence": [
+            {
+              "confidence": "high",
+              "evidence_id": "evidence-cd0a5fb87b1b0c77c1a0",
+              "extraction_method": "deterministic label match: Effective Date",
+              "locator": {
+                "cell": null,
+                "page_number": 1,
+                "paragraph": null,
+                "region": null,
+                "section": null,
+                "table": null
+              },
+              "quality": "primary_report",
+              "safe_reference": "appraisal-report.pdf",
+              "source_document": "Synthetic Northstar Appraisal Report.pdf"
+            },
+            {
+              "confidence": "high",
+              "evidence_id": "evidence-e5aecf182b39f348d22a",
+              "extraction_method": "summary of salient facts table: Effective Date",
+              "locator": {
+                "cell": null,
+                "page_number": 1,
+                "paragraph": null,
+                "region": null,
+                "section": null,
+                "table": null
+              },
+              "quality": "primary_report",
+              "safe_reference": "appraisal-report.pdf",
+              "source_document": "Synthetic Northstar Appraisal Report.pdf"
+            },
+            {
+              "confidence": "high",
+              "evidence_id": "evidence-fa53ce620fd4c23894fd",
+              "extraction_method": "deterministic label match: Effective Date",
+              "locator": {
+                "cell": null,
+                "page_number": 1,
+                "paragraph": null,
+                "region": null,
+                "section": null,
+                "table": null
+              },
+              "quality": "primary_report",
+              "safe_reference": "appraisal-report.pdf",
+              "source_document": "Synthetic Northstar Appraisal Report.pdf"
+            }
+          ],
+          "field_key": "assignment.effective_date_requirement",
+          "label": "Effective date requirement",
+          "latest_review": null,
+          "machine_confidence": "high",
+          "machine_verification_status": "verified",
+          "material": true,
+          "normalized_value": "2026-09-01",
+          "state": "extracted_candidate",
+          "unit": null,
+          "value": "September 1, 2026",
+          "value_type": "string"
+        },
+        {
+          "available_actions": [
+            "accept",
+            "correct",
+            "reject",
+            "defer"
+          ],
+          "candidate_id": "candidate-e57bf9158baa16ead212",
+          "conflict_ids": [],
+          "evidence": [
+            {
+              "confidence": "high",
+              "evidence_id": "evidence-280f757b8a9eb0b3ead3",
+              "extraction_method": "deterministic label match: Inspection Date",
+              "locator": {
+                "cell": null,
+                "page_number": 1,
+                "paragraph": null,
+                "region": null,
+                "section": null,
+                "table": null
+              },
+              "quality": "primary_report",
+              "safe_reference": "appraisal-report.pdf",
+              "source_document": "Synthetic Northstar Appraisal Report.pdf"
+            },
+            {
+              "confidence": "high",
+              "evidence_id": "evidence-4dde0d7f6ccfbeb2a99e",
+              "extraction_method": "deterministic label match: Inspection",
+              "locator": {
+                "cell": null,
+                "page_number": 1,
+                "paragraph": null,
+                "region": null,
+                "section": null,
+                "table": null
+              },
+              "quality": "primary_report",
+              "safe_reference": "appraisal-report.pdf",
+              "source_document": "Synthetic Northstar Appraisal Report.pdf"
+            },
+            {
+              "confidence": "medium",
+              "evidence_id": "evidence-74f05afcdc447112a854",
+              "extraction_method": "inspection anchor: sentence date match",
+              "locator": {
+                "cell": null,
+                "page_number": 1,
+                "paragraph": null,
+                "region": null,
+                "section": "inspection anchor",
+                "table": null
+              },
+              "quality": "primary_report",
+              "safe_reference": "appraisal-report.pdf",
+              "source_document": "Synthetic Northstar Appraisal Report.pdf"
+            }
+          ],
+          "field_key": "assignment.inspection_date",
+          "label": "Inspection date",
+          "latest_review": null,
+          "machine_confidence": "high",
+          "machine_verification_status": "verified",
+          "material": false,
+          "normalized_value": "2026-08-29",
+          "state": "extracted_candidate",
+          "unit": null,
+          "value": "August 29, 2026",
+          "value_type": "string"
+        },
+        {
+          "available_actions": [
+            "accept",
+            "correct",
+            "reject",
+            "defer"
+          ],
+          "candidate_id": "candidate-9e3a588f3fda5d742c3e",
+          "conflict_ids": [],
+          "evidence": [
+            {
+              "confidence": "high",
+              "evidence_id": "evidence-0c63431a2a71b78ca6a7",
+              "extraction_method": "deterministic label match: Report Date",
+              "locator": {
+                "cell": null,
+                "page_number": 1,
+                "paragraph": null,
+                "region": null,
+                "section": null,
+                "table": null
+              },
+              "quality": "primary_report",
+              "safe_reference": "appraisal-report.pdf",
+              "source_document": "Synthetic Northstar Appraisal Report.pdf"
+            }
+          ],
+          "field_key": "assignment.report_date_requirement",
+          "label": "Report date requirement",
+          "latest_review": {
+            "action": "candidate_deferred",
+            "actor_id": "user-synthetic-appraiser-brief-001",
+            "actor_name": "Morgan Appraiser",
+            "actor_role": "appraiser",
+            "event_id": "review-c8794b3923df1ad146ad",
+            "evidence_ids": [],
+            "field_key": "assignment.report_date_requirement",
+            "occurred_at": "2026-09-03T15:18:00+00:00",
+            "prior_value": "September 3, 2026",
+            "reason": "Report-date requirement awaits confirmation from the synthetic engagement team.",
+            "resulting_value": null,
+            "target_id": "candidate-9e3a588f3fda5d742c3e",
+            "target_type": "candidate"
+          },
+          "machine_confidence": "medium",
+          "machine_verification_status": "probable",
+          "material": false,
+          "normalized_value": "2026-09-03",
+          "state": "deferred",
+          "unit": null,
+          "value": "September 3, 2026",
+          "value_type": "string"
+        }
+      ],
+      "label": "Important dates",
+      "topic_key": "important_dates"
+    },
+    {
+      "candidates": [
+        {
+          "available_actions": [
+            "accept",
+            "correct",
+            "reject",
+            "defer"
+          ],
+          "candidate_id": "candidate-03fcf753f48b0ebc6822",
+          "conflict_ids": [],
+          "evidence": [
+            {
+              "confidence": "high",
+              "evidence_id": "evidence-03f396c24c76c29212b7",
+              "extraction_method": "deterministic label match: Property Address",
+              "locator": {
+                "cell": null,
+                "page_number": 1,
+                "paragraph": null,
+                "region": null,
+                "section": null,
+                "table": null
+              },
+              "quality": "primary_report",
+              "safe_reference": "appraisal-report.pdf",
+              "source_document": "Synthetic Northstar Appraisal Report.pdf"
+            },
+            {
+              "confidence": "high",
+              "evidence_id": "evidence-79ee6fd61e486ca46a36",
+              "extraction_method": "deterministic label match: Property Address",
+              "locator": {
+                "cell": null,
+                "page_number": 1,
+                "paragraph": null,
+                "region": null,
+                "section": null,
+                "table": null
+              },
+              "quality": "primary_report",
+              "safe_reference": "appraisal-report.pdf",
+              "source_document": "Synthetic Northstar Appraisal Report.pdf"
+            },
+            {
+              "confidence": "high",
+              "evidence_id": "evidence-c877f110968a02a73748",
+              "extraction_method": "summary of salient facts table: Property Address",
+              "locator": {
+                "cell": null,
+                "page_number": 1,
+                "paragraph": null,
+                "region": null,
+                "section": null,
+                "table": null
+              },
+              "quality": "primary_report",
+              "safe_reference": "appraisal-report.pdf",
+              "source_document": "Synthetic Northstar Appraisal Report.pdf"
+            }
+          ],
+          "field_key": "subject.address",
+          "label": "Property address",
+          "latest_review": null,
+          "machine_confidence": "high",
+          "machine_verification_status": "verified",
+          "material": true,
+          "normalized_value": "1600 northstar logistics way",
+          "state": "extracted_candidate",
+          "unit": null,
+          "value": "1600 Northstar Logistics Way",
+          "value_type": "string"
+        },
+        {
+          "available_actions": [
+            "accept",
+            "correct",
+            "reject",
+            "defer"
+          ],
+          "candidate_id": "candidate-98051c53798916edade4",
+          "conflict_ids": [],
+          "evidence": [
+            {
+              "confidence": "high",
+              "evidence_id": "evidence-132460bda17f3a52917b",
+              "extraction_method": "deterministic label match: Property Address",
+              "locator": {
+                "cell": null,
+                "page_number": 1,
+                "paragraph": null,
+                "region": null,
+                "section": null,
+                "table": null
+              },
+              "quality": "primary_report",
+              "safe_reference": "engagement-letter.docx",
+              "source_document": "Synthetic Northstar Engagement Letter.docx"
+            }
+          ],
+          "field_key": "subject.address",
+          "label": "Property address",
+          "latest_review": {
+            "action": "candidate_verified",
+            "actor_id": "user-synthetic-appraiser-brief-001",
+            "actor_name": "Morgan Appraiser",
+            "actor_role": "appraiser",
+            "event_id": "review-7e28b2dcc4085267c0e1",
+            "evidence_ids": [],
+            "field_key": "subject.address",
+            "occurred_at": "2026-09-03T15:15:00+00:00",
+            "prior_value": "1600 Northstar Logistics Way",
+            "reason": "Accepted after appraiser review.",
+            "resulting_value": "1600 Northstar Logistics Way",
+            "target_id": "candidate-98051c53798916edade4",
+            "target_type": "candidate"
+          },
+          "machine_confidence": "medium",
+          "machine_verification_status": "probable",
+          "material": true,
+          "normalized_value": "1600 northstar logistics way",
+          "state": "accepted",
+          "unit": null,
+          "value": "1600 Northstar Logistics Way",
+          "value_type": "string"
+        },
+        {
+          "available_actions": [
+            "accept",
+            "correct",
+            "reject",
+            "defer"
+          ],
+          "candidate_id": "candidate-e04130423dbbb1a5e412",
+          "conflict_ids": [],
+          "evidence": [
+            {
+              "confidence": "high",
+              "evidence_id": "evidence-227ed9294fdef062df89",
+              "extraction_method": "deterministic label match: Property Type",
+              "locator": {
+                "cell": null,
+                "page_number": 1,
+                "paragraph": null,
+                "region": null,
+                "section": null,
+                "table": null
+              },
+              "quality": "primary_report",
+              "safe_reference": "appraisal-report.pdf",
+              "source_document": "Synthetic Northstar Appraisal Report.pdf"
+            },
+            {
+              "confidence": "high",
+              "evidence_id": "evidence-929052453cd590d39e5c",
+              "extraction_method": "summary of salient facts table: Property Type",
+              "locator": {
+                "cell": null,
+                "page_number": 1,
+                "paragraph": null,
+                "region": null,
+                "section": null,
+                "table": null
+              },
+              "quality": "primary_report",
+              "safe_reference": "appraisal-report.pdf",
+              "source_document": "Synthetic Northstar Appraisal Report.pdf"
+            },
+            {
+              "confidence": "high",
+              "evidence_id": "evidence-bdd57a6a30d61080a895",
+              "extraction_method": "deterministic label match: Property Type",
+              "locator": {
+                "cell": null,
+                "page_number": 1,
+                "paragraph": null,
+                "region": null,
+                "section": null,
+                "table": null
+              },
+              "quality": "primary_report",
+              "safe_reference": "appraisal-report.pdf",
+              "source_document": "Synthetic Northstar Appraisal Report.pdf"
+            }
+          ],
+          "field_key": "subject.property_type",
+          "label": "Property type",
+          "latest_review": {
+            "action": "candidate_corrected",
+            "actor_id": "user-synthetic-appraiser-brief-001",
+            "actor_name": "Morgan Appraiser",
+            "actor_role": "appraiser",
+            "event_id": "review-0dc464a795bc2368296a",
+            "evidence_ids": [],
+            "field_key": "subject.property_type",
+            "occurred_at": "2026-09-03T15:16:00+00:00",
+            "prior_value": "Industrial",
+            "reason": "Refined the broad extracted type using the synthetic assignment scope.",
+            "resulting_value": "Industrial / Distribution Warehouse",
+            "target_id": "candidate-e04130423dbbb1a5e412",
+            "target_type": "candidate"
+          },
+          "machine_confidence": "high",
+          "machine_verification_status": "verified",
+          "material": true,
+          "normalized_value": "industrial",
+          "state": "corrected",
+          "unit": null,
+          "value": "Industrial",
+          "value_type": "string"
+        }
+      ],
+      "label": "Subject identity and location",
+      "topic_key": "subject_identity_and_location"
+    },
+    {
+      "candidates": [
+        {
+          "available_actions": [
+            "accept",
+            "correct",
+            "reject",
+            "defer"
+          ],
+          "candidate_id": "candidate-5ccd1c98a71f3d7e82ad",
+          "conflict_ids": [],
+          "evidence": [
+            {
+              "confidence": "medium",
+              "evidence_id": "evidence-470000d9c4821275e026",
+              "extraction_method": "deterministic phrase presence",
+              "locator": {
+                "cell": null,
+                "page_number": 1,
+                "paragraph": null,
+                "region": null,
+                "section": null,
+                "table": null
+              },
+              "quality": "primary_report",
+              "safe_reference": "appraisal-report.pdf",
+              "source_document": "Synthetic Northstar Appraisal Report.pdf"
+            }
+          ],
+          "field_key": "analysis.approaches.income",
+          "label": "Income approach referenced",
+          "latest_review": null,
+          "machine_confidence": "medium",
+          "machine_verification_status": "probable",
+          "material": false,
+          "normalized_value": "present",
+          "state": "extracted_candidate",
+          "unit": null,
+          "value": "present",
+          "value_type": "string"
+        },
+        {
+          "available_actions": [
+            "accept",
+            "correct",
+            "reject",
+            "defer"
+          ],
+          "candidate_id": "candidate-14be01dddd1855bd3f98",
+          "conflict_ids": [],
+          "evidence": [
+            {
+              "confidence": "medium",
+              "evidence_id": "evidence-56e0f39ba86ced1047c3",
+              "extraction_method": "deterministic phrase presence",
+              "locator": {
+                "cell": null,
+                "page_number": 1,
+                "paragraph": null,
+                "region": null,
+                "section": null,
+                "table": null
+              },
+              "quality": "primary_report",
+              "safe_reference": "appraisal-report.pdf",
+              "source_document": "Synthetic Northstar Appraisal Report.pdf"
+            }
+          ],
+          "field_key": "analysis.approaches.sales_comparison",
+          "label": "Sales comparison approach referenced",
+          "latest_review": null,
+          "machine_confidence": "medium",
+          "machine_verification_status": "probable",
+          "material": false,
+          "normalized_value": "present",
+          "state": "extracted_candidate",
+          "unit": null,
+          "value": "present",
+          "value_type": "string"
+        }
+      ],
+      "label": "Comparables and market references",
+      "topic_key": "comparables_and_market_references"
+    },
+    {
+      "candidates": [
+        {
+          "available_actions": [
+            "accept",
+            "correct",
+            "reject",
+            "defer"
+          ],
+          "candidate_id": "candidate-b5014b2a423fa7ba533e",
+          "conflict_ids": [],
+          "evidence": [
+            {
+              "confidence": "high",
+              "evidence_id": "evidence-4b72c6324cd1b8e1f008",
+              "extraction_method": "deterministic label match: Reviewer",
+              "locator": {
+                "cell": null,
+                "page_number": 1,
+                "paragraph": null,
+                "region": null,
+                "section": null,
+                "table": null
+              },
+              "quality": "primary_report",
+              "safe_reference": "appraisal-report.pdf",
+              "source_document": "Synthetic Northstar Appraisal Report.pdf"
+            }
+          ],
+          "field_key": "assignment.reviewer",
+          "label": "Reviewer",
+          "latest_review": {
+            "action": "candidate_rejected",
+            "actor_id": "user-synthetic-appraiser-brief-001",
+            "actor_name": "Morgan Appraiser",
+            "actor_role": "appraiser",
+            "event_id": "review-8e002c3d1b327ff744a6",
+            "evidence_ids": [],
+            "field_key": "assignment.reviewer",
+            "occurred_at": "2026-09-03T15:17:00+00:00",
+            "prior_value": "Taylor Reviewer, MAI",
+            "reason": "Historical report reviewer is not assigned to the current synthetic engagement.",
+            "resulting_value": null,
+            "target_id": "candidate-b5014b2a423fa7ba533e",
+            "target_type": "candidate"
+          },
+          "machine_confidence": "medium",
+          "machine_verification_status": "probable",
+          "material": false,
+          "normalized_value": "taylor reviewer mai",
+          "state": "rejected",
+          "unit": null,
+          "value": "Taylor Reviewer, MAI",
+          "value_type": "string"
+        },
+        {
+          "available_actions": [
+            "accept",
+            "correct",
+            "reject",
+            "defer"
+          ],
+          "candidate_id": "candidate-e07a9f51a16b2f3f4062",
+          "conflict_ids": [],
+          "evidence": [
+            {
+              "confidence": "high",
+              "evidence_id": "evidence-50331748dc1fd5fd40a1",
+              "extraction_method": "deterministic label match: Appraiser",
+              "locator": {
+                "cell": null,
+                "page_number": 1,
+                "paragraph": null,
+                "region": null,
+                "section": null,
+                "table": null
+              },
+              "quality": "primary_report",
+              "safe_reference": "appraisal-report.pdf",
+              "source_document": "Synthetic Northstar Appraisal Report.pdf"
+            }
+          ],
+          "field_key": "assignment.signing_appraiser",
+          "label": "Signing appraiser",
+          "latest_review": {
+            "action": "candidate_verified",
+            "actor_id": "user-synthetic-appraiser-brief-001",
+            "actor_name": "Morgan Appraiser",
+            "actor_role": "appraiser",
+            "event_id": "review-38ceb9c2489f6c4ba6d1",
+            "evidence_ids": [],
+            "field_key": "assignment.signing_appraiser",
+            "occurred_at": "2026-09-03T15:14:00+00:00",
+            "prior_value": "Morgan Appraiser, MAI",
+            "reason": "Accepted after appraiser review.",
+            "resulting_value": "Morgan Appraiser, MAI",
+            "target_id": "candidate-e07a9f51a16b2f3f4062",
+            "target_type": "candidate"
+          },
+          "machine_confidence": "medium",
+          "machine_verification_status": "probable",
+          "material": true,
+          "normalized_value": "morgan appraiser mai",
+          "state": "accepted",
+          "unit": null,
+          "value": "Morgan Appraiser, MAI",
+          "value_type": "string"
+        }
+      ],
+      "label": "Signing and review information",
+      "topic_key": "signing_and_review_information"
+    }
+  ],
+  "workspace_type": "local_intake_review"
+}

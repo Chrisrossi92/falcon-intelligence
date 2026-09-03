@@ -152,9 +152,25 @@ $env:PYTHONPATH='src'
 python -m falcon_intel.cli correction-audit
 ```
 
+Run the complete synthetic Local Intake Review to Assignment/Property Brief V1 workflow:
+
+```powershell
+$env:PYTHONPATH='src'
+python -m falcon_intel.cli local-intake-review
+```
+
+Write deterministic AIR JSON, brief JSON, and Markdown to an explicitly selected ignored local directory:
+
+```powershell
+$env:PYTHONPATH='src'
+python -m falcon_intel.cli local-intake-review --export-dir data\local-intake-review\synthetic-northstar
+```
+
+The workflow uses code-only synthetic assignment text, existing extraction and deterministic verification, AIR review events, readiness, and Brief V1. It does not read a real document or connect to Project Falcon.
+
 ## Output
 
-CLI output is JSON so it can be reviewed or consumed by a future local UI. Results include metadata only.
+CLI output is JSON so it can be reviewed or consumed by a local UI. The Local Intake Review response is the versioned backend projection consumed by the React synthetic proof and includes AIR/brief facts and metadata-only evidence, not source-document text.
 
 ## Safety Boundary
 
@@ -168,6 +184,8 @@ CLI output is JSON so it can be reviewed or consumed by a future local UI. Resul
 - `subject-profile` uses synthetic demo registry data only.
 - `property-library` uses synthetic demo property, evidence, report usage, and candidate match data only.
 - `correction-audit` uses synthetic correction, evidence reference, confidence impact, and audit history data only.
+- `local-intake-review` uses only code-owned synthetic document text and emits the canonical AIR, review projection, readiness, and Brief V1.
+- `local-intake-review --export-dir` refuses tracked repository destinations. Use ignored `data/`, `exports/`, `local-data/`, or `local_data/` paths, or a directory outside the repository.
 - These `falcon-intel` CLI commands never copy source files or open them for content.
 - Manifest files remain local ignored prototype artifacts.
 - The synthetic intelligence card preview does not use OneDrive data, report parsing, OCR, embeddings, or source-document content.

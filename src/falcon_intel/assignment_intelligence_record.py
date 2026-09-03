@@ -34,6 +34,7 @@ CANDIDATE_STATES = {
     "accepted",
     "corrected",
     "rejected",
+    "deferred",
     "unresolved_conflict",
 }
 FACT_STATES = {"verified", "corrected", "appraiser_entered", "superseded"}
@@ -41,6 +42,7 @@ REVIEW_ACTIONS = {
     "candidate_verified",
     "candidate_corrected",
     "candidate_rejected",
+    "candidate_deferred",
     "appraiser_fact_entered",
     "conclusion_entered",
 }
@@ -688,12 +690,21 @@ def build_candidate_review_event(
 ) -> ReviewEvent:
     """Build a deterministic human review event for one extracted candidate."""
 
-    if action not in {"candidate_verified", "candidate_corrected", "candidate_rejected"}:
+    if action not in {
+        "candidate_verified",
+        "candidate_corrected",
+        "candidate_rejected",
+        "candidate_deferred",
+    }:
         raise ValueError(f"Unsupported candidate review action: {action}")
     if action == "candidate_corrected" and corrected_value is None:
         raise ValueError("corrected_value is required for candidate_corrected.")
-    resulting_value = corrected_value if action == "candidate_corrected" else (
-        candidate.value if action == "candidate_verified" else None
+    resulting_value = (
+        corrected_value
+        if action == "candidate_corrected"
+        else candidate.value
+        if action == "candidate_verified"
+        else None
     )
     event_id = _stable_id(
         "review",
@@ -780,7 +791,15 @@ def build_assignment_intelligence_record(
         candidate_list = _replace_candidate_state(candidate_list, candidate.candidate_id, _candidate_state(event.action))
         candidates_by_id = {item.candidate_id: item for item in candidate_list}
         if event.action == "candidate_rejected":
-            _supersede_current_fact(facts, current_by_field, candidate.field_key)
+            _supersede_candidate_fact(
+                facts,
+                current_by_field,
+                candidate.field_key,
+                candidate.candidate_id,
+            )
+            applied_events.append(event)
+            continue
+        if event.action == "candidate_deferred":
             applied_events.append(event)
             continue
 
@@ -1017,7 +1036,23 @@ def calculate_analysis_readiness(
         for candidate_id in conflict.candidate_ids
     }
     for candidate in candidates:
-        if not candidate.material or candidate.candidate_id in conflict_candidate_ids:
+        if candidate.candidate_id in conflict_candidate_ids:
+            continue
+        if candidate.state == "deferred":
+            requirement = requirement_by_field.get(candidate.field_key)
+            severity = "blocking" if requirement and requirement.blocking else "nonblocking"
+            issues.append(
+                _readiness_issue(
+                    area=requirement.area if requirement else _area_for_field(candidate.field_key),
+                    issue_type="deferred_review_candidate",
+                    severity=severity,
+                    field_keys=(candidate.field_key,),
+                    related_ids=(candidate.candidate_id,),
+                    message=f"Candidate review was deferred: {candidate.field_key}.",
+                )
+            )
+            continue
+        if not candidate.material:
             continue
         if candidate.state not in {"extracted_candidate", "unresolved_conflict"}:
             continue
@@ -1305,7 +1340,29 @@ def _candidate_state(action: str) -> str:
         "candidate_verified": "accepted",
         "candidate_corrected": "corrected",
         "candidate_rejected": "rejected",
+        "candidate_deferred": "deferred",
     }[action]
+
+
+def _supersede_candidate_fact(
+    facts: list[CanonicalFact],
+    current_by_field: dict[str, str],
+    field_key: str,
+    candidate_id: str,
+) -> None:
+    """Supersede only a current fact created from the rejected candidate.
+
+    Competing candidates share a field key. Rejecting one side of a conflict
+    must not remove the fact promoted from the selected side.
+    """
+
+    current_fact_id = current_by_field.get(field_key)
+    if current_fact_id is None:
+        return
+    current_fact = next((fact for fact in facts if fact.fact_id == current_fact_id), None)
+    if current_fact is None or candidate_id not in current_fact.candidate_ids:
+        return
+    _supersede_current_fact(facts, current_by_field, field_key)
 
 
 def _supersede_current_fact(

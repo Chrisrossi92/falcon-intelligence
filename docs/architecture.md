@@ -4,6 +4,8 @@ Falcon Intelligence is planned as a future premium Project Falcon module for app
 
 The current synthetic/local implementation also includes Assignment Intelligence Record V1, the canonical composed assignment view between candidate review and later appraisal-production workflows. See `docs/architecture/FALCON_ASSIGNMENT_INTELLIGENCE_RECORD.md` for its model audit, contract, state semantics, readiness rules, and Falcon boundary.
 
+The first downstream appraisal-production slice is the AIR-backed Local Intake Review and Assignment/Property Brief V1 workflow. See `docs/architecture/FALCON_LOCAL_INTAKE_REVIEW_AND_BRIEF.md` for review-event semantics, the versioned frontend projection, brief boundaries, and deterministic safe export rules.
+
 This document defines the intended product architecture and the boundary between implemented local tooling and future production workflows.
 
 The canonical Intelligence Engine foundation lives in `docs/architecture/FALCON_INTELLIGENCE_ENGINE.md`. All future AI and intelligence capabilities should align to its permanent hierarchy:

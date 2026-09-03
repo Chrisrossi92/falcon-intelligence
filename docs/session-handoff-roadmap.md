@@ -52,6 +52,8 @@ Controlled local historical workflow:
 - Deterministic verification, Knowledge Object candidate, and Memory Graph candidate stages.
 - Privacy-safe extraction/anchor diagnostics, OCR feasibility, and an opt-in OCR/layout diagnostic pilot that does not promote OCR output.
 - Canonical Assignment Intelligence Record V1 composition from extraction candidates, deterministic machine assessment, explicit appraiser/reviewer decisions, evidence, fact revisions, conflicts, references, and readiness.
+- AIR-backed synthetic Local Intake Review with accept, correction, retained rejection, defer, explicit conflict resolution, appraiser-entered facts, practical topic groups, and deterministic readiness.
+- Assignment/Property Brief V1 with traceable evidence, reference-only comparable/market leads, safe AIR/brief JSON and Markdown exports, and a backend-generated React review projection.
 
 Firm Intelligence card prototype:
 
@@ -167,6 +169,7 @@ Falcon Intelligence currently supports Project Falcon integration through local 
 
 - `build_falcon_intelligence_card_response`: accepts a Falcon-style synthetic order payload and returns the v1 Firm Intelligence Found card.
 - `build_falcon_passport_detail_response`: accepts `tenant_id`, `order_id`, `user_id`, and `passport_id`, then returns full synthetic passport detail plus a suggested audit event.
+- `build_local_intake_review_workspace`: projects canonical AIR candidates, evidence, review state, conflicts, readiness, and Brief V1 into the synthetic React intake workspace contract.
 
 Future Falcon UI placement:
 
@@ -177,13 +180,13 @@ Future Falcon UI placement:
 
 Visibility must remain internal-only. Client-facing views must not show Firm Intelligence cards, passport details, evidence links, audit metadata, reviewer notes, or internal comp/fact recommendations.
 
-## Recommended Next 5 Slices
+## Recommended Next 5 Actions
 
-1. Build a compact appraiser review queue over Assignment Intelligence Record V1 for assignment context and subject-property facts.
-2. Produce a reviewed assignment/property brief from current canonical facts and readiness, without generating narrative or valuation conclusions.
-3. Add property-type/client-specific readiness policies as explicit versioned inputs after the base review flow is proven.
-4. Define the first report-section handoff that consumes the reviewed brief while preserving Project Falcon's order/workflow ownership.
-5. Keep stakeholder review, Falcon permission integration, persistence, and real-data production gates explicit before any production expansion.
+1. Merge the reviewed Local Intake Review / Brief V1 branch and synchronize the work-computer checkout.
+2. Conduct one tightly controlled local pilot on a deliberately selected real assignment stored outside the repository, using ignored local outputs only.
+3. Measure extraction accuracy, missed fields, review time, and whether the brief materially helps start the report without placing confidential text in Git.
+4. Use pilot evidence to decide whether property-type/client-specific readiness policies or a local durable event adapter should come next.
+5. Keep Falcon permission integration, production persistence, report-section handoff, and all narrative/valuation automation behind explicit review gates.
 
 ## Current Known Risks
 
@@ -226,3 +229,5 @@ Visibility must remain internal-only. Client-facing views must not show Firm Int
 - Real-content use and expansion remain governed by the production-readiness gate and an explicitly approved local source scope; automated validation remains synthetic-only.
 - CI validates synthetic workflows only and cannot prove production readiness.
 - Assignment Intelligence Record V1 is an in-memory/local deterministic contract. It has no production persistence, concurrency control, Falcon authorization, real-document workflow, or firm-specific readiness-policy service.
+- Local Intake Review browser interactions are an in-memory proof over a backend-generated synthetic snapshot; there is no production write-back, concurrent session handling, or durable review store.
+- Brief V1 is an appraisal-production intake summary, not an appraisal report or professional conclusion. Real-assignment use still requires a tightly scoped approved local pilot.

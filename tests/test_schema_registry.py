@@ -6,12 +6,14 @@ from falcon_intel.falcon_evidence_contract import build_falcon_evidence_open_res
 from falcon_intel.falcon_passport_contract import build_falcon_passport_detail_response
 from falcon_intel.schema_registry import (
     ASSIGNMENT_INTELLIGENCE_RECORD_SCHEMA_VERSION,
+    ASSIGNMENT_PROPERTY_BRIEF_SCHEMA_VERSION,
     AUDIT_EVENT_ENVELOPE_SCHEMA_VERSION,
     FALCON_CARD_API_RESPONSE_SCHEMA_VERSION,
     FALCON_EVIDENCE_OPEN_RESPONSE_SCHEMA_VERSION,
     FALCON_PASSPORT_DETAIL_API_RESPONSE_SCHEMA_VERSION,
     FIRM_INTELLIGENCE_CARD_SCHEMA_VERSION,
     MAP_WORKSPACE_RESPONSE_SCHEMA_VERSION,
+    LOCAL_INTAKE_REVIEW_WORKSPACE_SCHEMA_VERSION,
     PASSPORT_DETAIL_DRAWER_SCHEMA_VERSION,
     SCHEMA_REGISTRY,
     SchemaName,
@@ -38,6 +40,13 @@ MAP_WORKSPACE_SNAPSHOT_PATH = (
     / "synthetic_ui_map_workspace"
     / "map-workspace-response-v1.json"
 )
+LOCAL_INTAKE_REVIEW_SNAPSHOT_PATH = (
+    REPO_ROOT
+    / "tests"
+    / "fixtures"
+    / "synthetic_intake_review"
+    / "local-intake-review-workspace-v1.json"
+)
 PASSPORT_FIXTURE_PATH = REPO_ROOT / "tests" / "fixtures" / "synthetic_data_passports" / "data-passports.json"
 
 
@@ -51,6 +60,8 @@ def test_schema_registry_has_required_contract_entries() -> None:
         SchemaName.AUDIT_EVENT_ENVELOPE,
         SchemaName.MAP_WORKSPACE_RESPONSE,
         SchemaName.ASSIGNMENT_INTELLIGENCE_RECORD,
+        SchemaName.ASSIGNMENT_PROPERTY_BRIEF,
+        SchemaName.LOCAL_INTAKE_REVIEW_WORKSPACE,
     }
 
     for entry in SCHEMA_REGISTRY.values():
@@ -72,6 +83,12 @@ def test_schema_registry_fixture_paths_match_snapshots() -> None:
     assignment_record_entry = get_schema_registry_entry(
         SchemaName.ASSIGNMENT_INTELLIGENCE_RECORD
     )
+    assignment_brief_entry = get_schema_registry_entry(
+        SchemaName.ASSIGNMENT_PROPERTY_BRIEF
+    )
+    local_intake_review_entry = get_schema_registry_entry(
+        SchemaName.LOCAL_INTAKE_REVIEW_WORKSPACE
+    )
 
     assert card_entry.fixture_snapshot_path == "tests/fixtures/synthetic_ui_cards/firm-intelligence-card-v1.json"
     assert passport_entry.fixture_snapshot_path == "tests/fixtures/synthetic_ui_passports/passport-detail-drawer-v1.json"
@@ -92,6 +109,26 @@ def test_schema_registry_fixture_paths_match_snapshots() -> None:
     assert (
         assignment_record_entry.current_version
         == ASSIGNMENT_INTELLIGENCE_RECORD_SCHEMA_VERSION
+    )
+    assert assignment_brief_entry.fixture_snapshot_path == (
+        "tests/fixtures/synthetic_intake_review/local-intake-review-workspace-v1.json"
+    )
+    assert assignment_brief_entry.current_version == ASSIGNMENT_PROPERTY_BRIEF_SCHEMA_VERSION
+    assert local_intake_review_entry.fixture_snapshot_path == (
+        "tests/fixtures/synthetic_intake_review/local-intake-review-workspace-v1.json"
+    )
+    assert (
+        local_intake_review_entry.current_version
+        == LOCAL_INTAKE_REVIEW_WORKSPACE_SCHEMA_VERSION
+    )
+    local_intake_review_payload = json.loads(
+        LOCAL_INTAKE_REVIEW_SNAPSHOT_PATH.read_text(encoding="utf-8")
+    )
+    assert local_intake_review_payload["schema_version"] == (
+        LOCAL_INTAKE_REVIEW_WORKSPACE_SCHEMA_VERSION
+    )
+    assert local_intake_review_payload["brief"]["brief_version"] == (
+        ASSIGNMENT_PROPERTY_BRIEF_SCHEMA_VERSION
     )
     assert json.loads(CARD_SNAPSHOT_PATH.read_text(encoding="utf-8"))["schema_version"] == (
         FIRM_INTELLIGENCE_CARD_SCHEMA_VERSION

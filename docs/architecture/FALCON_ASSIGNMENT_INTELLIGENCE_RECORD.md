@@ -148,6 +148,7 @@ machine observation
     -> accepted ---------> verified canonical fact
     -> corrected --------> corrected canonical fact; original candidate/evidence retained
     -> rejected ---------> no current fact; candidate and review event retained
+    -> deferred ---------> no current fact; candidate and defer event retained for later review
     -> unresolved_conflict until competing values are explicitly resolved
 
 appraiser entry ----------> appraiser_entered canonical fact + audit event
@@ -161,6 +162,7 @@ Important distinctions:
 - A `candidate_verified` review event promotes a candidate.
 - A `candidate_corrected` event preserves the candidate value and evidence while creating a corrected current fact.
 - A `candidate_rejected` event preserves the observation and rejection reason but removes it from the current-fact view.
+- A `candidate_deferred` event preserves the observation and records the pause without promoting or rejecting it; readiness continues to surface the item.
 - A conflict remains `unresolved` until one competing value is accepted/corrected and every other competing value is explicitly rejected.
 - Corrections are additive. New fact revisions point to the fact they supersede; previous revisions remain in `facts` with state `superseded`.
 - Appraiser-entered facts use their append-only review event as a basis even when no machine candidate exists.
@@ -309,13 +311,8 @@ V1 does not implement:
 
 Production choices for storage, event concurrency, access control, retention, redaction, and contract transport remain deferred behind the existing readiness gates.
 
-## Recommended Next Slice
+## Implemented Downstream Slice
 
-Build the smallest appraiser-reviewed assignment/property brief workflow over AIR V1:
+The synthetic/local appraiser-reviewed assignment/property brief workflow is implemented in `src/falcon_intel/local_intake_review.py` and `src/falcon_intel/assignment_brief.py`, with architecture details in `FALCON_LOCAL_INTAKE_REVIEW_AND_BRIEF.md`.
 
-1. Accept an approved assignment reference and controlled assignment-document candidate inputs.
-2. Present assignment context and subject facts in a compact review queue.
-3. Let the appraiser verify, correct, reject, or enter required facts.
-4. Recalculate readiness and emit a reviewed assignment/property brief for later report-section work.
-
-Keep it synthetic/local until production gates authorize real assignment documents, Falcon auth, persistence, and source access.
+It adds accept, correct, reject, defer, conflict resolution, manual facts, review progress, readiness/blocker views, the versioned React adapter, and deterministic safe AIR/brief exports. It remains synthetic/local until production gates authorize real assignment documents, Falcon auth, persistence, and source access.

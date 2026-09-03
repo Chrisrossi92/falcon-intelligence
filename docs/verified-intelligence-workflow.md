@@ -28,6 +28,10 @@ An authorized appraiser, reviewer, admin, or owner has approved the record under
 
 A suggested record was reviewed and declined. Rejected data remains retained for auditability and model/process improvement review, but it is excluded from ordinary search, comp selection, market intelligence, and narrative workflows.
 
+### Deferred
+
+An appraiser may explicitly defer a candidate when the evidence or assignment context is not ready for a final decision. A defer event is retained in AIR, creates no canonical fact, never counts as verification, and remains visible as a readiness/review issue.
+
 ### Archived
 
 An assignment, suggestion batch, or verified record has been retired from active workflows. Archived records remain auditable, but normal search and suggestion flows should hide them unless a user with appropriate permissions requests archive history.
@@ -161,7 +165,9 @@ Supabase row-level security should enforce tenant isolation for every workflow t
 
 ## Current Guardrail
 
-This workflow is a design document only. Falcon Intelligence currently supports metadata-only scanning, local manifests, metadata search, assignment discovery, and assignment profile export. It does not read report contents, preview source documents, extract text, create embeddings, run OCR, or ingest real appraisal reports.
+Falcon Intelligence now implements the synthetic/local review loop documented in `docs/local-intake-review-workflow.md`. Accept, correct, reject, defer, conflict-resolution, and manual-entry actions use AIR V1 semantics. Assignment/Property Brief V1 reads only current AIR facts and retains evidence traceability, readiness blockers, and professional-boundary labels.
+
+The production verification workflow remains unimplemented. The local proof does not ingest real reports, preview source documents, create embeddings, run production OCR, persist production records, or connect to live Falcon services.
 
 See `docs/verified-intelligence-extraction-pipeline.md` for the future human-approved extraction pipeline design.
 See `docs/data-confidence-provenance-model.md` for the future confidence and provenance model.

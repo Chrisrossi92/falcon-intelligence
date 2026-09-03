@@ -6,7 +6,7 @@ Falcon Intelligence is a premium Project Falcon knowledge module for appraisal f
 
 This roadmap does not authorize real appraisal data access, OneDrive access, report parsing, extraction, OCR, embeddings, model training, source-document preview, or ingestion. Real content work remains blocked until the production readiness gate and approval packet are completed.
 
-Current implementation status: the repository includes bounded, read-only local historical inventory and embedded/searchable PDF/DOCX candidate extraction, followed by deterministic verification, canonical Assignment Intelligence Record V1 composition, Knowledge Object candidates, Memory Graph candidates, and privacy-safe diagnostics. Assignment Intelligence Record V1 preserves machine observations separately from explicit appraiser/reviewer decisions, evidence, fact revisions, conflicts, references, and readiness. An OCR/layout pilot is implemented but is availability-only by default and requires an explicit opt-in for redacted diagnostics. These local tools write only to ignored paths, retain no full extracted report text in their outputs, and are not production ingestion, production search, or a complete appraisal workflow. This roadmap does not by itself authorize running them on real material or expanding their scope.
+Current implementation status: the repository includes bounded, read-only local historical inventory and embedded/searchable PDF/DOCX candidate extraction, followed by deterministic verification, canonical Assignment Intelligence Record V1 composition, an AIR-backed synthetic Local Intake Review and Assignment/Property Brief V1 workflow, Knowledge Object candidates, Memory Graph candidates, and privacy-safe diagnostics. Assignment Intelligence Record V1 preserves machine observations separately from explicit appraiser/reviewer decisions, evidence, fact revisions, conflicts, references, and readiness. Local Intake Review adds accept, correction, retained rejection, defer, explicit conflict resolution, manual facts, practical topic/readiness views, a backend-generated React projection, and guarded deterministic local exports. An OCR/layout pilot is implemented but is availability-only by default and requires an explicit opt-in for redacted diagnostics. These local tools write only to ignored paths, retain no full extracted report text in their outputs, and are not production ingestion, production search, production persistence, or a complete appraisal-writing workflow. This roadmap does not by itself authorize running them on real material or expanding their scope.
 
 ## Product Vision
 
@@ -85,6 +85,24 @@ The product should not:
 - Let convenience override auditability or approval policy.
 
 ## Roadmap V1-V10
+
+### Current Appraisal-Production Slice: Local Intake Review and Brief V1
+
+Goal: prove that synthetic assignment-document candidates can be reviewed efficiently into canonical AIR facts, explainable readiness, and a useful appraiser-facing brief.
+
+Implemented scope:
+
+- Practical appraisal-topic grouping with inline evidence and provenance.
+- Accept, additive correction, retained rejection, defer, explicit conflict resolution, and appraiser-entered facts using AIR events.
+- Needs-attention, unresolved-conflict, missing-critical, progress, readiness, blocker, and next-unreviewed UI aids.
+- Assignment/Property Brief V1 generated only from current AIR facts, evidence, references, conclusions, and readiness.
+- Deterministic AIR JSON, brief JSON, and Markdown exports with safe output-directory enforcement.
+- Twenty-candidate synthetic proof and a versioned backend-generated React workspace projection.
+
+Remaining gates:
+
+- No production persistence, live Falcon integration, auth, database, real-document run, source preview, narrative, or valuation automation.
+- The next real-content step is one deliberately selected work-computer pilot only after merge/synchronization and existing approvals; confidential documents and outputs remain outside Git.
 
 ### V1: Synthetic Contract Foundation
 
@@ -1117,6 +1135,7 @@ Falcon Core remains responsible for:
 Falcon Intelligence integrates through:
 
 - Assignment Intelligence Record V1: accept a narrow Falcon-owned assignment reference and return a versioned, synthetic/local canonical intelligence contract without copying Falcon order workflow or authorization state.
+- Local Intake Review and Assignment/Property Brief V1: consume controlled candidates and AIR review events, return the versioned review/brief projection, and keep all runtime output local and ignored.
 - New Order intake: show internal preview when enough seed data exists.
 - Order Detail: show Firm Intelligence Found card.
 - Assignment workspace: show relevant verified knowledge while work is performed.

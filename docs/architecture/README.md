@@ -15,6 +15,7 @@ This directory contains permanent Falcon Intelligence architecture foundations. 
 - `FALCON_MEMORY_GRAPH.md`: local deterministic graph prototype connecting Knowledge Objects into institutional memory.
 - `FALCON_PROPERTY_PASSPORT.md`: preview-only operator surface for property-centered Verified Fact ledgers.
 - `FALCON_ASSIGNMENT_INTELLIGENCE_RECORD.md`: canonical assignment-scoped composition contract for candidates, evidence, appraiser decisions, facts, conflicts, references, and analysis readiness.
+- `FALCON_LOCAL_INTAKE_REVIEW_AND_BRIEF.md`: AIR-backed local review application boundary, Assignment/Property Brief V1, versioned React projection, and deterministic safe exports.
 
 ## Foundational Principle
 

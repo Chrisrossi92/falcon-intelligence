@@ -2,9 +2,17 @@
 
 ## Current Slice
 
-The current repository now includes the canonical Assignment Intelligence Record V1 on top of the synthetic Evidence Correction and Audit Trail foundation and controlled local historical-intake and deterministic knowledge-extraction tooling.
+The current repository now includes the complete synthetic Local Intake Review to Assignment/Property Brief V1 workflow over the canonical Assignment Intelligence Record V1, on top of controlled local historical-intake and deterministic knowledge-extraction tooling.
 
 Added:
+
+- AIR-backed Local Intake Review application service with practical appraisal-topic grouping.
+- Accept, additive correction, retained rejection, defer, explicit conflict resolution, and appraiser-entered fact operations using canonical AIR review semantics.
+- Deterministic readiness recalculation with missing-critical, unresolved-conflict, unverified-material, weak/stale-evidence, and deferred-review issues.
+- Assignment/Property Brief V1 with assignment/subject synopses, issues, evidence citations, reference-only comparable/market leads, readiness, and explicit professional boundaries.
+- Guarded AIR JSON, brief JSON, and Markdown exports restricted to approved ignored or out-of-repository paths.
+- Backend-generated versioned React workspace projection and focused intake UI with filters, needs-attention views, next-unreviewed navigation, provenance, actions, blockers, brief review, and export controls.
+- Twenty-candidate code-only synthetic Northstar proof with one resolved conflict, unresolved conflicts, a missing critical field, all required decision states, deterministic rebuilds, and round-trip tests.
 
 - Assignment Intelligence Record V1 with stable identity, schema/record versions, lineage, lifecycle, and deterministic JSON round trips.
 - Adaptation from existing historical candidates and Verification Engine output without treating machine agreement as appraiser approval.
@@ -51,13 +59,13 @@ This slice does not add:
 - Automatic candidate merge or comp promotion.
 - Persistent correction storage.
 - Real uploads or source-document opening.
-- Frontend persistence or write-back for corrections.
+- Production frontend persistence or backend write-back; additional React preview interactions remain in memory over the backend-generated synthetic projection.
 - Production Assignment Intelligence Record persistence, live Falcon integration, or firm-specific readiness policies.
 - Narrative generation, valuation conclusions, automatic comparable selection, or adjustment logic.
 
-## Next Useful Slice
+## Next Useful Action
 
-The next slice should build the smallest appraiser-reviewed assignment/property brief workflow over Assignment Intelligence Record V1. It should present assignment and subject candidates for verify/correct/reject/enter actions, recalculate readiness, and emit a reviewed brief for later report-section work without adding production persistence, real-data ingestion, report export, or narrative generation.
+After review, merge this branch, synchronize the work-computer checkout, and conduct one tightly controlled local pilot using one deliberately selected real assignment stored outside the repository. Keep extraction/review/brief outputs ignored and local, record accuracy and timing without confidential text in Git, confirm the brief helps start the report, inspect Git status for leakage, and stop before narrative or valuation automation. See `docs/local-intake-review-workflow.md`.
 
 ## Validation Notes
 
@@ -78,6 +86,8 @@ $env:PYTHONPATH='src'
 python -m falcon_intel.cli subject-profile
 python -m falcon_intel.cli property-library
 python -m falcon_intel.cli correction-audit
+python -m falcon_intel.cli local-intake-review
+python -m falcon_intel.cli local-intake-review --export-dir data\local-intake-review\synthetic-northstar
 ```
 
 Frontend preview checks:
