@@ -88,6 +88,8 @@ The Memory Graph should connect properties, reports, clients, appraisers, review
 
 The Passport should eventually become the human-readable view into Memory Graph knowledge, but only after Verified Facts are promoted into durable Knowledge Objects.
 
+Assignment Intelligence Record V1 now owns the assignment-scoped current-fact, candidate, review, conflict, and readiness composition. A future Passport may project selected AIR facts and evidence for a property-centered view, but it should not become a second canonical assignment record.
+
 ## Future Direct-Upload Workfile Discipline
 
 Future direct uploads should preserve complete appraisal workfile context so the Passport can remain auditable:

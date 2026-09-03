@@ -2,7 +2,7 @@
 
 Falcon Intelligence is a local-first appraisal intelligence prototype for turning controlled evidence into verified, provenance-rich firm knowledge.
 
-The repository contains synthetic product contracts and UI previews plus controlled local tooling for historical inventory, embedded/searchable PDF and DOCX extraction, deterministic verification, Knowledge Object candidates, Memory Graph candidates, and privacy-safe extraction diagnostics. It must not contain real appraisal reports, client source documents, OneDrive files, extracted text, generated embeddings, local databases, or generated local outputs.
+The repository contains synthetic product contracts and UI previews plus controlled local tooling for historical inventory, embedded/searchable PDF and DOCX extraction, deterministic verification, a canonical Assignment Intelligence Record V1, Knowledge Object candidates, Memory Graph candidates, and privacy-safe extraction diagnostics. It must not contain real appraisal reports, client source documents, OneDrive files, extracted text, generated embeddings, local databases, or generated local outputs.
 
 The canonical long-range product roadmap is `FALCON_INTELLIGENCE_PRODUCT_ROADMAP.md`.
 
@@ -40,6 +40,8 @@ This is a controlled local prototype, not a complete production appraisal workfl
 An OCR/layout pilot is also implemented, but it is opt-in and diagnostic-only. Without `--enable-ocr` it performs availability planning only; with the flag it is restricted to approved page buckets and emits redacted shapes and fingerprints rather than raw OCR text. OCR results are not promoted into verification or firm knowledge.
 
 Production ingestion, cloud sync, AI extraction, embeddings, vector search, source-document preview, and report generation are not implemented.
+
+The canonical Assignment Intelligence Record V1 is documented in `docs/architecture/FALCON_ASSIGNMENT_INTELLIGENCE_RECORD.md`. It composes synthetic/local candidates, immutable evidence, explicit appraiser/reviewer decisions, current and superseded facts, conflicts, bounded property/comparable/market references, and deterministic analysis-readiness issues. It is not production persistence or a complete appraisal-writing workflow.
 
 The current synthetic Report Field Registry and Subject Profile preview are documented in `docs/report-field-registry.md`. They use demo data only and do not generate reports.
 

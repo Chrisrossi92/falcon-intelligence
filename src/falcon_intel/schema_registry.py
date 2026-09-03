@@ -12,6 +12,7 @@ FALCON_CARD_API_RESPONSE_SCHEMA_VERSION = "1"
 FALCON_PASSPORT_DETAIL_API_RESPONSE_SCHEMA_VERSION = "1"
 AUDIT_EVENT_ENVELOPE_SCHEMA_VERSION = "1"
 MAP_WORKSPACE_RESPONSE_SCHEMA_VERSION = "1"
+ASSIGNMENT_INTELLIGENCE_RECORD_SCHEMA_VERSION = "1"
 
 
 class SchemaName(StrEnum):
@@ -24,6 +25,7 @@ class SchemaName(StrEnum):
     FALCON_PASSPORT_DETAIL_API_RESPONSE = "falcon_passport_detail_api_response"
     AUDIT_EVENT_ENVELOPE = "audit_event_envelope"
     MAP_WORKSPACE_RESPONSE = "map_workspace_response"
+    ASSIGNMENT_INTELLIGENCE_RECORD = "assignment_intelligence_record"
 
 
 @dataclass(frozen=True)
@@ -126,6 +128,19 @@ SCHEMA_REGISTRY: dict[SchemaName, SchemaRegistryEntry] = {
             "Table-row and map-pin identity, selection, and coordinate semantics must remain stable for v1."
         ),
         intended_consumer="Future Falcon internal Intelligence Map Workspace page.",
+    ),
+    SchemaName.ASSIGNMENT_INTELLIGENCE_RECORD: SchemaRegistryEntry(
+        schema_name=SchemaName.ASSIGNMENT_INTELLIGENCE_RECORD.value,
+        current_version=ASSIGNMENT_INTELLIGENCE_RECORD_SCHEMA_VERSION,
+        fixture_snapshot_path=None,
+        breaking_change_rules=_BREAKING_CHANGE_RULES,
+        backward_compatibility_notes=(
+            "V1 is a synthetic/local canonical composition contract. Additive optional fields may be "
+            "introduced without changing the version; required shape or lifecycle changes require a new version."
+        ),
+        intended_consumer=(
+            "Future Falcon assignment workspace exchange and later analysis, narrative-assistance, and QC layers."
+        ),
     ),
 }
 

@@ -1,6 +1,6 @@
 # Schema Changelog
 
-Falcon Intelligence schema changes must be deliberate, reviewable, and synthetic-only until the production readiness gates approve broader work. This changelog records contract changes for UI-facing and Falcon-style API/RPC schemas.
+Falcon Intelligence schema changes must be deliberate, reviewable, and synthetic-only until the production readiness gates approve broader work. This changelog records domain, UI-facing, and Falcon-style API/RPC contract changes.
 
 This document does not authorize real appraisal data, OneDrive access, report parsing, extraction, OCR, embeddings, source-document preview, or production API behavior.
 
@@ -101,6 +101,16 @@ Describe consumer changes, fallback behavior, version detection, or compatibilit
 - Consumers: future Falcon internal Intelligence Map Workspace page.
 - Baseline note: v1 is the synthetic table/map contract for `table_rows`, `map_pins`, `selected_record`, `result_counts`, and `available_filters`.
 - Change rule: changes to row/pin identity, selected-record sync behavior, coordinate semantics, filter keys, or result count semantics require deliberate snapshot review and may require a new version.
+
+### Assignment Intelligence Record
+
+- Schema name: `assignment_intelligence_record`
+- Current version: `1`
+- Snapshot: none; focused semantic tests and `scripts/smoke_assignment_intelligence_record.py` validate the domain contract.
+- Consumers: future Falcon assignment workspace exchange and later analysis, narrative-assistance, QC, Property Passport, Knowledge Object, and Memory Graph projections.
+- Baseline note: v1 defines record identity/version lineage, narrow Falcon assignment reference, metadata-only sources, immutable evidence, candidate assertions, explicit review events, canonical fact revisions, conflicts, reference-only knowledge links, separate conclusions, and deterministic readiness.
+- Change rule: changes to required record sections, identity/lineage semantics, candidate/fact/review states, evidence immutability, supersession, reference behavior, readiness issue meaning, or deterministic serialization require a new version unless demonstrably additive and optional.
+- Safety review: synthetic/local only; no fixture snapshot, real report data, source excerpt, production persistence, or live Falcon integration was added.
 
 ## Maintenance Rules
 

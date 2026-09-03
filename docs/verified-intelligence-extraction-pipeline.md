@@ -88,6 +88,8 @@ Human verification output:
 - Field-level audit event.
 - Source reference confirmation.
 
+Assignment Intelligence Record V1 now provides the local/synthetic canonical composition for these decisions. It keeps machine assessment on candidates and requires explicit appraiser/reviewer events before values enter the current-fact view.
+
 ### 6. Reviewer Approval
 
 Reviewer approval is a second control for fields or entity types that firm policy marks as sensitive, reusable, or QA-critical.
@@ -104,6 +106,8 @@ Reviewer approval should be required for:
 ### 7. Intelligence Promotion
 
 After human verification and any required reviewer approval, suggested data can be promoted into verified intelligence tables.
+
+Before future durable firm-knowledge promotion, the Assignment Intelligence Record should provide the assignment-scoped current facts, evidence, review history, conflicts, and readiness context. Reusable Property, Comparable, Market, Knowledge Object, and Memory Graph records remain referenced or separately promoted rather than copied wholesale into the assignment record.
 
 Promotion requirements:
 

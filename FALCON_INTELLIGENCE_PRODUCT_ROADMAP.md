@@ -6,7 +6,7 @@ Falcon Intelligence is a premium Project Falcon knowledge module for appraisal f
 
 This roadmap does not authorize real appraisal data access, OneDrive access, report parsing, extraction, OCR, embeddings, model training, source-document preview, or ingestion. Real content work remains blocked until the production readiness gate and approval packet are completed.
 
-Current implementation status: the repository includes bounded, read-only local historical inventory and embedded/searchable PDF/DOCX candidate extraction, followed by deterministic verification, Knowledge Object candidates, Memory Graph candidates, and privacy-safe diagnostics. An OCR/layout pilot is implemented but is availability-only by default and requires an explicit opt-in for redacted diagnostics. These local tools write only to ignored paths, retain no full extracted report text in their outputs, and are not production ingestion, production search, or a complete appraisal workflow. This roadmap does not by itself authorize running them on real material or expanding their scope.
+Current implementation status: the repository includes bounded, read-only local historical inventory and embedded/searchable PDF/DOCX candidate extraction, followed by deterministic verification, canonical Assignment Intelligence Record V1 composition, Knowledge Object candidates, Memory Graph candidates, and privacy-safe diagnostics. Assignment Intelligence Record V1 preserves machine observations separately from explicit appraiser/reviewer decisions, evidence, fact revisions, conflicts, references, and readiness. An OCR/layout pilot is implemented but is availability-only by default and requires an explicit opt-in for redacted diagnostics. These local tools write only to ignored paths, retain no full extracted report text in their outputs, and are not production ingestion, production search, or a complete appraisal workflow. This roadmap does not by itself authorize running them on real material or expanding their scope.
 
 ## Product Vision
 
@@ -1116,6 +1116,7 @@ Falcon Core remains responsible for:
 
 Falcon Intelligence integrates through:
 
+- Assignment Intelligence Record V1: accept a narrow Falcon-owned assignment reference and return a versioned, synthetic/local canonical intelligence contract without copying Falcon order workflow or authorization state.
 - New Order intake: show internal preview when enough seed data exists.
 - Order Detail: show Firm Intelligence Found card.
 - Assignment workspace: show relevant verified knowledge while work is performed.

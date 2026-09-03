@@ -2,6 +2,8 @@
 
 Falcon Intelligence is planned as a future premium Project Falcon module for appraisal firm knowledge work. The current implementation remains a local-first prototype with controlled historical inventory, embedded/searchable PDF and DOCX extraction, deterministic verification and knowledge-candidate tooling, and an opt-in diagnostic OCR/layout pilot. It has no production ingestion, default OCR, embeddings, vector search, source preview, or cloud sync.
 
+The current synthetic/local implementation also includes Assignment Intelligence Record V1, the canonical composed assignment view between candidate review and later appraisal-production workflows. See `docs/architecture/FALCON_ASSIGNMENT_INTELLIGENCE_RECORD.md` for its model audit, contract, state semantics, readiness rules, and Falcon boundary.
+
 This document defines the intended product architecture and the boundary between implemented local tooling and future production workflows.
 
 The canonical Intelligence Engine foundation lives in `docs/architecture/FALCON_INTELLIGENCE_ENGINE.md`. All future AI and intelligence capabilities should align to its permanent hierarchy:

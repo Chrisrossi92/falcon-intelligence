@@ -17,6 +17,8 @@ Documents
 
 The builder consumes Verification Engine output only. It does not inspect source report bodies or decide facts directly from documents.
 
+Assignment Intelligence Record V1 now provides the canonical assignment-scoped human-review layer. The existing Knowledge Object Builder remains a local deterministic prototype over Verification Engine ledgers; future durable Knowledge Object promotion should consume the AIR current-fact view and its review/evidence history rather than bypassing appraiser decisions.
+
 ## Purpose
 
 The builder answers:

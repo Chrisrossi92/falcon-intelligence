@@ -14,6 +14,7 @@ This directory contains permanent Falcon Intelligence architecture foundations. 
 - `FALCON_KNOWLEDGE_OBJECT_BUILDER.md`: local deterministic bridge from Verified Facts into Knowledge Object candidates before any future Memory Graph.
 - `FALCON_MEMORY_GRAPH.md`: local deterministic graph prototype connecting Knowledge Objects into institutional memory.
 - `FALCON_PROPERTY_PASSPORT.md`: preview-only operator surface for property-centered Verified Fact ledgers.
+- `FALCON_ASSIGNMENT_INTELLIGENCE_RECORD.md`: canonical assignment-scoped composition contract for candidates, evidence, appraiser decisions, facts, conflicts, references, and analysis readiness.
 
 ## Foundational Principle
 

@@ -51,6 +51,7 @@ Controlled local historical workflow:
 - Embedded/searchable PDF and DOCX candidate extraction for likely final reports and same-order DOCX companions.
 - Deterministic verification, Knowledge Object candidate, and Memory Graph candidate stages.
 - Privacy-safe extraction/anchor diagnostics, OCR feasibility, and an opt-in OCR/layout diagnostic pilot that does not promote OCR output.
+- Canonical Assignment Intelligence Record V1 composition from extraction candidates, deterministic machine assessment, explicit appraiser/reviewer decisions, evidence, fact revisions, conflicts, references, and readiness.
 
 Firm Intelligence card prototype:
 
@@ -178,11 +179,11 @@ Visibility must remain internal-only. Client-facing views must not show Firm Int
 
 ## Recommended Next 5 Slices
 
-1. Define the canonical Assignment Intelligence Record needed to support completion of a real appraisal, without implementing production persistence or real-data ingestion.
-2. Map existing candidate facts, verification ledgers, evidence, corrections, property records, and comparable references into that record.
-3. Define appraiser review, completeness, conflict, and QC rules for the record.
-4. Identify the smallest assignment-production workflow that can consume the record while preserving Project Falcon's order/workflow ownership.
-5. Keep stakeholder review and permission/trust hardening as explicit gates before any production or real-data expansion.
+1. Build a compact appraiser review queue over Assignment Intelligence Record V1 for assignment context and subject-property facts.
+2. Produce a reviewed assignment/property brief from current canonical facts and readiness, without generating narrative or valuation conclusions.
+3. Add property-type/client-specific readiness policies as explicit versioned inputs after the base review flow is proven.
+4. Define the first report-section handoff that consumes the reviewed brief while preserving Project Falcon's order/workflow ownership.
+5. Keep stakeholder review, Falcon permission integration, persistence, and real-data production gates explicit before any production expansion.
 
 ## Current Known Risks
 
@@ -224,3 +225,4 @@ Visibility must remain internal-only. Client-facing views must not show Firm Int
 - The repository contains local deterministic extraction tooling but no production ingestion pipeline, production persistence, or broad authorization to process real content.
 - Real-content use and expansion remain governed by the production-readiness gate and an explicitly approved local source scope; automated validation remains synthetic-only.
 - CI validates synthetic workflows only and cannot prove production readiness.
+- Assignment Intelligence Record V1 is an in-memory/local deterministic contract. It has no production persistence, concurrency control, Falcon authorization, real-document workflow, or firm-specific readiness-policy service.
