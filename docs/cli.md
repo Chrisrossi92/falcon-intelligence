@@ -1,8 +1,8 @@
 # Local Metadata CLI
 
-Falcon Intelligence includes a local command-line interface for metadata-only prototype workflows.
+Falcon Intelligence includes a local command-line interface for metadata-only prototype workflows, plus separate local scripts for controlled historical intake, embedded-text extraction, verification, and diagnostics.
 
-The CLI can scan a user-selected folder into an ignored manifest, search a manifest by metadata, and summarize a manifest. It does not read source file contents, extract text, copy files, OCR documents, create embeddings, summarize reports, or ingest report content.
+The `falcon-intel` CLI commands below remain metadata-only or synthetic-only. The historical scripts documented later have a narrower, explicit boundary: they may read embedded/searchable text from approved likely-final PDFs and DOCX files, while keeping full text out of generated outputs and all outputs outside version control.
 
 ## Commands
 
@@ -168,9 +168,10 @@ CLI output is JSON so it can be reviewed or consumed by a future local UI. Resul
 - `subject-profile` uses synthetic demo registry data only.
 - `property-library` uses synthetic demo property, evidence, report usage, and candidate match data only.
 - `correction-audit` uses synthetic correction, evidence reference, confidence impact, and audit history data only.
-- Source files are never copied or opened for content.
+- These `falcon-intel` CLI commands never copy source files or open them for content.
 - Manifest files remain local ignored prototype artifacts.
 - The synthetic intelligence card preview does not use OneDrive data, report parsing, OCR, embeddings, or source-document content.
+- The historical extraction and OCR/layout commands are separate scripts with their own opt-in controls; they are not invoked by the metadata CLI.
 
 ## Historical Intake Inventory
 

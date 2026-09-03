@@ -1,6 +1,6 @@
 # Verified Intelligence Extraction Pipeline
 
-This document designs the first human-approved extraction workflow for Falcon Intelligence. It is documentation-only and does not authorize extraction code, report reading, OCR, embeddings, copying files, or ingestion of real appraisal reports.
+This document designs the future human-approved AI extraction and production promotion workflow for Falcon Intelligence. It does not authorize real-data use, production ingestion, source preview, embeddings, copying files, or expanded OCR. Separate local deterministic searchable-PDF/DOCX tooling already produces candidate metadata under ignored paths; it does not implement this future production workflow.
 
 The pipeline describes how one completed appraisal assignment can move from metadata discovery into verified, tenant-scoped firm intelligence after explicit human approval.
 
@@ -360,6 +360,8 @@ Integration requirements:
 
 ## Current Guardrail
 
-This pipeline is a design document only. The current repository remains limited to metadata-only scanning, local manifests, metadata search, assignment discovery, and assignment profiles. No extraction code exists. No report contents should be read, copied, parsed, summarized, embedded, OCRed, or ingested.
+This human-approved production pipeline remains a design only. The repository also contains a controlled, read-only local pipeline for historical inventory, embedded/searchable PDF and DOCX candidate extraction, deterministic verification, Knowledge Object candidates, Memory Graph candidates, and privacy-safe diagnostics. That local tooling stores no full report text, writes only to ignored paths, does not upload or call AI services, and does not create production records.
+
+Automated tests and CI remain synthetic-only. Production ingestion, persisted real extracted facts, source preview, embeddings, external processing, and expansion beyond the documented local boundary remain blocked by the production-readiness gate.
 
 See `docs/data-confidence-provenance-model.md` for data confidence dimensions, evidence links, and data passport concepts.

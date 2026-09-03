@@ -5,8 +5,8 @@ on:
   pull_request:
 
 jobs:
-  validation:
-    name: Falcon Intelligence validation
+  backend-validation:
+    name: Backend and repository validation
     runs-on: ubuntu-latest
 
     steps:
@@ -24,71 +24,42 @@ jobs:
       - name: Compile Python sources
         run: python -m compileall -q src scripts tests
 
-      - name: Smoke synthetic fixtures
-        run: PYTHONPATH=src python scripts/smoke_synthetic_fixtures.py
+      - name: Repository safety and privacy checks
+        run: python scripts/check_repository_safety.py
 
-      - name: Smoke synthetic intelligence matcher
-        run: PYTHONPATH=src python scripts/smoke_synthetic_intelligence_matcher.py
+      - name: Smoke tests (all discovered scripts)
+        run: python scripts/run_smoke_suite.py
 
-      - name: Smoke UI card schema
-        run: PYTHONPATH=src python scripts/smoke_intelligence_card_schema.py
-
-      - name: Smoke UI card CLI
-        run: PYTHONPATH=src python scripts/smoke_intelligence_card_cli.py
-
-      - name: Smoke UI card snapshot
-        run: PYTHONPATH=src python scripts/smoke_intelligence_card_snapshot.py
-
-      - name: Smoke Falcon API contract
-        run: PYTHONPATH=src python scripts/smoke_falcon_api_contract.py
-
-      - name: Smoke match audit events
-        run: PYTHONPATH=src python scripts/smoke_match_audit.py
-
-      - name: Smoke audit event snapshots
-        run: PYTHONPATH=src python scripts/smoke_audit_event_snapshots.py
-
-      - name: Smoke map workspace
-        run: PYTHONPATH=src python scripts/smoke_map_workspace.py
-
-      - name: Smoke map workspace snapshot
-        run: PYTHONPATH=src python scripts/smoke_map_workspace_snapshot.py
-
-      - name: Smoke historical comp justification
-        run: PYTHONPATH=src python scripts/smoke_historical_comp.py
-
-      - name: Smoke evidence links
-        run: PYTHONPATH=src python scripts/smoke_evidence_links.py
-
-      - name: Smoke data passport
-        run: PYTHONPATH=src python scripts/smoke_data_passport.py
-
-      - name: Smoke data passport lookup
-        run: PYTHONPATH=src python scripts/smoke_data_passport_lookup.py
-
-      - name: Smoke Falcon passport detail contract
-        run: PYTHONPATH=src python scripts/smoke_falcon_passport_contract.py
-
-      - name: Smoke passport detail drawer snapshot
-        run: PYTHONPATH=src python scripts/smoke_passport_detail_drawer.py
-
-      - name: Smoke Falcon evidence-open contract
-        run: PYTHONPATH=src python scripts/smoke_falcon_evidence_contract.py
-
-      - name: Smoke schema version registry
-        run: PYTHONPATH=src python scripts/smoke_schema_registry.py
-
-      - name: Smoke Falcon API envelope snapshots
-        run: PYTHONPATH=src python scripts/smoke_api_envelope_snapshots.py
-
-      - name: Smoke permission policy
-        run: PYTHONPATH=src python scripts/smoke_permission_policy.py
-
-      - name: Smoke Falcon permission contracts
-        run: PYTHONPATH=src python scripts/smoke_falcon_permission_contracts.py
-
-      - name: Smoke end-to-end synthetic workflow
-        run: PYTHONPATH=src python scripts/smoke_synthetic_workflow.py
-
-      - name: Run pytest
+      - name: Backend tests
         run: PYTHONPATH=src python -m pytest
+
+  frontend-validation:
+    name: Frontend validation
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: frontend
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+          cache-dependency-path: frontend/package-lock.json
+
+      - name: Install locked frontend dependencies
+        run: npm ci
+
+      - name: TypeScript validation
+        run: npm run typecheck
+
+      - name: Frontend tests
+        run: npm test -- --configLoader runner
+
+      - name: Frontend production build
+        run: npm run build -- --configLoader runner

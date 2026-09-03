@@ -21,6 +21,11 @@ def test_blocks_report_like_paths() -> None:
     assert is_blocked_source_path("source_documents/export.docx")
     assert is_blocked_source_path("source-documents/export.docx")
     assert is_blocked_source_path("extracted_text/report.txt")
+    assert is_blocked_source_path("inspection-photo.jpg")
+    assert is_blocked_source_path("assignment-archive.zip")
+    assert is_blocked_source_path("client_files/report-without-extension")
+    assert is_blocked_source_path("ocr-output/page-artifact")
+    assert is_blocked_source_path("embeddings/assignment-vectors.json")
 
 
 def test_allows_framework_paths() -> None:

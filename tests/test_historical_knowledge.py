@@ -216,7 +216,9 @@ def test_extracts_salient_facts_table_values() -> None:
     assert candidate.fields["inspection_date"][0].value == "October 8, 2026"
     assert candidate.fields["report_date"][0].value == "October 15, 2026"
     assert candidate.fields["intended_use"][0].value == "Loan underwriting"
-    assert "summary of salient facts table" in candidate.fields["client"][0].extraction_method
+    for field in ("client", "effective_date", "inspection_date", "report_date", "intended_use"):
+        assert "summary of salient facts table" in candidate.fields[field][0].extraction_method
+        assert any("deterministic label match" in item.extraction_method for item in candidate.fields[field])
 
 
 def test_extracts_signature_and_review_blocks() -> None:
@@ -243,7 +245,27 @@ def test_extracts_signature_and_review_blocks() -> None:
     assert candidate.fields["appraiser_name"][0].value == "Alex Example"
     assert "signature block" in candidate.fields["appraiser_name"][0].extraction_method
     assert candidate.fields["reviewer_name"][0].value == "Riley Example"
-    assert "review section" in candidate.fields["reviewer_name"][0].extraction_method
+    assert "review signature section" in candidate.fields["reviewer_name"][0].extraction_method
+
+
+def test_contextual_signature_provenance_wins_over_generic_signed_by_label() -> None:
+    candidate = extract_report_metadata_from_pages(
+        (
+            PageText(
+                page_number=5,
+                text="""
+                Appraiser Certification
+                Signed By:
+                Taylor Example
+                Certified General Real Estate Appraiser
+                """,
+            ),
+        )
+    )
+
+    assert candidate.fields["appraiser_name"][0].value == "Taylor Example"
+    assert "certification signature section" in candidate.fields["appraiser_name"][0].extraction_method
+    assert any("deterministic label match" in item.extraction_method for item in candidate.fields["appraiser_name"])
 
 
 def test_extracts_first_page_title_block_split_lines() -> None:

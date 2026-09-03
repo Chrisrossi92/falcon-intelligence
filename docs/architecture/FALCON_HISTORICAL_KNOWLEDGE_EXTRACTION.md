@@ -43,7 +43,7 @@ What does this appraisal mean?
 
 ## Extraction Scope
 
-Phase 1 operates only on likely final report files from the ignored historical intake JSON output. It currently targets PDF files and attempts embedded/searchable text extraction only when a local PDF text library is available.
+Phase 1 operates only on likely final report files from the ignored historical intake JSON output. It targets PDF and DOCX final reports and may use same-order DOCX companions identified by the intake grouping. It attempts embedded/searchable text extraction only when the applicable local library is available.
 
 If embedded text is unavailable, the extractor records a warning and stops. It must not OCR scanned PDFs.
 
@@ -54,6 +54,14 @@ python -m pip install -e ".[pdf]"
 ```
 
 This enables embedded text reads through `pypdf` only. It does not authorize OCR, full-text storage, AI extraction, embeddings, uploads, source-document preview, or production ingestion.
+
+Local DOCX support is also optional:
+
+```bash
+python -m pip install -e ".[docx]"
+```
+
+This enables paragraph text reads through `python-docx` for likely-final DOCX files and same-order DOCX companions only. DOCX evidence retains explicit final-report or companion provenance and full text is not written to generated outputs.
 
 Supported metadata candidate fields:
 

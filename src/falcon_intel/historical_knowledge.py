@@ -284,11 +284,30 @@ SIGNATURE_SKIP_LINES = {
     "respectfully submitted",
     "submitted by",
     "sincerely",
+    "prepared by",
+    "report prepared by",
+    "valuation prepared by",
+    "signed by",
     "certification of appraisal",
     "appraiser certification",
     "appraiser's certification",
     "appraisal certification",
 }
+
+# Context-aware extractors carry stronger provenance than a document-wide
+# label match. Candidate merging orders the most specific explanation first
+# when multiple extractors find the same fact.
+CONTEXTUAL_METHOD_PRIORITY = (
+    "summary of salient facts table",
+    "review signature section",
+    "certification signature section",
+    "transmittal section",
+    "review section",
+    "signature block",
+    "inspection anchor",
+    "first page title block",
+    "document title anchor",
+)
 
 
 @dataclass(frozen=True)
@@ -1007,7 +1026,18 @@ def _merge_candidates(
         return additional_values or existing
     if not additional_values:
         return existing
-    return _mark_conflicts(list(existing_values + additional_values))
+    combined = existing_values + additional_values
+    prioritized = sorted(combined, key=_candidate_context_priority, reverse=True)
+    return _mark_conflicts(prioritized)
+
+
+def _candidate_context_priority(candidate: MetadataCandidate) -> int:
+    method = candidate.extraction_method.lower()
+    priority_count = len(CONTEXTUAL_METHOD_PRIORITY)
+    for index, marker in enumerate(CONTEXTUAL_METHOD_PRIORITY):
+        if marker in method:
+            return priority_count - index
+    return 0
 
 
 def _clean_field_value(field_name: str, value: str | None) -> str | None:

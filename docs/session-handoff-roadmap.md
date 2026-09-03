@@ -21,14 +21,14 @@ Falcon Intelligence is assistive. It must not produce automatic valuation conclu
 
 Current non-negotiable boundaries:
 
-- Use committed synthetic fixtures only.
+- Use committed synthetic fixtures only in automated tests, smoke checks, CI, and demos.
 - Do not add real appraisal reports, client files, source documents, OneDrive exports, extracted text, OCR output, embeddings, vector stores, databases, PDFs, DOCX, XLSX, CSV, TSV, or TXT exports.
-- Do not read report contents.
+- Do not read real report contents outside an explicitly approved local source scope.
 - Do not inspect unrelated OneDrive files.
-- Do not add extraction, OCR, embedding, retrieval, or report parsing code.
-- Keep all current workflows metadata-only and local.
+- Keep the existing searchable-PDF/DOCX extraction and OCR/layout diagnostic tools local, read-only, output-minimized, and outside version control.
+- Do not add production ingestion, source preview, persisted real extracted facts, embeddings, external processing, or report generation without the applicable gate.
 
-Explicit warning: do not add real report extraction yet. Metadata-only real-data scans are allowed, but report content extraction, OCR, embeddings, and source-document preview are blocked until `docs/real-data-production-readiness-gate.md` passes.
+Explicit warning: implemented tooling is not blanket authorization to process real files. Metadata-only scans remain the default; any real-content run or production expansion must satisfy the applicable approval and production-readiness controls.
 
 ## Implemented So Far
 
@@ -44,6 +44,13 @@ Synthetic metadata workflows:
 - Metadata scanner, manifest creation, manifest search, assignment discovery, and assignment profile generation.
 - Committed synthetic sample fixture tree under `tests/fixtures/synthetic_sample_data/`.
 - Synthetic manifests and assignment profiles for industrial, retail, office, purchase, lease-heavy, and work-in-progress assignments.
+
+Controlled local historical workflow:
+
+- Read-only historical intake inventory with ignored JSON/CSV/Markdown outputs.
+- Embedded/searchable PDF and DOCX candidate extraction for likely final reports and same-order DOCX companions.
+- Deterministic verification, Knowledge Object candidate, and Memory Graph candidate stages.
+- Privacy-safe extraction/anchor diagnostics, OCR feasibility, and an opt-in OCR/layout diagnostic pilot that does not promote OCR output.
 
 Firm Intelligence card prototype:
 
@@ -90,38 +97,18 @@ Trust, provenance, and audit scaffolding:
 
 ## Current Validation Status
 
-Current local validation is passing.
-
-Run full validation:
+Run full validation with the authoritative smoke discovery runner:
 
 ```bash
 PYTHONPATH=src python3 -m compileall -q src scripts tests
-PYTHONPATH=src python3 scripts/smoke_synthetic_fixtures.py
-PYTHONPATH=src python3 scripts/smoke_synthetic_intelligence_matcher.py
-PYTHONPATH=src python3 scripts/smoke_intelligence_card_schema.py
-PYTHONPATH=src python3 scripts/smoke_intelligence_card_snapshot.py
-PYTHONPATH=src python3 scripts/smoke_intelligence_card_cli.py
-PYTHONPATH=src python3 scripts/smoke_falcon_api_contract.py
-PYTHONPATH=src python3 scripts/smoke_match_audit.py
-PYTHONPATH=src python3 scripts/smoke_audit_event_snapshots.py
-PYTHONPATH=src python3 scripts/smoke_map_workspace.py
-PYTHONPATH=src python3 scripts/smoke_map_workspace_snapshot.py
-PYTHONPATH=src python3 scripts/smoke_historical_comp.py
-PYTHONPATH=src python3 scripts/smoke_evidence_links.py
-PYTHONPATH=src python3 scripts/smoke_data_passport.py
-PYTHONPATH=src python3 scripts/smoke_data_passport_lookup.py
-PYTHONPATH=src python3 scripts/smoke_falcon_passport_contract.py
-PYTHONPATH=src python3 scripts/smoke_passport_detail_drawer.py
-PYTHONPATH=src python3 scripts/smoke_falcon_evidence_contract.py
-PYTHONPATH=src python3 scripts/smoke_schema_registry.py
-PYTHONPATH=src python3 scripts/smoke_api_envelope_snapshots.py
-PYTHONPATH=src python3 scripts/smoke_permission_policy.py
-PYTHONPATH=src python3 scripts/smoke_falcon_permission_contracts.py
-PYTHONPATH=src python3 scripts/smoke_synthetic_workflow.py
+python3 scripts/check_repository_safety.py
+python3 scripts/run_smoke_suite.py
 PYTHONPATH=src python3 -m pytest
 cd frontend
-npm test
-npm run build
+npm ci
+npm run typecheck
+npm test -- --configLoader runner
+npm run build -- --configLoader runner
 ```
 
 CI runs the same synthetic-only core checks on push and pull request.
@@ -191,11 +178,11 @@ Visibility must remain internal-only. Client-facing views must not show Firm Int
 
 ## Recommended Next 5 Slices
 
-1. Run the guided stakeholder review with at least one appraiser, one reviewer, and one owner/admin using the airport warehouse scenario.
-2. Synthesize stakeholder findings into a V3.5 review outcome memo with go/no-go recommendation for V4 planning.
-3. Begin V4 planning around permission/trust hardening, production-readiness boundaries, and demo-safe fixture polish.
-4. Decide whether the preview-only state simulator should move out of the production-like workspace frame before stakeholder demos.
-5. Permission role matrix review: decide whether owner/admin should continue to inherit `appraiser_reviewer_only` evidence access in production.
+1. Define the canonical Assignment Intelligence Record needed to support completion of a real appraisal, without implementing production persistence or real-data ingestion.
+2. Map existing candidate facts, verification ledgers, evidence, corrections, property records, and comparable references into that record.
+3. Define appraiser review, completeness, conflict, and QC rules for the record.
+4. Identify the smallest assignment-production workflow that can consume the record while preserving Project Falcon's order/workflow ownership.
+5. Keep stakeholder review and permission/trust hardening as explicit gates before any production or real-data expansion.
 
 ## Current Known Risks
 
@@ -234,6 +221,6 @@ Visibility must remain internal-only. Client-facing views must not show Firm Int
 - React readiness review concludes the first workspace preview can begin without required schema changes, but implementation may still reveal optional UI convenience fields later.
 - The first React workspace preview proves synchronization only; it does not include passport, evidence, audit drawers, real map provider behavior, search, clustering, advanced filters, production styling, or production data.
 - Schema versions and API envelope snapshots are registered, but these still describe local synthetic contracts rather than production APIs.
-- The repository contains no approved ingestion or extraction pipeline; adding one prematurely would violate the current safety boundary.
-- Real content work remains blocked until the production readiness gate passes; metadata-only scans are the only allowed real-data activity.
+- The repository contains local deterministic extraction tooling but no production ingestion pipeline, production persistence, or broad authorization to process real content.
+- Real-content use and expansion remain governed by the production-readiness gate and an explicitly approved local source scope; automated validation remains synthetic-only.
 - CI validates synthetic workflows only and cannot prove production readiness.

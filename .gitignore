@@ -62,6 +62,17 @@ exports/
 private/
 client_files/
 client-files/
+archives/
+embeddings/
+indexes/
+databases/
+ocr/
+ocr_output/
+ocr-output/
+ocr_cache/
+ocr-cache/
+layout_analysis/
+layout-analysis/
 one_drive/
 onedrive/
 OneDrive/
@@ -90,11 +101,29 @@ memory-graph-summary.md
 *.xls
 *.xlsx
 *.xlsm
+*.xlsb
 *.csv
 *.tsv
 *.rtf
 *.txt
 *.md.txt
+
+# Images and archives that may contain inspection or assignment material
+*.bmp
+*.gif
+*.heic
+*.jpeg
+*.jpg
+*.png
+*.tif
+*.tiff
+*.webp
+*.7z
+*.gz
+*.rar
+*.tar
+*.tgz
+*.zip
 
 # Committable synthetic metadata fixtures only. These are tiny placeholder
 # files used to exercise scanner/search/discovery/profile workflows without
@@ -105,6 +134,8 @@ memory-graph-summary.md
 !tests/fixtures/synthetic_sample_data/**/*.pdf
 !tests/fixtures/synthetic_sample_data/**/*.docx
 !tests/fixtures/synthetic_sample_data/**/*.xlsx
+!tests/fixtures/synthetic_sample_data/**/*.jpg
+!tests/fixtures/synthetic_sample_data/**/*.png
 
 # OCR, parsed, and vector-store outputs
 *.ocr

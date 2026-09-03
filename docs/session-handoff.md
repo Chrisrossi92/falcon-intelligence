@@ -2,9 +2,14 @@
 
 ## Current Slice
 
-The current implementation surfaces the synthetic Evidence Correction and Audit Trail foundation in the React workspace preview on top of the Subject Profile registry and Property Library work.
+The current repository combines the synthetic Evidence Correction and Audit Trail workspace foundation with controlled local historical-intake and deterministic knowledge-extraction tooling.
 
 Added:
+
+- Read-only historical intake inventory.
+- Embedded/searchable PDF and DOCX candidate extraction for likely final reports and same-order DOCX companions.
+- Deterministic verification, Knowledge Object candidate, and Memory Graph candidate stages.
+- Privacy-safe extraction diagnostics, OCR feasibility, and an opt-in diagnostic OCR/layout pilot.
 
 - Report Field Registry types and lifecycle helpers.
 - Synthetic Subject Profile for `517 E Riverview Avenue`.
@@ -29,10 +34,10 @@ Added:
 This slice does not add:
 
 - Real OneDrive integration.
-- OCR.
+- Default or production OCR.
 - Embeddings.
-- Source document extraction.
-- Report body parsing.
+- Production ingestion or persisted real extracted facts.
+- Source-document preview or retained full extracted text.
 - Word report generation or export.
 - Persistent registry storage.
 - Persistent property library storage.
@@ -43,13 +48,7 @@ This slice does not add:
 
 ## Next Useful Slice
 
-The next small slice should make the audit/history panel interactive while keeping the data synthetic:
-
-- Add a read-only correction detail drill-in from the Field History panel.
-- Group multiple corrections by field when more than one audit exists.
-- Add rejected-correction and unapproved-correction examples to the frontend preview.
-- Add appraiser note display to review actions if the correction model carries multiple notes.
-- Keep all values synthetic and avoid report export.
+The next slice should define the canonical Assignment Intelligence Record needed to support an actual appraisal. It should map the existing candidate, verification, evidence, correction, property, and comparable concepts into one appraiser-reviewed record without implementing production persistence, real-data ingestion, report export, or narrative generation.
 
 ## Validation Notes
 
@@ -57,8 +56,10 @@ Run:
 
 ```powershell
 $env:PYTHONPATH='src'
+python -m compileall -q src scripts tests
+python scripts/check_repository_safety.py
+python scripts/run_smoke_suite.py
 python -m pytest
-python scripts/smoke_cli.py
 ```
 
 The CLI previews can be checked with:
@@ -74,7 +75,8 @@ Frontend preview checks:
 
 ```powershell
 cd frontend
-npx tsc -b
-npx vitest run --configLoader runner
-npx vite build --configLoader runner
+npm ci
+npm run typecheck
+npm test -- --configLoader runner
+npm run build -- --configLoader runner
 ```
