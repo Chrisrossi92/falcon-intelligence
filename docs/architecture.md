@@ -1,8 +1,8 @@
 # Falcon Intelligence Architecture
 
-Falcon Intelligence is planned as a future premium Project Falcon module for appraisal firm knowledge work. The first implementation remains a local-first prototype with no real report-content ingestion, no OCR, no embeddings, no vector search, and no cloud sync.
+Falcon Intelligence is planned as a future premium Project Falcon module for appraisal firm knowledge work. The current implementation remains a local-first prototype with controlled historical inventory, embedded/searchable PDF and DOCX extraction, deterministic verification and knowledge-candidate tooling, and an opt-in diagnostic OCR/layout pilot. It has no production ingestion, default OCR, embeddings, vector search, source preview, or cloud sync.
 
-This document defines the intended product architecture before any ingestion or data-processing code is added.
+This document defines the intended product architecture and the boundary between implemented local tooling and future production workflows.
 
 The canonical Intelligence Engine foundation lives in `docs/architecture/FALCON_INTELLIGENCE_ENGINE.md`. All future AI and intelligence capabilities should align to its permanent hierarchy:
 
@@ -247,8 +247,9 @@ Prototype layers:
 
 Prototype restrictions:
 
-- No report body extraction.
-- No OCR.
+- Embedded/searchable text extraction is limited to approved likely-final PDFs, likely-final DOCX files, and same-order DOCX companions selected through historical intake.
+- Full extracted report text is not stored in generated outputs and all outputs remain ignored locally.
+- OCR is disabled by default; the opt-in layout pilot emits redacted diagnostics only and does not feed verification or firm knowledge.
 - No embeddings.
 - No vector database.
 - No summarization.
@@ -281,7 +282,7 @@ Future architecture constraints:
 
 ### Phase 0: Documentation and Safety Scaffold
 
-Current phase.
+Foundation completed and retained as a continuing guardrail.
 
 - Define product architecture and safety boundaries.
 - Maintain `.gitignore` protections for document and data formats.
@@ -354,15 +355,14 @@ See `docs/cli.md` for local command-line prototype usage.
 
 ### Phase 4: Controlled Content Evaluation
 
-Only after explicit approval.
+The repository now includes local deterministic searchable-PDF/DOCX extraction and a diagnostic OCR/layout pilot. Running those tools on real documents still requires an explicitly approved, machine-local source scope, ignored outputs, and the applicable production-readiness controls.
 
-- Define approved synthetic or sanitized corpus.
-- Add content extraction experiments outside real report folders.
-- Evaluate redaction, logging, review, and retention rules.
-- Require sign-off before any real report-content pipeline exists.
+- Keep automated evaluation synthetic-only.
+- Evaluate redaction, logging, review, and retention rules before expanding the local tooling or connecting it to production.
+- Require sign-off before production ingestion, persisted real extracted facts, source preview, embeddings, or external processing.
 
 ## Current Guardrail
 
-No real report contents are ingested yet.
+No real report contents or derived text may be committed, and no production report-content ingestion exists.
 
-The current repository must remain limited to source code, documentation, safety checks, and synthetic tests. Future ingestion, extraction, OCR, embeddings, vector search, summarization, and report drafting must remain disabled until explicitly approved and documented.
+The current repository may contain source code, documentation, safety checks, synthetic fixtures/tests, and the controlled local extraction and diagnostic tooling described above. Production ingestion, persisted real extracted facts, source preview, embeddings, vector search, summarization, report drafting, and external processing remain disabled until explicitly approved and documented.

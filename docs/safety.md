@@ -16,9 +16,13 @@ Falcon Intelligence must be developed without committing or exposing client file
 - Synthetic test fixtures that do not resemble real client material.
 - Configuration templates that contain no secrets or real paths.
 
-## Future Ingestion Gate
+## Local Tooling and Production Gate
 
-Before any ingestion code is enabled, the project should define:
+The repository contains read-only local historical inventory and embedded/searchable PDF and DOCX extraction tools. Their presence does not authorize use on arbitrary real files. Any approved local run must use an explicitly selected source scope, keep source files outside the repository, keep generated outputs under ignored local paths, and never print or commit extracted report text.
+
+The OCR/layout pilot is disabled by default and diagnostic-only when explicitly enabled. It may emit redacted shapes and fingerprints but must not save page images, raw OCR text, snippets, or extracted values, and its results do not enter verification or firm knowledge.
+
+Before any production ingestion, persisted real extracted facts, source preview, embeddings, external service, or expanded real-content workflow is enabled, the project must define:
 
 - A local-only storage boundary.
 - A synthetic test corpus.
@@ -26,4 +30,4 @@ Before any ingestion code is enabled, the project should define:
 - A review checklist for file handling.
 - Clear user controls for selecting local folders.
 
-See `docs/real-data-production-readiness-gate.md` and `docs/production-gate-review-packet-template.md` for the required production-readiness checklist and approval packet before any real report content, extraction, OCR, embeddings, or source-document preview is allowed.
+See `docs/real-data-production-readiness-gate.md` and `docs/production-gate-review-packet-template.md` for the required production-readiness checklist and approval packet. Automated tests and CI must remain synthetic-only.

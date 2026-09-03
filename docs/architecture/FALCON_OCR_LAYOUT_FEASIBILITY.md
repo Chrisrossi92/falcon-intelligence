@@ -1,6 +1,6 @@
 # Falcon OCR/Layout Feasibility Planning
 
-This note defines a planning layer only. It does not authorize OCR, page-image export, raw OCR text storage, AI extraction, embeddings, uploads, source preview, or production ingestion.
+This note defines the feasibility boundary and the implemented local OCR/layout diagnostic pilot. The pilot is availability-only by default and performs OCR only with an explicit `--enable-ocr` flag. It does not authorize page-image export, raw OCR text storage, AI extraction, embeddings, uploads, source preview, production ingestion, or promotion of OCR results into verification or knowledge.
 
 ## Current Unresolved Targets
 
@@ -81,7 +81,7 @@ OCR converts visually present report content into text. That crosses a stricter 
 - It needs human review before any field promotion.
 - It should be scoped to known unresolved fields and page buckets, not whole-report extraction by default.
 
-## Recommended Future Slice
+## Implemented Pilot Boundary
 
 The first implementation slice is a layout-only pilot:
 

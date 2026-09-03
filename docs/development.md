@@ -20,43 +20,11 @@ python -m pip install -e ".[dev]"
 
 ## Checks
 
-Future checks should include:
-
-- Unit tests for safety guards.
-- Static checks for accidental data paths.
-- Validation that ignored document formats remain excluded.
-
-Current dependency-free smoke validation:
+The authoritative smoke command discovers every `scripts/**/smoke_*.py` file recursively. Use `--list` to inspect the discovered inventory without running it.
 
 ```powershell
-$env:PYTHONPATH='src'; python scripts/smoke_metadata_scan.py
-$env:PYTHONPATH='src'; python scripts/smoke_manifest.py
-$env:PYTHONPATH='src'; python scripts/smoke_manifest_search.py
-$env:PYTHONPATH='src'; python scripts/smoke_assignment_discovery.py
-$env:PYTHONPATH='src'; python scripts/smoke_assignment_profile.py
-$env:PYTHONPATH='src'; python scripts/smoke_synthetic_fixtures.py
-$env:PYTHONPATH='src'; python scripts/smoke_synthetic_intelligence_matcher.py
-$env:PYTHONPATH='src'; python scripts/smoke_intelligence_card_schema.py
-$env:PYTHONPATH='src'; python scripts/smoke_intelligence_card_snapshot.py
-$env:PYTHONPATH='src'; python scripts/smoke_intelligence_card_cli.py
-$env:PYTHONPATH='src'; python scripts/smoke_falcon_api_contract.py
-$env:PYTHONPATH='src'; python scripts/smoke_match_audit.py
-$env:PYTHONPATH='src'; python scripts/smoke_audit_event_snapshots.py
-$env:PYTHONPATH='src'; python scripts/smoke_map_workspace.py
-$env:PYTHONPATH='src'; python scripts/smoke_map_workspace_snapshot.py
-$env:PYTHONPATH='src'; python scripts/smoke_historical_comp.py
-$env:PYTHONPATH='src'; python scripts/smoke_evidence_links.py
-$env:PYTHONPATH='src'; python scripts/smoke_data_passport.py
-$env:PYTHONPATH='src'; python scripts/smoke_data_passport_lookup.py
-$env:PYTHONPATH='src'; python scripts/smoke_falcon_passport_contract.py
-$env:PYTHONPATH='src'; python scripts/smoke_passport_detail_drawer.py
-$env:PYTHONPATH='src'; python scripts/smoke_falcon_evidence_contract.py
-$env:PYTHONPATH='src'; python scripts/smoke_schema_registry.py
-$env:PYTHONPATH='src'; python scripts/smoke_api_envelope_snapshots.py
-$env:PYTHONPATH='src'; python scripts/smoke_permission_policy.py
-$env:PYTHONPATH='src'; python scripts/smoke_falcon_permission_contracts.py
-$env:PYTHONPATH='src'; python scripts/smoke_synthetic_workflow.py
-$env:PYTHONPATH='src'; python scripts/smoke_cli.py
+python scripts/run_smoke_suite.py --list
+python scripts/run_smoke_suite.py
 ```
 
 ## Test Commands
@@ -65,72 +33,42 @@ macOS:
 
 ```bash
 PYTHONPATH=src python3 -m compileall -q src scripts tests
-PYTHONPATH=src python3 scripts/smoke_synthetic_fixtures.py
-PYTHONPATH=src python3 scripts/smoke_synthetic_intelligence_matcher.py
-PYTHONPATH=src python3 scripts/smoke_intelligence_card_schema.py
-PYTHONPATH=src python3 scripts/smoke_intelligence_card_snapshot.py
-PYTHONPATH=src python3 scripts/smoke_intelligence_card_cli.py
-PYTHONPATH=src python3 scripts/smoke_falcon_api_contract.py
-PYTHONPATH=src python3 scripts/smoke_match_audit.py
-PYTHONPATH=src python3 scripts/smoke_audit_event_snapshots.py
-PYTHONPATH=src python3 scripts/smoke_map_workspace.py
-PYTHONPATH=src python3 scripts/smoke_map_workspace_snapshot.py
-PYTHONPATH=src python3 scripts/smoke_historical_comp.py
-PYTHONPATH=src python3 scripts/smoke_evidence_links.py
-PYTHONPATH=src python3 scripts/smoke_data_passport.py
-PYTHONPATH=src python3 scripts/smoke_data_passport_lookup.py
-PYTHONPATH=src python3 scripts/smoke_falcon_passport_contract.py
-PYTHONPATH=src python3 scripts/smoke_passport_detail_drawer.py
-PYTHONPATH=src python3 scripts/smoke_falcon_evidence_contract.py
-PYTHONPATH=src python3 scripts/smoke_schema_registry.py
-PYTHONPATH=src python3 scripts/smoke_api_envelope_snapshots.py
-PYTHONPATH=src python3 scripts/smoke_permission_policy.py
-PYTHONPATH=src python3 scripts/smoke_falcon_permission_contracts.py
-PYTHONPATH=src python3 scripts/smoke_synthetic_workflow.py
+python3 scripts/check_repository_safety.py
+python3 scripts/run_smoke_suite.py
 PYTHONPATH=src python3 -m pytest
+cd frontend
+npm ci
+npm run typecheck
+npm test -- --configLoader runner
+npm run build -- --configLoader runner
 ```
 
 Windows PowerShell:
 
 ```powershell
 $env:PYTHONPATH='src'; python -m compileall -q src scripts tests
-$env:PYTHONPATH='src'; python scripts/smoke_synthetic_fixtures.py
-$env:PYTHONPATH='src'; python scripts/smoke_synthetic_intelligence_matcher.py
-$env:PYTHONPATH='src'; python scripts/smoke_intelligence_card_schema.py
-$env:PYTHONPATH='src'; python scripts/smoke_intelligence_card_snapshot.py
-$env:PYTHONPATH='src'; python scripts/smoke_intelligence_card_cli.py
-$env:PYTHONPATH='src'; python scripts/smoke_falcon_api_contract.py
-$env:PYTHONPATH='src'; python scripts/smoke_match_audit.py
-$env:PYTHONPATH='src'; python scripts/smoke_audit_event_snapshots.py
-$env:PYTHONPATH='src'; python scripts/smoke_map_workspace.py
-$env:PYTHONPATH='src'; python scripts/smoke_map_workspace_snapshot.py
-$env:PYTHONPATH='src'; python scripts/smoke_historical_comp.py
-$env:PYTHONPATH='src'; python scripts/smoke_evidence_links.py
-$env:PYTHONPATH='src'; python scripts/smoke_data_passport.py
-$env:PYTHONPATH='src'; python scripts/smoke_data_passport_lookup.py
-$env:PYTHONPATH='src'; python scripts/smoke_falcon_passport_contract.py
-$env:PYTHONPATH='src'; python scripts/smoke_passport_detail_drawer.py
-$env:PYTHONPATH='src'; python scripts/smoke_falcon_evidence_contract.py
-$env:PYTHONPATH='src'; python scripts/smoke_schema_registry.py
-$env:PYTHONPATH='src'; python scripts/smoke_api_envelope_snapshots.py
-$env:PYTHONPATH='src'; python scripts/smoke_permission_policy.py
-$env:PYTHONPATH='src'; python scripts/smoke_falcon_permission_contracts.py
-$env:PYTHONPATH='src'; python scripts/smoke_synthetic_workflow.py
+$env:PYTHONPATH='src'; python scripts/check_repository_safety.py
+$env:PYTHONPATH='src'; python scripts/run_smoke_suite.py
 $env:PYTHONPATH='src'; python -m pytest
+Set-Location frontend
+npm ci
+npm run typecheck
+npm test -- --configLoader runner
+npm run build -- --configLoader runner
 ```
 
 ## Continuous Integration
 
-GitHub Actions runs the core validation workflow on every push and pull request using Python 3.12. The workflow installs the package with development dependencies and runs:
+GitHub Actions runs separate backend/repository and frontend jobs on every push and pull request. The backend job uses Python 3.12 and runs:
 
 - Python compilation for `src`, `scripts`, and `tests`.
-- Synthetic fixture smoke validation.
-- Synthetic intelligence matcher smoke validation.
-- UI card schema, CLI, and snapshot smoke validation.
-- Synthetic audit, audit event snapshots, map workspace, map workspace snapshot, historical comparable justification, evidence link, data passport, passport lookup, Falcon passport contract, passport drawer snapshot, Falcon evidence-open contract, schema registry, Falcon API envelope snapshots, permission policy, Falcon permission contracts, and end-to-end workflow smoke validation.
+- Repository safety/privacy validation.
+- Every smoke check discovered under `scripts/`.
 - The full pytest suite.
 
-The CI workflow must remain synthetic-only. It must not access OneDrive, real appraisal data, report contents, OCR, embeddings, or extraction pipelines.
+The frontend job installs dependencies once with `npm ci`, then runs TypeScript validation, Vitest, and the Vite production build as separately named steps.
+
+CI must remain synthetic-only. It must not access OneDrive, real appraisal data, report contents, OCR, embeddings, external services, or local extraction outputs.
 
 Subject Profile preview:
 
@@ -154,9 +92,9 @@ Frontend workspace preview:
 
 ```powershell
 cd frontend
-npx tsc -b
-npx vitest run --configLoader runner
-npx vite build --configLoader runner
+npm run typecheck
+npm test -- --configLoader runner
+npm run build -- --configLoader runner
 ```
 
 The `--configLoader runner` flag avoids Vite's bundled config loader in sandboxed environments that deny read access to parent directories while loading `vite.config.ts`.

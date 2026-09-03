@@ -8,7 +8,8 @@ This repository is for Falcon Intelligence, a local-first appraisal firm knowled
 - Do not inspect unrelated OneDrive files outside this repository.
 - Do not add source documents, extracted text, OCR outputs, embeddings, vector stores, databases, PDFs, DOCX, XLSX, CSV, TSV, or TXT files to git.
 - Use only synthetic fixtures when tests eventually require document-like inputs.
-- Keep implementation framework-only until ingestion is explicitly approved.
+- Keep production ingestion, external transfer, persisted real extracted facts, source preview, embeddings, and expanded real-content workflows disabled until explicitly approved.
+- Treat the existing searchable-PDF/DOCX extraction and OCR/layout diagnostic tools as local-only, opt-in capabilities: source documents and generated outputs stay outside version control, full extracted text is not retained, and automated validation uses synthetic inputs only.
 
 ## Implementation Priorities
 

@@ -2,7 +2,7 @@
 
 Falcon Intelligence is planned as a local-first knowledge base for appraisal firm workflows.
 
-The initial repository is intentionally limited to framework code and documentation. Future work may add controlled ingestion, extraction, indexing, and retrieval, but those features are out of scope for this scaffold.
+The repository combines synthetic product contracts and UI previews with controlled local historical-intake, embedded-text extraction, deterministic verification, Knowledge Object, Memory Graph, and diagnostic tooling. These foundations are not a complete production appraisal workflow.
 
 The canonical Intelligence Engine architecture is documented in `docs/architecture/FALCON_INTELLIGENCE_ENGINE.md`. It establishes the permanent hierarchy:
 
@@ -22,14 +22,24 @@ All future AI work should build on that hierarchy and the supporting knowledge, 
 - Keep private appraisal material local and out of version control.
 - Provide a clear place for future knowledge-base services.
 - Separate core framework code from future premium capabilities.
-- Make safety checks explicit before any document pipeline is added.
+- Keep document pipelines local, bounded, auditable, and outside version control.
 
 ## Non-Goals
 
 - No real report ingestion.
 - No sample appraisal documents.
-- No OCR, parsing, embedding, vector storage, or search implementation.
+- No production ingestion, AI extraction, embedding, vector storage, source preview, or production search.
+- No default OCR. The opt-in OCR/layout pilot emits redacted diagnostics only and does not promote results.
 - No cloud sync or external data transfer.
+
+## Implemented Local Tooling
+
+- Read-only historical file inventory and candidate grouping.
+- Embedded/searchable text extraction from approved likely-final PDFs, likely-final DOCX files, and same-order DOCX companions.
+- Deterministic candidate extraction, verification ledgers, Knowledge Object candidates, and Memory Graph candidates.
+- Privacy-safe extraction, anchor, OCR-feasibility, and opt-in OCR/layout diagnostics.
+
+All generated outputs stay under ignored local paths. Real reports and derived report text must never be committed.
 
 See `docs/session-handoff-roadmap.md` for the current implementation checkpoint, validation commands, known risks, and recommended next slices.
 
