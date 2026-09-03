@@ -105,6 +105,8 @@ Examples:
 
 The Memory Graph must be built from Knowledge Objects, not raw extraction candidates. Knowledge Object Builder V1 decides whether each object candidate is ready, probable, needs-review, or blocked. The Memory Graph preserves that status instead of hiding it.
 
+Assignment Intelligence Record V1 is the canonical assignment-scoped composition and human-review layer. Future graph promotion should reference AIR facts and reusable Knowledge Objects; AIR itself references prior knowledge/graph identities instead of embedding complete graph nodes and relationships.
+
 ```text
 Verified Facts
 -> Knowledge Object candidates

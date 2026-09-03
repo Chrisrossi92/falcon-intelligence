@@ -1,6 +1,6 @@
 # Schema Version Registry
 
-Falcon Intelligence keeps a lightweight schema version registry for UI and local API/RPC contract objects. The registry lives in `src/falcon_intel/schema_registry.py` and is synthetic-only.
+Falcon Intelligence keeps a lightweight schema version registry for domain, UI, and local API/RPC contract objects. The registry lives in `src/falcon_intel/schema_registry.py` and is synthetic-only.
 
 This registry does not authorize real appraisal data, OneDrive access, report parsing, extraction, OCR, embeddings, or source-document preview.
 
@@ -17,6 +17,9 @@ Before changing a versioned schema or overwriting a committed snapshot, create o
 | `falcon_passport_detail_api_response` | `1` | `tests/fixtures/synthetic_api_envelopes/falcon-passport-detail-api-response-v1.json` | Future Falcon API/RPC client for passport detail lookup. |
 | `audit_event_envelope` | `1` | `tests/fixtures/synthetic_audit_events/` | Future Falcon audit persistence and internal compliance handoff. |
 | `map_workspace_response` | `1` | `tests/fixtures/synthetic_ui_map_workspace/map-workspace-response-v1.json` | Future Falcon internal Intelligence Map Workspace page. |
+| `assignment_intelligence_record` | `1` | None; semantic tests and a synthetic smoke proof cover the contract directly. | Future Falcon assignment workspace exchange and later analysis, narrative-assistance, and QC layers. |
+| `assignment_property_brief` | `1` | `tests/fixtures/synthetic_intake_review/local-intake-review-workspace-v1.json` (nested `brief`). | Falcon internal assignment intake review and local brief export. |
+| `local_intake_review_workspace` | `1` | `tests/fixtures/synthetic_intake_review/local-intake-review-workspace-v1.json` | Internal React Local Intake Review preview. |
 
 The API response schema versions describe the response envelopes. Nested UI objects keep their own schema versions. For example, `build_falcon_intelligence_card_response` returns a `schema_version` for the Falcon response envelope and a separate `card.schema_version` for the Firm Intelligence Found card.
 
@@ -33,6 +36,9 @@ Use these constants instead of hard-coded version strings:
 - `FALCON_PASSPORT_DETAIL_API_RESPONSE_SCHEMA_VERSION`
 - `AUDIT_EVENT_ENVELOPE_SCHEMA_VERSION`
 - `MAP_WORKSPACE_RESPONSE_SCHEMA_VERSION`
+- `ASSIGNMENT_INTELLIGENCE_RECORD_SCHEMA_VERSION`
+- `ASSIGNMENT_PROPERTY_BRIEF_SCHEMA_VERSION`
+- `LOCAL_INTAKE_REVIEW_WORKSPACE_SCHEMA_VERSION`
 
 Current serializers and contract wrappers source versions from the registry constants.
 
@@ -54,7 +60,7 @@ The following are usually backward-compatible:
 
 ## Snapshot Rules
 
-UI-facing schemas with committed snapshots must be updated deliberately.
+UI-facing schemas with committed snapshots must be updated deliberately. The Assignment Intelligence Record remains a domain contract covered by focused semantic tests; the Local Intake Review snapshot also embeds the exact synthetic AIR payload so the React adapter and Brief V1 projection cannot drift from the backend proof.
 
 When a schema change is intentional:
 

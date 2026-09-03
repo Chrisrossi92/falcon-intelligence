@@ -28,6 +28,8 @@ Historical Knowledge Extraction produces candidate metadata from deterministic l
 
 The Verification Engine is the boundary where Falcon decides whether a candidate can become a fact, should remain probable, is missing, or requires review.
 
+Assignment Intelligence Record V1 adds the human-decision boundary after this engine. Within that contract, these deterministic ledger results are recorded as `machine_verification_status` and `machine_confidence`; they do not become canonical assignment facts until an explicit appraiser/reviewer review event accepts or corrects them. This clarification preserves the existing engine and avoids confusing deterministic source agreement with professional approval.
+
 ## Verified Fact Model
 
 Each Verified Fact ledger contains:

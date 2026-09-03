@@ -1,6 +1,6 @@
 # Schema Changelog
 
-Falcon Intelligence schema changes must be deliberate, reviewable, and synthetic-only until the production readiness gates approve broader work. This changelog records contract changes for UI-facing and Falcon-style API/RPC schemas.
+Falcon Intelligence schema changes must be deliberate, reviewable, and synthetic-only until the production readiness gates approve broader work. This changelog records domain, UI-facing, and Falcon-style API/RPC contract changes.
 
 This document does not authorize real appraisal data, OneDrive access, report parsing, extraction, OCR, embeddings, source-document preview, or production API behavior.
 
@@ -101,6 +101,45 @@ Describe consumer changes, fallback behavior, version detection, or compatibilit
 - Consumers: future Falcon internal Intelligence Map Workspace page.
 - Baseline note: v1 is the synthetic table/map contract for `table_rows`, `map_pins`, `selected_record`, `result_counts`, and `available_filters`.
 - Change rule: changes to row/pin identity, selected-record sync behavior, coordinate semantics, filter keys, or result count semantics require deliberate snapshot review and may require a new version.
+
+### Assignment Intelligence Record
+
+- Schema name: `assignment_intelligence_record`
+- Current version: `1`
+- Snapshot: none; focused semantic tests and `scripts/smoke_assignment_intelligence_record.py` validate the domain contract.
+- Consumers: future Falcon assignment workspace exchange and later analysis, narrative-assistance, QC, Property Passport, Knowledge Object, and Memory Graph projections.
+- Baseline note: v1 defines record identity/version lineage, narrow Falcon assignment reference, metadata-only sources, immutable evidence, candidate assertions, explicit review events, canonical fact revisions, conflicts, reference-only knowledge links, separate conclusions, and deterministic readiness.
+- Change rule: changes to required record sections, identity/lineage semantics, candidate/fact/review states, evidence immutability, supersession, reference behavior, readiness issue meaning, or deterministic serialization require a new version unless demonstrably additive and optional.
+- Safety review: synthetic/local only; no fixture snapshot, real report data, source excerpt, production persistence, or live Falcon integration was added.
+
+### Local Intake Review / AIR Defer Extension
+
+- Schema name: `assignment_intelligence_record`
+- Current version: `1`
+- Change type: additive local V1 workflow extension.
+- Reason: Local Intake Review requires an explicit `candidate_deferred` review action and `deferred` candidate state that do not promote or reject the observation.
+- Compatibility note: AIR remains the same required V1 record shape. The new state/action are emitted only by the new local workflow, and existing synthetic builders remain byte-stable. Any production consumer must treat supported action/state values as version-governed before production rollout.
+- Semantic fix: rejecting one candidate in a conflict supersedes a current fact only when that fact came from the rejected candidate; it cannot remove the selected competing fact.
+- Affected consumers: local review service, readiness calculation, Brief V1, React intake review projection.
+- Safety review: no real content, persistence, source preview, or live integration.
+
+### Assignment/Property Brief
+
+- Schema name: `assignment_property_brief`
+- Current version: `1`
+- Snapshot: nested `brief` and `brief_markdown` in `tests/fixtures/synthetic_intake_review/local-intake-review-workspace-v1.json`.
+- Consumers: local CLI export and internal React intake review.
+- Baseline note: v1 projects only current AIR facts, references, conclusions, evidence citations, readiness areas/issues, AIR identity/version, and explicit professional-boundary labels.
+- Change rule: changes to fact/provenance meaning, professional-boundary semantics, readiness interpretation, or export identity require deliberate review and may require a new version.
+
+### Local Intake Review Workspace
+
+- Schema name: `local_intake_review_workspace`
+- Current version: `1`
+- Snapshot: `tests/fixtures/synthetic_intake_review/local-intake-review-workspace-v1.json`.
+- Consumers: `frontend/src/intake/LocalIntakeReviewWorkspace.tsx`.
+- Baseline note: v1 is a backend-generated synthetic adapter containing AIR identity/payload, assignment overview, practical topic groups, candidate/evidence rows, review progress, conflicts, missing critical information, readiness, Brief V1, and export formats.
+- Change rule: required projection fields, review-state/action meaning, candidate/evidence identity, or nested brief contract changes require deliberate snapshot review and may require a new version.
 
 ## Maintenance Rules
 

@@ -22,6 +22,8 @@ The repository contains read-only local historical inventory and embedded/search
 
 The OCR/layout pilot is disabled by default and diagnostic-only when explicitly enabled. It may emit redacted shapes and fingerprints but must not save page images, raw OCR text, snippets, or extracted values, and its results do not enter verification or firm knowledge.
 
+The synthetic Local Intake Review and Assignment/Property Brief exporter requires an explicit output directory. It rejects tracked repository locations and permits repository-local output only under ignored `data/`, `exports/`, `local-data/`, or `local_data/` roots. AIR and brief exports are runtime artifacts and must not be committed.
+
 Before any production ingestion, persisted real extracted facts, source preview, embeddings, external service, or expanded real-content workflow is enabled, the project must define:
 
 - A local-only storage boundary.

@@ -6,6 +6,7 @@ from pathlib import Path
 from typing import Any
 
 from falcon_intel.correction_audit import build_demo_correction_audit_workspace
+from falcon_intel.assignment_brief import export_assignment_property_brief
 from falcon_intel.discovery import AssignmentCandidate, discover_assignments
 from falcon_intel.intelligence_card import build_firm_intelligence_card
 from falcon_intel.intelligence_matcher import (
@@ -31,6 +32,9 @@ from falcon_intel.search import (
     load_manifest,
     search_manifest,
     summarize_results,
+)
+from falcon_intel.synthetic_local_intake_review import (
+    build_synthetic_local_intake_review_proof,
 )
 
 
@@ -188,6 +192,19 @@ def _build_parser() -> ArgumentParser:
         help="Preview synthetic field correction and audit trail history.",
     )
     correction_audit_parser.set_defaults(handler=_handle_correction_audit)
+
+    local_intake_parser = subparsers.add_parser(
+        "local-intake-review",
+        help="Run the synthetic AIR-backed intake review and Assignment/Property Brief V1 proof.",
+    )
+    local_intake_parser.add_argument(
+        "--export-dir",
+        help=(
+            "Explicit ignored local or out-of-repository directory for deterministic AIR, "
+            "brief JSON, and Markdown exports."
+        ),
+    )
+    local_intake_parser.set_defaults(handler=_handle_local_intake_review)
 
     return parser
 
@@ -389,6 +406,18 @@ def _handle_property_library(args: Namespace) -> dict[str, Any]:
 
 def _handle_correction_audit(args: Namespace) -> dict[str, Any]:
     return build_demo_correction_audit_workspace()
+
+
+def _handle_local_intake_review(args: Namespace) -> dict[str, Any]:
+    proof = build_synthetic_local_intake_review_proof()
+    payload = dict(proof.workspace)
+    if args.export_dir:
+        payload["exported_paths"] = export_assignment_property_brief(
+            proof.record,
+            proof.brief,
+            args.export_dir,
+        )
+    return payload
 
 
 def _resolve_manifest_path(args: Namespace) -> Path:

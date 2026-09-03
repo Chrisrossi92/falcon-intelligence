@@ -12,6 +12,9 @@ FALCON_CARD_API_RESPONSE_SCHEMA_VERSION = "1"
 FALCON_PASSPORT_DETAIL_API_RESPONSE_SCHEMA_VERSION = "1"
 AUDIT_EVENT_ENVELOPE_SCHEMA_VERSION = "1"
 MAP_WORKSPACE_RESPONSE_SCHEMA_VERSION = "1"
+ASSIGNMENT_INTELLIGENCE_RECORD_SCHEMA_VERSION = "1"
+ASSIGNMENT_PROPERTY_BRIEF_SCHEMA_VERSION = "1"
+LOCAL_INTAKE_REVIEW_WORKSPACE_SCHEMA_VERSION = "1"
 
 
 class SchemaName(StrEnum):
@@ -24,6 +27,9 @@ class SchemaName(StrEnum):
     FALCON_PASSPORT_DETAIL_API_RESPONSE = "falcon_passport_detail_api_response"
     AUDIT_EVENT_ENVELOPE = "audit_event_envelope"
     MAP_WORKSPACE_RESPONSE = "map_workspace_response"
+    ASSIGNMENT_INTELLIGENCE_RECORD = "assignment_intelligence_record"
+    ASSIGNMENT_PROPERTY_BRIEF = "assignment_property_brief"
+    LOCAL_INTAKE_REVIEW_WORKSPACE = "local_intake_review_workspace"
 
 
 @dataclass(frozen=True)
@@ -126,6 +132,46 @@ SCHEMA_REGISTRY: dict[SchemaName, SchemaRegistryEntry] = {
             "Table-row and map-pin identity, selection, and coordinate semantics must remain stable for v1."
         ),
         intended_consumer="Future Falcon internal Intelligence Map Workspace page.",
+    ),
+    SchemaName.ASSIGNMENT_INTELLIGENCE_RECORD: SchemaRegistryEntry(
+        schema_name=SchemaName.ASSIGNMENT_INTELLIGENCE_RECORD.value,
+        current_version=ASSIGNMENT_INTELLIGENCE_RECORD_SCHEMA_VERSION,
+        fixture_snapshot_path=None,
+        breaking_change_rules=_BREAKING_CHANGE_RULES,
+        backward_compatibility_notes=(
+            "V1 is a synthetic/local canonical composition contract. Additive optional fields may be "
+            "introduced without changing the version; required shape or lifecycle changes require a new version."
+        ),
+        intended_consumer=(
+            "Future Falcon assignment workspace exchange and later analysis, narrative-assistance, and QC layers."
+        ),
+    ),
+    SchemaName.ASSIGNMENT_PROPERTY_BRIEF: SchemaRegistryEntry(
+        schema_name=SchemaName.ASSIGNMENT_PROPERTY_BRIEF.value,
+        current_version=ASSIGNMENT_PROPERTY_BRIEF_SCHEMA_VERSION,
+        fixture_snapshot_path=(
+            "tests/fixtures/synthetic_intake_review/local-intake-review-workspace-v1.json"
+        ),
+        breaking_change_rules=_BREAKING_CHANGE_RULES,
+        backward_compatibility_notes=(
+            "The brief is a deterministic projection of AIR V1 current facts, evidence, "
+            "references, and readiness. New optional presentation fields may be additive; "
+            "fact/provenance meanings and professional-boundary labels must remain stable."
+        ),
+        intended_consumer="Falcon internal assignment intake review and local brief export.",
+    ),
+    SchemaName.LOCAL_INTAKE_REVIEW_WORKSPACE: SchemaRegistryEntry(
+        schema_name=SchemaName.LOCAL_INTAKE_REVIEW_WORKSPACE.value,
+        current_version=LOCAL_INTAKE_REVIEW_WORKSPACE_SCHEMA_VERSION,
+        fixture_snapshot_path=(
+            "tests/fixtures/synthetic_intake_review/local-intake-review-workspace-v1.json"
+        ),
+        breaking_change_rules=_BREAKING_CHANGE_RULES,
+        backward_compatibility_notes=(
+            "This local synthetic adapter projects AIR candidates, review events, conflicts, "
+            "readiness, and Brief V1 for the React proof. AIR remains canonical."
+        ),
+        intended_consumer="Internal React Local Intake Review preview.",
     ),
 }
 

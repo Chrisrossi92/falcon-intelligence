@@ -119,6 +119,14 @@ def main_smoke() -> None:
                 ]
             ) == 0
             assert main(["correction-audit"]) == 0
+            assert main(["local-intake-review"]) == 0
+            assert main(
+                [
+                    "local-intake-review",
+                    "--export-dir",
+                    str(workspace_path / "exports" / "synthetic-local-intake"),
+                ]
+            ) == 0
             try:
                 main(["summary", "--manifest", str(manifests[0]), "--latest"])
             except SystemExit as error:
