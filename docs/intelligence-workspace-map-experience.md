@@ -4,6 +4,17 @@ This document is the first real UX specification for the Falcon Intelligence Wor
 
 The assumed UI data source remains the existing synthetic contracts and snapshots, especially `map_workspace_response`, assignment profiles, firm intelligence card summaries, data passports, evidence links, audit events, permission decisions, and schema registry entries.
 
+Future workspace concepts should align with the canonical Intelligence Engine in `docs/architecture/FALCON_INTELLIGENCE_ENGINE.md`:
+
+```text
+Documents
+-> Facts
+-> Knowledge
+-> Insights
+-> Recommendations
+-> Actions
+```
+
 ## Product Positioning
 
 Falcon Core manages work. It owns orders, assignments, calendars, clients, operational status, delivery, users, roles, and client-facing workflows.
@@ -58,9 +69,9 @@ Every Intelligence surface should answer one of four questions:
 
 These questions should be visible in the product structure. The workspace should not feel like a generic AI dashboard or analytics page.
 
-## Intelligence Hierarchy
+## Workspace Intelligence Hierarchy
 
-Use this hierarchy as the mental model for navigation, disclosure, and auditability:
+Use this workspace hierarchy as the mental model for navigation, disclosure, and auditability:
 
 ```text
 Firm
@@ -81,6 +92,8 @@ Implications:
 - Fact is the reviewed unit of knowledge.
 - Evidence explains why the fact is supportable.
 - Audit explains who acted, when, and under what decision path.
+
+This workspace hierarchy is the UI expression of the broader engine hierarchy. Documents and source evidence appear through Supporting Evidence, facts and knowledge appear through Knowledge Summary and Passport, insights and recommendations should eventually appear in selected-object cards or panels, and actions remain operator-controlled.
 
 ## Canonical Map Workspace Layout
 
@@ -159,6 +172,14 @@ The passport drawer opens over the workspace and preserves map/table context. It
 The drawer should use the existing `passport_detail_drawer` contract and show:
 
 - Passport identity.
+- Property Passport V1 identity from synthetic Verified Fact fixtures.
+- Verified Fact summary with verified, probable, conflicting, missing, and needs-review counts.
+- Knowledge Objects Preview rows for Property, Report, Client/User, Personnel, and Open Issues candidates.
+- Memory Graph Preview with node count, relationship count, graph readiness, key relationship chips, and unresolved warnings.
+- Confidence and trust badges.
+- Evidence references with source labels, methods, and source hints only.
+- Plain-English "what Falcon knows so far" summary.
+- Readiness for future Knowledge Object creation.
 - Fact summary.
 - Verification and review summary.
 - Confidence dimensions.
@@ -168,6 +189,26 @@ The drawer should use the existing `passport_detail_drawer` contract and show:
 - Warnings.
 
 The drawer must not include real source text, raw report content, absolute paths, OneDrive paths, or source-document previews.
+
+Property Passport V1 remains frontend-only and preview-only. It does not load ignored verification or knowledge-object outputs into the browser, create durable Knowledge Objects, create Memory Graph records, or promote real report data.
+
+The Knowledge Objects Preview maps the synthetic Passport facts to the Knowledge Object Builder V1 architecture. It should show readiness, missing fields, conflict counts, and source fact counts without exposing real local output files or source documents.
+
+The Memory Graph Preview maps those synthetic Knowledge Objects to the Memory Graph architecture. It should stay compact and avoid complex graph visualization until production graph identity, permissions, and timeline rules exist.
+
+### Right Rail: Insight Layer Preview
+
+The current preview adds a compact Insight Layer panel below Knowledge Summary. It demonstrates how the Intelligence Engine hierarchy can feel inside the workspace without implementing the real engine.
+
+The panel shows:
+
+- Synthetic insight cards for the selected property or report context.
+- Confidence and trust badges such as High confidence, Needs verification, Conflicting evidence, and Stale evidence.
+- A recommendation panel with appraisal-specific review guidance.
+- A metadata-only evidence drill-down preview.
+- A Facts to Knowledge to Insight to Recommendation relationship chain.
+
+This panel is frontend-only and read-only. It does not call AI services, inspect report contents, parse documents, score confidence, change schemas, or create production recommendations.
 
 ### Nested Drawers: Evidence and Audit
 

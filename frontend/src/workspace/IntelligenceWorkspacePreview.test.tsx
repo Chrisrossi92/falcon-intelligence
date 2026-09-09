@@ -94,7 +94,8 @@ describe("IntelligenceWorkspacePreview", () => {
 
     await user.click(screen.getByRole("checkbox", { name: /Verified Knowledge/i }));
 
-    expect(screen.queryByText("Verified knowledge")).not.toBeInTheDocument();
+    const layerBadgeText = Array.from(document.querySelectorAll(".layer-badge")).map((badge) => badge.textContent);
+    expect(layerBadgeText).not.toContain("Verified knowledge");
     expect(screen.getByRole("button", { name: /Select Current subject/i })).toBeInTheDocument();
     expect(screen.getByRole("row", { name: /Verified industrial sale comp/i })).toBeInTheDocument();
   });
@@ -250,6 +251,57 @@ describe("IntelligenceWorkspacePreview", () => {
       .toBeInTheDocument();
   });
 
+  it("renders synthetic Insight Layer cards with trust badges and recommendations", () => {
+    render(<IntelligenceWorkspacePreview />);
+
+    const insightLayer = screen.getByRole("complementary", { name: "Insight Layer Preview" });
+    expect(within(insightLayer).getByRole("heading", { name: "Preview insights" })).toBeInTheDocument();
+    expect(within(insightLayer).getByText("Sale comparable is usable only after date review")).toBeInTheDocument();
+    expect(within(insightLayer).getAllByText("High confidence").length).toBeGreaterThan(0);
+    expect(within(insightLayer).getByRole("region", { name: "Recommendation panel" })).toHaveTextContent(
+      "Reuse prior comparable only after checking sale date and freshness."
+    );
+    expect(within(insightLayer).getByRole("region", { name: "Evidence drill-down preview" })).toHaveTextContent(
+      "Synthetic metadata only. No source document is opened or parsed."
+    );
+  });
+
+  it("shows the Facts to Knowledge to Insight relationship for the airport warehouse", async () => {
+    const user = userEvent.setup();
+    render(<IntelligenceWorkspacePreview />);
+
+    await user.click(screen.getByRole("button", { name: /Select Airport warehouse/i }));
+
+    const insightLayer = screen.getByRole("complementary", { name: "Insight Layer Preview" });
+    expect(within(insightLayer).getByText("Physical profile appears stable enough for depreciation review"))
+      .toBeInTheDocument();
+
+    const chain = within(insightLayer).getByRole("region", { name: "Facts to knowledge to insight relationship" });
+    expect(within(chain).getByText("Fact")).toBeInTheDocument();
+    expect(within(chain).getByText("Knowledge")).toBeInTheDocument();
+    expect(within(chain).getByText("Insight")).toBeInTheDocument();
+    expect(within(chain).getByText("Recommendation")).toBeInTheDocument();
+    expect(within(chain).getByText("Review cost approach before altering depreciation assumptions")).toBeInTheDocument();
+  });
+
+  it("switches selected insight evidence and recommendation in the preview panel", async () => {
+    const user = userEvent.setup();
+    render(<IntelligenceWorkspacePreview />);
+
+    await user.click(screen.getByRole("button", { name: /Select Airport warehouse/i }));
+
+    const insightLayer = screen.getByRole("complementary", { name: "Insight Layer Preview" });
+    await user.click(within(insightLayer).getByRole("button", { name: /Income assumptions should be checked/i }));
+
+    expect(within(insightLayer).getByRole("region", { name: "Recommendation panel" })).toHaveTextContent(
+      "Review rent roll before updating income assumptions."
+    );
+    expect(within(insightLayer).getByRole("region", { name: "Evidence drill-down preview" })).toHaveTextContent(
+      "Synthetic industrial assignment source metadata"
+    );
+    expect(within(insightLayer).getAllByText("Needs verification").length).toBeGreaterThan(0);
+  });
+
   it("supports the airport warehouse demo scenario through Knowledge Summary, Passport, Evidence, and Audit", async () => {
     const user = userEvent.setup();
     render(<IntelligenceWorkspacePreview />);
@@ -342,6 +394,131 @@ describe("IntelligenceWorkspacePreview", () => {
     expect(within(drawer).getByText("Review events")).toBeInTheDocument();
     expect(within(drawer).getByText("This section summarizes what Falcon Intelligence knows about the selected property."))
       .toBeInTheDocument();
+  });
+
+  it("renders Property Passport V1 identity from synthetic verified facts", async () => {
+    const user = userEvent.setup();
+    render(<IntelligenceWorkspacePreview />);
+
+    await user.click(screen.getByRole("button", { name: /Select Current subject/i }));
+    await user.click(screen.getByRole("button", { name: "Open Passport" }));
+
+    const drawer = screen.getByRole("dialog", { name: "Current subject" });
+    const passportV1 = within(drawer).getByLabelText("Property Passport V1");
+    expect(within(passportV1).getByRole("heading", { name: "Property Passport V1" })).toBeInTheDocument();
+    expect(within(passportV1).getByText("Property address")).toBeInTheDocument();
+    expect(within(passportV1).getByText("100 Sample Industrial Avenue")).toBeInTheDocument();
+    expect(within(passportV1).getByText("Restricted appraisal report")).toBeInTheDocument();
+    expect(within(passportV1).getByText("Example Bank")).toBeInTheDocument();
+    expect(within(passportV1).getByText("June 1, 2026")).toBeInTheDocument();
+  });
+
+  it("shows Passport V1 fact statuses and confidence badges", async () => {
+    const user = userEvent.setup();
+    render(<IntelligenceWorkspacePreview />);
+
+    await user.click(screen.getByRole("button", { name: /Select Current subject/i }));
+    await user.click(screen.getByRole("button", { name: "Open Passport" }));
+
+    const drawer = screen.getByRole("dialog", { name: "Current subject" });
+    const factSummary = within(drawer).getByLabelText("Verified Fact Summary");
+    expect(within(factSummary).getAllByText("Verified").length).toBeGreaterThan(0);
+    expect(within(factSummary).getAllByText("Probable").length).toBeGreaterThan(0);
+    expect(within(factSummary).getAllByText("Conflicting").length).toBeGreaterThan(0);
+    expect(within(factSummary).getAllByText("Missing").length).toBeGreaterThan(0);
+    expect(within(factSummary).getAllByText("Needs review").length).toBeGreaterThan(0);
+    expect(within(factSummary).getAllByText("High confidence").length).toBeGreaterThan(0);
+    expect(within(factSummary).getAllByText("Medium confidence").length).toBeGreaterThan(0);
+    expect(within(factSummary).getAllByText("Conflicting confidence").length).toBeGreaterThan(0);
+  });
+
+  it("displays Passport V1 evidence references without source text", async () => {
+    const user = userEvent.setup();
+    render(<IntelligenceWorkspacePreview />);
+
+    await user.click(screen.getByRole("button", { name: /Select Current subject/i }));
+    await user.click(screen.getByRole("button", { name: "Open Passport" }));
+
+    const drawer = screen.getByRole("dialog", { name: "Current subject" });
+    const evidenceReferences = within(drawer).getByLabelText("Evidence references");
+    expect(within(evidenceReferences).getAllByText(/Synthetic report cover metadata/i).length).toBeGreaterThan(0);
+    expect(within(evidenceReferences).getAllByText(/Agreement rule/i).length).toBeGreaterThan(0);
+    expect(within(evidenceReferences).getAllByText(/page 1/i).length).toBeGreaterThan(0);
+    expect(within(evidenceReferences).queryByText(/report body excerpt/i)).not.toBeInTheDocument();
+    expect(within(evidenceReferences).queryByText(/full source text/i)).not.toBeInTheDocument();
+  });
+
+  it("shows Passport V1 readiness and what Falcon knows so far", async () => {
+    const user = userEvent.setup();
+    render(<IntelligenceWorkspacePreview />);
+
+    await user.click(screen.getByRole("button", { name: /Select Current subject/i }));
+    await user.click(screen.getByRole("button", { name: "Open Passport" }));
+
+    const drawer = screen.getByRole("dialog", { name: "Current subject" });
+    const summary = within(drawer).getByLabelText("What Falcon knows so far");
+    expect(within(summary).getByText("Falcon found a conflict in the intended user field.")).toBeInTheDocument();
+    expect(within(summary).getByText("Falcon is missing reviewer information.")).toBeInTheDocument();
+
+    const readiness = within(drawer).getByLabelText("Readiness panel");
+    expect(within(readiness).getAllByText("Blocked by conflicts").length).toBeGreaterThan(0);
+    expect(within(readiness).getByText("Resolve conflicting verified fact candidates before creating Knowledge Objects."))
+      .toBeInTheDocument();
+  });
+
+  it("renders synthetic Knowledge Object candidates in the Property Passport preview", async () => {
+    const user = userEvent.setup();
+    render(<IntelligenceWorkspacePreview />);
+
+    await user.click(screen.getByRole("button", { name: /Select Current subject/i }));
+    await user.click(screen.getByRole("button", { name: "Open Passport" }));
+
+    const drawer = screen.getByRole("dialog", { name: "Current subject" });
+    const knowledgeObjects = within(drawer).getByLabelText("Knowledge Objects Preview");
+
+    expect(within(knowledgeObjects).getByText("Property Object")).toBeInTheDocument();
+    expect(within(knowledgeObjects).getByText("Report Object")).toBeInTheDocument();
+    expect(within(knowledgeObjects).getByText("Client/User Object")).toBeInTheDocument();
+    expect(within(knowledgeObjects).getByText("Personnel Object")).toBeInTheDocument();
+    expect(within(knowledgeObjects).getByText("Open Issues")).toBeInTheDocument();
+    expect(within(knowledgeObjects).getAllByText("Ready").length).toBeGreaterThan(0);
+    expect(within(knowledgeObjects).getByText("Probable")).toBeInTheDocument();
+    expect(within(knowledgeObjects).getByText("Blocked")).toBeInTheDocument();
+    expect(within(knowledgeObjects).getByText(/Verified Facts become durable property knowledge/i)).toBeInTheDocument();
+  });
+
+  it("renders a compact synthetic Memory Graph Preview in the Property Passport", async () => {
+    const user = userEvent.setup();
+    render(<IntelligenceWorkspacePreview />);
+
+    await user.click(screen.getByRole("button", { name: /Select Current subject/i }));
+    await user.click(screen.getByRole("button", { name: "Open Passport" }));
+
+    const drawer = screen.getByRole("dialog", { name: "Current subject" });
+    const memoryGraph = within(drawer).getByLabelText("Memory Graph Preview");
+
+    expect(within(memoryGraph).getByRole("heading", { name: "Memory Graph Preview" })).toBeInTheDocument();
+    expect(within(memoryGraph).getByText("Nodes")).toBeInTheDocument();
+    expect(within(memoryGraph).getByText("Relationships")).toBeInTheDocument();
+    expect(within(memoryGraph).getByText("PROPERTY_HAS_REPORT")).toBeInTheDocument();
+    expect(within(memoryGraph).getByText("REPORT_SUPPORTS_PROPERTY_PASSPORT")).toBeInTheDocument();
+    expect(within(memoryGraph).getByLabelText("Memory Graph unresolved relationship warnings")).toHaveTextContent(
+      "Client/User Object"
+    );
+    expect(within(memoryGraph).getByText(/This property memory connects/i)).toBeInTheDocument();
+  });
+
+  it("keeps Passport V1 fixtures synthetic and free of real-looking order data", async () => {
+    const user = userEvent.setup();
+    render(<IntelligenceWorkspacePreview />);
+
+    await user.click(screen.getByRole("button", { name: /Select Current subject/i }));
+    await user.click(screen.getByRole("button", { name: "Open Passport" }));
+
+    const drawer = screen.getByRole("dialog", { name: "Current subject" });
+    expect(drawer).toHaveTextContent(/Sample|Example|Synthetic/);
+    expect(drawer.textContent ?? "").not.toMatch(/\b\d{5}-\d{6}\b/);
+    expect(drawer.textContent ?? "").not.toMatch(/source document body/i);
   });
 
   it("renders comparable Correction history with prior value, current value, evidence, confidence, and approval", async () => {

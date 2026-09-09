@@ -14,7 +14,21 @@ import {
   type CorrectionAuditPreview
 } from "./correctionAuditData";
 import { buildEvidencePreview, buildEvidenceUnavailablePreview, type EvidencePreview } from "./evidenceData";
+import {
+  buildInsightPreview,
+  type InsightPreview,
+  type TrustState
+} from "./insightData";
 import { buildPassportPreview, type EvidenceLink, type PassportPreview } from "./passportData";
+import {
+  buildPropertyPassportV1Preview,
+  countFactStatuses,
+  type PassportFactConfidence,
+  type PassportFactStatus,
+  type PassportVerifiedFact,
+  type KnowledgeObjectReadiness,
+  type PropertyPassportV1Preview
+} from "./propertyPassportV1Data";
 
 type WorkspacePreviewState =
   | "content"
@@ -390,6 +404,7 @@ export function IntelligenceWorkspacePreview() {
   const [isPassportOpen, setIsPassportOpen] = useState(false);
   const [selectedEvidence, setSelectedEvidence] = useState<EvidencePreview | null>(null);
   const [selectedAudit, setSelectedAudit] = useState<AuditPreview | null>(null);
+  const [selectedInsightId, setSelectedInsightId] = useState<string | null>(null);
   const [previewState, setPreviewState] = useState<WorkspacePreviewState>("content");
   const [layers, setLayers] = useState<LayerState>(defaultLayers);
   const [workspaceFilters, setWorkspaceFilters] = useState<WorkspaceFilters>(defaultWorkspaceFilters);
@@ -402,6 +417,8 @@ export function IntelligenceWorkspacePreview() {
   const pins = mapWorkspaceData.map_pins;
   const selectedPassport = buildPassportPreview(selectedRow);
   const selectedCorrectionAudit = buildCorrectionAuditPreview(selectedRow, selectedPassport);
+  const selectedInsights = buildInsightPreview(selectedRow, selectedPassport);
+  const selectedInsight = selectedInsights.find((insight) => insight.id === selectedInsightId) ?? selectedInsights[0];
   const isWorkspaceBlocked = blockingStates.includes(previewState);
   const isWorkspaceInteractive = contentVisibleStates.includes(previewState);
   const layerRows = isWorkspaceInteractive ? filterRowsByLayers(mapWorkspaceData.table_rows, layers) : [];
@@ -439,6 +456,10 @@ export function IntelligenceWorkspacePreview() {
     setSelectedId(id);
     setHasUserSelectedProperty(true);
   }
+
+  useEffect(() => {
+    setSelectedInsightId(selectedInsights[0]?.id ?? null);
+  }, [selectedRow.id]);
 
   function handleLayerChange(layer: LayerKey, value: boolean) {
     setLayers((current) => ({ ...current, [layer]: value }));
@@ -631,7 +652,7 @@ export function IntelligenceWorkspacePreview() {
             />
           </div>
 
-          <div className="workspace-side-rail" aria-label="Layers and Knowledge Summary">
+          <div className="workspace-side-rail" aria-label="Layers, Knowledge Summary, and Insights">
             <LayerPanel
               disabled={!isWorkspaceInteractive}
               layers={layers}
@@ -646,6 +667,14 @@ export function IntelligenceWorkspacePreview() {
               disabled={!isWorkspaceInteractive || !isSelectedVisible}
               notice={selectionNotice}
               onOpenPassport={() => setIsPassportOpen(true)}
+            />
+            <InsightLayerPreview
+              disabled={!isWorkspaceInteractive || !isSelectedVisible}
+              insights={selectedInsights}
+              selectedInsight={selectedInsight}
+              selectedInsightId={selectedInsight?.id ?? null}
+              notice={selectionNotice}
+              onSelectInsight={setSelectedInsightId}
             />
           </div>
         </section>
@@ -1078,6 +1107,128 @@ function KnowledgeSummary({
   );
 }
 
+function InsightLayerPreview({
+  disabled,
+  insights,
+  notice,
+  selectedInsight,
+  selectedInsightId,
+  onSelectInsight
+}: {
+  disabled: boolean;
+  insights: InsightPreview[];
+  notice: WorkspaceNotice;
+  selectedInsight: InsightPreview | undefined;
+  selectedInsightId: string | null;
+  onSelectInsight: (id: string) => void;
+}) {
+  const visibleInsights = disabled ? [] : insights.slice(0, 5);
+  const recommendationCount = visibleInsights.length;
+
+  return (
+    <aside className="insight-layer-panel" aria-label="Insight Layer Preview">
+      <div className="insight-layer-header">
+        <div>
+          <p className="panel-label">Insight Layer</p>
+          <h2>{disabled ? "Insights unavailable" : "Preview insights"}</h2>
+        </div>
+        {!disabled && <span>{recommendationCount} recommendations</span>}
+      </div>
+
+      {disabled || !selectedInsight ? (
+        <p className="summary-note">{notice.detail || "Select a visible property to preview synthetic insights."}</p>
+      ) : (
+        <>
+          <div className="insight-card-list" aria-label="Synthetic insight cards">
+            {visibleInsights.map((insight) => (
+              <button
+                key={insight.id}
+                type="button"
+                className={`insight-card ${insight.id === selectedInsightId ? "selected" : ""}`}
+                aria-pressed={insight.id === selectedInsightId}
+                onClick={() => onSelectInsight(insight.id)}
+              >
+                <span className="insight-card-title">{insight.title}</span>
+                <span className="insight-card-copy">{insight.explanation}</span>
+                <span className="insight-card-meta">
+                  <TrustBadge state={insight.confidenceState} />
+                  <em>{insight.freshnessCue}</em>
+                  <em>{insight.evidence.length} evidence</em>
+                </span>
+              </button>
+            ))}
+          </div>
+
+          <section className="recommendation-panel" aria-label="Recommendation panel">
+            <div className="section-heading-row">
+              <h3>Recommendation</h3>
+              <TrustBadge state={selectedInsight.confidenceState} />
+            </div>
+            <p>{selectedInsight.recommendation}</p>
+            <span>{selectedInsight.verificationCue}</span>
+          </section>
+
+          <section className="relationship-chain" aria-label="Facts to knowledge to insight relationship">
+            <h3>Facts to Knowledge to Insight</h3>
+            <ol>
+              <li>
+                <span>Fact</span>
+                <strong>{selectedInsight.relationshipChain.fact}</strong>
+              </li>
+              <li>
+                <span>Knowledge</span>
+                <strong>{selectedInsight.relationshipChain.knowledge}</strong>
+              </li>
+              <li>
+                <span>Insight</span>
+                <strong>{selectedInsight.relationshipChain.insight}</strong>
+              </li>
+              <li>
+                <span>Recommendation</span>
+                <strong>{selectedInsight.relationshipChain.recommendation}</strong>
+              </li>
+            </ol>
+          </section>
+
+          <section className="insight-evidence-preview" aria-label="Evidence drill-down preview">
+            <h3>Evidence Preview</h3>
+            <ul>
+              {selectedInsight.evidence.map((evidence) => (
+                <li key={`${selectedInsight.id}-${evidence.sourceLabel}`}>
+                  <strong>{evidence.sourceLabel}</strong>
+                  <span>{formatLabel(evidence.evidenceType)}</span>
+                  <p>{evidence.relationship}</p>
+                </li>
+              ))}
+            </ul>
+            <p className="summary-note">Synthetic metadata only. No source document is opened or parsed.</p>
+          </section>
+
+          <section className="related-facts-panel" aria-label="Related knowledge and facts">
+            <h3>Related knowledge / facts</h3>
+            <div>
+              {selectedInsight.relatedFacts.map((fact) => (
+                <span key={`${selectedInsight.id}-${fact}`}>{fact}</span>
+              ))}
+            </div>
+          </section>
+        </>
+      )}
+    </aside>
+  );
+}
+
+function TrustBadge({ state }: { state: TrustState }) {
+  const labels: Record<TrustState, string> = {
+    conflicting: "Conflicting evidence",
+    high: "High confidence",
+    needs_verification: "Needs verification",
+    stale: "Stale evidence"
+  };
+
+  return <span className={`trust-badge ${state}`}>{labels[state]}</span>;
+}
+
 function LayerPanel({
   disabled,
   layers,
@@ -1196,6 +1347,8 @@ function PassportDrawer({
   onClose: () => void;
   onOpenEvidence: (evidence: EvidenceLink) => void;
 }) {
+  const propertyPassportV1 = buildPropertyPassportV1Preview(selectedRow);
+
   return (
     <aside
       className="passport-drawer"
@@ -1239,6 +1392,8 @@ function PassportDrawer({
               ]}
             />
           </section>
+
+          <PropertyPassportV1Panel preview={propertyPassportV1} />
 
           <section className="drawer-section" aria-label="Verified Knowledge">
             <h3>Verified Knowledge</h3>
@@ -1323,6 +1478,198 @@ function PassportDrawer({
       )}
     </aside>
   );
+}
+
+function PropertyPassportV1Panel({ preview }: { preview: PropertyPassportV1Preview }) {
+  const counts = countFactStatuses(preview.facts);
+  const selectedEvidenceFacts = preview.facts.filter((fact) => fact.evidence.length > 0).slice(0, 4);
+
+  return (
+    <>
+      <section className="drawer-section property-passport-v1" aria-label="Property Passport V1">
+        <div className="section-heading-row">
+          <h3>Property Passport V1</h3>
+          <ReadinessBadge state={preview.readiness.state} />
+        </div>
+        <p className="guidance-hint">
+          Verified Fact ledgers make this a trusted property knowledge record, not a document viewer.
+        </p>
+        <DefinitionRows rows={preview.identity} />
+      </section>
+
+      <section className="drawer-section verified-fact-summary" aria-label="Verified Fact Summary">
+        <h3>Verified Fact Summary</h3>
+        <div className="fact-status-grid">
+          <FactMetric label="Verified" value={counts.verified} status="verified" />
+          <FactMetric label="Probable" value={counts.probable} status="probable" />
+          <FactMetric label="Conflicting" value={counts.conflicting} status="conflicting" />
+          <FactMetric label="Missing" value={counts.missing} status="missing" />
+          <FactMetric label="Needs review" value={counts.needs_review} status="needs_review" />
+        </div>
+        <ul className="verified-fact-list" aria-label="Verified fact ledgers">
+          {preview.facts.map((fact) => (
+            <li key={fact.fieldName}>
+              <div>
+                <strong>{fact.label}</strong>
+                <span>{fact.value}</span>
+              </div>
+              <div className="fact-badge-row">
+                <FactStatusBadge status={fact.status} />
+                <ConfidenceBadge confidence={fact.confidence} />
+              </div>
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      <section className="drawer-section knowledge-objects-preview" aria-label="Knowledge Objects Preview">
+        <h3>Knowledge Objects Preview</h3>
+        <p className="summary-note">
+          Synthetic object candidates show how Verified Facts become durable property knowledge before future Memory Graph promotion.
+        </p>
+        <ul className="knowledge-object-list">
+          {preview.knowledgeObjects.map((object) => (
+            <li key={object.objectType}>
+              <div>
+                <strong>{object.objectType}</strong>
+                <span>{object.displayLabel}</span>
+                <small>{object.notes}</small>
+              </div>
+              <div className="knowledge-object-meta">
+                <ObjectReadinessBadge readiness={object.readiness} />
+                <span>{object.sourceFacts.length} source facts</span>
+                <span>{object.missingRequiredFields.length} missing</span>
+                <span>{object.conflictingFields.length} conflicts</span>
+              </div>
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      <section className="drawer-section memory-graph-preview" aria-label="Memory Graph Preview">
+        <div className="section-heading-row">
+          <h3>Memory Graph Preview</h3>
+          <ObjectReadinessBadge readiness={preview.memoryGraph.graphReadiness} />
+        </div>
+        <p className="summary-note">{preview.memoryGraph.summary}</p>
+        <div className="memory-graph-metrics">
+          <div>
+            <span>Nodes</span>
+            <strong>{preview.memoryGraph.nodeCount}</strong>
+          </div>
+          <div>
+            <span>Relationships</span>
+            <strong>{preview.memoryGraph.relationshipCount}</strong>
+          </div>
+        </div>
+        <div className="memory-relationship-chips" aria-label="Memory Graph relationships">
+          {preview.memoryGraph.relationshipChips.map((relationship) => (
+            <span key={relationship}>{relationship}</span>
+          ))}
+        </div>
+        {preview.memoryGraph.unresolvedWarnings.length > 0 ? (
+          <ul className="memory-warning-list" aria-label="Memory Graph unresolved relationship warnings">
+            {preview.memoryGraph.unresolvedWarnings.map((warning) => (
+              <li key={warning}>{warning}</li>
+            ))}
+          </ul>
+        ) : (
+          <p className="summary-note">No unresolved graph warnings were surfaced in this synthetic preview.</p>
+        )}
+      </section>
+
+      <section className="drawer-section" aria-label="Evidence references">
+        <h3>Evidence References</h3>
+        <p className="summary-note">Evidence references show source labels, methods, and hints only. Long source text is not displayed.</p>
+        <ul className="passport-evidence-reference-list">
+          {selectedEvidenceFacts.map((fact) => (
+            <li key={`${fact.fieldName}-evidence`}>
+              <strong>{fact.label}</strong>
+              {fact.evidence.map((evidence) => (
+                <span key={`${fact.fieldName}-${evidence.sourceReference}`}>
+                  {evidence.sourceLabel} · {evidence.method} · {evidence.sourceHint}
+                </span>
+              ))}
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      <section className="drawer-section" aria-label="What Falcon knows so far">
+        <h3>What Falcon Knows So Far</h3>
+        <ul className="passport-summary-list">
+          {preview.summarySentences.map((sentence) => (
+            <li key={sentence}>{sentence}</li>
+          ))}
+        </ul>
+      </section>
+
+      <section className="drawer-section readiness-panel" aria-label="Readiness panel">
+        <div className="section-heading-row">
+          <h3>Readiness</h3>
+          <ReadinessBadge state={preview.readiness.state} />
+        </div>
+        <p className="fact-value">{preview.readiness.title}</p>
+        <p className="summary-note">{preview.readiness.detail}</p>
+      </section>
+    </>
+  );
+}
+
+function FactMetric({ label, status, value }: { label: string; status: PassportFactStatus; value: number }) {
+  return (
+    <div>
+      <span>{label}</span>
+      <strong>{value}</strong>
+      <FactStatusBadge status={status} />
+    </div>
+  );
+}
+
+function FactStatusBadge({ status }: { status: PassportFactStatus }) {
+  const labels: Record<PassportFactStatus, string> = {
+    conflicting: "Conflicting",
+    missing: "Missing",
+    needs_review: "Needs review",
+    probable: "Probable",
+    verified: "Verified"
+  };
+
+  return <span className={`fact-status-badge ${status}`}>{labels[status]}</span>;
+}
+
+function ConfidenceBadge({ confidence }: { confidence: PassportFactConfidence }) {
+  const labels: Record<PassportFactConfidence, string> = {
+    conflicting: "Conflicting confidence",
+    high: "High confidence",
+    low: "Low confidence",
+    medium: "Medium confidence",
+    missing: "Missing confidence"
+  };
+
+  return <span className={`confidence-badge ${confidence}`}>{labels[confidence]}</span>;
+}
+
+function ReadinessBadge({ state }: { state: PropertyPassportV1Preview["readiness"]["state"] }) {
+  const labels: Record<PropertyPassportV1Preview["readiness"]["state"], string> = {
+    blocked: "Blocked by conflicts",
+    missing_critical_fields: "Missing critical fields",
+    needs_review: "Needs review",
+    ready: "Ready for knowledge object creation"
+  };
+
+  return <span className={`readiness-badge ${state}`}>{labels[state]}</span>;
+}
+
+function ObjectReadinessBadge({ readiness }: { readiness: KnowledgeObjectReadiness }) {
+  const labels: Record<KnowledgeObjectReadiness, string> = {
+    blocked: "Blocked",
+    needs_review: "Needs review",
+    probable: "Probable",
+    ready: "Ready"
+  };
+
+  return <span className={`readiness-badge ${readiness}`}>{labels[readiness]}</span>;
 }
 
 function CorrectionHistoryPanel({ correctionAudit }: { correctionAudit: CorrectionAuditPreview | null }) {
